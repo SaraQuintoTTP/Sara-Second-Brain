@@ -6,4 +6,4 @@ category: marketing
 status: placeholder
 ---
 # EUGENE SCHWARTZ AWARENESS LEVELS — Deep Knowledge
-> TODO: Da popolare in sessione dedicata
+> TODO: To be populated in dedicated session

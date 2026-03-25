@@ -5,4 +5,4 @@ category: business
 status: placeholder
 ---
 # STAIRCASE OF VALUE — Quick Reference
-> TODO: Da popolare in sessione dedicata
+> TODO: To be populated in dedicated session

@@ -6,4 +6,4 @@ category: business
 status: placeholder
 ---
 # MICHAEL GERBER E-MYTH — Quick Reference
-> TODO: Da popolare in sessione dedicata
+> TODO: To be populated in dedicated session

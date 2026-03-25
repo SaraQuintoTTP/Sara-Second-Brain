@@ -6,4 +6,4 @@ category: operations
 status: placeholder
 ---
 # SNOWDEN CYNEFIN FRAMEWORK — Quick Reference
-> TODO: Da popolare in sessione dedicata
+> TODO: To be populated in dedicated session

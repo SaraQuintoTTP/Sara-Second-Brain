@@ -5,4 +5,4 @@ category: marketing
 status: placeholder
 ---
 # CONTENT PILLARS — Quick Reference
-> TODO: Da popolare in sessione dedicata
+> TODO: To be populated in dedicated session

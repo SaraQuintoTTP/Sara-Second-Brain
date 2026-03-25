@@ -6,4 +6,4 @@ category: marketing
 status: placeholder
 ---
 # DONALD MILLER STORYBRAND — Quick Reference
-> TODO: Da popolare in sessione dedicata
+> TODO: To be populated in dedicated session

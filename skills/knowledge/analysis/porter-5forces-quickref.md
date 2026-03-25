@@ -6,4 +6,4 @@ category: analysis
 status: placeholder
 ---
 # PORTER FIVE FORCES — Quick Reference
-> TODO: Da popolare in sessione dedicata
+> TODO: To be populated in dedicated session

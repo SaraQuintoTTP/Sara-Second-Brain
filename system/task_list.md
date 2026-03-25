@@ -1,18 +1,18 @@
 # TASK LIST — TTP Agency
-## Ultimo aggiornamento: 2026-03-25
+## Last updated: 2026-03-25
 
-### TASK ATTIVI
+### ACTIVE TASKS
 
-| ID | Task | Assegnato a | Priorita' | Stato | Dipendenze | Deadline | Note |
-|----|------|------------|-----------|-------|------------|----------|------|
-| — | Nessun task attivo | — | — | — | — | — | Sistema in fase di setup (Sprint 0) |
+| ID | Task | Assigned to | Priority | Status | Dependencies | Deadline | Notes |
+|----|------|-------------|----------|--------|--------------|----------|-------|
+| — | No active tasks | — | — | — | — | — | Sprint 0 complete, Sprint 1 pending |
 
-### TASK COMPLETATI (ultimi 7 giorni)
-| ID | Task | Completato da | Data | Output file |
-|----|------|--------------|------|-------------|
+### COMPLETED TASKS (last 7 days)
+| ID | Task | Completed by | Date | Output file |
+|----|------|-------------|------|-------------|
 | — | — | — | — | — |
 
-### REGOLE:
-- SOLO l'Orchestratore crea e aggiorna la task list
-- Gli agenti scrivono i propri output in /clients/[cliente]/progetti/[progetto]/findings/ (per output di progetto) o /system/findings/ (per findings generici)
-- L'Orchestratore aggiorna la task list dopo aver ricevuto gli output dai subagent
+### RULES
+- ONLY the Orchestrator creates and updates the task list
+- Agents write outputs to /clients/[client]/projects/[project]/findings/ (project output) or /system/findings/ (generic findings)
+- Orchestrator updates task list after receiving subagent outputs

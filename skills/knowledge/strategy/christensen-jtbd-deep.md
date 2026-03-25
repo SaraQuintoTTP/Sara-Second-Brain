@@ -6,4 +6,4 @@ category: strategy
 status: placeholder
 ---
 # CHRISTENSEN JOBS TO BE DONE — Deep Knowledge
-> TODO: Da popolare in sessione dedicata
+> TODO: To be populated in dedicated session
