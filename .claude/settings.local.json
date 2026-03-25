@@ -4,7 +4,17 @@
       "Bash(gh auth:*)",
       "Bash(winget install:*)",
       "Bash(export PATH=\"$PATH:/c/Program Files/GitHub CLI\" && gh auth status)",
-      "Bash(export PATH=\"$PATH:/c/Program Files/GitHub CLI\" && gh auth login --web -p https)"
+      "Bash(export PATH=\"$PATH:/c/Program Files/GitHub CLI\" && gh auth login --web -p https)",
+      "Bash(export PATH=\"$PATH:/c/Program Files/GitHub CLI\" && gh repo view SaraQuintoTTP/Sara-Second-Brain --json url 2>/dev/null || echo \"NOT_FOUND\")",
+      "Bash(export PATH=\"$PATH:/c/Program Files/GitHub CLI\" && cd \"/c/Users/saraq/Desktop/Claude code/Sara Second Brain\" && gh repo create \"Sara-Second-Brain\" --public --source=. --description \"Sara Second Brain\" --remote origin)",
+      "Read(//c/Users/saraq/**)",
+      "Bash(powershell -Command \"[System.Environment]::GetEnvironmentVariable\\('ANTHROPIC_API_KEY', 'User'\\); [System.Environment]::GetEnvironmentVariable\\('ANTHROPIC_API_KEY', 'Machine'\\)\" 2>/dev/null)",
+      "Bash(powershell -Command \"[System.Environment]::SetEnvironmentVariable\\(''ANTHROPIC_API_KEY'', $null, ''User''\\)\")",
+      "Bash(powershell -Command \"[System.Environment]::SetEnvironmentVariable\\(''ANTHROPIC_API_KEY'', [NullString]::Value, ''User''\\)\")",
+      "Bash(powershell -Command \"[System.Environment]::GetEnvironmentVariable\\(''ANTHROPIC_API_KEY'', ''User''\\)\")",
+      "Bash(claude config:*)",
+      "Bash(tmux list-sessions:*)",
+      "Bash(tasklist)"
     ]
   }
 }
