@@ -5,4 +5,4 @@ category: quality
 status: placeholder
 ---
 # STEEL MAN ARGUMENT — Quick Reference
-> TODO: Da popolare in sessione dedicata
+> TODO: To be populated in dedicated session

@@ -5,4 +5,4 @@ category: quality
 status: placeholder
 ---
 # TTP 7 DIMENSIONS QUALITY SCORECARD — Quick Reference
-> TODO: Da popolare in sessione dedicata
+> TODO: To be populated in dedicated session

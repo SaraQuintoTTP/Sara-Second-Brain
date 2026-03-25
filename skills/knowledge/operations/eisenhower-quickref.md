@@ -5,4 +5,4 @@ category: operations
 status: placeholder
 ---
 # EISENHOWER MATRIX — Quick Reference
-> TODO: Da popolare in sessione dedicata
+> TODO: To be populated in dedicated session

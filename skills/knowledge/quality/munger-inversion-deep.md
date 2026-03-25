@@ -6,4 +6,4 @@ category: quality
 status: placeholder
 ---
 # CHARLIE MUNGER INVERSION — Deep Knowledge
-> TODO: Da popolare in sessione dedicata
+> TODO: To be populated in dedicated session

@@ -6,4 +6,4 @@ category: strategy
 status: placeholder
 ---
 # COLLINS HEDGEHOG CONCEPT — Deep Knowledge
-> TODO: Da popolare in sessione dedicata
+> TODO: To be populated in dedicated session

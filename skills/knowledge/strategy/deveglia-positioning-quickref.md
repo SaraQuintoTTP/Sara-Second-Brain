@@ -6,4 +6,4 @@ category: strategy
 status: placeholder
 ---
 # DE VEGLIA POSITIONING — Quick Reference
-> TODO: Da popolare in sessione dedicata
+> TODO: To be populated in dedicated session

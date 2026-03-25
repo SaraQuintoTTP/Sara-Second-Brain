@@ -5,4 +5,4 @@ category: analysis
 status: placeholder
 ---
 # PESTEL ANALYSIS — Quick Reference
-> TODO: Da popolare in sessione dedicata
+> TODO: To be populated in dedicated session

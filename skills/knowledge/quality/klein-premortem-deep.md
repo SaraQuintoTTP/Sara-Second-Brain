@@ -6,4 +6,4 @@ category: quality
 status: placeholder
 ---
 # GARY KLEIN PRE-MORTEM — Deep Knowledge
-> TODO: Da popolare in sessione dedicata
+> TODO: To be populated in dedicated session

@@ -6,4 +6,4 @@ category: analysis
 status: placeholder
 ---
 # DAVE MCCLURE AARRR PIRATE METRICS — Quick Reference
-> TODO: Da popolare in sessione dedicata
+> TODO: To be populated in dedicated session

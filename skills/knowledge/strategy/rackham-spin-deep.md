@@ -6,4 +6,4 @@ category: strategy
 status: placeholder
 ---
 # RACKHAM SPIN SELLING — Deep Knowledge
-> TODO: Da popolare in sessione dedicata
+> TODO: To be populated in dedicated session
