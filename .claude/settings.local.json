@@ -14,7 +14,12 @@
       "Bash(powershell -Command \"[System.Environment]::GetEnvironmentVariable\\(''ANTHROPIC_API_KEY'', ''User''\\)\")",
       "Bash(claude config:*)",
       "Bash(tmux list-sessions:*)",
-      "Bash(tasklist)"
+      "Bash(tasklist)",
+      "Bash(mkdir -p .claude)",
+      "Bash(mkdir -p knowledge_base/ttp_internal)",
+      "Bash(mkdir -p knowledge_base/frameworks)",
+      "Bash(mkdir -p knowledge_base/corsi)",
+      "Bash(mkdir -p knowledge_base/brand_guidelines)"
     ]
   }
 }
