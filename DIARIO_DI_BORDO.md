@@ -29,7 +29,7 @@
 - [ ] I corsi di Sara (Aliotta, Abate) richiedono i suoi materiali/appunti
 
 ### Sprint 1 — Core strategico
-- [ ] SKILL.md Orchestrator
+- [x] SKILL.md Orchestrator (SKILL.md + PROTOCOLS.md — architettura a 2 file)
 - [ ] SKILL.md Strategist
 - [ ] SKILL.md God Mode
 - [ ] SKILL.md Sparring Partner
@@ -55,6 +55,7 @@
 | 2026-03-25 | Sprint 0D — SKILL.md Artigiano | Prima SKILL.md del sistema, blueprint v5.0, 8 sezioni, 2 modalita' |
 | 2026-03-25 | Verifica struttura + pulizia | Rimossi 3 duplicati dalla root, creato .gitignore |
 | 2026-03-25 | Conversione EN di tutto il sistema | CLAUDE.md, Operativo, system/, operations/, skills/ — tutti in inglese |
+| 2026-03-25 | Sprint 1 — SKILL.md Orchestrator | Architettura a 2 file: SKILL.md (core) + PROTOCOLS.md (on-demand). Aggiornato doc operativo con F09, F10, scope Narrator |
 
 ---
 
@@ -66,6 +67,7 @@
 | D002 | 2026-03-25 | DIARIO_DI_BORDO.md resta nella root | E' un meta-documento sulla costruzione, non un file operativo dell'agenzia | Metterlo in /system/ |
 | D003 | 2026-03-25 | Knowledge Skills: solo placeholder, contenuti in sessione dedicata | Sara vuole approfondire uno per uno con sessione ad hoc | Popolare tutto subito con framework pubblici |
 | D004 | 2026-03-25 | Convenzione lingua: EN per infrastruttura, IT per output cliente/Sara | LLM piu' precisi con prompt inglesi; inglese ~25% piu' conciso per contenuto tecnico | Tutto in italiano |
+| D005 | 2026-03-25 | No Art Director dedicato: scope visual direction assorbito dal Narrator | PMI italiane affidano visual identity a designer esterni; Narrator puo' produrre brief e mood board testuali | Aggiungere 23esimo agente Art Director |
 
 ---
 
@@ -76,6 +78,7 @@
 | P001 | 2026-03-25 | Dove mettere il diario: root (A) vs /system/ (B) | A — root |
 | P002 | 2026-03-25 | Knowledge Skills: popolare subito vs placeholder + sessione dedicata | Sessione dedicata |
 | P003 | 2026-03-25 | Lingua sistema: EN infrastruttura + IT output (A) vs tutto IT (B) | A — convenzione bilingue |
+| P004 | 2026-03-25 | Art Director dedicato (A) vs scope visual assorbito dal Narrator (B) | B — niente Art Director, Narrator esteso |
 
 ---
 

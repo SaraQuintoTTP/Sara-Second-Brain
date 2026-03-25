@@ -116,7 +116,7 @@ Every project generates a structured folder for full traceability:
 | 1 | **Strategist** | Chief Strategy Officer | **Opus 4 fixed** | Task, Read/Write/Edit, WebSearch, GDrive | pricing-strategy, marketing-psychology, marketing-ideas, launch-strategy, competitor-alternatives, gtm-growth-pmi |
 | 2 | Explorer | Market Intelligence Officer | Sonnet 4 | WebSearch, WebFetch, Read/Write/Edit, GDrive | competitor-alternatives, marketing-psychology |
 | 3 | Architect | Proposal & Charter Builder | **Dual** (Opus charter/proposals, Sonnet revisions) | Task, Read/Write/Edit, GDrive, docx, pdf | copywriting, pricing-strategy |
-| 4 | Narrator | Presentation & Visual Storytelling | Sonnet 4 | pptx, Read/Write/Edit, GDrive | — |
+| 4 | Narrator | Presentation, Visual Storytelling & Visual Direction | Sonnet 4 | pptx, Read/Write/Edit, GDrive | — |
 | 5 | Voice | Content Director & Copywriter | **Dual** (Opus messaging strategy, Sonnet operative copy) | Task, Read/Write/Edit, WebSearch, GDrive | copywriting, copy-editing, email-sequence, marketing-psychology |
 | 6 | Editor | Social Media Strategist | Sonnet 4 | Read/Write/Edit, GDrive, WebSearch | social-content, content-creator, geo-fundamentals |
 | 7 | Director | Project Manager | Sonnet 4 | Read/Write/Edit, GCal, GDrive | product-manager-toolkit |
@@ -367,6 +367,18 @@ The Flow Catalog is the Orchestrator's operational map. For each request type, i
 **Agents:** Web Tech + Optimizer + Measurer (KPI). Voice for copy if needed.
 **Output:** /clients/[client]/projects/[name]/
 **Notes:** Strategist only if strategic decision required. For CRO/funnel, Optimizer leads.
+
+### FLOW 9 — Client Onboarding
+**Trigger:** "new client", "client setup", "onboarding [name]"
+**Agents:** Admin (creates /clients/[client]/ folder + brief.md) → Explorer (initial industry + competitor research)
+**Output:** /clients/[client]/brief.md + /clients/[client]/projects/onboarding/findings/explorer_overview.md
+**Notes:** After onboarding, Sara decides which flow to activate. Orchestrator proposes based on brief.
+
+### FLOW 10 — Post-Deliverable Feedback
+**Trigger:** "client said", "feedback on", "client objections", "revision after feedback"
+**Agents:** Strategist (evaluates if feedback requires strategic change) → Deliverable owner agent → God Mode (if significant revision)
+**Output:** Updated deliverable (with backup)
+**Notes:** If feedback is cosmetic, only the owner agent. If strategic, Strategist first.
 
 ### UNMAPPED REQUEST PROTOCOL
 
