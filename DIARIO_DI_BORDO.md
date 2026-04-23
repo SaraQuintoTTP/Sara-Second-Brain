@@ -1,10 +1,10 @@
 # DIARIO DI BORDO — Costruzione TTP AI Agency v5.0
 
 ## Stato attuale
-- **Fase:** Sprint 1 — IN CORSO
+- **Fase:** Sprint 1 — COMPLETATO ✓
 - **Ultimo aggiornamento:** 2026-04-23
-- **Completato:** Sprint 0 ✓ + Sprint 1 parziale (Orchestrator SKILL.md ✓)
-- **Prossimo step:** Sprint 1 — SKILL.md per Strategist, God Mode, Sparring Partner
+- **Completato:** Sprint 0 ✓ + Sprint 1 ✓ (Orchestrator, Strategist v5.1, God Mode, Sparring Partner)
+- **Prossimo step:** Sprint 2 — Architect, Explorer, Calculator
 - **Blocchi:** Nessuno
 
 ---
@@ -31,9 +31,9 @@
 
 ### Sprint 1 — Core strategico
 - [x] SKILL.md Orchestrator (SKILL.md + PROTOCOLS.md — architettura a 2 file)
-- [ ] SKILL.md Strategist
-- [ ] SKILL.md God Mode
-- [ ] SKILL.md Sparring Partner
+- [x] SKILL.md Strategist
+- [x] SKILL.md God Mode
+- [x] SKILL.md Sparring Partner
 - [ ] Test flusso hub-and-spoke
 
 ### Sprint 2 — Revenue (Architect, Explorer, Calculator)
@@ -59,6 +59,11 @@
 | 2026-03-25 | Sprint 1 — SKILL.md Orchestrator | Architettura a 2 file: SKILL.md (core) + PROTOCOLS.md (on-demand). Aggiornato doc operativo con F09, F10, scope Narrator |
 | 2026-03-26 | Test Flow 01 — BRAMO (cibo per cani fittizio) | Sistema testato end-to-end con 8 agenti, 6 fasi. Score finale: 7.3/10. v2 con pivot umoristico raggiunge score simile. Agenti lavorano con base knowledge (no SKILL.md ancora). |
 | 2026-04-23 | Aggiornamento model ID → versioni correnti | opus-4 → claude-opus-4-6, sonnet-4 → claude-sonnet-4-6, haiku-4.5 → claude-haiku-4-5-20251001. Aggiornati: orchestrator/SKILL.md, artigiano/SKILL.md, TTP_Operative_v5.0.md, Architecture.md. Aggiornati session.md e task_list.md. |
+| 2026-04-23 | Sprint 1 — SKILL.md Strategist | Creata in /skills/strategist/SKILL.md. 8 sezioni v5.0, modello Opus 4 fisso, 6 Quick Reference assegnate + Sara's proprietary KB, 5 output type. |
+| 2026-04-23 | Sprint 1 — Strategist v5.1 update | Rivisto quickref stack: rimossi Collins/Lafley da quickref (declassati a deep), aggiunti Sportelli ConnectionFunnel® e Hormozi Offers. Aggiunta First Principles Rule in OPERATIVE FRAMEWORKS e QUALITY CHECKLIST. |
+| 2026-04-23 | Sprint 1 — SKILL.md God Mode | Creata in /skills/god_mode/SKILL.md. Modello Opus 4 fisso, no Task tool, 7-dimension scorecard, verdetti PASS/PASS WITH RESERVATIONS/FAIL. First Principles Audit Rule integrata come lente trasversale sul scorecard. |
+| 2026-04-23 | Sprint 1 — SKILL.md Sparring Partner | Creata in /skills/sparring_partner/SKILL.md. Modello Opus 4 fisso, sequenza 4 tool (First Principles + Pre-Mortem + Inversion + Steel Man). First Principles come primo tool della challenge sequence. Strategic Validation Mode (CONFERMATO/SCONSIGLIATO) per validazioni non pianificate. |
+| 2026-04-23 | KB — sportelli-connection-funnel-quickref.md | Creata in /skills/knowledge/strategy/. Basata sul libro reale (Il Succo del Web Marketing, 2018). Include ConnectionFunnel®, Domanda Consapevole®, Domanda Latente®, sequenza 5 passi, 7 fasi progetto. Nota anti-allucinazione: "Strategia Invisibile" non è un framework Sportelli. |
 
 ---
 
