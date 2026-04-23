@@ -952,7 +952,7 @@ Ogni teammate viene implementato come una SKILL.md in Claude Code. Questa sezion
 # METADATA (usata da Claude Code per il routing)
 name: [nome-teammate]
 description: [1 frase — quando attivare questo agente]
-model: [opus-4/sonnet-4/haiku-4.5]
+model: [claude-opus-4-6/claude-sonnet-4-6/claude-haiku-4-5-20251001]
 tools: [lista tool consentiti]
 knowledge_quickref: [lista Quick Reference assegnate — es: "porter-5forces, pestel, battlecard"]
 knowledge_deep: [lista Deep Knowledge disponibili — es: "porter-5forces, swot"]

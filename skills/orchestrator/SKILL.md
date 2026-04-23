@@ -1,7 +1,7 @@
 ---
 name: orchestrator
 description: Central orchestrator of the TTP agentic system. Receives Sara's requests, consults the Flow Catalog, spawns agents, manages quality and synthesis. ALWAYS activated as first point of contact.
-model: opus-4
+model: claude-opus-4-6
 tools: [Task, Read, Write, Edit, Bash, WebSearch, WebFetch, GoogleDrive]
 knowledge_quickref: [eisenhower, raci, snowden-cynefin, deming-pdca]
 knowledge_deep: [snowden-cynefin]

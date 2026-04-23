@@ -417,7 +417,7 @@ Every teammate = 1 SKILL.md. Mandatory structure (8 sections):
 ---
 name: [teammate-name]
 description: [1 sentence — when to activate]
-model: [opus-4/sonnet-4/haiku-4.5]
+model: [claude-opus-4-6/claude-sonnet-4-6/claude-haiku-4-5-20251001]
 tools: [tool list]
 knowledge_quickref: [assigned Quick References — e.g., porter-5forces, pestel, battlecard]
 knowledge_deep: [available Deep Knowledge — e.g., porter-5forces, swot]
@@ -445,7 +445,7 @@ knowledge_deep: [available Deep Knowledge — e.g., porter-5forces, swot]
 ---
 name: explorer
 description: Activate for market research, competitor analysis, industry benchmarks, prospect dossiers
-model: sonnet-4
+model: claude-sonnet-4-6
 tools: [WebSearch, WebFetch, Read, Write, Edit, GoogleDrive]
 knowledge_quickref: [porter-5forces, pestel, battlecard]
 knowledge_deep: [porter-5forces, swot, aarrr]
