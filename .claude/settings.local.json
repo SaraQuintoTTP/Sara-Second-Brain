@@ -19,7 +19,17 @@
       "Bash(mkdir -p knowledge_base/ttp_internal)",
       "Bash(mkdir -p knowledge_base/frameworks)",
       "Bash(mkdir -p knowledge_base/corsi)",
-      "Bash(mkdir -p knowledge_base/brand_guidelines)"
+      "Bash(mkdir -p knowledge_base/brand_guidelines)",
+      "Bash(cd:*)",
+      "Bash(rm -f catalogo_flussi.md flusso_01_strategia_marketing.md flusso_02_presales.md flusso_03_content_social.md flusso_04_revisione.md flusso_05_coaching.md flusso_06_audit.md flusso_07_formazione.md flusso_08_web_tech.md)",
+      "Bash(mv flussi_custom custom_flows)",
+      "Bash(grep -v \"^skills/knowledge$\")",
+      "Bash(ls -1 *.md)",
+      "Bash(ls:*)",
+      "Bash(npm install *)",
+      "Bash(claude *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }

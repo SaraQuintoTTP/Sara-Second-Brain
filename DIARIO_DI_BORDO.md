@@ -1,9 +1,10 @@
 # DIARIO DI BORDO — Costruzione TTP AI Agency v5.0
 
 ## Stato attuale
-- **Fase:** Sprint 0 — COMPLETATO
-- **Ultimo aggiornamento:** 2026-03-25
-- **Prossimo step:** Sprint 1 — SKILL.md dei 4 agenti core (Orchestrator, Strategist, God Mode, Sparring Partner) + test flusso
+- **Fase:** Sprint 1 — IN CORSO
+- **Ultimo aggiornamento:** 2026-04-23
+- **Completato:** Sprint 0 ✓ + Sprint 1 parziale (Orchestrator SKILL.md ✓)
+- **Prossimo step:** Sprint 1 — SKILL.md per Strategist, God Mode, Sparring Partner
 - **Blocchi:** Nessuno
 
 ---
@@ -56,6 +57,8 @@
 | 2026-03-25 | Verifica struttura + pulizia | Rimossi 3 duplicati dalla root, creato .gitignore |
 | 2026-03-25 | Conversione EN di tutto il sistema | CLAUDE.md, Operativo, system/, operations/, skills/ — tutti in inglese |
 | 2026-03-25 | Sprint 1 — SKILL.md Orchestrator | Architettura a 2 file: SKILL.md (core) + PROTOCOLS.md (on-demand). Aggiornato doc operativo con F09, F10, scope Narrator |
+| 2026-03-26 | Test Flow 01 — BRAMO (cibo per cani fittizio) | Sistema testato end-to-end con 8 agenti, 6 fasi. Score finale: 7.3/10. v2 con pivot umoristico raggiunge score simile. Agenti lavorano con base knowledge (no SKILL.md ancora). |
+| 2026-04-23 | Aggiornamento model ID → versioni correnti | opus-4 → claude-opus-4-6, sonnet-4 → claude-sonnet-4-6, haiku-4.5 → claude-haiku-4-5-20251001. Aggiornati: orchestrator/SKILL.md, artigiano/SKILL.md, TTP_Operative_v5.0.md, Architecture.md. Aggiornati session.md e task_list.md. |
 
 ---
 
