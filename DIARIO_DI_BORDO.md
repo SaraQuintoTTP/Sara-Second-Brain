@@ -1,10 +1,10 @@
 # DIARIO DI BORDO — Costruzione TTP AI Agency v5.0
 
 ## Stato attuale
-- **Fase:** Sprint 1 — COMPLETATO ✓
-- **Ultimo aggiornamento:** 2026-04-23
-- **Completato:** Sprint 0 ✓ + Sprint 1 ✓ (Orchestrator, Strategist v5.1, God Mode, Sparring Partner)
-- **Prossimo step:** Sprint 2 — Architect, Explorer, Calculator
+- **Fase:** Sessione manutenzione — Popolamento Knowledge Skills (T016) — ~50% completato
+- **Ultimo aggiornamento:** 2026-04-24
+- **Completato:** Sprint 0 ✓ + Sprint 1 ✓ + Popolamento priorità Knowledge Skills (5 quickref + 2 deep completate — 2026-04-24)
+- **Prossimo step:** Completare T016 (quickref restanti: pas, lean canvas, positioning, jtbd, storybrand, hedgehog, pestel + 3 deep mancanti) + Priorità 3 (SKILL.md Orchestrator decision)
 - **Blocchi:** Nessuno
 
 ---
@@ -64,6 +64,12 @@
 | 2026-04-23 | Sprint 1 — SKILL.md God Mode | Creata in /skills/god_mode/SKILL.md. Modello Opus 4 fisso, no Task tool, 7-dimension scorecard, verdetti PASS/PASS WITH RESERVATIONS/FAIL. First Principles Audit Rule integrata come lente trasversale sul scorecard. |
 | 2026-04-23 | Sprint 1 — SKILL.md Sparring Partner | Creata in /skills/sparring_partner/SKILL.md. Modello Opus 4 fisso, sequenza 4 tool (First Principles + Pre-Mortem + Inversion + Steel Man). First Principles come primo tool della challenge sequence. Strategic Validation Mode (CONFERMATO/SCONSIGLIATO) per validazioni non pianificate. |
 | 2026-04-23 | KB — sportelli-connection-funnel-quickref.md | Creata in /skills/knowledge/strategy/. Basata sul libro reale (Il Succo del Web Marketing, 2018). Include ConnectionFunnel®, Domanda Consapevole®, Domanda Latente®, sequenza 5 passi, 7 fasi progetto. Nota anti-allucinazione: "Strategia Invisibile" non è un framework Sportelli. |
+| 2026-04-24 | Quickref Protocol v1.1 | Creato /operations/procedure/quickref_protocol.md. Checklist 7 criteri (when-not-to-use, esempi PMI, tempo-sforzo, cross-ref pertinenza, errori reali, quick example, verificabilità) + First Principles Thinking come metodo trasversale per destrutturare framework complessi per PMI italiane. Worked example: Porter 5 Forze adattato. |
+| 2026-04-24 | SWOT quickref v2 | Popolata /skills/knowledge/analysis/swot-quickref.md (96 righe). Incluso: MATRICE TOWS come cuore operativo, 6 passi DA SWOT A TOWS, stress-test strategico (no pre-mortem), esempio ristorante Milano. Citazioni: Harvard Business Policy 1965, Weihrich 1982 (TOWS), Hill & Westbrook 1997. |
+| 2026-04-24 | Porter 5 Forze quickref v3 | Popolata /skills/knowledge/analysis/porter-5forces-quickref.md (120 righe — saturo). DOMANDA-FILO FPT, LIMITI DEL FRAMEWORK (empirico McGahan-Porter 1997 + qualitativi), Corollario TTP dichiarato, 2 esempi (studio commercialista-startup + tornitura Brescia 18 dip.), scala score 1-5, nota 6ª forza Brandenburger-Nalebuff. |
+| 2026-04-24 | AIDA deprecato (Opzione A2) | /skills/knowledge/marketing/aida-quickref.md ridotto a 31 righe come riferimento storico (status: historical_reference). Motivazione: framework 1898, superato da evidenza empirica Google 2020 + Gartner/Forrester 2024-2025. Uso residuo ammesso come ponte didattico con cliente. |
+| 2026-04-24 | Messy Middle B2C — quickref + deep | Creati 2 file in /skills/knowledge/marketing/. Quickref (94 righe): 5 componenti (Trigger → Exploration ↔ Evaluation → Purchase → Experience) + 6 bias cognitivi Google + attention economy + flywheel + 2 esempi PMI (caseificio Asiago + brand outdoor). Deep (284 righe): fonti estese, 4 approfondimenti (Attention, ZMOT, Flywheel/Community McKinsey, Paid Loyalty), Complete Applied Example (detergenti eco €7M). |
+| 2026-04-24 | B2B Buying Journey — quickref + deep | Creati 2 file in /skills/knowledge/marketing/. Quickref (120 righe — saturo): buying committee 6-13 ruoli, 6 jobs Gartner, dark funnel (G2/community/LLM), 5 framework combinati (ABM, Intent Data, Challenger, JOLT, Revenue Waterfall), 2 esempi (SaaS commesse + macchinari packaging). Deep (345 righe): 15 sezioni, Challenger + JOLT applicati, Adattamento contesto B2B italiano (8 punti: distretti, agenti, relazioni lunghe, fiere, commercialisti, pagamenti, preventivo, LLM italiano), variante SMB italiano transazionale <€5k ACV. |
 
 ---
 
@@ -76,6 +82,12 @@
 | D003 | 2026-03-25 | Knowledge Skills: solo placeholder, contenuti in sessione dedicata | Sara vuole approfondire uno per uno con sessione ad hoc | Popolare tutto subito con framework pubblici |
 | D004 | 2026-03-25 | Convenzione lingua: EN per infrastruttura, IT per output cliente/Sara | LLM piu' precisi con prompt inglesi; inglese ~25% piu' conciso per contenuto tecnico | Tutto in italiano |
 | D005 | 2026-03-25 | No Art Director dedicato: scope visual direction assorbito dal Narrator | PMI italiane affidano visual identity a designer esterni; Narrator puo' produrre brief e mood board testuali | Aggiungere 23esimo agente Art Director |
+| D006 | 2026-04-24 | Quickref Protocol v1.1 (7 criteri + FPT) | Servono criteri standard per tutte le quickref per qualità omogenea + FPT come metodo trasversale per destrutturare framework complessi per PMI | Lasciare ogni quickref senza standard |
+| D007 | 2026-04-24 | "Stress-test strategico" sostituisce "pre-mortem" | Preferenza terminologica Sara | Mantenere "pre-mortem" Klein |
+| D008 | 2026-04-24 | Deprecare AIDA, sostituirlo con Messy Middle B2C + B2B Buying Journey | AIDA 1898 obsoleto; evidenza empirica Google/Gartner/Forrester 2020-2025 | Mantenere AIDA come framework operativo del 2026 |
+| D009 | 2026-04-24 | Aggiungere 2 quickref nuove (messy-middle-b2c + b2b-buying-journey) con deep | Lista Sprint 1 originale non copriva framework moderni | Tenere solo i 10 framework della lista originale |
+| D010 | 2026-04-24 | Autorizzato accesso Drive Sara per libreria "epub Business e Marketing" | Knowledge Processing pipeline futura (Priorità 4) su 98+ libri | Mantenere solo framework già identificati |
+| D011 | 2026-04-24 | Rigor verificabilità: ogni affermazione forte citata o dichiarata come estrapolazione TTP | Prevenire allucinazioni da sintesi fluida (caso Porter Core Thesis risolto con citazione Porter HBR 2008 + 80/20 Koch + Goldratt TOC) | Accettare attribuzioni imprecise nel testo |
 
 ---
 
