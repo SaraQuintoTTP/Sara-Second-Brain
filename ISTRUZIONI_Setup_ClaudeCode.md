@@ -1,12 +1,13 @@
 # ISTRUZIONI PER SARA — Setup AI Agency TTP v5.0 in Claude Code
 
-## I TUOI 3 FILE
+## I TUOI 4 FILE
 
-Nella tua cartella Downloads trovi 3 file:
+Nella tua cartella di progetto trovi 4 file:
 
-1. **`CLAUDE_TTP_Agency.md`** (~50 righe) — Il "cervello" sintetico v5.0. Va caricato come CLAUDE.md del progetto.
-2. **`TTP_Agency_Operative_v5.0.md`** (~530 righe) — Le istruzioni operative complete v5.0. Va nella Knowledge Base.
-3. **`AI_Agency_TTP_v5.0_Swarm_Architecture.md`** (~1800 righe) — L'architettura completa di reference v5.0. Va nella Knowledge Base.
+1. **`.claude/CLAUDE.md`** (~50 righe) — Il "cervello" sintetico v5.0. Claude Code lo legge automaticamente a ogni sessione.
+2. **`knowledge_base/ttp_internal/TTP_Agency_Operative_v5.0.md`** (~700 righe) — Le istruzioni operative complete v5.0. Documento principale per il 95% delle operazioni.
+3. **`knowledge_base/ttp_internal/AI_Agency_TTP_v5.0_Swarm_Architecture.md`** (~1550 righe) — L'architettura completa di reference v5.0. Per capire il PERCHE' delle scelte.
+4. **`ISTRUZIONI_Setup_ClaudeCode.md`** (questo file) — La guida passo-passo che stai leggendo ora.
 
 ---
 
@@ -110,6 +111,24 @@ Procedi in ordine A → B → C → D → E. Se qualcosa non e' chiaro, chiedi p
 
 ---
 
+## DOPO LO SPRINT 0
+
+Una volta completato lo Sprint 0, il sistema e' pronto per costruire gli agenti in ordine di priorita':
+
+| Sprint | Settimane | Agenti | Perche' prima |
+|--------|-----------|--------|---------------|
+| Sprint 0 | 1 | Infrastruttura + Artigiano | L'Artigiano scrive le SKILL.md degli altri |
+| Sprint 1 | 2-3 | Orchestratore + Stratega + God Mode | Il nucleo decisionale |
+| Sprint 2 | 4-5 | Architetto + Esploratore + Calcolatore | Pre-sales + proposte (generazione revenue) |
+| Sprint 3 | 6-7 | Voce + Editore + Regista | Content + flusso progetto e2e |
+| Sprint 4 | 8-9 | Misuratore + Tecnico Web + Ottimizzatore | Esecuzione |
+| Sprint 5 | 10-11 | Commercialista + Legale + Admin + Formatore | Supporto |
+| Sprint 6 | 12 | Mentore + SP + Economo + Manutentore | Advisory + audit + Knowledge Processing fonti Sara |
+
+**Stato attuale:** Sprint 0 completato. Sprint 1 parzialmente avviato (Orchestratore, Stratega, God Mode, Sparring Partner hanno gia' le SKILL.md).
+
+---
+
 ## NOTA IMPORTANTE
 
 I tuoi materiali proprietari (template Project Charter, Brief Format, corsi Aliotta e Abate, listino servizi, parametri fiscali) li caricherai in `/knowledge_base/` man mano che li prepari. Il sistema funziona anche senza — parte con i framework pubblici e si arricchisce nel tempo.
@@ -120,3 +139,19 @@ Per caricare materiali proprietari che diventano Knowledge Skills (Quick Referen
 Per materiali grezzi non ancora processati:
 "Carica questo file in /knowledge_base/frameworks/[nome].md" oppure
 "Carica questo in /knowledge_base/corsi/[nome].md"
+
+---
+
+## TROUBLESHOOTING
+
+**Claude Code non legge il CLAUDE.md?**
+Verifica che il file sia in `.claude/CLAUDE.md` nella root del progetto e che tu abbia aperto Claude Code dalla cartella giusta.
+
+**Lo Sprint 0 si interrompe a meta'?**
+Rilancia il prompt di Sprint 0. Claude Code riprendera' da dove si e' fermato verificando cosa esiste gia'.
+
+**Devo aggiornare i documenti?**
+Il documento operativo (`TTP_Agency_Operative_v5.0.md`) e' l'unico che va aggiornato regolarmente. L'architetturale (`AI_Agency_TTP_v5.0_Swarm_Architecture.md`) cambia solo per revisioni architetturali maggiori. Il CLAUDE.md cambia solo se cambia il protocollo core.
+
+**Convenzione linguistica**
+I file di infrastruttura (SKILL.md, prompts, system/, operations/, knowledge skills) sono in inglese — gli LLM performano meglio con istruzioni in inglese e il testo e' ~25% piu' conciso. I deliverable cliente e le comunicazioni con Sara restano in italiano.
