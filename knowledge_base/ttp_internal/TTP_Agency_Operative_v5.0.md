@@ -68,6 +68,11 @@ Swarm hub-and-spoke. The Orchestrator is the hub. Spawns agents via Task tool (s
 /skills/
 ├── [teammate_name]/SKILL.md  # 22 SKILL.md files (one per teammate)
 └── knowledge/                # 2-tier knowledge system — Quick Reference + Deep Knowledge
+
+# EXTERNAL PATH (not inside this project — installed on this machine):
+# ~/.claude/skills/           → Global Skills Arsenal: 240 Claude Code skills (Section 18)
+#                               Assigned per-agent via global_skills frontmatter in each SKILL.md
+#                               Absolute path: C:\Users\saraq\.claude\skills\
     ├── strategy/
     ├── marketing/
     ├── analysis/
@@ -137,6 +142,8 @@ Every project generates a structured folder for full traceability:
 
 **LLM Summary:** 4 fixed Opus (0,1,16,21) + 4 Dual-mode (3,5,9,20) + 13 Sonnet + 1 Haiku
 
+**Global Skills Arsenal:** All agents have access to 240 Claude Code skills installed globally at `~/.claude/skills/`. Skills Compendium column lists priority skills per agent. Full catalog and activation instructions: **Section 18**.
+
 ## 4. SPAWN MATRIX (who can spawn whom)
 
 | Spawner | Can Spawn |
@@ -169,6 +176,9 @@ You are [Name], [role]. [1-sentence mission].
 - Current phase: [where we are]
 
 ## KNOWLEDGE SKILLS
+- **Agent learnings (read FIRST):** /skills/[your_identity]/learnings.md
+  RULE: Attempt Read() on this file before anything else. If it exists, read it entirely —
+  it contains lessons from past projects specific to your role. If missing, proceed normally.
 - Quick References loaded: [list of quickrefs assigned to this agent]
 - Quick Reference path: /skills/knowledge/[category]/[name]-quickref.md
 - RULE: At task start, verify Quick References exist. If present, read them
@@ -177,6 +187,9 @@ You are [Name], [role]. [1-sentence mission].
 - Deep Knowledge available: [list of deep files if relevant to task]
 - For deep dives: read /skills/knowledge/[category]/[name]-deep.md ONLY if the task
   requires in-depth framework application.
+- Claude Code Skills: [list from agent's SKILL.md global_skills frontmatter — omit entire line if empty]
+  Path: ~/.claude/skills/[skill-name]/SKILL.md
+  RULE: Read with Read() if the skill adds direct value for this task.
 
 ## SPECIFIC TASK
 [What to do, with measurable success criteria]
@@ -190,6 +203,18 @@ You are [Name], [role]. [1-sentence mission].
 - Destination: [full path — use /clients/[client]/projects/[project]/findings/ for project output]
 - Structure: [expected sections]
 - Target length: [range]
+
+## EXECUTION MODE
+[Orchestrator selects one block based on agent's `execution_mode` frontmatter. Can override per-task if task type differs from agent default.]
+
+**PRECISION** → God Mode, Explorer, Calculator, Legal, Accountant, Measurer, Admin, Director, Web Tech, Maintainer, Economist:
+> Apply frameworks step by step, exactly as specified. Do not generate alternatives unless explicitly requested. When multiple interpretations exist, state them and choose the most conservative. Fill no gaps creatively — flag any uncertainty explicitly. Prioritize reproducibility and accuracy over novelty.
+
+**BALANCED** → Strategist, Architect, Optimizer, Trainer, Mentor, Artisan, Orchestrator:
+> Combine analytical rigor with strategic judgment. Where useful, generate 2-3 alternatives before converging on a recommendation — always include explicit rationale for the final choice. Balance structured framework application with contextual interpretation. Flag assumptions clearly but do not over-hedge.
+
+**CREATIVE** → Voice, Editor, Narrator, Sparring Partner:
+> Explore multiple angles, including unconventional ones. Generate options before converging. Prioritize originality and distinctiveness alongside effectiveness. Challenge the obvious framing. Present your best choice with rationale and show the range of what you considered.
 
 ## CONSTRAINTS
 - [Scope/budget/framework limits]
@@ -209,6 +234,7 @@ You are [Name], [role]. [1-sentence mission].
 5. The 3 anti-context rot rules are ALWAYS present.
 6. Knowledge Skills section is ALWAYS present. Orchestrator populates the Quick Reference list from the agent's SKILL.md `knowledge_quickref:` frontmatter. If no skills assigned, section reads "No Quick References assigned".
 7. The output_path points to the project folder when work is tied to a client project.
+8. EXECUTION MODE section is ALWAYS present. Read `execution_mode` from agent SKILL.md frontmatter and paste the corresponding block. If the current task requires a different mode than the agent's default, paste the appropriate block and add a note: "Override: [reason]".
 
 ### COMPILED EXAMPLE — Orchestrator spawns Explorer (v5.0)
 
@@ -224,6 +250,9 @@ accurate, structured, and actionable market data.
 - Current phase: Phase 1 — Market research (pre-strategy)
 
 ## KNOWLEDGE SKILLS
+- **Agent learnings (read FIRST):** /skills/explorer/learnings.md
+  RULE: Attempt Read() on this file before anything else. If it exists, read it entirely.
+  If missing, proceed normally.
 - Quick References loaded: porter-5forces, pestel, battlecard
 - Path: /skills/knowledge/analysis/[name]-quickref.md
 - RULE: Read Quick References with Read() BEFORE starting the task.
@@ -255,6 +284,12 @@ and 3-5 strategic insights for Acme's positioning.
 - Use verifiable sources. Flag when a data point is estimated
 - Do NOT produce strategic recommendations — that's the Strategist's job
 - Apply Porter's 5 Forces and Battlecard frameworks from your Quick References
+
+## EXECUTION MODE
+Apply frameworks step by step, exactly as specified. Do not generate alternatives unless
+explicitly requested. When multiple interpretations exist, state them and choose the most
+conservative. Fill no gaps creatively — flag any uncertainty explicitly. Prioritize
+reproducibility and accuracy over novelty.
 
 ## ANTI-CONTEXT ROT RULES
 - Save findings to file after every significant output
@@ -421,6 +456,9 @@ model: [claude-opus-4-6/claude-sonnet-4-6/claude-haiku-4-5-20251001]
 tools: [tool list]
 knowledge_quickref: [assigned Quick References — e.g., porter-5forces, pestel, battlecard]
 knowledge_deep: [available Deep Knowledge — e.g., porter-5forces, swot]
+global_skills: [Claude Code skills from Global Arsenal relevant to this agent — see Section 18.2. Use [] if none apply.]
+execution_mode: [precision | balanced | creative]
+effort: [low | medium | high]
 ---
 # [NAME] — [Role]
 ## CORE IDENTITY          # Max 3 sentences
@@ -438,6 +476,8 @@ knowledge_deep: [available Deep Knowledge — e.g., porter-5forces, swot]
 2. Output with explicit paths. Specific rules > generic rules.
 3. SKILL.md contains: identity, autonomy, prerequisites, framework references (not frameworks themselves), expected outputs, rules, quality checklist, relationships.
 4. Frameworks are loaded by the agent at task start by reading Quick References indicated in the Task Tool Prompt.
+5. `execution_mode` governs behavioral style: **precision** (deterministic, no alternatives unless asked), **balanced** (rigor + judgment), **creative** (explore options, unconventional angles). Orchestrator reads this field to populate the EXECUTION MODE section of the Task Tool Prompt.
+6. `effort` governs inference depth: **low** (fast, light tasks — Admin/Haiku), **medium** (standard operative tasks — most Sonnet agents), **high** (deep analysis, critical outputs — Opus agents and complex Sonnet tasks).
 
 ### COMPILED EXAMPLE: EXPLORER SKILL.md (v5.0)
 
@@ -449,6 +489,9 @@ model: claude-sonnet-4-6
 tools: [WebSearch, WebFetch, Read, Write, Edit, GoogleDrive]
 knowledge_quickref: [porter-5forces, pestel, battlecard]
 knowledge_deep: [porter-5forces, swot, aarrr]
+global_skills: [gathering-competitive-intelligence, competitor-alternatives, seo-audit, marketing-psychology]
+execution_mode: precision
+effort: medium
 ---
 
 # EXPLORER — Market Intelligence Officer
@@ -686,7 +729,76 @@ STEP 5: REPORT
 2. Attended courses (Aliotta positioning, Abate strategy) — differentiation
 3. Books and external sources (public frameworks) — enrichment
 
-## 16. IMPLEMENTATION ROADMAP
+## 16. LEARNINGS PROTOCOL — Agent Continuous Improvement
+
+Agents improve over time through structured extraction of lessons from God Mode scorecards.
+Every project that passes through God Mode generates lessons that are saved per-agent and
+read at the start of future tasks.
+
+### 16.1 Mechanism
+
+```
+PROJECT COMPLETES
+    ↓
+God Mode writes scorecard + AGENT LESSONS section
+    ↓
+Orchestrator spawns Artisan (Mode 3 — Learnings Extraction)
+    ↓
+Artisan reads god_mode_scorecard.md
+Artisan appends lessons to /skills/[agent_name]/learnings.md
+    ↓
+Next time that agent is spawned:
+    reads /skills/[agent_name]/learnings.md FIRST (before Quick References)
+    applies past lessons to current task
+```
+
+### 16.2 Artisan — Mode 3: Learnings Extraction
+
+**Trigger:** "extract learnings from [project]", or automatically after God Mode PASS/PASS WITH RESERVATIONS
+**Input:** `/clients/[client]/projects/[name]/findings/god_mode_scorecard.md`
+**Process:**
+
+```
+1. Read the scorecard AGENT LESSONS section
+2. For each agent listed with lessons:
+   a. Check if /skills/[agent_name]/learnings.md exists
+   b. If not: create it with header
+   c. Append new lesson block (see format below)
+3. Report to Orchestrator: list of files updated, lessons count per agent
+```
+
+**Note:** Run Mode 3 only after PASS or PASS WITH RESERVATIONS. For FAIL: return to author first,
+run Mode 3 after the revised deliverable passes.
+
+### 16.3 Learnings.md Format
+
+```markdown
+# [AGENT NAME] — Project Learnings
+*Accumulated lessons from God Mode reviews. Read this file before every task.*
+
+---
+
+## [YYYY-MM-DD] — [Project Name] ([Client Name])
+**God Mode Verdict:** [PASS / PASS WITH RESERVATIONS]
+**Overall Score:** [sum]/35
+
+### Keep doing
+- [What worked well, with evidence from scorecard]
+
+### Improve next time
+- [What to do differently, with evidence from scorecard]
+```
+
+### 16.4 Rules
+
+1. **One learnings.md per agent** at `/skills/[agent_name]/learnings.md`
+2. **New lessons appended, never overwrote** — history accumulates
+3. **Max 3 lessons per project per agent** — quality over quantity (already enforced by God Mode)
+4. **Agent reads learnings BEFORE Quick References** (see Task Tool Prompt Protocol, section 5)
+5. **Orchestrator triggers Artisan** — agents do not write their own learnings (avoids self-serving bias)
+6. **FAIL verdicts generate no learnings** until the revised version passes
+
+## 17. IMPLEMENTATION ROADMAP
 
 | Sprint | Weeks | Agents | Focus |
 |--------|-------|--------|-------|
@@ -697,3 +809,133 @@ STEP 5: REPORT
 | 4 | 8-9 | Director, Measurer, Web Tech, Optimizer | Execution |
 | 5 | 10-11 | Accountant, Legal, Admin, Trainer | Support |
 | 6 | 12 | Mentor, SP, Economist, Maintainer | Advisory + audit + cost baseline + Knowledge Processing on Sara's sources |
+
+## 18. GLOBAL SKILLS ARSENAL
+
+**240 Claude Code skills installed globally** at `~/.claude/skills/` (available in all projects).
+Installed: 2026-05-04. Sources: startup-skills (13), business-plan-skill (1), Matteo Milone collection (221), Anthropic official (5: claude-api, pptx, docx, pdf, xlsx).
+
+These are distinct from Quick References (Section 11). Quick References are TTP's internal operative
+frameworks. Claude Code Skills are full external skill files with their own instructions, templates,
+and references — loaded on demand, never automatically.
+
+### 18.1 How to activate in Task Tool Prompt
+
+In the KNOWLEDGE SKILLS section of any Task Tool Prompt:
+```
+- Claude Code Skills: [skill-name-1], [skill-name-2]
+  Path: ~/.claude/skills/[skill-name]/SKILL.md
+  RULE: Read with Read() before starting if the skill adds direct value for this task.
+```
+The Orchestrator reads `global_skills` from the agent's SKILL.md frontmatter and inserts them here.
+
+### 18.2 Full Catalog by Category
+
+#### Marketing & Growth
+`copywriting` `copy-editing` `content-creator` `social-content` `email-sequence`
+`email-systems` `paid-ads` `launch-strategy` `marketing-ideas` `marketing-psychology`
+`free-tool-strategy` `referral-program` `app-store-optimization` `viral-generator-builder`
+`brainstorming`
+
+#### SEO & Web Analytics
+`seo-audit` `seo-fundamentals` `programmatic-seo` `schema-markup` `analytics-tracking`
+`ab-test-setup` `geo-fundamentals` `hubspot-integration` `segment-cdp` `notebooklm`
+
+#### CRO (Conversion Optimization)
+`form-cro` `page-cro` `popup-cro` `signup-flow-cro` `onboarding-cro` `paywall-upgrade-cro`
+
+#### Strategy & Business
+`steering-strategy` `pricing-strategy` `product-manager-toolkit` `micro-saas-launcher`
+`competitor-alternatives` `business-plan` `validating-ideas` `designing-business-models`
+`building-brand` `closing-deals` `raising-capital` `planning-market-entry`
+`launching-go-to-market` `measuring-growth` `modeling-finances`
+`gathering-competitive-intelligence` `shaping-product-strategy` `navigating-regulations`
+`kaizen`
+
+#### Document & Presentation Generation
+`pptx` *(official Anthropic — **prefer this**)* `pdf` *(official Anthropic — **prefer this**)*
+`docx` *(official Anthropic — **prefer this**)* `xlsx` *(official Anthropic — **prefer this**)*
+`doc-coauthoring` `notion-template-business`
+`pptx-official` `pdf-official` `docx-official` `xlsx-official` *(superseded by Anthropic official versions above — do not assign to new SKILL.md)*
+
+#### AI & Autonomous Agents
+`ai-agents-architect` `ai-product` `ai-wrapper-product` `autonomous-agents`
+`autonomous-agent-patterns` `agent-manager-skill` `agent-memory-systems`
+`parallel-agents` `dispatching-parallel-agents` `subagent-driven-development`
+`rag-engineer` `rag-implementation` `llm-app-patterns` `crewai` `langgraph`
+`context-window-management` `prompt-engineer` `prompt-engineering` `prompt-caching`
+`prompt-library` `voice-agents` `voice-ai-development` `computer-use-agents`
+`conversation-memory` `agent-evaluation` `agent-tool-builder` `mcp-builder`
+`research-engineer` `behavioral-modes`
+
+#### Claude Code & Skill Development
+`skill-creator` `skill-developer` `claude-code-guide` `cc-skill-backend-patterns`
+`cc-skill-frontend-patterns` `cc-skill-coding-standards` `cc-skill-continuous-learning`
+`cc-skill-security-review` `cc-skill-strategic-compact` `cc-skill-clickhouse-io`
+
+#### Frontend Development
+`react-best-practices` `react-patterns` `react-ui-patterns` `nextjs-best-practices`
+`nextjs-supabase-auth` `tailwind-patterns` `frontend-design` `frontend-dev-guidelines`
+`mobile-design` `ui-ux-pro-max` `canvas-design` `web-design-guidelines` `scroll-experience`
+`3d-web-experience` `algorithmic-art` `interactive-portfolio` `theme-factory`
+`browser-extension-builder` `web-artifacts-builder`
+
+#### Backend, Database & Infrastructure
+`nodejs-best-practices` `typescript-expert` `python-patterns` `backend-dev-guidelines`
+`clean-code` `database-design` `api-patterns` `graphql` `docker-expert` `aws-serverless`
+`azure-functions` `gcp-cloud-run` `firebase` `neon-postgres` `prisma-expert`
+`nestjs-expert` `bun-development` `bash-linux` `linux-shell-scripting`
+`powershell-windows` `server-management` `senior-architect` `senior-fullstack`
+`software-architecture` `architecture` `performance-profiling` `systematic-debugging`
+
+#### Integrations & SaaS Tools
+`stripe-integration` `shopify-development` `shopify-apps` `hubspot-integration`
+`zapier-make-patterns` `workflow-automation` `github-workflow-automation`
+`telegram-bot-builder` `telegram-mini-app` `slack-bot-builder` `discord-bot-architect`
+`twilio-communications` `clerk-auth` `plaid-fintech` `salesforce-development`
+`algolia-search` `inngest` `trigger-dev` `upstash-qstash` `bullmq-specialist`
+`langfuse` `moodle-external-api-development`
+
+#### Testing & Quality
+`tdd-workflow` `test-driven-development` `test-fixing` `testing-patterns`
+`playwright-skill` `lint-and-validate` `code-review-checklist` `verification-before-completion`
+`receiving-code-review` `requesting-code-review` `address-github-comments`
+
+#### Planning & Process
+`plan-writing` `planning-with-files` `writing-plans` `concise-planning`
+`executing-plans` `file-organizer` `deployment-procedures` `finishing-a-development-branch`
+`git-pushing` `using-git-worktrees` `documentation-templates` `i18n-localization`
+
+#### Security & Pentesting (authorized contexts only)
+`ethical-hacking-methodology` `pentest-checklist` `pentest-commands`
+`active-directory-attacks` `api-fuzzing-bug-bounty` `broken-authentication`
+`aws-penetration-testing` `cloud-penetration-testing` `burp-suite-testing`
+`html-injection-testing` `idor-testing` `linux-privilege-escalation`
+`windows-privilege-escalation` `privilege-escalation-methods` `metasploit-framework`
+`red-team-tactics` `red-team-tools` `scanning-tools` `shodan-reconnaissance`
+`smtp-penetration-testing` `sql-injection-testing` `sqlmap-database-pentesting`
+`ssh-penetration-testing` `top-web-vulnerabilities` `vulnerability-scanner`
+`webapp-testing` `wireshark-analysis` `wordpress-penetration-testing`
+`file-path-traversal` `network-101` `xss-html-injection`
+
+### 18.3 Operative Skill Assignment — Who Decides What
+
+**Operative source of truth: each agent's SKILL.md, field `global_skills`.**
+
+The Orchestrator reads `global_skills` from the agent's SKILL.md frontmatter and populates
+the Claude Code Skills line in the Task Tool Prompt. It does NOT consult this section for routing.
+
+**Who updates `global_skills`:** the Artisan (Mode 1 — Skill Maintenance), on Orchestrator request
+or Sara's direction. To add/remove skills for an agent: task the Artisan with
+"update [agent] SKILL.md — global_skills field: add [skill-name] / remove [skill-name]".
+
+**Reference overview (non-operative — for Artisan use when evaluating assignments):**
+
+| Agent | Current global_skills (see SKILL.md for authoritative list) |
+|-------|--------------------------------------------------------------|
+| Strategist | steering-strategy, marketing-psychology, pricing-strategy, brainstorming, competitor-alternatives, marketing-ideas, free-tool-strategy, launch-strategy |
+| Artisan | skill-creator, skill-developer, prompt-engineer, prompt-engineering, context-window-management, prompt-caching, claude-api |
+| Orchestrator | plan-writing, concise-planning, dispatching-parallel-agents, agent-manager-skill, executing-plans |
+| God Mode | — (no global skills assigned) |
+| Sparring Partner | — (no global skills assigned) |
+| All other agents | To be assigned by Artisan when SKILL.md is created (Sprint 2+). **Note for Artisan:** for document generation use `pptx`, `docx`, `pdf`, `xlsx` (Anthropic official) — NOT the `-official` variants. Suggested: Narrator → `pptx`; Architect → `docx`, `pdf`; Calculator → `xlsx`; Web Tech → `seo-audit`, `seo-fundamentals`, `schema-markup`, `analytics-tracking`; Explorer → `gathering-competitive-intelligence`; Voice → `copywriting`, `email-sequence`; Editor → `social-content`; Optimizer → `page-cro`, `form-cro`, `onboarding-cro`; Measurer → `analytics-tracking`, `ab-test-setup` |

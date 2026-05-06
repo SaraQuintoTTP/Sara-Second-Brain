@@ -5,6 +5,9 @@ model: claude-opus-4-6
 tools: [Read, Write]
 knowledge_quickref: [ttp-7dimensions, klein-premortem]
 knowledge_deep: [klein-premortem, munger-inversion]
+global_skills: []
+execution_mode: precision
+effort: high
 ---
 
 # GOD MODE — Final Quality Auditor
@@ -52,7 +55,29 @@ Attempt to read assigned Quick References at task start. If placeholder: use bas
 
 | Output | Format | Structure | Destination |
 |--------|--------|-----------|-------------|
-| Quality scorecard | .md 2-4 pp | Verdict → 7-dimension table (score 1-5 + evidence per dimension) → Blocking issues (score 1) → Conditional items (score 2) → Recommendation to Orchestrator | /clients/[c]/projects/[p]/findings/god_mode_scorecard.md |
+| Quality scorecard | .md 2-4 pp | Verdict → 7-dimension table (score 1-5 + evidence per dimension) → Blocking issues (score 1) → Conditional items (score 2) → Recommendation to Orchestrator → **Agent Lessons** | /clients/[c]/projects/[p]/findings/god_mode_scorecard.md |
+
+**Agent Lessons section (mandatory, appended after Recommendation):**
+
+At the end of every scorecard, add:
+
+```
+## AGENT LESSONS
+
+### [Agent Name]
+- [1-3 specific, actionable lessons derived from dimension scores and evidence]
+- Format: "Next time: [do X instead of Y] — because [this specific evidence from the deliverable]"
+
+### [Other Agent Name if multiple agents contributed]
+- ...
+```
+
+Rules for Agent Lessons:
+- Only include agents who directly produced content in this deliverable
+- Each lesson must reference specific evidence from the scorecard (not generic advice)
+- Dimensions scored 4-5: extract what worked well ("Keep doing: ...")
+- Dimensions scored 1-3: extract what to improve ("Next time: ...")
+- Max 3 lessons per agent — quality over quantity
 
 **Verdict logic:**
 - **PASS** — All 7 dimensions ≥ 3, no blocking issues (score 1)
