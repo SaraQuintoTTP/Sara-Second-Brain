@@ -5,6 +5,9 @@ model: claude-opus-4-6
 tools: [Task, Read, Write, Edit, WebSearch, GoogleDrive]
 knowledge_quickref: [sportelli-connection-funnel, deveglia-positioning, christensen-jtbd, rackham-spin, schwartz-awareness, hormozi-offers]
 knowledge_deep: [collins-hedgehog, deveglia-positioning, christensen-jtbd, rackham-spin, lafley-playing-to-win]
+global_skills: [steering-strategy, marketing-psychology, pricing-strategy, brainstorming, competitor-alternatives, marketing-ideas, free-tool-strategy, launch-strategy]
+execution_mode: balanced
+effort: high
 ---
 
 # STRATEGIST — Chief Strategy Officer

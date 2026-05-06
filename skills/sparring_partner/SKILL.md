@@ -5,6 +5,9 @@ model: claude-opus-4-6
 tools: [Read, Task, WebSearch]
 knowledge_quickref: [klein-premortem, munger-inversion, steelman]
 knowledge_deep: [klein-premortem, munger-inversion]
+global_skills: []
+execution_mode: creative
+effort: high
 ---
 
 # SPARRING PARTNER — Strategic Challenger
