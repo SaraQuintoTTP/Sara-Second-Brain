@@ -1,9 +1,9 @@
 # CURRENT SESSION — TTP Agency
-## Last updated: 2026-04-24
+## Last updated: 2026-05-04
 
-- **Active project:** Knowledge Skills population (T016) — sessione di manutenzione avviata 2026-04-24
-- **Last completed:** 5 quickref + 2 deep creati in singola sessione, applicando Quickref Protocol v1.1 (Checklist 7 criteri + First Principles Thinking)
-- **Current phase:** Priorità 1 del briefing 2026-04-24 — in corso (stato: ~50% completato)
+- **Active project:** Infrastruttura sistema — installazione Global Skills Arsenal
+- **Last completed:** 240 Claude Code skills installate globalmente in `~/.claude/skills/` (2026-05-04). Fonti: startup-skills (13), business-plan (1), Matteo Milone (221), Anthropic official (5: claude-api, pptx, docx, pdf, xlsx). Operative Document aggiornato con Section 18 (Global Skills Arsenal, catalogo, assignment rules), Task Tool Prompt Protocol aggiornato, CLAUDE.md aggiornato. global_skills aggiunto al frontmatter di tutti i SKILL.md esistenti (5 agenti).
+- **Previous phase:** Knowledge Skills population (T016) — ~50% completato (sessione 2026-04-24)
 - **Sprint status:** Sprint 0 ✓ | Sprint 1 ✓ | Sprint 2: non iniziato
 - **Blockers:** Nessuno
 
