@@ -1,7 +1,7 @@
 ---
 name: god_mode
 description: Activate for final quality audit of any critical deliverable before delivery to Sara or the client
-model: claude-opus-4-6
+model: claude-opus-4-7
 tools: [Read, Write]
 knowledge_quickref: [ttp-7dimensions, klein-premortem]
 knowledge_deep: [klein-premortem, munger-inversion]

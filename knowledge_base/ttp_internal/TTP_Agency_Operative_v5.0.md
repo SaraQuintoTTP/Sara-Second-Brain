@@ -452,7 +452,7 @@ Every teammate = 1 SKILL.md. Mandatory structure (8 sections):
 ---
 name: [teammate-name]
 description: [1 sentence — when to activate]
-model: [claude-opus-4-6/claude-sonnet-4-6/claude-haiku-4-5-20251001]
+model: [claude-opus-4-7/claude-sonnet-4-6/claude-haiku-4-5-20251001]
 tools: [tool list]
 knowledge_quickref: [assigned Quick References — e.g., porter-5forces, pestel, battlecard]
 knowledge_deep: [available Deep Knowledge — e.g., porter-5forces, swot]

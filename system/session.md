@@ -1,5 +1,5 @@
 # CURRENT SESSION — TTP Agency
-## Last updated: 2026-05-04
+## Last updated: 2026-05-06
 
 - **Active project:** Infrastruttura sistema — installazione Global Skills Arsenal
 - **Last completed:** 240 Claude Code skills installate globalmente in `~/.claude/skills/` (2026-05-04). Fonti: startup-skills (13), business-plan (1), Matteo Milone (221), Anthropic official (5: claude-api, pptx, docx, pdf, xlsx). Operative Document aggiornato con Section 18 (Global Skills Arsenal, catalogo, assignment rules), Task Tool Prompt Protocol aggiornato, CLAUDE.md aggiornato. global_skills aggiunto al frontmatter di tutti i SKILL.md esistenti (5 agenti).
