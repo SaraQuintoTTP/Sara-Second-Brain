@@ -100,7 +100,11 @@
       "Bash([ -d \"C:/Users/saraq/.claude/skills/$skill\" ])",
       "Bash(rtk gh *)",
       "Bash(rm C:/Users/saraq/.claude/skills/__TRACKED_VAR__)",
-      "Bash(cp -r C:/Users/saraq/AppData/Local/Temp/anthropics-skills/skills/__TRACKED_VAR__ C:/Users/saraq/.claude/skills/__TRACKED_VAR__)"
+      "Bash(cp -r C:/Users/saraq/AppData/Local/Temp/anthropics-skills/skills/__TRACKED_VAR__ C:/Users/saraq/.claude/skills/__TRACKED_VAR__)",
+      "Bash(npm list *)",
+      "Bash(npm view *)",
+      "Bash(code *)",
+      "Bash(git *)"
     ]
   }
 }
