@@ -2,6 +2,7 @@
 ## Last updated: 2026-05-09
 
 - **Active project:** Infrastruttura sistema — ottimizzazione Global Skills Arsenal
+- **Last completed (2026-05-10):** Installata `wonda-cli` (Wondercat — media production CLI). Verifica sicurezza approfondita: legittima, Snyk High Risk = false positive per automazione social. Integrata nel sistema agentico: nuova categoria "Media Production" in Section 18.2, assegnata a Editor (primary) + Explorer (secondary research) in Section 18.3. Section 18.3 aggiornata con assignments completi per tutti i 9 agenti Sprint 2 (include le 10 marketing skills orfane). T021 e T022 aggiunti al task_list.
 - **Last completed (2026-05-09):** Analisi comparativa coreyhaines31/marketingskills vs skills installate. Identificate 18 skills mancanti, installate 17 (T019 COMPLETED). Audit approfondito sistema: 18/18 symlink intatti, 0 ridondanze, coerenza sistema 98%. Fix critico: `app-store-optimization` → `aso-audit` in Operative Document Section 18.2.
 - **Previous phase:** Global Skills Arsenal installazione (2026-05-04) — 240 skills; Knowledge Skills population (T016) — ~50% completato (sessione 2026-04-24)
 - **Sprint status:** Sprint 0 ✓ | Sprint 1 ✓ | Sprint 2: non iniziato
