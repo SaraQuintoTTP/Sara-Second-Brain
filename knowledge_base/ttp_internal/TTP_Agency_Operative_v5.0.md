@@ -837,6 +837,9 @@ The Orchestrator reads `global_skills` from the agent's SKILL.md frontmatter and
 `free-tool-strategy` `referral-program` `aso-audit` `viral-generator-builder`
 `brainstorming`
 
+#### Media Production (AI-native)
+`wonda-cli` *(Wondercat CLI — generazione AI di immagini/video/audio/musica, editing, publishing Instagram/TikTok, competitor social scraping. Richiede installazione separata: `npm i -g @degausai/wonda` + `wonda auth login`. Account Wondercat con crediti. Primary agent: **Editor**. Secondary: Explorer per social research.)*
+
 #### SEO & Web Analytics
 `seo-audit` `seo-fundamentals` `programmatic-seo` `schema-markup` `analytics-tracking`
 `ab-test-setup` `geo-fundamentals` `hubspot-integration` `segment-cdp` `notebooklm`
@@ -938,4 +941,4 @@ or Sara's direction. To add/remove skills for an agent: task the Artisan with
 | Orchestrator | plan-writing, concise-planning, dispatching-parallel-agents, agent-manager-skill, executing-plans |
 | God Mode | — (no global skills assigned) |
 | Sparring Partner | — (no global skills assigned) |
-| All other agents | To be assigned by Artisan when SKILL.md is created (Sprint 2+). **Note for Artisan:** for document generation use `pptx`, `docx`, `pdf`, `xlsx` (Anthropic official) — NOT the `-official` variants. Suggested: Narrator → `pptx`; Architect → `docx`, `pdf`; Calculator → `xlsx`; Web Tech → `seo-audit`, `seo-fundamentals`, `schema-markup`, `analytics-tracking`; Explorer → `gathering-competitive-intelligence`; Voice → `copywriting`, `email-sequence`; Editor → `social-content`; Optimizer → `page-cro`, `form-cro`, `onboarding-cro`; Measurer → `analytics-tracking`, `ab-test-setup` |
+| All other agents | To be assigned by Artisan when SKILL.md is created (Sprint 2+). **Note for Artisan:** for document generation use `pptx`, `docx`, `pdf`, `xlsx` (Anthropic official) — NOT the `-official` variants. Suggested: Narrator → `pptx`; Architect → `docx`, `pdf`; Calculator → `xlsx`; Web Tech → `seo-audit`, `seo-fundamentals`, `schema-markup`, `analytics-tracking`, `email-systems`, `geo-fundamentals`, `ai-seo`, `aso-audit`, `directory-submissions`; Explorer → `gathering-competitive-intelligence`, `competitor-alternatives`, `marketing-psychology`; Voice → `copywriting`, `copy-editing`, `email-sequence`, `email-systems`, `marketing-psychology`; Editor → `social-content`, `content-creator`, `geo-fundamentals`, `wonda-cli`, `viral-generator-builder`; Optimizer → `page-cro`, `form-cro`, `onboarding-cro`, `popup-cro`, `referral-program`; Measurer → `analytics-tracking`, `ab-test-setup` |
