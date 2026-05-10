@@ -1,13 +1,22 @@
 # CURRENT SESSION — TTP Agency
-## Last updated: 2026-05-06
+## Last updated: 2026-05-09
 
-- **Active project:** Infrastruttura sistema — installazione Global Skills Arsenal
-- **Last completed:** 240 Claude Code skills installate globalmente in `~/.claude/skills/` (2026-05-04). Fonti: startup-skills (13), business-plan (1), Matteo Milone (221), Anthropic official (5: claude-api, pptx, docx, pdf, xlsx). Operative Document aggiornato con Section 18 (Global Skills Arsenal, catalogo, assignment rules), Task Tool Prompt Protocol aggiornato, CLAUDE.md aggiornato. global_skills aggiunto al frontmatter di tutti i SKILL.md esistenti (5 agenti).
-- **Previous phase:** Knowledge Skills population (T016) — ~50% completato (sessione 2026-04-24)
+- **Active project:** Infrastruttura sistema — ottimizzazione Global Skills Arsenal
+- **Last completed (2026-05-09):** Analisi comparativa coreyhaines31/marketingskills vs skills installate. Identificate 18 skills mancanti, installate 17 (T019 COMPLETED). Audit approfondito sistema: 18/18 symlink intatti, 0 ridondanze, coerenza sistema 98%. Fix critico: `app-store-optimization` → `aso-audit` in Operative Document Section 18.2.
+- **Previous phase:** Global Skills Arsenal installazione (2026-05-04) — 240 skills; Knowledge Skills population (T016) — ~50% completato (sessione 2026-04-24)
 - **Sprint status:** Sprint 0 ✓ | Sprint 1 ✓ | Sprint 2: non iniziato
 - **Blockers:** Nessuno
 
-## Current session progress (2026-04-24)
+## Session progress (2026-05-09)
+- Analisi comparativa coreyhaines31/marketingskills (27K stars, 41 skills) vs installazione corrente
+- Identificate 18 skills mancanti con priorità 1/2/3
+- Installate 17 marketing skills da coreyhaines31/marketingskills (T019 ✓)
+- Audit sistema: symlink, ridondanze, coerenza documentazione, MEMORY.md
+- Fix: `app-store-optimization` → `aso-audit` in Operative Document Section 18.2 (line 837)
+- task_list.md aggiornato: T016 aggiornato, T019 aggiunto e completato
+- session.md aggiornato: stato corrente 2026-05-09
+
+## Session progress (2026-04-24)
 - swot-quickref.md ✓ (v2 revisionato)
 - porter-5forces-quickref.md ✓ (v3 revisionato)
 - aida-quickref.md ✓ (deprecato come riferimento storico)
