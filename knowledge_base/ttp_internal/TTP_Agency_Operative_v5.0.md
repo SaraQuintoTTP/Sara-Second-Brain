@@ -834,7 +834,7 @@ The Orchestrator reads `global_skills` from the agent's SKILL.md frontmatter and
 #### Marketing & Growth
 `copywriting` `copy-editing` `content-creator` `social-content` `email-sequence`
 `email-systems` `paid-ads` `launch-strategy` `marketing-ideas` `marketing-psychology`
-`free-tool-strategy` `referral-program` `app-store-optimization` `viral-generator-builder`
+`free-tool-strategy` `referral-program` `aso-audit` `viral-generator-builder`
 `brainstorming`
 
 #### SEO & Web Analytics

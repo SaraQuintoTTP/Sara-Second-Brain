@@ -1,5 +1,5 @@
 # TASK LIST — TTP Agency
-## Last updated: 2026-04-24
+## Last updated: 2026-05-09
 
 ### ACTIVE TASKS
 
@@ -7,9 +7,12 @@
 |----|------|-------------|----------|--------|--------------|----------|-------|
 | T014 | Test hub-and-spoke flow | Orchestrator | HIGH | PENDING | T011-T013 | — | Sprint 1 completion |
 | T015 | Populate all 48 Knowledge Skills | Artisan | MEDIUM | SUPERSEDED_BY_T016 | — | — | Replaced by T016 (priority subset) |
-| T016 | Populate priority Knowledge Skills (10 quickref + 4 deep + moderni) | Artisan | HIGH | IN_PROGRESS | — | — | Sessione dedicata 2026-04-24. Include anche messy-middle-b2c + b2b-buying-journey (nuovi, non in lista originale — sostituiscono AIDA) |
+| T016 | Populate priority Knowledge Skills (10 quickref + 4 deep + moderni) | Artisan | HIGH | IN_PROGRESS | — | — | Sessione dedicata 2026-04-24. Include anche messy-middle-b2c + b2b-buying-journey (nuovi, non in lista originale — sostituiscono AIDA). Global Skills Arsenal: 17 nuove marketing skills installate 2026-05-09 da coreyhaines31/marketingskills (vedi T019) |
 | T017 | Knowledge Processing — libreria epub su Drive (Opzione C: triage + deep processing) | Artisan (Mode 2) | MEDIUM | PLANNED | T016 | — | 98+ epub in "epub Business e Marketing"; piano a 5 step documentato |
 | T018 | Decisione su SKILL.md Orchestrator (snellimento vs eccezione) | Orchestrator + Sara | LOW | PENDING | T016 | — | Priorità 3 briefing 2026-04-24, non ancora affrontata |
+| T020 | Decidere global_skills per God Mode e Sparring Partner | Orchestrator + Sara | MEDIUM | DEFERRED | T021 | Sprint 2 | Da sollevare PRIMA di creare i SKILL.md di God Mode e Sparring Partner. Opzioni: (a) skills di valutazione/sfida contestuale, (b) restano vuoti. Vedi memory project_ttp_system_evolution_deferred.md |
+| T021 | Creare SKILL.md per i 9 agenti mancanti (Sprint 2) | Artigiano | HIGH | PLANNED | — | Sprint 2 | Explorer, Voice, Editor, Optimizer, Measurer, Web Tech, Narrator, Architect, Calculator. Include assegnazione global_skills per le 10 marketing skills orfane |
+| T019 | Installazione 17 marketing skills da coreyhaines31/marketingskills | Orchestrator | HIGH | COMPLETED | — | 2026-05-09 | Skills: ab-test-setup, ai-seo, aso-audit, brainstorming, competitor-alternatives, content-creator, copy-editing, directory-submissions, email-systems, form-cro, free-tool-strategy, geo-fundamentals, launch-strategy, marketing-ideas, marketing-psychology, referral-program, viral-generator-builder |
 
 ### COMPLETED TASKS
 
