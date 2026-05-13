@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TTP Agency v5.0 — Grafo Dipendenze</title>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #07080f;
+  color: #e2e8f0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 200px 1fr 260px;
+  grid-template-rows: 52px 1fr;
+}
+header {
+  grid-column: 1 / -1;
+  background: #0d1018;
+  border-bottom: 1px solid #1a1f2e;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 16px;
+}
+header h1 { font-size: 15px; font-weight: 600; color: #f1f5f9; }
+header .sub { font-size: 11px; color: #3d4a60; }
+header .badge {
+  margin-left: auto;
+  background: #111827;
+  border: 1px solid #1e2535;
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 10px;
+  color: #3d4a60;
+}
+
+/* ── LEFT PANEL ─────────────────────────────────── */
+.left {
+  background: #0a0c12;
+  border-right: 1px solid #141929;
+  padding: 14px 12px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.section-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #2d3a50;
+  margin-bottom: 6px;
+}
+.leg-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: #64748b;
+  margin-bottom: 5px;
+}
+.leg-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.leg-badge {
+  width: 14px; height: 14px;
+  border-radius: 3px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 8px; font-weight: 700;
+  flex-shrink: 0;
+}
+.stat-row { display: flex; justify-content: space-between; font-size: 11px; color: #3d4a60; margin-bottom: 4px; }
+.stat-row span { color: #94a3b8; }
+.hint {
+  background: #0d1018;
+  border: 1px solid #1a1f2e;
+  border-radius: 5px;
+  padding: 8px 9px;
+  font-size: 10px;
+  color: #3d4a60;
+  line-height: 1.6;
+}
+
+/* ── GRAPH ──────────────────────────────────────── */
+#g {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 45%, #0e1525 0%, #07080f 65%);
+}
+#g svg { width: 100%; height: 100%; }
+.reset-btn {
+  position: absolute;
+  bottom: 12px; left: 50%;
+  transform: translateX(-50%);
+  background: #0d1018;
+  border: 1px solid #1e2535;
+  color: #3d4a60;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 10px;
+  cursor: pointer;
+  font-family: inherit;
+  z-index: 10;
+  transition: all .15s;
+}
+.reset-btn:hover { color: #94a3b8; border-color: #2d3a50; }
+
+/* ── RIGHT PANEL ────────────────────────────────── */
+.right {
+  background: #0a0c12;
+  border-left: 1px solid #141929;
+  overflow-y: auto;
+  padding: 14px 12px;
+}
+.flow-card {
+  background: #0d1018;
+  border: 1px solid #1a1f2e;
+  border-radius: 5px;
+  padding: 8px 10px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: all .12s;
+  user-select: none;
+}
+.flow-card:hover { border-color: #252f42; background: #0f1420; }
+.flow-card.active { border-color: #4c3aad; background: #100e2a; }
+.flow-num { font-size: 9px; color: #2d3a50; text-transform: uppercase; letter-spacing: .8px; }
+.flow-name { font-size: 12px; font-weight: 600; color: #94a3b8; margin: 2px 0 4px; }
+.flow-trigger { font-size: 9px; color: #2d3a50; font-style: italic; margin-bottom: 5px; }
+.flow-seq {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3px;
+  margin-top: 4px;
+}
+.seq-node {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: #141929;
+  border-radius: 3px;
+  padding: 2px 5px;
+  font-size: 9px;
+  font-weight: 600;
+}
+.seq-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+}
+.seq-name { color: #64748b; }
+.seq-arr { color: #2d3a50; font-size: 9px; }
+.seq-par { color: #2d3a50; font-size: 9px; font-style: italic; }
+
+/* ── NODES ──────────────────────────────────────── */
+.node { cursor: pointer; }
+.node circle.bg { stroke-width: 1.5; transition: opacity .2s; }
+.node circle.ring { fill: none; stroke-dasharray: 4 3; }
+.node text.name {
+  font-size: 10px; text-anchor: middle;
+  pointer-events: none; font-weight: 500;
+}
+.node text.role {
+  font-size: 8px; text-anchor: middle;
+  pointer-events: none; fill: #3d4a60;
+}
+.node text.idx {
+  dominant-baseline: central; text-anchor: middle;
+  pointer-events: none; font-weight: 700;
+}
+/* exec mode badge */
+.exec-badge { rx: 2; ry: 2; }
+
+/* ── LINKS ──────────────────────────────────────── */
+.link-spawn { fill: none; stroke: #1e2d40; stroke-width: 1.5; }
+.link-sara  { fill: none; stroke: #92400e; stroke-width: 2; stroke-dasharray: 8 4; }
+
+/* ── CLUSTER LABELS ─────────────────────────────── */
+.cluster-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  fill: #1e2d40;
+  text-anchor: middle;
+  pointer-events: none;
+  font-weight: 600;
+}
+
+/* ── DIMMING ────────────────────────────────────── */
+.node.dimmed circle, .node.dimmed text, .node.dimmed rect { opacity: .07; }
+.link-spawn.dimmed, .link-sara.dimmed { opacity: .04; }
+
+/* ── FLOW OVERLAY ───────────────────────────────── */
+.flow-path { fill: none; stroke: #6d28d9; stroke-width: 3; stroke-opacity: .7; pointer-events: none; }
+.flow-step-badge circle { fill: #6d28d9; }
+.flow-step-badge text { fill: #fff; font-size: 8px; font-weight: 700; dominant-baseline: central; text-anchor: middle; }
+
+/* ── TOOLTIP ────────────────────────────────────── */
+#tip {
+  position: fixed;
+  display: none;
+  background: #0d1018;
+  border: 1px solid #1e2535;
+  border-radius: 6px;
+  padding: 9px 12px;
+  font-size: 11px;
+  pointer-events: none;
+  z-index: 999;
+  max-width: 200px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.5);
+}
+#tip .t-name { font-size: 13px; font-weight: 600; color: #f1f5f9; margin-bottom: 2px; }
+#tip .t-role { color: #3d4a60; font-size: 10px; margin-bottom: 6px; }
+#tip .t-pill {
+  display: inline-block; padding: 2px 7px;
+  border-radius: 10px; font-size: 9px; font-weight: 700;
+  letter-spacing: .3px; margin-bottom: 6px;
+}
+#tip .t-rows { font-size: 10px; color: #3d4a60; }
+#tip .t-rows strong { color: #4a5568; display: block; margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>TTP AI Agency — Grafo Dipendenze Agenti</h1>
+    <div class="sub">Spawn Matrix · Flow Catalog · Cluster semantici · Modalità di esecuzione</div>
+  </div>
+  <div class="badge">v5.0 · 22 agenti</div>
+</header>
+
+<!-- ── LEFT ── -->
+<div class="left">
+  <div>
+    <div class="section-label">LLM</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#7c3aed"></div>Opus 4 (fixed)</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#2563eb"></div>Dual Mode</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#059669"></div>Sonnet 4</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#475569"></div>Haiku 4.5</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#d97706;border-radius:2px"></div>Sara</div>
+  </div>
+  <div>
+    <div class="section-label">Modalità esecuzione</div>
+    <div class="leg-item"><div class="leg-badge" style="background:#1e3a2e;color:#34d399">P</div>Precision</div>
+    <div class="leg-item"><div class="leg-badge" style="background:#1e2e4a;color:#60a5fa">B</div>Balanced</div>
+    <div class="leg-item"><div class="leg-badge" style="background:#3a1e2e;color:#f472b6">C</div>Creative</div>
+  </div>
+  <div>
+    <div class="section-label">Connessioni</div>
+    <div class="leg-item" style="font-size:10px">
+      <svg width="28" height="10"><defs><marker id="al" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L8 4 L0 8z" fill="#1e2d40"/></marker></defs><path d="M 2 5 Q 15 2 26 5" stroke="#1e2d40" stroke-width="1.5" fill="none" marker-end="url(#al)"/></svg>
+      Spawn
+    </div>
+    <div class="leg-item" style="font-size:10px">
+      <svg width="28" height="10"><line x1="0" y1="5" x2="28" y2="5" stroke="#92400e" stroke-width="1.8" stroke-dasharray="6,3"/></svg>
+      Sara ↔ Hub
+    </div>
+    <div class="leg-item" style="font-size:10px; color:#6d28d9">
+      <svg width="28" height="10"><line x1="0" y1="5" x2="28" y2="5" stroke="#6d28d9" stroke-width="2.5"/></svg>
+      Flow attivo
+    </div>
+  </div>
+  <div>
+    <div class="section-label">Sistema</div>
+    <div class="stat-row">Agenti<span>22</span></div>
+    <div class="stat-row">Flows<span>10</span></div>
+    <div class="stat-row">Spawn link<span>19</span></div>
+    <div class="stat-row">Max parallelo<span>5</span></div>
+    <div class="stat-row">Opus fixed<span>4</span></div>
+  </div>
+  <div class="hint">
+    <b style="color:#4a5568">Clicca un agente</b> per vedere le sue relazioni.<br><br>
+    <b style="color:#4a5568">Clicca un Flow</b> nel pannello destro per evidenziare la sequenza in ordine.<br><br>
+    Orchestrator → ALL è implicito (hub). Solo gli spawn non-Orchestrator sono tracciati.
+  </div>
+</div>
+
+<!-- ── GRAPH ── -->
+<div id="g">
+  <button class="reset-btn" onclick="reset()">Reimposta</button>
+</div>
+
+<!-- ── RIGHT ── -->
+<div class="right">
+  <div class="section-label" style="margin-bottom:8px">Flow Catalog</div>
+
+  <div class="flow-card" onclick="activateFlow(0)">
+    <div class="flow-num">Flow 1</div>
+    <div class="flow-name">Full Marketing Strategy</div>
+    <div class="flow-trigger">"strategy", "marketing plan", "launch"</div>
+    <div class="flow-seq" id="fseq-0"></div>
+  </div>
+
+  <div class="flow-card" onclick="activateFlow(1)">
+    <div class="flow-num">Flow 2</div>
+    <div class="flow-name">Pre-Sales (5 fasi)</div>
+    <div class="flow-trigger">"new prospect", "proposal", "quote"</div>
+    <div class="flow-seq" id="fseq-1"></div>
+  </div>
+
+  <div class="flow-card" onclick="activateFlow(2)">
+    <div class="flow-num">Flow 3</div>
+    <div class="flow-name">Content / Social</div>
+    <div class="flow-trigger">"editorial plan", "social", "PED"</div>
+    <div class="flow-seq" id="fseq-2"></div>
+  </div>
+
+  <div class="flow-card" onclick="activateFlow(3)">
+    <div class="flow-num">Flow 4</div>
+    <div class="flow-name">Review / Update</div>
+    <div class="flow-trigger">"review", "update", "refresh"</div>
+    <div class="flow-seq" id="fseq-3"></div>
+  </div>
+
+  <div class="flow-card" onclick="activateFlow(4)">
+    <div class="flow-num">Flow 5</div>
+    <div class="flow-name">Business Coaching</div>
+    <div class="flow-trigger">"coaching", "session", "goals"</div>
+    <div class="flow-seq" id="fseq-4"></div>
+  </div>
+
+  <div class="flow-card" onclick="activateFlow(5)">
+    <div class="flow-num">Flow 6</div>
+    <div class="flow-name">Audit / Quality Review</div>
+    <div class="flow-trigger">"audit", "quality review"</div>
+    <div class="flow-seq" id="fseq-5"></div>
+  </div>
+
+  <div class="flow-card" onclick="activateFlow(6)">
+    <div class="flow-num">Flow 7</div>
+    <div class="flow-name">Training / Academy</div>
+    <div class="flow-trigger">"course", "workshop", "academy"</div>
+    <div class="flow-seq" id="fseq-6"></div>
+  </div>
+
+  <div class="flow-card" onclick="activateFlow(7)">
+    <div class="flow-num">Flow 8</div>
+    <div class="flow-name">Web / Tech / Automation</div>
+    <div class="flow-trigger">"website", "SEO", "analytics"</div>
+    <div class="flow-seq" id="fseq-7"></div>
+  </div>
+
+  <div class="flow-card" onclick="activateFlow(8)">
+    <div class="flow-num">Flow 9</div>
+    <div class="flow-name">Client Onboarding</div>
+    <div class="flow-trigger">"new client", "onboarding"</div>
+    <div class="flow-seq" id="fseq-8"></div>
+  </div>
+
+  <div class="flow-card" onclick="activateFlow(9)">
+    <div class="flow-num">Flow 10</div>
+    <div class="flow-name">Post-Deliverable Feedback</div>
+    <div class="flow-trigger">"client feedback", "revision"</div>
+    <div class="flow-seq" id="fseq-9"></div>
+  </div>
+</div>
+
+<div id="tip"></div>
+
+<script>
+// ── DATA ─────────────────────────────────────────────────
+
+const C = {
+  opus:   '#7c3aed',
+  dual:   '#2563eb',
+  sonnet: '#059669',
+  haiku:  '#475569',
+  human:  '#d97706',
+};
+
+const EXEC_COLOR = { P: '#34d399', B: '#60a5fa', C: '#f472b6' };
+const EXEC_BG    = { P: '#1e3a2e', B: '#1e2e4a', C: '#3a1e2e' };
+
+const agents = [
+  { id:0,  name:'Orchestrator',   role:'Chief of Staff',         c:C.opus,   sz:26, exec:'B', cluster:'hub'  },
+  { id:1,  name:'Strategist',     role:'Chief Strategy Officer', c:C.opus,   sz:22, exec:'B', cluster:'strat'},
+  { id:2,  name:'Explorer',       role:'Market Intelligence',    c:C.sonnet, sz:16, exec:'P', cluster:'intel'},
+  { id:3,  name:'Architect',      role:'Proposal & Charter',     c:C.dual,   sz:18, exec:'B', cluster:'biz'  },
+  { id:4,  name:'Narrator',       role:'Visual Storytelling',    c:C.sonnet, sz:15, exec:'C', cluster:'cont' },
+  { id:5,  name:'Voice',          role:'Content Director',       c:C.dual,   sz:19, exec:'C', cluster:'cont' },
+  { id:6,  name:'Editor',         role:'Social Media',           c:C.sonnet, sz:15, exec:'C', cluster:'cont' },
+  { id:7,  name:'Director',       role:'Project Manager',        c:C.sonnet, sz:15, exec:'P', cluster:'biz'  },
+  { id:8,  name:'Measurer',       role:'Performance Analyst',    c:C.sonnet, sz:15, exec:'P', cluster:'tech' },
+  { id:9,  name:'Calculator',     role:'Business Planner',       c:C.dual,   sz:19, exec:'P', cluster:'biz'  },
+  { id:10, name:'Optimizer',      role:'CRO Specialist',         c:C.sonnet, sz:15, exec:'B', cluster:'tech' },
+  { id:11, name:'Trainer',        role:'Instructional Design',   c:C.sonnet, sz:15, exec:'B', cluster:'cont' },
+  { id:12, name:'Web Tech',       role:'Digital Implementation', c:C.sonnet, sz:15, exec:'P', cluster:'tech' },
+  { id:13, name:'Accountant',     role:'Fiscal Controller',      c:C.sonnet, sz:15, exec:'P', cluster:'biz'  },
+  { id:14, name:'Legal',          role:'Digital Law',            c:C.sonnet, sz:15, exec:'P', cluster:'gov'  },
+  { id:15, name:'Admin',          role:'Administrative',         c:C.haiku,  sz:13, exec:'P', cluster:'gov'  },
+  { id:16, name:'God Mode',       role:'Quality Auditor',        c:C.opus,   sz:22, exec:'P', cluster:'gov'  },
+  { id:17, name:'Artisan',        role:'Prompt Engineer',        c:C.sonnet, sz:15, exec:'B', cluster:'sys'  },
+  { id:18, name:'Economist',      role:'Token Optimizer',        c:C.sonnet, sz:15, exec:'P', cluster:'sys'  },
+  { id:19, name:'Maintainer',     role:'KB Maintainer',          c:C.sonnet, sz:14, exec:'P', cluster:'sys'  },
+  { id:20, name:'Mentor',         role:'Business Coach',         c:C.dual,   sz:18, exec:'B', cluster:'strat'},
+  { id:21, name:'Sparring Ptr.',  role:'Strategic Challenger',   c:C.opus,   sz:21, exec:'C', cluster:'strat'},
+  { id:22, name:'Sara',           role:'Decisore Finale',        c:C.human,  sz:26, exec:null, cluster:'sara'},
+];
+
+// Cluster gravity centers (fractions 0-1)
+const CC = {
+  sara:  [.50, .06],
+  hub:   [.50, .46],
+  strat: [.16, .24],
+  intel: [.73, .20],
+  cont:  [.84, .53],
+  tech:  [.63, .82],
+  biz:   [.13, .63],
+  gov:   [.47, .82],
+  sys:   [.25, .82],
+};
+
+// Cluster display names
+const CL = {
+  strat:'STRATEGIA', intel:'INTELLIGENCE', cont:'CONTENUTO',
+  tech:'TECNICO', biz:'BUSINESS', gov:'GOVERNANCE', sys:'SISTEMA'
+};
+
+// Spawn links
+const spawnRaw = [
+  [1,2],[1,9],[1,5],[1,21],
+  [3,9],[3,14],
+  [5,2],[5,6],
+  [9,2],[9,13],
+  [10,11],[10,12],
+  [18,17],[18,19],
+  [20,9],[20,13],[20,1],
+  [21,2],[21,9],
+];
+
+// Flow sequences: ordered agent ID arrays (Sara and Orch always implied)
+// '|' separator = parallel step
+const flows = [
+  { seq: [[2],[1],[5,9],[3],[16]],         parallel: [2] },  // F1
+  { seq: [[2],[1],[5],[3],[16],[15]],      parallel: []  },  // F2
+  { seq: [[2],[5],[6],[8]],               parallel: []  },  // F3
+  { seq: [[16]],                           parallel: []  },  // F4
+  { seq: [[20,21],[9]],                   parallel: [0] },  // F5
+  { seq: [[16,21],[2]],                   parallel: [0] },  // F6
+  { seq: [[11,5,4],[20]],                 parallel: [0] },  // F7
+  { seq: [[12,10,8],[5]],                 parallel: [0] },  // F8
+  { seq: [[15],[2]],                       parallel: []  },  // F9
+  { seq: [[1],[16]],                       parallel: []  },  // F10
+];
+
+// Build flow sequences HTML
+const agentById = Object.fromEntries(agents.map(a => [a.id, a]));
+
+flows.forEach((f, fi) => {
+  const el = document.getElementById(`fseq-${fi}`);
+  f.seq.forEach((step, si) => {
+    if (si > 0) {
+      const arr = document.createElement('span');
+      arr.className = 'seq-arr';
+      arr.textContent = '→';
+      el.appendChild(arr);
+    }
+    if (step.length > 1) {
+      const par = document.createElement('span');
+      par.className = 'seq-par';
+      par.textContent = '[';
+      el.appendChild(par);
+    }
+    step.forEach((id, ii) => {
+      if (ii > 0) {
+        const pl = document.createElement('span');
+        pl.className = 'seq-par';
+        pl.textContent = '+';
+        el.appendChild(pl);
+      }
+      const a = agentById[id];
+      const nd = document.createElement('span');
+      nd.className = 'seq-node';
+      nd.innerHTML = `<span class="seq-dot" style="background:${a.c}"></span><span class="seq-name">${a.name}</span>`;
+      el.appendChild(nd);
+    });
+    if (step.length > 1) {
+      const par = document.createElement('span');
+      par.className = 'seq-par';
+      par.textContent = ']';
+      el.appendChild(par);
+    }
+  });
+});
+
+// ── D3 SETUP ─────────────────────────────────────────────
+
+const container = document.getElementById('g');
+const W = container.clientWidth;
+const H = container.clientHeight;
+
+// Initialize node positions near cluster centers
+agents.forEach(a => {
+  const [fx, fy] = CC[a.cluster];
+  a.x = fx * W + (Math.random() - .5) * 60;
+  a.y = fy * H + (Math.random() - .5) * 60;
+});
+
+// Fix Sara and Orchestrator
+agents[22].fx = W * .50; agents[22].fy = H * .06;
+agents[0].fx  = W * .50; agents[0].fy  = H * .46;
+
+// Links for forceLink
+const linkData = spawnRaw.map(([s, t]) => ({ source: s, target: t, type: 'spawn' }));
+linkData.push({ source: 22, target: 0, type: 'sara' });
+
+const svg = d3.select('#g').append('svg').attr('width', W).attr('height', H);
+
+// Defs
+const defs = svg.append('defs');
+function mkMarker(id, color) {
+  defs.append('marker').attr('id', id)
+    .attr('viewBox','0 0 8 8').attr('refX',7).attr('refY',4)
+    .attr('markerWidth',5).attr('markerHeight',5)
+    .attr('orient','auto')
+    .append('path').attr('d','M0 0 L8 4 L0 8z').attr('fill', color);
+}
+mkMarker('arr-spawn', '#2d3d52');
+mkMarker('arr-sara',  '#b45309');
+mkMarker('arr-flow',  '#7c3aed');
+
+const zoom = d3.zoom().scaleExtent([.3, 3])
+  .on('zoom', e => g.attr('transform', e.transform));
+svg.call(zoom);
+svg.on('click', () => reset());
+
+const g = svg.append('g');
+const layerCluster = g.append('g');
+const layerLink    = g.append('g');
+const layerFlow    = g.append('g');
+const layerNode    = g.append('g');
+
+// ── CLUSTER LABELS ───────────────────────────────────────
+
+const clusterLabelEls = layerCluster.selectAll('text')
+  .data(Object.entries(CL))
+  .enter().append('text')
+  .attr('class', 'cluster-label')
+  .text(d => d[1]);
+
+// ── LINKS ────────────────────────────────────────────────
+
+const simulation = d3.forceSimulation(agents)
+  .force('link', d3.forceLink(linkData).id(d => d.id)
+    .distance(d => d.type === 'sara' ? 140 : 90)
+    .strength(d => d.type === 'sara' ? .15 : .3)
+  )
+  .force('charge', d3.forceManyBody().strength(d => d.id===0 ? -600 : -250))
+  .force('collision', d3.forceCollide().radius(d => d.sz + 28).strength(.9))
+  .force('cluster', () => {
+    agents.forEach(a => {
+      if (a.id === 0 || a.id === 22) return;
+      const [cx, cy] = CC[a.cluster];
+      const str = .12;
+      a.vx += (cx * W - a.x) * str;
+      a.vy += (cy * H - a.y) * str;
+    });
+  });
+
+const spawnEls = layerLink.selectAll('.link-spawn')
+  .data(linkData.filter(d => d.type === 'spawn'))
+  .enter().append('path')
+  .attr('class', 'link-spawn')
+  .attr('marker-end', 'url(#arr-spawn)');
+
+const saraEl = layerLink.append('path')
+  .attr('class', 'link-sara')
+  .attr('marker-end', 'url(#arr-sara)');
+
+// ── NODES ────────────────────────────────────────────────
+
+const nodeEls = layerNode.selectAll('g')
+  .data(agents)
+  .enter().append('g')
+  .attr('class', 'node')
+  .call(d3.drag()
+    .on('start', (e,d) => { if(!e.active) simulation.alphaTarget(.3).restart(); d.fx=d.x; d.fy=d.y; })
+    .on('drag',  (e,d) => { d.fx=e.x; d.fy=e.y; })
+    .on('end',   (e,d) => {
+      if(!e.active) simulation.alphaTarget(0);
+      if(d.id!==0 && d.id!==22) { d.fx=null; d.fy=null; }
+    })
+  )
+  .on('click', (e,d) => { e.stopPropagation(); highlightNode(d); })
+  .on('mouseover', (e,d) => showTip(e,d))
+  .on('mousemove', (e) => { const t=document.getElementById('tip'); t.style.left=(e.clientX+14)+'px'; t.style.top=(e.clientY-8)+'px'; })
+  .on('mouseout', () => { document.getElementById('tip').style.display='none'; });
+
+// Hub outer ring
+nodeEls.filter(d => d.id === 0)
+  .append('circle').attr('class','ring')
+  .attr('r', d => d.sz + 9)
+  .attr('stroke', d => d.c)
+  .attr('stroke-opacity', .2);
+
+// Main circle
+nodeEls.append('circle').attr('class','bg')
+  .attr('r', d => d.sz)
+  .attr('fill', d => d.c + '18')
+  .attr('stroke', d => d.c)
+  .attr('stroke-width', d => (d.id===0||d.id===22) ? 2.5 : 1.5);
+
+// Sara diamond
+nodeEls.filter(d => d.id === 22)
+  .append('polygon')
+  .attr('points', d => { const s=d.sz+5; return `0,-${s} ${s},0 0,${s} -${s},0`; })
+  .attr('fill','none').attr('stroke','#d97706').attr('stroke-width',1.5).attr('stroke-opacity',.5);
+
+// ID or HUB label
+nodeEls.append('text').attr('class','idx')
+  .attr('dy', 0)
+  .attr('fill', d => d.c)
+  .attr('font-size', d => d.id===0 ? '9px' : '8px')
+  .text(d => d.id===0 ? 'HUB' : d.id===22 ? '' : d.id);
+
+// Execution mode badge
+nodeEls.filter(d => d.exec !== null)
+  .append('rect').attr('class','exec-badge')
+  .attr('width', 11).attr('height', 11)
+  .attr('x', d => d.sz - 3).attr('y', d => -d.sz - 8)
+  .attr('fill', d => EXEC_BG[d.exec]).attr('rx',2);
+
+nodeEls.filter(d => d.exec !== null)
+  .append('text')
+  .attr('x', d => d.sz + 2.5).attr('y', d => -d.sz - 1)
+  .attr('text-anchor','middle').attr('dominant-baseline','middle')
+  .attr('fill', d => EXEC_COLOR[d.exec])
+  .attr('font-size','7px').attr('font-weight','700')
+  .attr('pointer-events','none')
+  .text(d => d.exec);
+
+// Name label
+nodeEls.append('text').attr('class','name')
+  .attr('dy', d => d.sz + 12)
+  .attr('fill', d => {
+    if(d.id===22) return '#d97706';
+    if(d.c===C.opus) return '#a78bfa';
+    if(d.c===C.dual) return '#93c5fd';
+    return '#64748b';
+  })
+  .attr('font-weight', d => (d.c===C.opus||d.id===22) ? '600' : '400')
+  .text(d => d.name);
+
+// Role label
+nodeEls.append('text').attr('class','role')
+  .attr('dy', d => d.sz + 22)
+  .text(d => d.role);
+
+// ── TICK ─────────────────────────────────────────────────
+
+function curvePath(s, t) {
+  if(!s||!t||!s.x||!t.x) return '';
+  const dx = t.x - s.x, dy = t.y - s.y;
+  const dist = Math.sqrt(dx*dx+dy*dy) || 1;
+  const sr = s.sz, tr = t.sz;
+  const sx = s.x + dx/dist*sr,  sy = s.y + dy/dist*sr;
+  const ex = t.x - dx/dist*(tr+9), ey = t.y - dy/dist*(tr+9);
+  const cx = (sx+ex)/2 - dy*.28, cy = (sy+ey)/2 + dx*.28;
+  return `M${sx},${sy} Q${cx},${cy} ${ex},${ey}`;
+}
+
+simulation.on('tick', () => {
+  spawnEls.attr('d', d => curvePath(d.source, d.target));
+  const orch = agents[0], sara = agents[22];
+  saraEl.attr('d', curvePath(sara, orch));
+
+  nodeEls.attr('transform', d => `translate(${d.x??0},${d.y??0})`);
+
+  // Cluster label centroids
+  const centroids = {};
+  agents.forEach(a => {
+    if(a.id===0||a.id===22) return;
+    const cl = a.cluster;
+    if(!centroids[cl]) centroids[cl] = {x:0,y:0,n:0};
+    centroids[cl].x += a.x||0;
+    centroids[cl].y += a.y||0;
+    centroids[cl].n++;
+  });
+  clusterLabelEls.attr('transform', d => {
+    const c = centroids[d[0]];
+    if(!c) return '';
+    return `translate(${c.x/c.n}, ${c.y/c.n - (d[0]==='gov'?90:80)})`;
+  });
+
+  if(activeFlow !== null) drawFlowOverlay(activeFlow);
+});
+
+// ── FLOW OVERLAY ─────────────────────────────────────────
+
+let activeFlow = null;
+
+function drawFlowOverlay(fi) {
+  layerFlow.selectAll('*').remove();
+  const steps = flows[fi].seq;
+  const flatIds = [...new Set(steps.flat())];
+
+  // For each step, compute centroid of step nodes
+  const stepCentroids = steps.map(step => {
+    const nodes = step.map(id => agents.find(a => a.id===id)).filter(Boolean);
+    const x = nodes.reduce((s,n)=>s+(n.x||0),0) / nodes.length;
+    const y = nodes.reduce((s,n)=>s+(n.y||0),0) / nodes.length;
+    return {x, y};
+  });
+
+  // Draw flow path
+  if(stepCentroids.length > 1) {
+    const line = d3.line().x(d=>d.x).y(d=>d.y).curve(d3.curveCatmullRom.alpha(.5));
+    layerFlow.append('path')
+      .attr('class','flow-path')
+      .attr('d', line(stepCentroids))
+      .attr('marker-end','url(#arr-flow)');
+  }
+
+  // Draw step number badges
+  stepCentroids.forEach((pt, i) => {
+    const badge = layerFlow.append('g').attr('class','flow-step-badge')
+      .attr('transform', `translate(${pt.x - (steps[i].length>1?20:0)}, ${pt.y - 30})`);
+    badge.append('circle').attr('r', 9);
+    badge.append('text').attr('dy','.35em').text(i+1);
+  });
+}
+
+// ── HIGHLIGHT ────────────────────────────────────────────
+
+function highlightNode(d) {
+  clearFlowCards();
+  activeFlow = null;
+  layerFlow.selectAll('*').remove();
+
+  const connected = new Set([d.id]);
+  linkData.forEach(l => {
+    const s = typeof l.source==='object' ? l.source.id : l.source;
+    const t = typeof l.target==='object' ? l.target.id : l.target;
+    if(s===d.id) connected.add(t);
+    if(t===d.id) connected.add(s);
+  });
+  // Always include Orchestrator as hub
+  connected.add(0);
+
+  nodeEls.classed('dimmed', n => !connected.has(n.id));
+  spawnEls.classed('dimmed', l => {
+    const s = typeof l.source==='object' ? l.source.id : l.source;
+    const t = typeof l.target==='object' ? l.target.id : l.target;
+    return !connected.has(s) || !connected.has(t);
+  });
+  saraEl.classed('dimmed', !connected.has(22) && !connected.has(0));
+}
+
+function activateFlow(fi) {
+  clearFlowCards();
+  activeFlow = fi;
+  document.querySelectorAll('.flow-card')[fi].classList.add('active');
+
+  const allStepIds = new Set([...flows[fi].seq.flat(), 0]);
+  nodeEls.classed('dimmed', d => !allStepIds.has(d.id));
+  spawnEls.classed('dimmed', l => {
+    const s = typeof l.source==='object' ? l.source.id : l.source;
+    const t = typeof l.target==='object' ? l.target.id : l.target;
+    return !allStepIds.has(s) || !allStepIds.has(t);
+  });
+  saraEl.classed('dimmed', false);
+  drawFlowOverlay(fi);
+}
+
+function reset() {
+  clearFlowCards();
+  activeFlow = null;
+  layerFlow.selectAll('*').remove();
+  nodeEls.classed('dimmed', false);
+  spawnEls.classed('dimmed', false);
+  saraEl.classed('dimmed', false);
+}
+
+function clearFlowCards() {
+  document.querySelectorAll('.flow-card').forEach(c => c.classList.remove('active'));
+}
+
+// ── TOOLTIP ──────────────────────────────────────────────
+
+const llmNames = {
+  [C.opus]:   'Opus 4 (fixed)',
+  [C.dual]:   'Dual Mode',
+  [C.sonnet]: 'Sonnet 4',
+  [C.haiku]:  'Haiku 4.5',
+  [C.human]:  'Umana',
+};
+
+const spawnsMap = {};
+const spawnedByMap = {};
+agents.forEach(a => { spawnsMap[a.id]=[]; spawnedByMap[a.id]=[]; });
+spawnRaw.forEach(([s,t]) => {
+  spawnsMap[s].push(t);
+  spawnedByMap[t].push(s);
+});
+
+function showTip(e, d) {
+  const spawns = spawnsMap[d.id].map(id=>agentById[id].name).join(', ') || '—';
+  const by = spawnedByMap[d.id].map(id=>agentById[id].name).join(', ');
+  const spawnedBy = d.id===22 ? '—' : (by ? `Orchestrator, ${by}` : 'Orchestrator');
+  const tip = document.getElementById('tip');
+  const execModes = { P:'Precision', B:'Balanced', C:'Creative' };
+  tip.innerHTML = `
+    <div class="t-name">${d.name}</div>
+    <div class="t-role">${d.role}</div>
+    <span class="t-pill" style="background:${d.c}18;color:${d.c};border:1px solid ${d.c}30">${llmNames[d.c]}</span>
+    ${d.exec ? `<span class="t-pill" style="background:${EXEC_BG[d.exec]};color:${EXEC_COLOR[d.exec]};margin-left:4px;border:none">${execModes[d.exec]}</span>` : ''}
+    <div class="t-rows">
+      <strong>Spawna</strong>${spawns}
+      <strong>Spawnato da</strong>${spawnedBy}
+    </div>
+  `;
+  tip.style.display = 'block';
+  tip.style.left = (e.clientX+14)+'px';
+  tip.style.top  = (e.clientY-8)+'px';
+}
+</script>
+</body>
+</html>
