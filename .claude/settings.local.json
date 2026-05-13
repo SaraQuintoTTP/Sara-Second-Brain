@@ -131,7 +131,29 @@
       "PowerShell(Test-Path *)",
       "Bash([ -L \"/c/Users/saraq/.claude/skills/$skill\" ])",
       "Bash([ ! -L \"/c/Users/saraq/.claude/skills/$skill\" ])",
-      "Bash(dir *)"
+      "Bash(dir *)",
+      "WebFetch(domain:skills.sh)",
+      "Bash(rtk npx *)",
+      "Bash(where npx *)",
+      "Bash(findstr skills *)",
+      "Bash(skills add *)",
+      "Bash(Test-Path *)",
+      "Bash(rtk --version)",
+      "Bash(rtk gain *)",
+      "Bash(rtk update *)",
+      "Bash(rtk upgrade *)",
+      "Bash(rtk self-update *)",
+      "Bash(python -c \"import json,sys; print\\(json.load\\(sys.stdin\\)['body']\\)\")",
+      "Bash(cd /tmp)",
+      "Bash(unzip -o rtk-x86_64-pc-windows-msvc.zip -d rtk-update)",
+      "Bash(cp /c/Users/saraq/.local/bin/rtk /c/Users/saraq/.local/bin/rtk.bak.0.37.2)",
+      "Bash(cp /tmp/rtk-update/rtk.exe /c/Users/saraq/.local/bin/rtk)",
+      "Bash(npm outdated *)",
+      "Bash(rm -f /tmp/rtk-x86_64-pc-windows-msvc.zip)",
+      "Bash(rm -rf /tmp/rtk-update)",
+      "Bash(winget list *)",
+      "Bash(rtk wc *)",
+      "Bash(uipro *)"
     ]
   }
 }
