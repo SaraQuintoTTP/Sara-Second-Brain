@@ -566,26 +566,18 @@ Competencies derived from books, courses, and methodologies are organized in ind
 
 ### 11.2 Quick Reference Format (Tier A)
 
-```markdown
-# [FRAMEWORK NAME] — Quick Reference
-## Source: [Author, Book/Course, Year]
-## When to use: [1 sentence — activation trigger]
+**Current standard: Quickref Protocol v1.1** → `/operations/procedure/quickref_protocol.md`
 
-## OPERATIVE RECIPE
-1. [Step 1 — what to do concretely]
-2. [Step 2]
-3. [Step N]
+The protocol defines 7 mandatory criteria and First Principles Thinking (FPT) method for PMI adaptation. All new quickrefs must comply. Artisan reads the protocol before creating or revising any quickref.
 
-## EXPECTED OUTPUT
-[What it produces: table, map, document, scorecard — with format]
-
-## QUICK EXAMPLE (Italian SME)
-[3-5 lines — concrete application example]
-
-## CROSS-REFERENCE
-- Deep Knowledge: /skills/knowledge/[cat]/[author]-[concept]-deep.md
-- Related frameworks: [name list]
-```
+Key requirements (see protocol for full detail):
+- YAML frontmatter with `framework`, `author`, `type`, `category`, `status`
+- `## When to use` with session time estimate
+- FPT section: original assumptions → PMI constraints → TTP-native reconstruction (marked as TTP corollario)
+- Ranked Pains/Gains or equivalent operational triage
+- 2 Quick Examples with contrasting PMI profiles + GO/NO-GO indicators
+- `## CROSS-REFERENCE` with ≥4 links
+- No unverifiable performance benchmarks
 
 ### 11.3 Deep Knowledge Format (Tier B)
 
@@ -621,7 +613,7 @@ Competencies derived from books, courses, and methodologies are organized in ind
 
 | Agent | Assigned Quick References | Available Deep Knowledge |
 |-------|--------------------------|--------------------------|
-| Strategist | collins-hedgehog, deveglia-positioning, christensen-jtbd, lafley-playing-to-win, rackham-spin, schwartz-awareness | collins-hedgehog, deveglia-positioning, christensen-jtbd, rackham-spin |
+| Strategist | sportelli-connection-funnel, osterwalder-vpc, deveglia-positioning, christensen-jtbd, rackham-spin, schwartz-awareness, hormozi-offers | maurya-lean-canvas, collins-hedgehog, deveglia-positioning, christensen-jtbd, rackham-spin, lafley-playing-to-win |
 | Explorer | porter-5forces, pestel, battlecard | porter-5forces, swot, aarrr |
 | Architect | deveglia-positioning, staircase-of-value | — |
 | Voice | aida, pas, miller-storybrand, schwartz-awareness | miller-storybrand, schwartz-awareness |

@@ -1,5 +1,5 @@
 # TASK LIST — TTP Agency
-## Last updated: 2026-05-09
+## Last updated: 2026-05-19
 
 ### ACTIVE TASKS
 
@@ -47,9 +47,11 @@
 | messy-middle-b2c-deep.md | ✅ COMPLETED (new) | 2026-04-24 | /skills/knowledge/marketing/messy-middle-b2c-deep.md (284 lines) |
 | b2b-buying-journey-quickref.md | ✅ COMPLETED (new) | 2026-04-24 | /skills/knowledge/marketing/b2b-buying-journey-quickref.md (120 lines) |
 | b2b-buying-journey-deep.md | ✅ COMPLETED (new, with Italian context + SMB variant) | 2026-04-24 | /skills/knowledge/marketing/b2b-buying-journey-deep.md (345 lines) |
-| pas-quickref.md | PENDING | — | — |
-| maurya-lean-canvas-quickref.md | PENDING | — | — |
-| deveglia-positioning-quickref.md | PENDING | — | — |
+| pas-quickref.md | ✅ COMPLETED | 2026-05-18 | /skills/knowledge/marketing/pas-quickref.md (~80 lines) |
+| maurya-lean-canvas-quickref.md | ✅ COMPLETED (v2 — scope ristretto new initiatives) | 2026-05-18 | /skills/knowledge/strategy/maurya-lean-canvas-quickref.md |
+| osterwalder-vpc-quickref.md | ✅ COMPLETED v2 (nuovo — diagnostica PMI, triage 4 scenari) | 2026-05-18 | /skills/knowledge/strategy/osterwalder-vpc-quickref.md |
+| System coherence audit + 6 gap fix | ✅ COMPLETED | 2026-05-18 | Strategist SKILL.md (VPC+LeanCanvas), pas-quickref.md (VPC xref), Operative Doc Section 11.2 (→ quickref_protocol v1.1) + 11.4 (matrix allineata) |
+| deveglia-positioning-quickref.md | ✅ COMPLETED | 2026-05-19 | /skills/knowledge/strategy/deveglia-positioning-quickref.md (Brand Positioning Formula, 4 step, BPS formula, 3 idee differenzianti, 2 test validità, TTP sequenza obbligatoria VPC→JTBD→De Veglia) |
 | christensen-jtbd-quickref.md | PENDING | — | — |
 | christensen-jtbd-deep.md | PENDING | — | — |
 | miller-storybrand-quickref.md | PENDING | — | — |
