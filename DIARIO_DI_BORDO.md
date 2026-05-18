@@ -1,10 +1,10 @@
 # DIARIO DI BORDO — Costruzione TTP AI Agency v5.0
 
 ## Stato attuale
-- **Fase:** Sessione manutenzione — Popolamento Knowledge Skills (T016) — ~50% completato
-- **Ultimo aggiornamento:** 2026-04-24
-- **Completato:** Sprint 0 ✓ + Sprint 1 ✓ + Popolamento priorità Knowledge Skills (5 quickref + 2 deep completate — 2026-04-24)
-- **Prossimo step:** Completare T016 (quickref restanti: pas, lean canvas, positioning, jtbd, storybrand, hedgehog, pestel + 3 deep mancanti) + Priorità 3 (SKILL.md Orchestrator decision)
+- **Fase:** Sessione manutenzione — Popolamento Knowledge Skills (T016) — ~73% completato
+- **Ultimo aggiornamento:** 2026-05-19
+- **Completato:** Sprint 0 ✓ + Sprint 1 ✓ + T019 (17 marketing skills Global Arsenal) ✓ + T016 Knowledge Skills: 11/~15 file attivi (2026-05-19)
+- **Prossimo step:** Completare T016 (christensen-jtbd quickref+deep → miller-storybrand → collins-hedgehog → pestel → porter-5forces-deep) → T021 (9 SKILL.md Sprint 2) → T022 (wonda-cli auth produzione)
 - **Blocchi:** Nessuno
 
 ---
@@ -24,10 +24,11 @@
 - [x] **G) Pulizia root** — Rimossi 3 file duplicati (CLAUDE_TTP_Agency.md, TTP_Agency_Operative, Architecture)
 - [x] **H) .gitignore** — Creato per secrets, OS files, IDE folders
 
-### Sessione dedicata — Popolamento Knowledge Skills (da pianificare)
-- [ ] Popolare le 48 Quick Reference e Deep Knowledge con contenuti reali
-- [ ] Priorita': framework usati da piu' agenti (SWOT, Porter, AIDA, PAS, Lean Canvas)
-- [ ] I corsi di Sara (Aliotta, Abate) richiedono i suoi materiali/appunti
+### Sessione dedicata — Popolamento Knowledge Skills (T016 — IN CORSO)
+- [x] Quickref prioritarie: 11/~15 completate (SWOT, Porter 5F, AIDA†, Messy Middle B2C+deep, B2B Journey+deep, PAS, Lean Canvas, VPC, De Veglia) — vedi progress log task_list.md
+- [ ] Quickref restanti: christensen-jtbd (quickref+deep), miller-storybrand (quickref+deep), collins-hedgehog (quickref+deep), pestel, porter-5forces-deep
+- [ ] I corsi di Sara (Aliotta, Abate) — richiedono materiali/appunti di Sara
+- [ ] 98+ epub Drive (cartella "epub Business e Marketing") — pipeline Knowledge Processing, Priorità 4 dopo T016
 
 ### Sprint 1 — Core strategico
 - [x] SKILL.md Orchestrator (SKILL.md + PROTOCOLS.md — architettura a 2 file)
@@ -71,6 +72,10 @@
 | 2026-04-24 | AIDA deprecato (Opzione A2) | /skills/knowledge/marketing/aida-quickref.md ridotto a 31 righe come riferimento storico (status: historical_reference). Motivazione: framework 1898, superato da evidenza empirica Google 2020 + Gartner/Forrester 2024-2025. Uso residuo ammesso come ponte didattico con cliente. |
 | 2026-04-24 | Messy Middle B2C — quickref + deep | Creati 2 file in /skills/knowledge/marketing/. Quickref (94 righe): 5 componenti (Trigger → Exploration ↔ Evaluation → Purchase → Experience) + 6 bias cognitivi Google + attention economy + flywheel + 2 esempi PMI (caseificio Asiago + brand outdoor). Deep (284 righe): fonti estese, 4 approfondimenti (Attention, ZMOT, Flywheel/Community McKinsey, Paid Loyalty), Complete Applied Example (detergenti eco €7M). |
 | 2026-04-24 | B2B Buying Journey — quickref + deep | Creati 2 file in /skills/knowledge/marketing/. Quickref (120 righe — saturo): buying committee 6-13 ruoli, 6 jobs Gartner, dark funnel (G2/community/LLM), 5 framework combinati (ABM, Intent Data, Challenger, JOLT, Revenue Waterfall), 2 esempi (SaaS commesse + macchinari packaging). Deep (345 righe): 15 sezioni, Challenger + JOLT applicati, Adattamento contesto B2B italiano (8 punti: distretti, agenti, relazioni lunghe, fiere, commercialisti, pagamenti, preventivo, LLM italiano), variante SMB italiano transazionale <€5k ACV. |
+| 2026-05-09 | T019 — Installazione 17 marketing skills (Global Arsenal) | Analisi comparativa coreyhaines31/marketingskills (27K stars, 41 skills) vs installazione corrente. Identificate 18 skills mancanti, installate 17: ab-test-setup, ai-seo, aso-audit, brainstorming, competitor-alternatives, content-creator, copy-editing, directory-submissions, email-systems, form-cro, free-tool-strategy, geo-fundamentals, launch-strategy, marketing-ideas, marketing-psychology, referral-program, viral-generator-builder. Audit sistema: 18/18 symlink intatti, 0 ridondanze. Fix critico: `app-store-optimization` → `aso-audit` in Operative Doc Section 18.2. |
+| 2026-05-10 | wonda-cli integrata nel sistema agentico | Installata Wondercat wonda-cli (media production CLI). Verifica sicurezza approfondita: legittima, Snyk High Risk = false positive per automazione social. Creata categoria "Media Production" in Section 18.2 Operative Doc. Assegnata a Editor (primary) + Explorer (secondary research). T021 e T022 aggiunti al task_list (9 SKILL.md Sprint 2 + wonda-cli auth produzione). |
+| 2026-05-18 | pas-quickref.md + maurya-lean-canvas-quickref.md (v2) + osterwalder-vpc-quickref.md | PAS: Problem–Agitate–Solution con adattamento FPT PMI. Lean Canvas v2: scope ristretto a startup/nuove iniziative (confine netto con VPC). VPC: nuovo — diagnostica PMI esistenti, triage 4 scenari (A=mismatch offerta, B=comunicazione rotta, C=non ti trovano, D=competitor), sequenza 90 min. Audit coerenza sistema + 6 gap fix: Strategist SKILL.md, Operative Doc Sections 11.2 (quickref_protocol v1.1) e 11.4 (matrix allineata). |
+| 2026-05-19 | deveglia-positioning-quickref.md (Brand Positioning Formula) | Studio completo libro *Zero Concorrenti* (De Veglia, 2017) — 8 capitoli + 13 casi studio italiani + intervista Trout. Analisi comparativa vs April Dunford, Ries & Trout: De Veglia scelto (unico framework italiano nativo, endorsement Trout, applicabile micro-PMI senza marketing team). Dichiarata sequenza TTP obbligatoria: VPC → JTBD → De Veglia. Limite critico documentato: nessuna segmentazione cliente esplicita. dependency_graph.html aggiornato: nuova sezione Knowledge Skills con sequenza e status T016 (9 attivi/5 pending). |
 
 ---
 
@@ -89,6 +94,9 @@
 | D009 | 2026-04-24 | Aggiungere 2 quickref nuove (messy-middle-b2c + b2b-buying-journey) con deep | Lista Sprint 1 originale non copriva framework moderni | Tenere solo i 10 framework della lista originale |
 | D010 | 2026-04-24 | Autorizzato accesso Drive Sara per libreria "epub Business e Marketing" | Knowledge Processing pipeline futura (Priorità 4) su 98+ libri | Mantenere solo framework già identificati |
 | D011 | 2026-04-24 | Rigor verificabilità: ogni affermazione forte citata o dichiarata come estrapolazione TTP | Prevenire allucinazioni da sintesi fluida (caso Porter Core Thesis risolto con citazione Porter HBR 2008 + 80/20 Koch + Goldratt TOC) | Accettare attribuzioni imprecise nel testo |
+| D012 | 2026-05-09 | Installare 17 marketing skills da coreyhaines31/marketingskills (T019) | Audit rivelò 18 skills mancanti vs repo community da 27K stars; rapporto qualità/sforzo ottimo | Popolare manualmente ogni skill |
+| D013 | 2026-05-10 | Integrare wonda-cli come tool "Media Production" per Editor + Explorer | Verifica sicurezza positiva; Wondercat legittima. Apre produzione video/audio nei flussi TTP senza agente dedicato | Creare un 23esimo agente Media Producer |
+| D014 | 2026-05-19 | De Veglia Brand Positioning Formula adottato come quickref TTP; VPC → JTBD → De Veglia dichiarata sequenza obbligatoria | Unico framework italiano nativo, endorsement Jack Trout, 13 casi studio italiani, applicabile micro-PMI senza reparto marketing. Limite esplicito: nessuna segmentazione cliente → upstream VPC + JTBD obbligatori | April Dunford (EN-native, B2B tech focus) / Ries & Trout (manuale storico, nessun adattamento PMI) |
 
 ---
 
@@ -100,6 +108,7 @@
 | P002 | 2026-03-25 | Knowledge Skills: popolare subito vs placeholder + sessione dedicata | Sessione dedicata |
 | P003 | 2026-03-25 | Lingua sistema: EN infrastruttura + IT output (A) vs tutto IT (B) | A — convenzione bilingue |
 | P004 | 2026-03-25 | Art Director dedicato (A) vs scope visual assorbito dal Narrator (B) | B — niente Art Director, Narrator esteso |
+| P005 | 2026-05-19 | Quickref positioning: April Dunford (A) vs Ries & Trout (B) vs De Veglia (C) | C — De Veglia: unico framework italiano nativo con casi reali PMI, endorsement Trout, formula diretta per titolare senza marketing team |
 
 ---
 
