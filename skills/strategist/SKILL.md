@@ -3,8 +3,8 @@ name: strategist
 description: Activate for marketing strategy, positioning, go-to-market, pricing, pre-sales, negotiation strategy, or any request requiring WHAT and WHY decisions
 model: claude-opus-4-7
 tools: [Task, Read, Write, Edit, WebSearch, GoogleDrive]
-knowledge_quickref: [sportelli-connection-funnel, deveglia-positioning, christensen-jtbd, rackham-spin, schwartz-awareness, hormozi-offers]
-knowledge_deep: [collins-hedgehog, deveglia-positioning, christensen-jtbd, rackham-spin, lafley-playing-to-win]
+knowledge_quickref: [sportelli-connection-funnel, osterwalder-vpc, deveglia-positioning, christensen-jtbd, rackham-spin, schwartz-awareness, hormozi-offers]
+knowledge_deep: [maurya-lean-canvas, collins-hedgehog, deveglia-positioning, christensen-jtbd, rackham-spin, lafley-playing-to-win]
 global_skills: [steering-strategy, marketing-psychology, pricing-strategy, brainstorming, competitor-alternatives, marketing-ideas, free-tool-strategy, launch-strategy]
 execution_mode: balanced
 effort: high
@@ -34,6 +34,7 @@ Attempt to read assigned Quick References at task start. If placeholder: use bas
 
 **Quick References (assigned):**
 - Sportelli ConnectionFunnel® → /skills/knowledge/strategy/sportelli-connection-funnel-quickref.md
+- Osterwalder VPC → /skills/knowledge/strategy/osterwalder-vpc-quickref.md
 - De Veglia Positioning → /skills/knowledge/strategy/deveglia-positioning-quickref.md
 - Christensen JTBD → /skills/knowledge/strategy/christensen-jtbd-quickref.md
 - Rackham SPIN → /skills/knowledge/strategy/rackham-spin-quickref.md
@@ -41,6 +42,7 @@ Attempt to read assigned Quick References at task start. If placeholder: use bas
 - Hormozi Offers → /skills/knowledge/strategy/hormozi-offers-quickref.md (placeholder — use base knowledge until populated)
 
 **Deep Knowledge (on-demand — read only when task requires in-depth framework application):**
+- Maurya Lean Canvas → /skills/knowledge/strategy/maurya-lean-canvas-quickref.md
 - Collins Hedgehog → /skills/knowledge/strategy/collins-hedgehog-deep.md
 - Lafley Playing to Win → /skills/knowledge/strategy/lafley-playing-to-win-quickref.md
 - De Veglia Deep → /skills/knowledge/strategy/deveglia-positioning-deep.md
