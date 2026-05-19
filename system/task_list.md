@@ -36,7 +36,7 @@
 ### T016 — PROGRESS LOG (Knowledge Skills — priority subset)
 
 **Started**: 2026-04-24
-**Status**: IN_PROGRESS (5/~15 files completed)
+**Status**: IN_PROGRESS (13/~15 files completed)
 
 | Sub-task | Status | Date | File(s) |
 |----------|--------|------|---------|
@@ -52,8 +52,8 @@
 | osterwalder-vpc-quickref.md | ✅ COMPLETED v2 (nuovo — diagnostica PMI, triage 4 scenari) | 2026-05-18 | /skills/knowledge/strategy/osterwalder-vpc-quickref.md |
 | System coherence audit + 6 gap fix | ✅ COMPLETED | 2026-05-18 | Strategist SKILL.md (VPC+LeanCanvas), pas-quickref.md (VPC xref), Operative Doc Section 11.2 (→ quickref_protocol v1.1) + 11.4 (matrix allineata) |
 | deveglia-positioning-quickref.md | ✅ COMPLETED | 2026-05-19 | /skills/knowledge/strategy/deveglia-positioning-quickref.md (Brand Positioning Formula, 4 step, BPS formula, 3 idee differenzianti, 2 test validità, TTP sequenza obbligatoria VPC→JTBD→De Veglia) |
-| christensen-jtbd-quickref.md | PENDING | — | — |
-| christensen-jtbd-deep.md | PENDING | — | — |
+| christensen-jtbd-quickref.md | ✅ COMPLETED v3 | 2026-05-19 | /skills/knowledge/strategy/christensen-jtbd-quickref.md (123 lines — 3 tipi job + gerarchia messaggio, Big Hire/Little Hire + Firing (4ª domanda FPT), Job Statement + test anti-circolare, 4 Forze diagramma, ponte VPC→JTBD, sessione con diagnosi Big/Little Hire, example studio legale completo) |
+| christensen-jtbd-deep.md | ✅ COMPLETED | 2026-05-19 | /skills/knowledge/strategy/christensen-jtbd-deep.md (272 lines — Switch Interview Bob Moesta 5 momenti, Christensen vs Ulwick comparison, Job Map Ulwick 8 fasi, 4 Forze phrase recognition, Big/Little Hire design separato, firing prevention + switch interview invertita, ODI semplificato PMI, 3 pattern italiani, 5 errori sistemici) |
 | miller-storybrand-quickref.md | PENDING | — | — |
 | miller-storybrand-deep.md | PENDING | — | — |
 | collins-hedgehog-quickref.md | PENDING | — | — |
