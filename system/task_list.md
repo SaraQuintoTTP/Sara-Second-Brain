@@ -4,6 +4,11 @@
 ### ACTIVE TASKS
 
 | ID | Task | Assigned to | Priority | Status | Dependencies | Deadline | Notes |
+| T023 | BRUTO business analysis: mercato, VPC, JTBD, rischi, consumer testing methodology | Strategist | HIGH | COMPLETED | — | 2026-05-20 | 746 righe — clients/test_dog_food/projects/bruto_analysis/findings/strategist_business_analysis.md |
+| T024 | Benchmarking internazionale: competitor "punk/raw/istinto" pet food in EU/US | Explorer | HIGH | COMPLETED | — | 2026-05-20 | 378 righe — explorer_competitor_benchmark.md |
+| T025 | Unit economics DTC petfood italiano: COGS, pricing, LTV/CAC, break-even | Calculator | HIGH | COMPLETED | — | 2026-05-20 | 442 righe — calculator_unit_economics.md |
+| T026 | Devil's advocate: challenge analisi strategica BRUTO | Sparring Partner | HIGH | COMPLETED | T023 | 2026-05-20 | sparring_challenge.md |
+| T027 | God Mode scorecard: review finale analisi BRUTO | God Mode | HIGH | COMPLETED | T023-T026 | 2026-05-20 | god_mode_scorecard.md — Confidenza 45-55%, The One Thing: consumer test nome+tagline €500-650 |
 |----|------|-------------|----------|--------|--------------|----------|-------|
 | T014 | Test hub-and-spoke flow | Orchestrator | HIGH | PENDING | T011-T013 | — | Sprint 1 completion |
 | T015 | Populate all 48 Knowledge Skills | Artisan | MEDIUM | SUPERSEDED_BY_T016 | — | — | Replaced by T016 (priority subset) |
