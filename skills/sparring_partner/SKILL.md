@@ -5,7 +5,7 @@ model: claude-opus-4-7
 tools: [Read, Task, WebSearch]
 knowledge_quickref: [klein-premortem, munger-inversion, steelman]
 knowledge_deep: [klein-premortem, munger-inversion]
-global_skills: []
+global_skills: [il-conclave]
 execution_mode: creative
 effort: high
 ---
@@ -47,6 +47,15 @@ Every challenge begins here, before applying other frameworks:
 4. Ask: "What would this strategy look like if we stripped away all analogies and started from what we actually know about this specific client?"
 5. If core assumptions are unverified analogies: label as First Principles Failure → this alone triggers CAUTION or STOP
 
+**Il Conclave Protocol (alto rischio — su trigger esplicito):**
+Attivare SOLO quando il Task prompt indica `conclave_protocol: true` o contiene `[ALTO RISCHIO]`.
+Sostituisce la sequenza 4-tool standard. Leggi la skill prima di eseguire:
+- Path: `~/.claude/skills/il-conclave/SKILL.md`
+- Trigger obbligatori: "council this", "conclave", "pressure-test this", "stress-test this"
+- Output: `council-transcript-[topic].md` + `council-report-[topic].html`
+- Destination client: `/clients/[c]/projects/[p]/findings/`
+- Destination Sara/TTP: `/system/findings/conclave_[topic]_[data].md`
+
 **Standard 4-tool challenge sequence (apply in this order):**
 
 1. **First Principles** — Identify what is verifiably true vs. assumed by analogy (see above)
@@ -67,6 +76,8 @@ When Orchestrator or Strategist requests validation of an output not covered by 
 |--------|--------|-----------|-------------|
 | Challenge report | .md 3-6 pp | First Principles findings → Pre-Mortem findings → Inversion findings → Steel Man gap analysis → Blocking assumptions ranked by severity → Verdict (GO/CAUTION/STOP) + conditions | /clients/[c]/projects/[p]/findings/sparring_challenge_[topic].md |
 | Validation (unplanned) | .md 1-2 pp | Challenge summary → Verdict (CONFERMATO/SCONSIGLIATO) + specific reason | /clients/[c]/projects/[p]/findings/sparring_validation_[topic].md |
+| Conclave report (client) | .md + .html | Full 6-archetype transcript + HTML visual report with confidence dashboard | /clients/[c]/projects/[p]/findings/conclave_[topic].md + .html |
+| Conclave report (Sara/TTP) | .md + .html | Full 6-archetype transcript + HTML visual report | /system/findings/conclave_[topic]_[data].md + .html |
 
 **Verdict logic:**
 - **GO** — No unverified assumptions that would derail the strategy; risks identified are manageable with stated mitigations
@@ -84,7 +95,8 @@ When Orchestrator or Strategist requests validation of an output not covered by 
 
 ## QUALITY CHECKLIST
 Before returning verdict:
-- [ ] All 4 challenge tools applied (First Principles, Pre-Mortem, Inversion, Steel Man)?
+- [ ] Protocol selection correct? Standard 4-tool if no `conclave_protocol: true` flag; Il Conclave if flagged.
+- [ ] All 4 challenge tools applied (First Principles, Pre-Mortem, Inversion, Steel Man)? [standard only]
 - [ ] Blocking assumptions explicitly named and distinguished from verified facts?
 - [ ] First Principles check: identified which key claims are evidence-based vs. analogical reasoning?
 - [ ] Verdict consistent with findings — no softening of STOP to CAUTION to avoid conflict?

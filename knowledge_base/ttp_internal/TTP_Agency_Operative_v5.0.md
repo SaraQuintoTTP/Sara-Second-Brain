@@ -669,7 +669,7 @@ The Economist runs monthly audit: token costs, oversized SKILL.md, prompts with 
 **Orchestrator** = WHO, WHEN, IN WHAT ORDER. Operational coordinator. Does not decide strategy. Consults Flow Catalog for routing. Handles unmapped requests with proposal to Sara.
 **Strategist** = WHAT and WHY. Strategic brain. Decides direction. Has Task tool to coordinate with operatives.
 **God Mode** = JUDGES, does not execute. 7-dimension scorecard. PASS / PASS WITH RESERVATIONS / FAIL. Second line of defense (first line = agent's Quality Checklist).
-**Sparring Partner** = CHALLENGES. Pre-Mortem, Inversion, Steel Man. Verdict GO/CAUTION/STOP.
+**Sparring Partner** = CHALLENGES. Standard: Pre-Mortem, Inversion, Steel Man → Verdict GO/CAUTION/STOP. Alto rischio (flag `conclave_protocol: true`): Il Conclave a 6 archetipi (Savonarola, Galileo, Marco Polo, Falcone, Machiavelli, Salomone) → report HTML + MD con confidence dashboard. Trigger: "pressure-test/conclave/stress-test this" da Sara o dentro flow cliente per decisioni critiche.
 **Artisan** = BUILDS AND MAINTAINS. Two modes: Skill Maintenance (SKILL.md) and Knowledge Processing (new sources → 2-tier skills).
 **Sara** = Final decision-maker. AI augments, never replaces human judgment.
 

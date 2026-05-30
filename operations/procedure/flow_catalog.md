@@ -16,6 +16,17 @@
 
 ---
 
+## TRIGGER SPECIALI — GESTITI DIRETTAMENTE DALL'ORCHESTRATORE
+
+I seguenti trigger non attivano un flow completo ma hanno una gestione predefinita.
+L'Orchestratore li esegue in autonomia senza chiedere a Sara.
+
+| Trigger | Agente | Protocol flag | Output path | Contesto |
+|---------|--------|---------------|-------------|----------|
+| "pressure-test this:", "conclave:", "stress-test this:", "debate questo:", "council this:" + [decisione] | Sparring Partner | `conclave_protocol: true` | `/system/findings/conclave_[topic]_[data].md` (Sara/TTP) o `/clients/[c]/projects/[p]/findings/` (client) | Attiva Il Conclave a 6 archetipi. Usa per decisioni ad alto stake. NON per task operative. |
+
+---
+
 ## UNMAPPED REQUEST PROTOCOL
 
 When Sara's request does not match any flow:
