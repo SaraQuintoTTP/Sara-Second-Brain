@@ -1,10 +1,10 @@
 # DIARIO DI BORDO — Costruzione TTP AI Agency v5.0
 
 ## Stato attuale
-- **Fase:** Sessione manutenzione — Popolamento Knowledge Skills (T016) — ~73% completato
-- **Ultimo aggiornamento:** 2026-05-19
-- **Completato:** Sprint 0 ✓ + Sprint 1 ✓ + T019 (17 marketing skills Global Arsenal) ✓ + T016 Knowledge Skills: 11/~15 file attivi (2026-05-19)
-- **Prossimo step:** Completare T016 (christensen-jtbd quickref+deep → miller-storybrand → collins-hedgehog → pestel → porter-5forces-deep) → T021 (9 SKILL.md Sprint 2) → T022 (wonda-cli auth produzione)
+- **Fase:** Sessione manutenzione — Integrazione Il Conclave + audit sistema completato
+- **Ultimo aggiornamento:** 2026-06-03
+- **Completato:** Sprint 0 ✓ + Sprint 1 ✓ + T019 ✓ + T016 Knowledge Skills: 11/~15 file attivi + integrazione Il Conclave (D015) ✓
+- **Prossimo step:** Riprendere T016 (miller-storybrand → collins-hedgehog → pestel → porter-5forces-deep) → T021 (9 SKILL.md Sprint 2) → T022 (wonda-cli auth produzione)
 - **Blocchi:** Nessuno
 
 ---
@@ -49,6 +49,7 @@
 
 | Data | Cosa | Note |
 |------|------|------|
+| 2026-06-03 | Integrazione Il Conclave nel sistema TTP (D015) | Ricercata skill "il consiglio" (Ole Lehmann, non trovata). Installata `SOsintOps/il-conclave`: LLM council a 6 archetipi (Savonarola, Galileo, Marco Polo, Falcone, Machiavelli, Salomone). Sparring Partner aggiornato: dual-mode — standard 4-tool per challenge ordinari, Il Conclave per decisioni ad alto stake (flag `conclave_protocol: true`). Audit sistema (workflow 7 agenti): 9 gap totali identificati e tutti risolti. File toccati: Sparring Partner SKILL.md, Orchestrator SKILL.md, God Mode SKILL.md, flow_catalog.md, Operative Doc (2 sezioni), session.md, decisions_log.md, il-conclave-quickref.md (nuovo), DIARIO_DI_BORDO. |
 | 2026-03-25 | Lettura e analisi completa dei 4 file di progetto | Quadro completo acquisito |
 | 2026-03-25 | Creazione DIARIO_DI_BORDO.md | Richiesto da Sara per tracciabilita' tra sessioni |
 | 2026-03-25 | Sprint 0A — Struttura directory | 15+ cartelle create, CLAUDE.md posizionato, doc copiati, file di sistema inizializzati |

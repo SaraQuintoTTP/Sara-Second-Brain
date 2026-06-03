@@ -138,7 +138,7 @@ Every project generates a structured folder for full traceability:
 | 18 | Economist | Token Optimizer | Sonnet 4 | Read, Write, Bash, Task | context-window-management, prompt-caching |
 | 19 | Maintainer | Infrastructure & KB Maintainer | Sonnet 4 | Read/Write/Edit, Glob/Grep, Bash, GDrive | file-organizer |
 | 20 | Mentor | Business Coach & Growth Advisor | **Dual** (Opus coaching, Sonnet action plan) | Read/Write/Edit, Task | — |
-| 21 | **Sparring Partner** | Strategic Challenger | **Opus 4 fixed** | Read, Task, WebSearch | — |
+| 21 | **Sparring Partner** | Strategic Challenger | **Opus 4 fixed** | Read, Task, WebSearch | il-conclave (alto rischio) |
 
 **LLM Summary:** 4 fixed Opus (0,1,16,21) + 4 Dual-mode (3,5,9,20) + 13 Sonnet + 1 Haiku
 
@@ -932,5 +932,5 @@ or Sara's direction. To add/remove skills for an agent: task the Artisan with
 | Artisan | skill-creator, skill-developer, prompt-engineer, prompt-engineering, context-window-management, prompt-caching, claude-api |
 | Orchestrator | plan-writing, concise-planning, dispatching-parallel-agents, agent-manager-skill, executing-plans |
 | God Mode | — (no global skills assigned) |
-| Sparring Partner | — (no global skills assigned) |
+| Sparring Partner | il-conclave |
 | All other agents | To be assigned by Artisan when SKILL.md is created (Sprint 2+). **Note for Artisan:** for document generation use `pptx`, `docx`, `pdf`, `xlsx` (Anthropic official) — NOT the `-official` variants. Suggested: Narrator → `pptx`; Architect → `docx`, `pdf`; Calculator → `xlsx`; Web Tech → `seo-audit`, `seo-fundamentals`, `schema-markup`, `analytics-tracking`, `email-systems`, `geo-fundamentals`, `ai-seo`, `aso-audit`, `directory-submissions`; Explorer → `gathering-competitive-intelligence`, `competitor-alternatives`, `marketing-psychology`; Voice → `copywriting`, `copy-editing`, `email-sequence`, `email-systems`, `marketing-psychology`; Editor → `social-content`, `content-creator`, `geo-fundamentals`, `wonda-cli`, `viral-generator-builder`; Optimizer → `page-cro`, `form-cro`, `onboarding-cro`, `popup-cro`, `referral-program`; Measurer → `analytics-tracking`, `ab-test-setup` |

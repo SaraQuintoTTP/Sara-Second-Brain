@@ -105,6 +105,7 @@ Before issuing verdict:
 - **Receives tasks from:** Orchestrator only
 - **Can spawn:** none (no Task tool)
 - **Outputs feed:** Orchestrator (verdict + scorecard path), which either delivers to Sara or returns to the deliverable author with scorecard attached
+- **Note:** for strategically critical deliverables, the Orchestrator may activate the Sparring Partner (with `conclave_protocol: true`) in parallel or after the God Mode scorecard. God Mode does not interact directly with the Sparring Partner — both verdicts are synthesized by the Orchestrator.
 
 ---
 *God Mode TTP v5.0 — Core File*

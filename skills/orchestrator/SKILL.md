@@ -186,6 +186,7 @@ Before overwriting a file in /deliverables/ or FINAL_SUMMARY.md:
 | "website", "seo", "analytics", "automations", "email marketing", "funnel" | F08 — Web/Tech Operations | Web Tech + Optimizer + Measurer (+ Voice for copy) |
 | "new client", "client setup", "onboarding" | F09 — Client Onboarding | Admin → Explorer (initial research) |
 | "client said", "feedback on", "client objections", "revision after feedback" | F10 — Post-Deliverable Feedback | Strategist (evaluate if strategic change needed) → Deliverable owner → God Mode (if significant) |
+| "pressure-test this:", "conclave:", "stress-test this:", "debate questo:", "council this:" + [decisione] | TRIGGER SPECIALE — Il Conclave | Sparring Partner (`conclave_protocol: true`) — see section 6.2 |
 
 ### 6.2 Plan Enrichment Rules (applied AFTER flow selection)
 
@@ -216,6 +217,11 @@ After identifying the base flow, the Orchestrator checks if the project context 
 - When the plan includes email marketing or marketing automation, add Voice (email copywriting, nurturing sequences) and Web Tech (platform setup, automations, integrations).
 
 - When the plan includes video content, add Narrator (creative direction, storyboard, visual direction briefs) and Voice (scripts).
+
+**By risk level:**
+
+- When Sara uses a conclave trigger ("pressure-test this:", "conclave:", "stress-test this:", "debate questo:", "council this:") followed by a decision, spawn Sparring Partner with `conclave_protocol: true`. This activates Il Conclave (6-archetype full protocol) instead of the standard 4-tool sequence. Output path: `/system/findings/conclave_[topic]_[YYYYMMDD].md` for Sara/TTP decisions, `/clients/[c]/projects/[p]/findings/` for client decisions.
+- When a deliverable is strategically critical (product launch, pricing pivot, proposal >€20k, irreversible decision) and no Sparring Partner challenge has been run yet, propose activating Sparring Partner with `conclave_protocol: true` as an optional additional step before God Mode.
 
 **General rule:** These enrichments are Orchestrator suggestions, not obligations. They must be included in the proposal to Sara (section 11) with rationale. Sara can approve, modify, or exclude them.
 
@@ -336,7 +342,8 @@ CREATIVE → Voice, Editor, Narrator, Sparring Partner:
 7. output_path points to the project folder for project-related work.
 8. The "Recommended Additional Agents" section is optional in output — the agent fills it only if justified.
 9. Claude Code Skills line populated from agent's SKILL.md global_skills frontmatter. Omit entire line if list is empty. Never select skills from Section 18 of the Operative Document directly — that section is a reference for the Artisan, not a routing table for the Orchestrator.
-10. EXECUTION MODE section is ALWAYS present. Read `execution_mode` from agent SKILL.md frontmatter and paste the corresponding block. Default map: precision → God Mode, Explorer, Calculator, Legal, Accountant, Measurer, Admin, Director, Web Tech, Maintainer, Economist | balanced → Strategist, Architect, Optimizer, Trainer, Mentor, Artisan, Orchestrator | creative → Voice, Editor, Narrator, Sparring Partner. Override allowed per-task — add note "Override: [reason]" if used.
+10. EXECUTION MODE section is ALWAYS present.
+11. **To activate Il Conclave for Sparring Partner:** add `conclave_protocol: true` as the first line of the CONSTRAINTS section in the Task prompt. This flag tells the Sparring Partner to load `~/.claude/skills/il-conclave/SKILL.md` and run the full 6-archetype protocol instead of the standard 4-tool sequence. Read `execution_mode` from agent SKILL.md frontmatter and paste the corresponding block. Default map: precision → God Mode, Explorer, Calculator, Legal, Accountant, Measurer, Admin, Director, Web Tech, Maintainer, Economist | balanced → Strategist, Architect, Optimizer, Trainer, Mentor, Artisan, Orchestrator | creative → Voice, Editor, Narrator, Sparring Partner. Override allowed per-task — add note "Override: [reason]" if used.
 
 ---
 

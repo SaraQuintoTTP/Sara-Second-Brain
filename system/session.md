@@ -1,5 +1,15 @@
 # CURRENT SESSION — TTP Agency
-## Last updated: 2026-05-19
+## Last updated: 2026-06-03
+
+## Session progress (2026-06-03)
+- **Il Conclave integrato nel sistema** — Ricercata skill "il consiglio" (Ole Lehmann, non trovata pubblicamente). Trovata e installata skill equivalente: `SOsintOps/il-conclave` — LLM council a 6 archetipi con procedure analitiche strutturate.
+- `skills/sparring_partner/SKILL.md` aggiornato: `global_skills: [il-conclave]`, aggiunto Il Conclave Protocol (`conclave_protocol: true`), 2 nuovi output type (client + Sara/TTP), quality checklist aggiornata
+- `operations/procedure/flow_catalog.md`: aggiunta sezione TRIGGER SPECIALI con 5 trigger (pressure-test/conclave/stress-test/debate/council)
+- `knowledge_base/ttp_internal/TTP_Agency_Operative_v5.0.md`: riga KEY ROLES Sparring Partner aggiornata con dual-mode Il Conclave
+- `skills/orchestrator/SKILL.md`: section 6.1 trigger aggiunto, 6.2 enrichment rule "By risk level" aggiunta, note conclave_protocol: true in 8.1
+- `skills/knowledge/quality/il-conclave-quickref.md`: creata (quickref locale, fallback se global skill non disponibile)
+- Audit sistema completato (workflow 7 agenti): 4 gap critici e 5 gap minori identificati e tutti risolti in questa sessione
+- `system/decisions_log.md`: aggiunta D015
 
 - **Active project:** T023-T027 — Analisi business BRUTO (COMPLETATA 2026-05-20) | T016 — Knowledge Skills population (in corso)
 - **Last completed (2026-05-19):** `christensen-jtbd-deep.md` ✅ — JTBD Deep Knowledge (272 lines). Switch Interview Bob Moesta 5 momenti (First Thought → Passive Looking → Active Looking → Decision → Consuming) con domande per ogni momento. Christensen qualitativo vs Ulwick ODI comparison table. Job Map Ulwick 8 fasi con diagnostica PMI. 4 Forze: phrase recognition table + principio asimmetria + sequenza d'azione per forza. Big Hire / Little Hire come esperienze separate progettate. Firing prevention + switch interview invertita. ODI semplificato: importance-satisfaction survey + formula opportunità. 3 pattern italiani (Relazione job, Ansia competenza percepita, Trigger normativo). 5 errori sistemici.

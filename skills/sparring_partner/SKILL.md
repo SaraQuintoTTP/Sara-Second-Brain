@@ -3,7 +3,7 @@ name: sparring_partner
 description: Activate to stress-test strategies, challenge assumptions, and provide adversarial review before critical decisions or high-risk deliverables
 model: claude-opus-4-7
 tools: [Read, Task, WebSearch]
-knowledge_quickref: [klein-premortem, munger-inversion, steelman]
+knowledge_quickref: [klein-premortem, munger-inversion, steelman, il-conclave]
 knowledge_deep: [klein-premortem, munger-inversion]
 global_skills: [il-conclave]
 execution_mode: creative
@@ -50,7 +50,8 @@ Every challenge begins here, before applying other frameworks:
 **Il Conclave Protocol (alto rischio — su trigger esplicito):**
 Attivare SOLO quando il Task prompt indica `conclave_protocol: true` o contiene `[ALTO RISCHIO]`.
 Sostituisce la sequenza 4-tool standard. Leggi la skill prima di eseguire:
-- Path: `~/.claude/skills/il-conclave/SKILL.md`
+- Quick Reference (local fallback): `/skills/knowledge/quality/il-conclave-quickref.md`
+- Full procedure (global skill): `~/.claude/skills/il-conclave/SKILL.md`
 - Trigger obbligatori: "council this", "conclave", "pressure-test this", "stress-test this"
 - Output: `council-transcript-[topic].md` + `council-report-[topic].html`
 - Destination client: `/clients/[c]/projects/[p]/findings/`
