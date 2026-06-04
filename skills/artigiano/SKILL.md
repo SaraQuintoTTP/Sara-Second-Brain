@@ -93,6 +93,6 @@ Before returning output, verify:
 - [ ] In Mode 3: only PASS or PASS WITH RESERVATIONS verdicts processed (not FAIL)?
 
 ## RELATIONSHIPS
-- Receives tasks from: Orchestrator, Steward (Economo)
+- Receives tasks from: Orchestrator, Economist
 - Can spawn: none (no Task tool in production — used only for internal testing)
 - Outputs feed: all agents (via SKILL.md and Knowledge Skills)

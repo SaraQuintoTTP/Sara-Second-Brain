@@ -613,17 +613,19 @@ Key requirements (see protocol for full detail):
 
 | Agent | Assigned Quick References | Available Deep Knowledge |
 |-------|--------------------------|--------------------------|
-| Strategist | sportelli-connection-funnel, osterwalder-vpc, deveglia-positioning, christensen-jtbd, rackham-spin, schwartz-awareness, hormozi-offers | maurya-lean-canvas, collins-hedgehog, deveglia-positioning, christensen-jtbd, rackham-spin, lafley-playing-to-win |
-| Explorer | porter-5forces, pestel, battlecard | porter-5forces, swot, aarrr |
-| Architect | deveglia-positioning, staircase-of-value | — |
+| Strategist | sportelli-connection-funnel, osterwalder-vpc, deveglia-positioning, christensen-jtbd, rackham-spin, schwartz-awareness, hormozi-offers, gap-selling, sandler-pain-funnel | maurya-lean-canvas, collins-hedgehog, deveglia-positioning, christensen-jtbd, rackham-spin, lafley-playing-to-win |
+| Explorer | porter-5forces, pestel, battlecard | porter-5forces, swot, mcclure-aarrr |
+| Architect | deveglia-positioning, staircase-of-value, win-themes, shipley-proposal | — |
+| Web Tech | seo-audit, seo-fundamentals, schema-markup, programmatic-seo, geo-fundamentals, aeo-citation-workflow | seo-technical-audit |
+| Measurer | — | ppc-strategy, tracking-server-side, paid-social-strategy, paid-creative-strategy, paid-media-audit, search-query-analysis |
 | Voice | aida, pas, miller-storybrand, schwartz-awareness | miller-storybrand, schwartz-awareness |
 | Editor | content-pillars, schwartz-awareness | — |
 | Calculator | michalowicz-profit-first, staircase-of-value | michalowicz-profit-first |
 | Optimizer | mcclure-aarrr, deming-pdca | mcclure-aarrr |
 | God Mode | ttp-7dimensions, klein-premortem | klein-premortem, munger-inversion |
-| Sparring Partner | klein-premortem, munger-inversion, steelman | klein-premortem, munger-inversion |
+| Sparring Partner | klein-premortem, munger-inversion, steelman, il-conclave | klein-premortem, munger-inversion |
 | Mentor | gerber-emyth, michalowicz-pumpkin | gerber-emyth, michalowicz-pumpkin |
-| Orchestrator | allen-gtd, eisenhower, snowden-cynefin, raci | — |
+| Orchestrator | eisenhower, raci, snowden-cynefin, deming-pdca | — |
 
 **Note:** Matrix is indicative. The Artisan updates it when processing new sources or when an agent flags the need for an additional framework.
 

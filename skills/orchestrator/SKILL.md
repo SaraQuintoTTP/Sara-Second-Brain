@@ -594,4 +594,4 @@ Load that file with Read() when you need to apply one of these protocols:
 ---
 
 *Orchestrator TTP v5.0 — Core File*
-*Last updated: 25 March 2026*
+*Last updated: 2026-06-04*

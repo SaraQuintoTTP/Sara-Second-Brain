@@ -1,5 +1,5 @@
 # TASK LIST — TTP Agency
-## Last updated: 2026-05-19
+## Last updated: 2026-06-04 (T021 COMPLETED)
 
 ### ACTIVE TASKS
 
@@ -12,12 +12,14 @@
 |----|------|-------------|----------|--------|--------------|----------|-------|
 | T014 | Test hub-and-spoke flow | Orchestrator | HIGH | PENDING | T011-T013 | — | Sprint 1 completion |
 | T015 | Populate all 48 Knowledge Skills | Artisan | MEDIUM | SUPERSEDED_BY_T016 | — | — | Replaced by T016 (priority subset) |
-| T016 | Populate priority Knowledge Skills (10 quickref + 4 deep + moderni) | Artisan | HIGH | IN_PROGRESS | — | — | Sessione dedicata 2026-04-24. Include anche messy-middle-b2c + b2b-buying-journey (nuovi, non in lista originale — sostituiscono AIDA). Global Skills Arsenal: 17 nuove marketing skills installate 2026-05-09 da coreyhaines31/marketingskills (vedi T019) |
+| T016 | Populate priority Knowledge Skills (10 quickref + 4 deep + moderni) | Artisan | HIGH | COMPLETED | — | 2026-06-04 | Tutti i file pending ora esistono nel file system (audit 2026-06-04). miller-storybrand quickref+deep ✓, collins-hedgehog quickref+deep ✓, pestel-quickref ✓, porter-5forces-deep ✓ + molti altri creati in sessioni precedenti non tracciati. T016 chiuso. |
 | T017 | Knowledge Processing — libreria epub su Drive (Opzione C: triage + deep processing) | Artisan (Mode 2) | MEDIUM | PLANNED | T016 | — | 98+ epub in "epub Business e Marketing"; piano a 5 step documentato |
 | T018 | Decisione su SKILL.md Orchestrator (snellimento vs eccezione) | Orchestrator + Sara | LOW | PENDING | T016 | — | Priorità 3 briefing 2026-04-24, non ancora affrontata |
 | T020 | Decidere global_skills per God Mode e Sparring Partner | Orchestrator + Sara | MEDIUM | DEFERRED | T021 | Sprint 2 | Da sollevare PRIMA di creare i SKILL.md di God Mode e Sparring Partner. Opzioni: (a) skills di valutazione/sfida contestuale, (b) restano vuoti. Vedi memory project_ttp_system_evolution_deferred.md |
-| T021 | Creare SKILL.md per i 9 agenti mancanti (Sprint 2) | Artigiano | HIGH | PLANNED | — | Sprint 2 | Explorer, Voice, Editor, Optimizer, Measurer, Web Tech, Narrator, Architect, Calculator. global_skills per agent definiti in Section 18.3 Operative Doc (aggiornata 2026-05-10). Editor include wonda-cli. Ricordare T020 (God Mode + Sparring Partner) prima di procedere |
+| T021 | Creare SKILL.md per i 9 agenti mancanti (Sprint 2) | Artigiano | HIGH | COMPLETED | — | 2026-06-04 | Explorer, Voice, Editor, Optimizer, Measurer, Web Tech, Narrator, Architect, Calculator. Tutti creati in /skills/[agent]/SKILL.md. Measurer include 6 deep paid-media + MCP google-ads note. Architect include win-themes + shipley-proposal. Web Tech include aeo-citation-workflow. |
 | T022 | Installare wonda-cli tool + auth per produzione contenuti | Orchestrator + Sara | MEDIUM | PENDING | — | Sprint 2 | Prerequisito per usare wonda-cli in produzione: `npm i -g @degausai/wonda` + `wonda auth login` su macchina Sara. Richiede account Wondercat con crediti |
+| T028 | ⚠️ REMINDER: completare autenticazione Google Ads MCP | Sara | HIGH | PENDING | — | Prossima sessione | MCP mcp-google-ads v1.6.0 installato in ~/.claude.json. Mancano le credenziali: GOOGLE_ADS_DEVELOPER_TOKEN + GOOGLE_ADS_CLIENT_ID + GOOGLE_ADS_CLIENT_SECRET + GOOGLE_ADS_REFRESH_TOKEN. Esegui: (1) Google Cloud Console → abilita Google Ads API → crea OAuth credentials Desktop app; (2) richiedi Developer Token su ads.google.com → Tools → API Center; (3) esegui `mcp-google-ads-auth` in terminale. Poi dimmi le credenziali per aggiungerle alla config. |
+| T029 | Creare 6 Deep Knowledge paid-media (Phase 3) + aggiornare Operative Matrix | Artisan | HIGH | COMPLETED | — | 2026-06-04 | 6 file in /skills/knowledge/paid-media/: ppc-strategy-deep, tracking-server-side-deep, paid-social-strategy-deep, paid-creative-strategy-deep, paid-media-audit-deep, search-query-analysis-deep. Matrice aggiornata. |
 | T019 | Installazione 17 marketing skills da coreyhaines31/marketingskills | Orchestrator | HIGH | COMPLETED | — | 2026-05-09 | Skills: ab-test-setup, ai-seo, aso-audit, brainstorming, competitor-alternatives, content-creator, copy-editing, directory-submissions, email-systems, form-cro, free-tool-strategy, geo-fundamentals, launch-strategy, marketing-ideas, marketing-psychology, referral-program, viral-generator-builder |
 
 ### COMPLETED TASKS

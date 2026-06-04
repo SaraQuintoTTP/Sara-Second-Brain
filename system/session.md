@@ -1,67 +1,81 @@
 # CURRENT SESSION — TTP Agency
-## Last updated: 2026-06-03
+## Last updated: 2026-06-04
 
-## Session progress (2026-06-03)
-- **Il Conclave integrato nel sistema** — Ricercata skill "il consiglio" (Ole Lehmann, non trovata pubblicamente). Trovata e installata skill equivalente: `SOsintOps/il-conclave` — LLM council a 6 archetipi con procedure analitiche strutturate.
-- `skills/sparring_partner/SKILL.md` aggiornato: `global_skills: [il-conclave]`, aggiunto Il Conclave Protocol (`conclave_protocol: true`), 2 nuovi output type (client + Sara/TTP), quality checklist aggiornata
-- `operations/procedure/flow_catalog.md`: aggiunta sezione TRIGGER SPECIALI con 5 trigger (pressure-test/conclave/stress-test/debate/council)
-- `knowledge_base/ttp_internal/TTP_Agency_Operative_v5.0.md`: riga KEY ROLES Sparring Partner aggiornata con dual-mode Il Conclave
-- `skills/orchestrator/SKILL.md`: section 6.1 trigger aggiunto, 6.2 enrichment rule "By risk level" aggiunta, note conclave_protocol: true in 8.1
-- `skills/knowledge/quality/il-conclave-quickref.md`: creata (quickref locale, fallback se global skill non disponibile)
-- Audit sistema completato (workflow 7 agenti): 4 gap critici e 5 gap minori identificati e tutti risolti in questa sessione
-- `system/decisions_log.md`: aggiunta D015
+## Session progress (2026-06-04)
 
-- **Active project:** T023-T027 — Analisi business BRUTO (COMPLETATA 2026-05-20) | T016 — Knowledge Skills population (in corso)
-- **Last completed (2026-05-19):** `christensen-jtbd-deep.md` ✅ — JTBD Deep Knowledge (272 lines). Switch Interview Bob Moesta 5 momenti (First Thought → Passive Looking → Active Looking → Decision → Consuming) con domande per ogni momento. Christensen qualitativo vs Ulwick ODI comparison table. Job Map Ulwick 8 fasi con diagnostica PMI. 4 Forze: phrase recognition table + principio asimmetria + sequenza d'azione per forza. Big Hire / Little Hire come esperienze separate progettate. Firing prevention + switch interview invertita. ODI semplificato: importance-satisfaction survey + formula opportunità. 3 pattern italiani (Relazione job, Ansia competenza percepita, Trigger normativo). 5 errori sistemici.
-- **Also completed this session (2026-05-19):** `christensen-jtbd-quickref.md` ✅ v3 (123 lines — 3 tipi job + gerarchia messaggio, Big Hire/Little Hire + Firing 4ª domanda FPT, Job Statement + test anti-circolare, 4 Forze diagramma, ponte VPC→JTBD, example studio legale completo).
-- **Previous (2026-05-19):** `deveglia-positioning-quickref.md` ✅ — Brand Positioning Formula (De Veglia, *Zero Concorrenti*, 2017). Studio completo del libro (tutti i capitoli + 13 casi studio italiani + intervista Trout). Analisi comparativa vs framework noti: De Veglia scelto come migliore per TTP con condizione esplicita — sequenza obbligatoria `osterwalder-vpc` → `christensen-jtbd` → De Veglia. Limite critico documentato: nessuna segmentazione cliente esplicita. FPT: semplificazione Brandshot a 3-5 competitor locali senza team marketing.
-- **Previous (2026-05-18):** Audit coerenza sistema completato + 6 gap fixati: (1) `osterwalder-vpc` aggiunto a Strategist SKILL.md knowledge_quickref; (2) `maurya-lean-canvas` aggiunto a Strategist SKILL.md knowledge_deep; (3) Section 11.4 Operative Doc allineata ad actual Strategist SKILL.md; (4) Section 11.2 Operative Doc aggiornata a Quickref Protocol v1.1; (5) cross-reference VPC aggiunto a pas-quickref.md. Nuovi quickref completati in sessione: pas-quickref.md ✅, maurya-lean-canvas-quickref.md ✅ (v2 — scope ristretto), osterwalder-vpc-quickref.md ✅ (nuovo, triage 4 scenari).
-- **Previous (2026-05-10):** Installata `wonda-cli` (Wondercat — media production CLI). Verifica sicurezza approfondita: legittima, Snyk High Risk = false positive per automazione social. Integrata nel sistema agentico: nuova categoria "Media Production" in Section 18.2, assegnata a Editor (primary) + Explorer (secondary research) in Section 18.3. Section 18.3 aggiornata con assignments completi per tutti i 9 agenti Sprint 2 (include le 10 marketing skills orfane). T021 e T022 aggiunti al task_list.
-- **Last completed (2026-05-09):** Analisi comparativa coreyhaines31/marketingskills vs skills installate. Identificate 18 skills mancanti, installate 17 (T019 COMPLETED). Audit approfondito sistema: 18/18 symlink intatti, 0 ridondanze, coerenza sistema 98%. Fix critico: `app-store-optimization` → `aso-audit` in Operative Document Section 18.2.
-- **Previous phase:** Global Skills Arsenal installazione (2026-05-04) — 240 skills; Knowledge Skills population (T016) — ~50% completato (sessione 2026-04-24)
-- **Sprint status:** Sprint 0 ✓ | Sprint 1 ✓ | Sprint 2: non iniziato
-- **Blockers:** Nessuno
+### T021 — COMPLETED: 9 SKILL.md agenti mancanti
+Creati tutti i SKILL.md per Sprint 2:
+- `skills/explorer/SKILL.md` ✓ — Market Intelligence Officer (Sonnet 4.6, precision)
+- `skills/voice/SKILL.md` ✓ — Content Director & Copywriter (Opus 4.7, creative, dual-mode)
+- `skills/editor/SKILL.md` ✓ — Social Media Strategist (Sonnet 4.6, creative, wonda-cli)
+- `skills/optimizer/SKILL.md` ✓ — Process Designer & CRO (Sonnet 4.6, balanced)
+- `skills/narrator/SKILL.md` ✓ — Presentation & Visual Storytelling (Sonnet 4.6, creative)
+- `skills/measurer/SKILL.md` ✓ — Performance Analyst (Sonnet 4.6, precision, 6 paid-media deep)
+- `skills/web_tech/SKILL.md` ✓ — Digital Implementation (Sonnet 4.6, precision, AEO/GEO)
+- `skills/architect/SKILL.md` ✓ — Proposal & Charter Builder (Opus 4.7, balanced, win-themes)
+- `skills/calculator/SKILL.md` ✓ — Business Planner & Financial Modeler (Opus 4.7, precision)
 
-## Session progress (2026-05-09)
-- Analisi comparativa coreyhaines31/marketingskills (27K stars, 41 skills) vs installazione corrente
-- Identificate 18 skills mancanti con priorità 1/2/3
-- Installate 17 marketing skills da coreyhaines31/marketingskills (T019 ✓)
-- Audit sistema: symlink, ridondanze, coerenza documentazione, MEMORY.md
-- Fix: `app-store-optimization` → `aso-audit` in Operative Document Section 18.2 (line 837)
-- task_list.md aggiornato: T016 aggiornato, T019 aggiunto e completato
-- session.md aggiornato: stato corrente 2026-05-09
+### T029 — COMPLETED (sessione precedente): 6 Deep Knowledge paid-media
+- `skills/knowledge/paid-media/ppc-strategy-deep.md` ✓
+- `skills/knowledge/paid-media/tracking-server-side-deep.md` ✓
+- `skills/knowledge/paid-media/paid-social-strategy-deep.md` ✓
+- `skills/knowledge/paid-media/paid-creative-strategy-deep.md` ✓
+- `skills/knowledge/paid-media/paid-media-audit-deep.md` ✓
+- `skills/knowledge/paid-media/search-query-analysis-deep.md` ✓
 
-## Session progress (2026-04-24)
-- swot-quickref.md ✓ (v2 revisionato)
-- porter-5forces-quickref.md ✓ (v3 revisionato)
-- aida-quickref.md ✓ (deprecato come riferimento storico)
-- messy-middle-b2c-quickref.md ✓ (nuovo, sostituisce AIDA operativamente)
-- messy-middle-b2c-deep.md ✓ (nuovo)
-- b2b-buying-journey-quickref.md ✓ (nuovo)
-- b2b-buying-journey-deep.md ✓ (nuovo, include adattamento contesto italiano + variante SMB <€5k ACV)
-- `/operations/procedure/quickref_protocol.md` ✓ (nuovo — Checklist v1.1 + FPT come metodo trasversale)
+### T016 — COMPLETED (audit 2026-06-04)
+Tutti i file pending esistono nel file system. Chiuso.
 
-## Next step (new chat)
-Proseguire T016 con i quickref restanti (in ordine):
-1. ~~`pas-quickref.md`~~ ✅ COMPLETATO 2026-05-18
-2. ~~`maurya-lean-canvas-quickref.md`~~ ✅ COMPLETATO 2026-05-18 (v2 — scope ristretto a startup/nuove iniziative)
-3. ~~`osterwalder-vpc-quickref.md`~~ ✅ COMPLETATO 2026-05-18 (nuovo — triage 4 scenari, punto d'ingresso diagnostico PMI)
-4. ~~`deveglia-positioning-quickref.md`~~ ✅ COMPLETATO 2026-05-19
-5. ~~`christensen-jtbd-quickref.md`~~ ✅ COMPLETATO 2026-05-19
-5b. ~~`christensen-jtbd-deep.md`~~ ✅ COMPLETATO 2026-05-19
-6. `miller-storybrand-quickref.md` + deep ← file `[4books] StoryBrand` trovato su Drive (ID: 1BOdm_TP5sMDu_aim0Iyj8O4g-XNW43jO)
-5. `miller-storybrand-quickref.md` + deep
-6. `collins-hedgehog-quickref.md` + deep
-7. `pestel-quickref.md` (analysis)
-8. `porter-5forces-deep.md`
+### Integrazioni msitarzewski/agency-agents (sessione precedente)
+- `skills/knowledge/strategy/gap-selling-quickref.md` ✓
+- `skills/knowledge/strategy/sandler-pain-funnel-quickref.md` ✓
+- `skills/knowledge/strategy/win-themes-quickref.md` ✓
+- `skills/knowledge/strategy/shipley-proposal-quickref.md` ✓
+- `skills/knowledge/marketing/aeo-citation-workflow-quickref.md` ✓
+- `skills/knowledge/marketing/seo-technical-audit-deep.md` ✓
 
-Ritmo: **1 quickref alla volta, con presentazione e approvazione di Sara prima del successivo**.
+### Google Ads MCP (sessione precedente)
+- `mcp-google-ads v1.6.0` installato in `~/.claude.json`
+- **T028 PENDING** — credenziali da completare (Sara deve fare auth manualmente)
 
-## Pending priorities (dal briefing 2026-04-24)
-- **Priorità 1** — Popolamento Knowledge Skills: ~50% completato
-- **Priorità 2** — Allineamento task_list.md + session.md: ✅ eseguita in questa sessione
-- **Priorità 3** — Decisione su SKILL.md Orchestratore (snellimento vs eccezione): NON ANCORA AFFRONTATA
-- **Priorità 4** (nuova) — Knowledge Processing pipeline per libreria epub Drive (98+ epub in "epub Business e Marketing"): PIANIFICATA dopo completamento Priorità 1-3
+### Audit sistema (questa sessione)
+- 5 path errors corretti in SKILL.md (optimizer, calculator×2, architect, explorer×2)
+- Section 11.4 Operative Doc aggiornata: explorer aarrr→mcclure-aarrr, sparring partner +il-conclave, orchestrator allen-gtd→deming-pdca
+- T016 chiuso
+- session.md aggiornato
 
-## Autorizzazioni ottenute
-- Accesso Google Drive (sara.quinto87@gmail.com) per cartella "Formazione" → "epub Business e Marketing" (ID cartella: 1h5xRKtacqSjeUb2Qs2EpSOWqvvpxTqpc)
+---
+
+## Sprint status
+- Sprint 0 ✓ — Infrastructure
+- Sprint 1 ✓ — Core strategico (Orchestrator, Strategist, God Mode)
+- **Sprint 2 ✓** — 9 SKILL.md creati (Explorer, Voice, Editor, Optimizer, Narrator, Measurer, Web Tech, Architect, Calculator)
+- Sprint 3 ✗ — Voice, Editor, Narrator (SKILL.md creati, ma Sprint 3 prevedeva anche contenuti)
+- Sprint 4 ✗ — Director, Measurer, Web Tech, Optimizer (SKILL.md creati)
+- Sprint 5 ✗ — Accountant, Legal, Admin, Trainer (SKILL.md mancanti)
+- Sprint 6 ✗ — Mentor, Economist, Maintainer (SKILL.md mancanti)
+
+## SKILL.md coverage
+- **Creati (14/22):** Orchestrator, Strategist, God Mode, Sparring Partner, Artisan + Explorer, Voice, Editor, Optimizer, Narrator, Measurer, Web Tech, Architect, Calculator
+- **Mancanti (8/22):** Director, Trainer, Accountant, Legal, Admin, Economist, Maintainer, Mentor
+
+## Active tasks (priorità)
+| ID | Task | Status | Note |
+|----|------|--------|------|
+| T028 | Completare auth Google Ads MCP | PENDING (Sara) | GOOGLE_ADS_DEVELOPER_TOKEN + OAuth credentials |
+| T021 | 9 SKILL.md Sprint 2 | COMPLETED | 2026-06-04 |
+| T022 | Installare wonda-cli | PENDING | npm i -g @degausai/wonda + wonda auth login |
+| T018 | Decisione SKILL.md Orchestrator | PENDING | Snellimento vs eccezione — non affrontato |
+| T020 | global_skills per God Mode e Sparring Partner | DEFERRED | Decidere prima di creare/aggiornare |
+| T017 | Knowledge Processing epub Drive | PLANNED | 98+ epub, dopo completamento altri task |
+
+## Blockers
+- T028: Sara deve completare auth Google Ads MCP
+- T022: Sara deve avere account Wondercat con crediti
+
+## Pending knowledge gaps (da creare in T016-extension)
+File referenziati in SKILL.md ma non ancora creati:
+- `analysis/mcclure-aarrr-deep.md` (Explorer, Optimizer)
+- `analysis/swot-deep.md` (Explorer)
+- `business/michalowicz-profit-first-deep.md` (Calculator)
+- `marketing/seo-audit-quickref.md` through `geo-fundamentals-quickref.md` (Web Tech TTP-specific versions)

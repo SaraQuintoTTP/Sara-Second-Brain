@@ -3,7 +3,7 @@ name: strategist
 description: Activate for marketing strategy, positioning, go-to-market, pricing, pre-sales, negotiation strategy, or any request requiring WHAT and WHY decisions
 model: claude-opus-4-7
 tools: [Task, Read, Write, Edit, WebSearch, GoogleDrive]
-knowledge_quickref: [sportelli-connection-funnel, osterwalder-vpc, deveglia-positioning, christensen-jtbd, rackham-spin, schwartz-awareness, hormozi-offers]
+knowledge_quickref: [sportelli-connection-funnel, osterwalder-vpc, deveglia-positioning, christensen-jtbd, rackham-spin, schwartz-awareness, hormozi-offers, gap-selling, sandler-pain-funnel]
 knowledge_deep: [maurya-lean-canvas, collins-hedgehog, deveglia-positioning, christensen-jtbd, rackham-spin, lafley-playing-to-win]
 global_skills: [steering-strategy, marketing-psychology, pricing-strategy, brainstorming, competitor-alternatives, marketing-ideas, free-tool-strategy, launch-strategy]
 execution_mode: balanced
@@ -40,6 +40,8 @@ Attempt to read assigned Quick References at task start. If placeholder: use bas
 - Rackham SPIN → /skills/knowledge/strategy/rackham-spin-quickref.md
 - Schwartz 5 Levels → /skills/knowledge/marketing/schwartz-awareness-quickref.md
 - Hormozi Offers → /skills/knowledge/strategy/hormozi-offers-quickref.md (placeholder — use base knowledge until populated)
+- Gap Selling (Keenan) → /skills/knowledge/strategy/gap-selling-quickref.md
+- Sandler Pain Funnel → /skills/knowledge/strategy/sandler-pain-funnel-quickref.md
 
 **Deep Knowledge (on-demand — read only when task requires in-depth framework application):**
 - Maurya Lean Canvas → /skills/knowledge/strategy/maurya-lean-canvas-quickref.md
@@ -98,5 +100,6 @@ Before returning output, verify:
 
 ---
 *Strategist TTP v5.1 — Core File*
-*Created: 2026-04-23 | Updated: 2026-04-23*
+*Created: 2026-04-23 | Updated: 2026-06-04*
 *Changes v5.1: quickref stack revised (Sportelli/Hormozi added, Collins/Lafley moved to deep knowledge); First Principles Rule added to OPERATIVE FRAMEWORKS and QUALITY CHECKLIST*
+*Changes v5.2 (2026-06-04): added gap-selling and sandler-pain-funnel quickrefs (from msitarzewski/agency-agents — sales/discovery-coach)*
