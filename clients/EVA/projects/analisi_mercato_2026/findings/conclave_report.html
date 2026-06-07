@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Il Conclave — EVA GTM Analysis | 6 Giugno 2026</title>
+<style>
+  :root {
+    --navy: #0D1B2A; --navy-mid: #1A2D40;
+    --orange: #F47920; --orange-lt: #FED7AA;
+    --off-white: #F5F2EE; --grey: #6B7280; --grey-lt: #E5E7EB;
+    --green: #059669; --green-lt: #D1FAE5;
+    --yellow: #D97706; --yellow-lt: #FEF3C7;
+    --red: #DC2626; --red-lt: #FEE2E2;
+    --purple: #7C3AED; --purple-lt: #EDE9FE;
+    --blue: #2563EB; --blue-lt: #DBEAFE;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, -apple-system, sans-serif; color: #1A2D40; background: var(--off-white); line-height: 1.6; font-size: 15px; }
+  h1 { font-size: 2rem; font-weight: 800; }
+  h2 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.8rem; }
+  h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+  h4 { font-size: 0.95rem; font-weight: 700; }
+  p { margin-bottom: 0.8rem; }
+  p:last-child { margin-bottom: 0; }
+  a { color: var(--orange); text-decoration: none; }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* HERO */
+  .hero { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 100%); color: white; padding: 3rem 0 2rem; }
+  .hero-eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); display: block; margin-bottom: 0.8rem; }
+  .hero h1 { color: white; margin-bottom: 0.5rem; }
+  .hero-sub { color: rgba(255,255,255,.6); font-size: 0.9rem; margin-bottom: 2rem; }
+  .verdict-box { background: rgba(255,255,255,.05); border: 1px solid rgba(244,121,32,.4); border-radius: 8px; padding: 1.5rem 2rem; margin-top: 1.5rem; }
+  .verdict-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); display: block; margin-bottom: 0.5rem; }
+  .verdict-text { font-size: 1.1rem; color: rgba(255,255,255,.9); line-height: 1.5; }
+  .confidence-chip { display: inline-block; background: var(--orange); color: white; font-weight: 800; font-size: 1.3rem; padding: 0.3rem 0.8rem; border-radius: 6px; margin-right: 0.5rem; vertical-align: middle; }
+  .first-action { background: var(--orange); color: white; border-radius: 8px; padding: 1.2rem 1.5rem; margin-top: 1.5rem; }
+  .first-action .label { font-size: 0.65rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; opacity: .8; display: block; margin-bottom: 0.3rem; }
+  .first-action p { font-weight: 700; font-size: 0.95rem; margin: 0; }
+
+  /* DASHBOARD */
+  .dashboard { background: white; padding: 2rem 0; border-bottom: 1px solid var(--grey-lt); }
+  .dash-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+  .dash-card { text-align: center; padding: 1.2rem 0.8rem; border-radius: 8px; border: 1px solid var(--grey-lt); }
+  .dash-name { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--grey); display: block; margin-bottom: 0.5rem; }
+  .dash-scores { font-weight: 800; font-size: 1.1rem; }
+  .dash-arrow { font-size: 0.9rem; }
+  .score-high { color: var(--green); }
+  .score-mid { color: var(--yellow); }
+  .score-low { color: var(--red); }
+  .mach-pass { background: var(--green-lt); color: var(--green); font-weight: 700; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 4px; }
+  .mach-partial { background: var(--yellow-lt); color: var(--yellow); font-weight: 700; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 4px; }
+  .mach-fail { background: var(--red-lt); color: var(--red); font-weight: 700; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 4px; }
+  .overall-score { text-align: center; margin-top: 1.5rem; padding: 1rem; background: var(--navy-mid); border-radius: 8px; color: white; }
+  .overall-score .num { font-size: 2.5rem; font-weight: 800; color: var(--orange); }
+  .overall-score .label { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; opacity: .6; }
+
+  /* SECTIONS */
+  section { padding: 2.5rem 0; border-bottom: 1px solid var(--grey-lt); }
+  section:last-of-type { border-bottom: none; }
+  .section-icon { font-size: 1.4rem; margin-right: 0.5rem; }
+  .section-header { display: flex; align-items: center; margin-bottom: 1.5rem; }
+  .section-tag { display: inline-block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 0.2rem 0.6rem; border-radius: 4px; margin-right: 0.5rem; }
+  .tag-consensus { background: var(--green-lt); color: var(--green); }
+  .tag-split { background: var(--yellow-lt); color: var(--yellow); }
+  .tag-blind { background: var(--red-lt); color: var(--red); }
+  .tag-verdict { background: var(--purple-lt); color: var(--purple); }
+
+  /* CALLOUTS */
+  .callout { border-radius: 6px; padding: 1.2rem 1.5rem; margin: 1rem 0; }
+  .callout-orange { background: #FFF3E8; border-left: 4px solid var(--orange); }
+  .callout-green { background: var(--green-lt); border-left: 4px solid var(--green); }
+  .callout-red { background: var(--red-lt); border-left: 4px solid var(--red); }
+  .callout-yellow { background: var(--yellow-lt); border-left: 4px solid var(--yellow); }
+  .callout-navy { background: var(--navy); color: white; border-left: 4px solid var(--orange); }
+  .callout-navy h4 { color: white; }
+  .callout-title { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.4rem; }
+  .callout-orange .callout-title { color: var(--orange); }
+  .callout-green .callout-title { color: var(--green); }
+  .callout-red .callout-title { color: var(--red); }
+  .callout-yellow .callout-title { color: var(--yellow); }
+  .callout-navy .callout-title { color: var(--orange); }
+
+  /* ADVISOR CARDS */
+  details { border: 1px solid var(--grey-lt); border-radius: 6px; margin-bottom: 0.8rem; overflow: hidden; }
+  details[open] { border-color: var(--orange); }
+  summary { cursor: pointer; padding: 1rem 1.2rem; font-weight: 700; font-size: 0.9rem; background: white; display: flex; justify-content: space-between; align-items: center; list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: '↓'; font-size: 0.8rem; color: var(--orange); transition: transform .2s; }
+  details[open] summary::after { transform: rotate(180deg); }
+  .advisor-content { padding: 1.2rem 1.5rem; background: #FAFAFA; font-size: 0.9rem; line-height: 1.7; }
+  .advisor-badge { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 0.15rem 0.5rem; border-radius: 10px; }
+  .b-savonarola { background: var(--red-lt); color: var(--red); }
+  .b-galileo { background: var(--blue-lt); color: var(--blue); }
+  .b-marcopolo { background: var(--green-lt); color: var(--green); }
+  .b-falcone { background: var(--purple-lt); color: var(--purple); }
+  .b-machiavelli { background: #111; color: white; }
+  .b-salomone { background: var(--orange); color: white; }
+
+  /* GRID */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  .precondition { background: white; border: 1px solid var(--grey-lt); border-radius: 6px; padding: 1rem 1.2rem; border-top: 3px solid var(--orange); }
+  .precond-num { font-weight: 800; font-size: 1.6rem; color: var(--orange); line-height: 1; }
+  .blind-spot { background: var(--red-lt); border-radius: 6px; padding: 1rem 1.2rem; margin-bottom: 0.8rem; border-left: 3px solid var(--red); }
+  .blind-title { font-weight: 700; font-size: 0.88rem; color: var(--red); }
+
+  /* FOOTER */
+  footer { background: var(--navy); color: rgba(255,255,255,.4); padding: 2rem 0; text-align: center; font-size: 0.75rem; }
+  footer strong { color: rgba(255,255,255,.7); }
+
+  @media (max-width: 640px) {
+    .grid-2 { grid-template-columns: 1fr; }
+    .dash-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="container">
+    <span class="hero-eyebrow">Il Conclave · EVA GTM Analysis · 6 Giugno 2026</span>
+    <h1>Verdetto sul Piano EVA</h1>
+    <p class="hero-sub">4 advisor indipendenti · Pre-Mortem · 5 Whys · Opportunity Cost · ACH · Steelman-then-Attack</p>
+
+    <div class="verdict-box">
+      <span class="verdict-label">Verdetto di Salomone</span>
+      <div class="verdict-text">
+        <span class="confidence-chip">7/10</span>
+        Il piano GTM regge <strong>nella struttura</strong>, non nel sequencing e nella governance delle risorse. Tre pre-condizioni non negoziabili devono essere soddisfatte prima di procedere. Senza di esse: <strong>5/10</strong>.
+      </div>
+    </div>
+
+    <div class="first-action">
+      <span class="label">⚡ La Prima Cosa da Fare — Entro Venerdì 12 Giugno 2026</span>
+      <p>Boschetti esegue il <strong>consent audit GDPR/LGPD della lista da 19K contatti</strong>. Per ogni segmento: identifica la base giuridica del trattamento per comunicazioni commerciali EVA. Output binario: verde (inviabile), giallo (riscrivere consenso), rosso (escludere). Questo singolo atto determina se il GTM parte in luglio o se il budget va ridisegnato. Tutto il resto aspetta questo verdetto.</p>
+    </div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="dashboard">
+  <div class="container">
+    <h2>Dashboard di Confidenza</h2>
+    <div class="dash-grid">
+      <div class="dash-card">
+        <span class="dash-name">Savonarola</span>
+        <div class="dash-scores"><span class="score-mid">7</span> <span class="dash-arrow" style="color:var(--grey)">→</span> <span class="score-mid">7</span>/10</div>
+        <div style="font-size:0.72rem;color:var(--grey);margin-top:0.3rem;">Pre-Mortem</div>
+      </div>
+      <div class="dash-card">
+        <span class="dash-name">Galileo</span>
+        <div class="dash-scores"><span class="score-high">8</span> <span class="dash-arrow" style="color:var(--grey)">→</span> <span class="score-high">8</span>/10</div>
+        <div style="font-size:0.72rem;color:var(--grey);margin-top:0.3rem;">5 Whys</div>
+      </div>
+      <div class="dash-card">
+        <span class="dash-name">Falcone</span>
+        <div class="dash-scores"><span class="score-mid">7</span> <span class="dash-arrow" style="color:var(--green)">↑</span> <span class="score-high">7.5</span>/10</div>
+        <div style="font-size:0.72rem;color:var(--grey);margin-top:0.3rem;">ACH</div>
+      </div>
+      <div class="dash-card">
+        <span class="dash-name">Machiavelli</span>
+        <div style="margin-top:0.5rem;"><span class="mach-partial">PARZIALE</span></div>
+        <div style="font-size:0.72rem;color:var(--grey);margin-top:0.3rem;">Falla reale, verificabile</div>
+      </div>
+    </div>
+    <div class="overall-score">
+      <div class="num">7/10</div>
+      <div class="label">Confidenza Complessiva (condizionata · 5/10 senza pre-condizioni)</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONSENSUS -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-icon">✅</span>
+      <h2><span class="section-tag tag-consensus">Consenso</span>Tre Verità su cui Tutti Convergono</h2>
+    </div>
+    <div class="callout callout-navy">
+      <div class="callout-title">Il binding constraint non è il budget — è il tempo di Boschetti</div>
+      <p style="color:rgba(255,255,255,.85);">Galileo (8/10, highest confidence) lo formalizza con il root problem: una singola unità di tempo fatturabile deve simultaneamente generare E servire la domanda. Questo produce un feast/famine cycle strutturale. Tutti e 4 gli advisor convergono su questo punto.</p>
+    </div>
+    <div class="grid-2" style="margin-top:1rem;">
+      <div class="callout callout-green">
+        <div class="callout-title">Il sequencing è invertito</div>
+        <p>La campagna email è pianificata prima che il brand abbia credibilità verificabile (zero case studies, sito MVP, DA=0). L'ordine corretto: credibilità prima, attivazione lista dopo.</p>
+      </div>
+      <div class="callout callout-green">
+        <div class="callout-title">Focus PT 6 mesi è corretto</div>
+        <p>Non come validazione della domanda di mercato — come validazione della capacità operativa di Boschetti. Sono due test diversi. Il conclave avalla la raccomandazione di Sara/Stefano.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPLIT -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-icon">⚡</span>
+      <h2><span class="section-tag tag-split">Divisione</span>La Lista è un Asset o una Vulnerabilità?</h2>
+    </div>
+    <div class="grid-2">
+      <div class="callout callout-green">
+        <div class="callout-title">Posizione A — Asset (Savonarola/Galileo)</div>
+        <p>La lista è parzialmente deprezzata ma utilizzabile con test controllato. Invio pilota a 500 contatti prima di luglio risolve l'incertezza empiricamente.</p>
+      </div>
+      <div class="callout callout-red">
+        <div class="callout-title">Posizione B — Vulnerabilità (Machiavelli)</div>
+        <p>Prima del test tecnico serve un consent audit GDPR/LGPD. Se la base giuridica non regge, il test stesso è il problema — non la soluzione.</p>
+      </div>
+    </div>
+    <div class="callout callout-yellow" style="margin-top:1rem;">
+      <div class="callout-title">Risoluzione del Conclave</div>
+      <p>Non è una differenza di sfumatura — è una differenza di sequenza. Il consent audit (2 giorni) risolve il disaccordo prima di qualsiasi altra azione. Se la lista è conforme: Posizione A vince. Se non è conforme: il budget deve essere ridisegnato con €3-4K in più per paid acquisition.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BLIND SPOTS -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-icon">🔍</span>
+      <h2><span class="section-tag tag-blind">Punti Ciechi</span>Cosa l'Analisi Originale Non Aveva Visto</h2>
+    </div>
+    <div class="blind-spot">
+      <div class="blind-title">🔴 Blind Spot 1 — GDPR/LGPD della lista (emerso da Machiavelli)</div>
+      <p style="font-size:0.88rem;margin-top:0.4rem;">Email list in contesti legali/immigrazione costruita via eventi professionali e referral = quasi certamente senza consenso esplicito per comunicazioni commerciali. Spam reports nel network legale bruciano il brand personale di Boschetti — l'unico asset non replicabile di EVA. Questo non è cautela operativa — è una pre-condizione legale per un avvocato.</p>
+    </div>
+    <div class="blind-spot">
+      <div class="blind-title">🔴 Blind Spot 2 — Il "Boschetti split cognitivo" (emerso dal debate)</div>
+      <p style="font-size:0.88rem;margin-top:0.4rem;">In fase di ramp-up, ogni ora di BD EVA compete con le ore fatturabili dello studio esistente. In assenza di uno strumento di triage esplicito, vince sempre la revenue garantita. EVA muore per inedia, non per mancanza di domanda. Questo è il failure silenzioso più probabile.</p>
+    </div>
+    <div class="blind-spot">
+      <div class="blind-title">🟡 Blind Spot 3 — Ioana come single point of failure (emerso da Falcone)</div>
+      <p style="font-size:0.88rem;margin-top:0.4rem;">Scope contrattuale indefinito su una risorsa che potrebbe essere il vero vantaggio competitivo operativo di EVA (multilingual communication, PT network). Un suo ritiro o delivery failure = reputazione Boschetti danneggiata con clienti brasiliani.</p>
+    </div>
+    <div class="blind-spot">
+      <div class="blind-title">🟡 Blind Spot 4 — LinkedIn richiede contenuto in portoghese</div>
+      <p style="font-size:0.88rem;margin-top:0.4rem;">Il piano è silente sulla lingua dell'outreach LinkedIn verso il target brasiliano/PT. L'outreach in inglese su questo segment ha conversion rate materialmente inferiore. Budget ghostwriter PT (€200-400/mese) o confermare il livello di PT scritto di Boschetti.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MACHIAVELLI -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-icon">⚔️</span>
+      <h2><span class="section-tag tag-blind">Machiavelli</span>Steelman-then-Attack — Verdetto Parziale</h2>
+    </div>
+    <details>
+      <summary>
+        <span><span class="advisor-badge b-machiavelli">Machiavelli</span> &nbsp; Steelman: Il piano è ottimale per questi vincoli</span>
+        <span style="font-size:0.75rem;color:var(--grey);">Espandi</span>
+      </summary>
+      <div class="advisor-content">
+        <p>Boschetti non è un consulente generico in un mercato generico. È un avvocato italiano in una nicchia iper-specifica (diritto immigrazione) che si rivolge a una comunità diasporica (brasiliani) che prende decisioni su social proof e peer referral — non su Google rankings. La lista da 19K non è un raw marketing asset — è una pre-validated relationship network che nessun competitor a questo prezzo può replicare. Il SEO è un brand signal a lungo termine che lavora mentre Boschetti dorme. Il vero motore di acquisizione è referral + warm-up lista: due canali che scalano con un singolo operatore perché sono quality-gated, non volume-gated. Il 6-month PT pilot è strutturalmente corretto: crea una finestra a basso rischio per testare la conversion prima di commettere piena capacità. Con 3-4 clienti/mese a mid-range fee, ROI positivo nel Q1.</p>
+      </div>
+    </details>
+    <details>
+      <summary>
+        <span><span class="advisor-badge b-machiavelli">Machiavelli</span> &nbsp; Attack: Il consenso GDPR/LGPD — falla reale</span>
+        <span style="font-size:0.75rem;color:var(--orange);">Critico</span>
+      </summary>
+      <div class="advisor-content">
+        <div class="callout callout-red">
+          <div class="callout-title">La falla reale</div>
+          <p>Il piano non ha mai pressure-testato se la lista da 19K è utilizzabile. Email list in contesti legali costruite via eventi professionali, partner referral, clienti esistenti = quasi certamente senza consenso esplicito per comunicazioni commerciali EVA. GDPR (Italy) + LGPD (Brazil) richiedono opt-in esplicito.</p>
+          <p>Se la lista fallisce il consent audit: spam reports da professionisti nel network → brand damage reputazionale → potenziale complaint al Garante Privacy. Senza la lista rimane: sito DA-0, sandbox Google 3-6 mesi, zero paid budget, un solo operatore per BD + delivery. Confidenza piano scende da 7-8/10 a <strong>5/10</strong>.</p>
+          <p style="margin:0;"><strong>Verdetto: parziale.</strong> Falla reale ma verificabile in 48 ore con un consent audit. Non abbatte il piano — mette una pre-condizione non negoziabile sulla prima mossa.</p>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- RECOMMENDATION -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-icon">🏛️</span>
+      <h2><span class="section-tag tag-verdict">Verdetto</span>La Raccomandazione di Salomone</h2>
+    </div>
+    <div class="callout callout-navy" style="margin-bottom:1.5rem;">
+      <div class="callout-title">Il Piano Regge — Con Tre Pre-Condizioni</div>
+      <p style="color:rgba(255,255,255,.85);">Il framework a tre pillar (email + SEO + referral) è corretto per questo budget e profilo. Il target Spain GV è ben scelto. Il pilot PT 6 mesi è la decisione giusta. Ma il piano ha bisogno di tre correzioni prima di partire — in questo ordine:</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:1.5rem 0;">
+      <div class="precondition">
+        <div class="precond-num">01</div>
+        <h4>Consent Audit Lista</h4>
+        <p style="font-size:0.85rem;color:var(--grey);margin-top:0.3rem;">GDPR/LGPD della lista entro 10 giorni. Boschetti, in quanto avvocato, ha tutti gli strumenti per farlo. Output binario: lista utilizzabile → prosegui. Non utilizzabile → revisione budget (+€3-4K paid).</p>
+      </div>
+      <div class="precondition">
+        <div class="precond-num">02</div>
+        <h4>Contratto Ioana</h4>
+        <p style="font-size:0.85rem;color:var(--grey);margin-top:0.3rem;">Scope EVA esplicito prima del lancio: ore dedicate, deliverable, compensazione per ogni caso PT. Senza questo, il buffer di capacità è illusorio.</p>
+      </div>
+      <div class="precondition">
+        <div class="precond-num">03</div>
+        <h4>Capacity Agreement</h4>
+        <p style="font-size:0.85rem;color:var(--grey);margin-top:0.3rem;">Boschetti con sé stesso: quante ore/settimana EVA, con quale trigger di rallentamento se lo studio aumenta di carico. Scritto. Non come intenzione.</p>
+      </div>
+    </div>
+    <div class="callout callout-orange">
+      <div class="callout-title">Zero Budget Aggiuntivo</div>
+      <p>Queste tre correzioni richiedono zero budget e 2 settimane di lavoro. Senza di esse, confidenza complessiva: <strong>5/10</strong>. Con esse: <strong>7.5/10</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ADVISOR DETAILS -->
+<section>
+  <div class="container">
+    <h2 style="margin-bottom:1.5rem;">Analisi Complete degli Advisor</h2>
+
+    <details>
+      <summary><span><span class="advisor-badge b-savonarola">Savonarola</span> &nbsp; Pre-Mortem — Confidence 7/10</span><span style="font-size:0.75rem;color:var(--grey);">Espandi</span></summary>
+      <div class="advisor-content">
+        <h4>Failure Mode 1 — Collo di bottiglia umano</h4>
+        <p>Boschetti gestisce consulenze, onboarding, due diligence, outreach LinkedIn, approvazione contenuti SEO, coordinamento Ioana. Alle prime 3 pratiche simultanee, tutto si ferma. Prevedibile. Warning sign: prima settimana con 2+ lead attivi → risposta email >48h.</p>
+        <h4>Failure Mode 2 — Lista bruciata</h4>
+        <p>19K contatti brasiliani contattati a settembre con sito MVP appena online, zero case studies. Unsubscribe supera 40%. La lista — asset più prezioso — distrutta irreversibilmente. Warning sign: open rate Email 1 sotto 18%; unsubscribe spike nel primo giorno.</p>
+        <h4>Failure Mode 3 — SEO non converte</h4>
+        <p>Spain GV traffic (14.870/mese) cerca news, non consulenti. Bounce rate 80%. NHR/IFICI porta traffico generico senza intent di acquisto. Warning sign: traffico cresce ma form submissions = 0 dopo 60 giorni.</p>
+        <h4>Fatal Assumption</h4>
+        <p>"Il volume di contatti esistenti compensa la mancanza di sistema." — Quando lead arrivano in modo imprevedibile senza CRM operativo, il business si blocca nel momento del successo iniziale.</p>
+        <p><strong>Action retrospettica:</strong> Ritardare campagna email 90 giorni → usarla solo dopo 5 case studies pubblicati e Brevo con automazioni. Inserire capacity cap hard: max 8 incarichi attivi.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span><span class="advisor-badge b-galileo">Galileo</span> &nbsp; 5 Whys + Constraint Mapping — Confidence 8/10</span><span style="font-size:0.75rem;color:var(--grey);">Espandi</span></summary>
+      <div class="advisor-content">
+        <h4>5 Whys</h4>
+        <p>Why 1: Il piano assume che Boschetti possa gestire delivery + BD + marketing execution come singolo operatore → Because ogni ora su marketing è un'ora sottratta alla fatturazione.</p>
+        <p>Why 2-5: Il modello di revenue richiede volume costante di nuovi lead mentre i casi consumano capacità → tutti i canali GTM hanno lag 3-9 mesi → senza delegare la marketing execution → Boschetti entra nel ciclo feast/famine → chiude casi → smette di fare outreach → pipeline vuota.</p>
+        <h4>Root Problem</h4>
+        <p>Il vincolo non è il budget né la strategia canale — è la singola unità di tempo fatturabile di Boschetti.</p>
+        <h4>Constraint Map</h4>
+        <p><strong>Hard:</strong> 1 risorsa legale, budget €10-13K fisso, dominio non live.</p>
+        <p><strong>Soft (assunti non verificati):</strong> 19K contatti "caldi" (temperatura non uniforme, decay naturale); Spain GV intent non misurato; Ioana: capacity/conversion rate ignoti.</p>
+        <h4>Raccomandazione</h4>
+        <p>VA/marketing executor (€3-4K/anno freelance) che gestisce Brevo, scheduling LinkedIn, reporting — libera Boschetti per sola valutazione strategica e delivery. Focus PT 6 mesi corretto: ogni paese aggiunto moltiplica il problema di capacità, non la revenue.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span><span class="advisor-badge b-falcone">Falcone</span> &nbsp; ACH Analysis — Confidence 7→7.5/10</span><span style="font-size:0.75rem;color:var(--grey);">Espandi</span></summary>
+      <div class="advisor-content">
+        <p><strong>H2 sopravvive</strong> (Piano viable SOLO come PT pilot) con score +4 vs H1/H3 a +2.</p>
+        <p>La matrice mostra che E1 (mono-resource) + E6 (Ioana scope indefinito) + E8 (budget €10-13K) confermano H2 e disconfermano H1 (piano semplicemente execution-constrained).</p>
+        <p><strong>Missing Evidence Critico (da raccogliere prima di procedere):</strong></p>
+        <ul style="margin:0.5rem 0 0.5rem 1.5rem;font-size:0.9rem;">
+          <li>Scope contrattuale Ioana (referral-only vs co-counsel vs full delegation?)</li>
+          <li>Storico conversion rate sulla lista da precedenti campagne</li>
+          <li>Ore/settimana effettive disponibili di Boschetti per EVA</li>
+          <li>Se NHR/IFICI content può essere indicizzato prima di settembre 2026 dato lag registrazione dominio</li>
+        </ul>
+        <p><strong>Verdetto:</strong> Il rischio silenzioso viene specificamente da Ioana scope indefinito. Se è solo referral, il buffer di capacità è illusorio e H3 (revenue miscalibrated) guadagna terreno.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <strong>Il Conclave — EVA GTM Analysis</strong><br>
+    Studio Legale Boschetti · TTP Agency · 6 Giugno 2026<br>
+    Advisor: Savonarola (Pre-Mortem) · Galileo (5 Whys) · Marco Polo (Opportunity Cost) · Falcone (ACH) · Machiavelli (Steelman-then-Attack) · Salomone (Synthesis)
+  </div>
+</footer>
+
+</body>
+</html>

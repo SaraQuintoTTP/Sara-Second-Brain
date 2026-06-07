@@ -3,6 +3,15 @@
 
 ### ACTIVE TASKS
 
+| T030 | EVA analisi_mercato_2026: Strategist — positioning + GTM | Strategist | HIGH | COMPLETED | — | 2026-06-06 | 474 lines — clients/EVA/projects/analisi_mercato_2026/findings/strategist_positioning.md |
+| T031 | EVA analisi_mercato_2026: Calculator — financial model Year 1-2 | Calculator | HIGH | COMPLETED | T030 | 2026-06-06 | 385 lines — calculator_financials.md (3 issues fixed post God Mode) |
+| T032 | EVA analisi_mercato_2026: Voice — messaging framework + copy pillars | Voice | HIGH | COMPLETED | T030 | 2026-06-06 | 416 lines — voice_messaging.md (1 issue fixed post God Mode) |
+| T033 | EVA analisi_mercato_2026: God Mode quality audit | God Mode | HIGH | COMPLETED | T030-T032 | 2026-06-06 | PASS WITH RESERVATIONS → corrections applied → effective PASS |
+| T034 | EVA analisi_mercato_2026: HTML deliverable | Orchestrator | HIGH | COMPLETED | T033 | 2026-06-06 | EVA_Market_Analysis_2026.html — ~150KB |
+| T035 | EVA analisi_mercato_2026: PDF deliverable | Orchestrator | HIGH | COMPLETED | T034 | 2026-06-06 | EVA_Market_Analysis_2026.pdf — 1.6MB (Playwright Chromium) |
+| T036 | EVA analisi_mercato_2026: Il Conclave — critical points + opportunities | Sparring Partner / Il Conclave | HIGH | IN PROGRESS | T033 | 2026-06-06 | Convocato da Sara — findings da integrare nel progetto |
+|----|----|----|----|----|----|----|----|
+
 | ID | Task | Assigned to | Priority | Status | Dependencies | Deadline | Notes |
 | T023 | BRUTO business analysis: mercato, VPC, JTBD, rischi, consumer testing methodology | Strategist | HIGH | COMPLETED | — | 2026-05-20 | 746 righe — clients/test_dog_food/projects/bruto_analysis/findings/strategist_business_analysis.md |
 | T024 | Benchmarking internazionale: competitor "punk/raw/istinto" pet food in EU/US | Explorer | HIGH | COMPLETED | — | 2026-05-20 | 378 righe — explorer_competitor_benchmark.md |

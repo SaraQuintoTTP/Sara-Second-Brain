@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Il Conclave — EVA GTM Plan Analysis</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; background: #f8f9fa; color: #1a1a1a; line-height: 1.6; }
+
+  /* Hero */
+  .hero { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 48px 40px; }
+  .hero-score { font-size: 72px; font-weight: 700; color: #f0a500; line-height: 1; margin-bottom: 8px; }
+  .hero-label { font-size: 14px; color: #aaa; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px; }
+  .hero-verdict { font-size: 22px; font-weight: 600; color: #e8e8e8; margin-bottom: 32px; max-width: 800px; }
+  .hero-actions { display: grid; gap: 12px; max-width: 800px; }
+  .action-item { background: rgba(255,255,255,0.08); border-left: 4px solid #f0a500; padding: 12px 16px; border-radius: 4px; }
+  .action-item.priority { background: rgba(240,165,0,0.15); border-left-color: #f0a500; }
+  .action-number { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #f0a500; font-weight: 700; }
+  .action-text { font-size: 15px; color: #e8e8e8; margin-top: 2px; }
+
+  /* Layout */
+  .container { max-width: 1000px; margin: 0 auto; padding: 40px 24px; }
+
+  /* Question block */
+  .question-block { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 24px; margin-bottom: 32px; }
+  .section-label { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #888; font-weight: 700; margin-bottom: 12px; }
+  .question-text { font-size: 15px; color: #333; }
+
+  /* Confidence Dashboard */
+  .dashboard { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 24px; margin-bottom: 32px; }
+  .dashboard h2 { font-size: 18px; font-weight: 700; margin-bottom: 20px; color: #1a1a1a; }
+  .advisor-row { display: flex; align-items: center; margin-bottom: 14px; gap: 16px; }
+  .advisor-name { width: 160px; font-size: 14px; font-weight: 600; color: #333; flex-shrink: 0; }
+  .advisor-framework { font-size: 11px; color: #888; margin-top: 2px; }
+  .score-bar-container { flex: 1; }
+  .score-bar-track { background: #f0f0f0; border-radius: 4px; height: 8px; position: relative; }
+  .score-bar-fill { height: 8px; border-radius: 4px; transition: width 0.3s; }
+  .score-green { background: #22c55e; }
+  .score-yellow { background: #f59e0b; }
+  .score-red { background: #ef4444; }
+  .score-numbers { font-size: 13px; color: #555; white-space: nowrap; }
+  .arrow-up { color: #22c55e; }
+  .arrow-down { color: #ef4444; }
+  .arrow-same { color: #888; }
+  .machi-row { display: flex; align-items: center; gap: 16px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #f0f0f0; }
+  .machi-badge { padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+  .machi-partial { background: #fef3c7; color: #92400e; }
+  .overall-score { margin-top: 20px; padding-top: 16px; border-top: 2px solid #e0e0e0; display: flex; align-items: center; gap: 16px; }
+  .overall-number { font-size: 42px; font-weight: 700; color: #f59e0b; line-height: 1; }
+  .overall-label { font-size: 14px; color: #555; }
+
+  /* Agreement Map */
+  .agreement-map { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 24px; margin-bottom: 32px; }
+  .agreement-map h2 { font-size: 18px; font-weight: 700; margin-bottom: 20px; }
+  .agreement-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+  .agreement-icon { width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0; margin-top: 2px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: white; }
+  .icon-agree { background: #22c55e; }
+  .icon-split { background: #f59e0b; }
+  .icon-gap { background: #6366f1; }
+  .agreement-text { font-size: 14px; color: #333; }
+  .agreement-text strong { color: #1a1a1a; }
+
+  /* Collapsible sections */
+  .collapsible { background: white; border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 16px; overflow: hidden; }
+  .collapsible-header { padding: 16px 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+  .collapsible-header:hover { background: #fafafa; }
+  .collapsible-title { font-size: 15px; font-weight: 600; color: #1a1a1a; }
+  .collapsible-meta { font-size: 12px; color: #888; }
+  .collapsible-arrow { font-size: 12px; color: #888; transition: transform 0.2s; }
+  .collapsible-content { padding: 20px; border-top: 1px solid #f0f0f0; display: none; }
+  .collapsible-content.open { display: block; }
+  .advisor-tag { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+  .tag-savonarola { background: #fee2e2; color: #991b1b; }
+  .tag-galileo { background: #dbeafe; color: #1e40af; }
+  .tag-marcopolo { background: #d1fae5; color: #065f46; }
+  .tag-falcone { background: #ede9fe; color: #5b21b6; }
+  .tag-machiavelli { background: #fff7ed; color: #9a3412; }
+  .tag-peer { background: #f3f4f6; color: #374151; }
+  pre { font-family: inherit; white-space: pre-wrap; font-size: 14px; color: #333; line-height: 1.7; }
+  .confidence-inline { font-size: 12px; color: #888; font-style: italic; margin-top: 12px; }
+
+  /* Footer */
+  footer { text-align: center; padding: 32px; color: #aaa; font-size: 12px; border-top: 1px solid #e0e0e0; margin-top: 40px; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-score">7/10</div>
+  <div class="hero-label">Confidenza Complessiva del Conclave</div>
+  <div class="hero-verdict">Il piano GTM di EVA è strategicamente solido e opportunisticamente ben posizionato. Non raggiungerà 30-50 mandati nel primo anno a meno che Boschetti non formalizzi le sue ore settimanali per EVA prima del lancio della campagna di settembre.</div>
+  <div class="hero-actions">
+    <div class="action-item priority">
+      <div class="action-number">Azione #1 — Questa settimana (priorità assoluta)</div>
+      <div class="action-text">Capacity audit: tre numeri — ore totali settimanali, ore studio italiano (media 3 mesi), ore disponibili EVA. Se &lt; 20h/settimana: assumere un intake coordinator PRIMA di settembre, o ristrutturare come referral network. Questo esercizio richiede 2 ore e decide tutto il resto.</div>
+    </div>
+    <div class="action-item">
+      <div class="action-number">Azione #2 — Prima di luglio</div>
+      <div class="action-text">Test send a 500 contatti dalla lista da 19K. Misurare bounce rate (soglia: &lt;30%) e open rate (soglia: &gt;10%). Audit conformità GDPR/LGPD — Boschetti è un avvocato, invio non conforme è rischio legale, non solo marketing.</div>
+    </div>
+    <div class="action-item">
+      <div class="action-number">Azione #3 — Prima di agosto</div>
+      <div class="action-text">Confermare per iscritto la capacity ceiling di Ioana (max casi PT/anno). Definire piano B se non disponibile. Verificare fluency PT di Boschetti per LinkedIn — se non è pubblicabile, budget ghostwriter PT (€200-400/mese).</div>
+    </div>
+    <div class="action-item">
+      <div class="action-number">Azione #4 — Decisione strategica</div>
+      <div class="action-text">Accettare la raccomandazione Sara/Stefano: pilota PT 6 mesi. Espansione a 6-8 paesi = conversazione anno 2, non esecuzione anno 1. Ridefinire il target di successo anno 1: 10-20 mandati + playbook operativo documentato = "validated foundation scenario", non fallimento.</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- QUESTION -->
+  <div class="question-block">
+    <div class="section-label">La Domanda</div>
+    <div class="question-text"><strong>EVA — Europe Visa Advisory:</strong> Il piano GTM regge davvero per uno studio mono-risorsa con budget €10-13K? Quali sono i punti critici sottovalutati, le opportunità non colte, e cosa potrebbe far fallire tutto in silenzio?<br><br>
+    <em>Contesto: Studio legale Boschetti (Roma), solo Avv. Boschetti, dominio non registrato (giugno 2026), sito MVP luglio-agosto, campagna email settembre 2026 su 19K contatti brasiliani, LinkedIn outreach ottobre 2026–aprile 2027, SEO first-mover NHR/IFICI + Spain GV orphaned traffic. Target anno 1: 30-50 incarichi, €122.5K gross. Tensione aperta: Boschetti vuole 6-8 paesi subito; Sara/Stefano raccomandano pilota PT 6 mesi.</em></div>
+  </div>
+
+  <!-- CONFIDENCE DASHBOARD -->
+  <div class="dashboard">
+    <h2>Dashboard di Confidenza</h2>
+
+    <div class="advisor-row">
+      <div>
+        <div class="advisor-name">Savonarola</div>
+        <div class="advisor-framework">Pre-Mortem Analysis</div>
+      </div>
+      <div class="score-bar-container">
+        <div class="score-bar-track"><div class="score-bar-fill score-yellow" style="width:70%"></div></div>
+      </div>
+      <div class="score-numbers">8/10 → 7/10 <span class="arrow-down">↓</span></div>
+    </div>
+
+    <div class="advisor-row">
+      <div>
+        <div class="advisor-name">Galileo</div>
+        <div class="advisor-framework">5 Whys + Constraint Map</div>
+      </div>
+      <div class="score-bar-container">
+        <div class="score-bar-track"><div class="score-bar-fill score-yellow" style="width:70%"></div></div>
+      </div>
+      <div class="score-numbers">9/10 → 7/10 <span class="arrow-down">↓</span></div>
+    </div>
+
+    <div class="advisor-row">
+      <div>
+        <div class="advisor-name">Marco Polo</div>
+        <div class="advisor-framework">Opportunity Cost Matrix</div>
+      </div>
+      <div class="score-bar-container">
+        <div class="score-bar-track"><div class="score-bar-fill score-yellow" style="width:70%"></div></div>
+      </div>
+      <div class="score-numbers">7/10 → 7/10 <span class="arrow-same">→</span></div>
+    </div>
+
+    <div class="advisor-row">
+      <div>
+        <div class="advisor-name">Falcone</div>
+        <div class="advisor-framework">ACH Matrix</div>
+      </div>
+      <div class="score-bar-container">
+        <div class="score-bar-track"><div class="score-bar-fill score-green" style="width:80%"></div></div>
+      </div>
+      <div class="score-numbers">8/10 → 8/10 <span class="arrow-same">→</span></div>
+    </div>
+
+    <div class="machi-row">
+      <div class="advisor-name">Machiavelli</div>
+      <div class="machi-badge machi-partial">Parzialmente Superato</div>
+      <div style="font-size:13px;color:#555;flex:1">Steelman retto per scenario 70%+ commitment EVA. Attacco atterrato sull'imprevedibilità dello studio italiano (ottobre-dicembre).</div>
+    </div>
+
+    <div class="overall-score">
+      <div class="overall-number">7/10</div>
+      <div class="overall-label">Confidenza Complessiva del Conclave<br><span style="color:#888;font-size:12px">Media post-debate: 7.25/10 — varianza appropriata per le molte incognite</span></div>
+    </div>
+  </div>
+
+  <!-- AGREEMENT MAP -->
+  <div class="agreement-map">
+    <h2>Mappa Accordo / Disaccordo</h2>
+
+    <div class="agreement-item">
+      <div class="agreement-icon icon-agree">✓</div>
+      <div class="agreement-text"><strong>Consenso forte (tutti e 4):</strong> Il vincolo reale è il tempo di Boschetti, non il budget. Identificato indipendentemente da Pre-Mortem, 5 Whys, Opportunity Cost, e ACH attraverso percorsi strutturalmente diversi. Survived Machiavelli's attack.</div>
+    </div>
+    <div class="agreement-item">
+      <div class="agreement-icon icon-agree">✓</div>
+      <div class="agreement-text"><strong>Consenso forte (3/4):</strong> Il target 30-50 mandati non è sbagliato come aspirazione, ma non deve essere il criterio di successo anno 1. H4 "validated foundation scenario" (10-20 mandati, €25-75K) è il base case più onesto.</div>
+    </div>
+    <div class="agreement-item">
+      <div class="agreement-icon icon-agree">✓</div>
+      <div class="agreement-text"><strong>Consenso (3/4):</strong> Raccomandazione Sara/Stefano (pilota PT 6 mesi) è corretta. Il conclave la avalla con un'aggiunta: il capacity audit è più urgente di qualsiasi attività GTM.</div>
+    </div>
+    <div class="agreement-item">
+      <div class="agreement-icon icon-split">~</div>
+      <div class="agreement-text"><strong>Disaccordo genuino — SEO:</strong> Savonarola + Machiavelli: finestra NHR/IFICI più corta del previsto (DA 0, sandbox Google, competitor si aggiornano in 90 giorni). Marco Polo + reviewer 4: il traffico orfano Spain GV (14.870 search/mese) è diverso — non richiede DA, richiede intent capture. Sono due scommesse SEO distinte, non una sola.</div>
+    </div>
+    <div class="agreement-item">
+      <div class="agreement-icon icon-split">~</div>
+      <div class="agreement-text"><strong>Disaccordo genuino — Lista email:</strong> Savonarola: probabilmente degradata (bounce risk). Marco Polo: asset primario. Entrambi possono essere veri simultaneamente — la lista non è mai stata auditata. Test send 500 contatti risolve il disaccordo in 2 ore.</div>
+    </div>
+    <div class="agreement-item">
+      <div class="agreement-icon icon-gap">!</div>
+      <div class="agreement-text"><strong>Gap scoperto dai reviewer:</strong> Compliance GDPR/LGPD della lista da 19K — rischio legale, non solo deliverability. Boschetti è avvocato: invio non conforme è una violazione prima di essere una campagna marketing.</div>
+    </div>
+    <div class="agreement-item">
+      <div class="agreement-icon icon-gap">!</div>
+      <div class="agreement-text"><strong>Gap scoperto dai reviewer:</strong> Dipendenza Ioana non scrutinata. Nessun advisor ha analizzato la sua capacity ceiling, esclusività, track record di delivery, o piano B se non disponibile.</div>
+    </div>
+    <div class="agreement-item">
+      <div class="agreement-icon icon-gap">!</div>
+      <div class="agreement-text"><strong>Gap scoperto dai reviewer:</strong> LinkedIn outreach richiede contenuto in portoghese — il piano è silente sulla lingua. Se Boschetti posta in italiano o inglese, la campagna fallisce in silenzio.</div>
+    </div>
+    <div class="agreement-item">
+      <div class="agreement-icon icon-gap">!</div>
+      <div class="agreement-text"><strong>Gap scoperto dai reviewer:</strong> Rischio motivazionale/identitario. 20+ anni in uno studio civile italiano = identità consolidata. La ritirata silenziosa verso lo studio vecchio — razionalizzata come "scelta strategica" — è il modo più comune di fallimento silenzioso in questo tipo di pivot.</div>
+    </div>
+  </div>
+
+  <!-- COLLAPSIBLE ADVISOR SECTIONS -->
+  <h2 style="font-size:18px;font-weight:700;margin-bottom:16px;color:#1a1a1a;">Risposte Complete dei Consiglieri</h2>
+
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="toggle(this)">
+      <div>
+        <div class="collapsible-title">Savonarola — Pre-Mortem Analysis</div>
+        <div class="collapsible-meta">3 failure modes identified · Fatal assumption: single-person role collision · Confidence: 8→7/10</div>
+      </div>
+      <div class="collapsible-arrow">▼</div>
+    </div>
+    <div class="collapsible-content">
+      <span class="advisor-tag tag-savonarola">Pre-Mortem</span>
+      <pre><strong>STEP 1 — ASSUME FAILURE.</strong>
+EVA is dead. Q2 2027. Boschetti is back to pure Italian civil litigation. Revenue: €8K (one partial case). The website still exists but hasn't been updated since October 2026.
+
+<strong>STEP 2 — FAILURE MODES.</strong>
+
+<strong>FM1: Boschetti hit a capacity wall by week 6.</strong>
+The email campaign to 19K contacts worked — 3-4% response rate = 570-760 inquiries. Each requires a 45-minute scoping call + follow-up memo. At 5-10 mandates, delivery requires 15-25h of legal work each. Boschetti is one person. Top-of-funnel succeeded; conversion-to-delivery pipeline collapsed.
+Foreseeable? Entirely. The plan never mapped Boschetti's available hours per week.
+
+<strong>FM2: NHR/IFICI SEO window closed faster than expected.</strong>
+Competitors updated content within 90 days. By November 2026, 4-6 established firms had published comprehensive NHR/IFICI guides. EVA's domain (4 months of authority) ranked briefly. The window was real but narrower than modeled.
+
+<strong>FM3: The 19K contact list was stale and miscategorized.</strong>
+Average contact age: 4-6 years. 41% hard bounce rate. ~1,400 effective opens. ~7 inquiries. The campaign underperformed because list quality was never audited.
+
+<strong>STEP 3 — EARLY WARNING SIGNS.</strong>
+- FM1: Boschetti's calendar fills week 3 post-launch. He starts declining calls. He tells himself "I'll hire someone when revenue starts." He doesn't.
+- FM2: Domain Authority at launch is 0. First page rankings don't appear until January 2027 — when the window has narrowed.
+- FM3: First test send shows 38% bounce rate. Noted, rationalized, campaign proceeds.
+
+<strong>STEP 4 — FATAL ASSUMPTION.</strong>
+One individual can simultaneously be business developer, marketing executor, lead qualifier, and legal delivery engine. They don't have compatible time demands. Legal delivery is deep, focused work. Lead generation is interruptive, reactive work. One kills the other.
+
+<strong>STEP 5 — RETROSPECTIVE ACTION.</strong>
+Before launching the email campaign: hire one part-time intake coordinator (10h/week at €20/h = €800/month) with authority to qualify leads and schedule calls. Without this, any successful lead generation campaign becomes a liability.</pre>
+      <div class="confidence-inline">Confidence: 8→7/10 after debate · Concession: Ioana partially mitigates FM1 delivery burden · GDPR/LGPD compliance elevates FM3 to legal risk, not just deliverability</div>
+    </div>
+  </div>
+
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="toggle(this)">
+      <div>
+        <div class="collapsible-title">Galileo — 5 Whys + Constraint Mapping</div>
+        <div class="collapsible-meta">Root problem: supply not modeled · Key reframe: capacity audit before any GTM · Confidence: 9→7/10</div>
+      </div>
+      <div class="collapsible-arrow">▼</div>
+    </div>
+    <div class="collapsible-content">
+      <span class="advisor-tag tag-galileo">5 Whys</span>
+      <pre><strong>STEP 1 — 5 WHYS.</strong>
+Why 1: Does the GTM plan hold? → Because it assumes activities can be run sequentially by one person without load collisions.
+Why 2: Why does sequential execution matter? → Legal mandates are not interruptible. Active delivery prevents simultaneous lead qualification + SEO + LinkedIn.
+Why 3: Why weren't workload types mapped? → The plan was built around revenue targets and channel activities, not the binding constraint: Boschetti's available hours per week.
+Why 4: Why is the binding constraint not the budget? → €10-13K is not the scarce resource. Boschetti's time is. Budget covers tools; delivery requires legal expertise + relationship hours.
+Why 5: Why does this create structural failure risk? → 30-50 mandates implies 20-40 active client relationships managed by one person who also handles intake, compliance, partner coordination, and SEO content.
+
+<strong>STEP 2 — ROOT PROBLEM.</strong>
+"Has Boschetti ever mapped his true available capacity, and does the plan's output target fit within it?" The GTM plan optimizes for demand generation without modeling supply constraints.
+
+<strong>STEP 3 — CONSTRAINT MAP.</strong>
+Hard: Boschetti = 1 person ~50-55h/week total. Italian practice has pre-committed hours. GDPR/LGPD compliance for 19K list. Portuguese Bar rules on foreign lawyers. New domain = 0 SEO authority.
+Soft (with evidence assessment):
+- "19K warm contacts" — ASSUMED warm. GDPR opt-in status unknown. HIGH RISK.
+- "Zero competitors on NHR/IFICI" — TRUE as of June 2026, 90-day window at best.
+- "Spain GV orphaned traffic" — REAL opportunity. Strongest channel in the plan.
+- "6-8 country expansion" — SOFT. No operational basis.
+- "€122.5K revenue target" — ASSUMED. No funnel math connecting channel → mandate.
+
+<strong>STEP 4 — REFRAME.</strong>
+Not: "Does this GTM plan hold?"
+But: "Given Boschetti's true weekly EVA capacity, what is the maximum mandates deliverable per quarter without breaking quality or Italian practice commitments?"
+
+<strong>STEP 5 — RECOMMENDATION.</strong>
+Run a capacity audit before anything else. If EVA capacity &lt; 15h/week, the 30-50 mandate target is physically impossible and the GTM plan is irrelevant. If &lt; 15h: (a) reduce Italian commitments now, or (b) hire intake coordinator pre-September, or (c) restructure as referral network model.</pre>
+      <div class="confidence-inline">Confidence: 9→7/10 after debate · Concession: Italian practice load assumed at 50-70% without data — key variable is unobserved · Reframe remains the most operationally useful output</div>
+    </div>
+  </div>
+
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="toggle(this)">
+      <div>
+        <div class="collapsible-title">Marco Polo — Opportunity Cost Matrix</div>
+        <div class="collapsible-meta">Highest-leverage missed: B2B2C via Brazilian wealth advisors (year 2) · 10x vision: platform model · Confidence: 7→7/10</div>
+      </div>
+      <div class="collapsible-arrow">▼</div>
+    </div>
+    <div class="collapsible-content">
+      <span class="advisor-tag tag-marcopolo">Opportunity Cost</span>
+      <pre><strong>STEP 1 — EXPLICIT COSTS.</strong>
+Cash: €10-13K is thin but viable. True cost: Boschetti's attention. Every EVA hour = hour not on Italian clients, network, sleep. Reputation capital: 20+ years attached to EVA. Bad first 5 cases damages the mother brand.
+Foreclosed alternatives: deepening Italian practice; licensing knowledge to other lawyers (delivery); joining an existing immigration network as referral hub.
+
+<strong>STEP 2 — OPTION VALUE (if it works).</strong>
+Boschetti becomes the documented Brazilian-to-Europe immigration specialist. 19K list becomes a monetizable community. Ioana partnership scales; add IT, GR, MT specialists via same model. Speaking/consulting revenue. White-label agreements with Brazilian wealth managers (B2B2C model removing consumer acquisition cost). Acquisition target in 3-4 years.
+
+<strong>STEP 3 — COMPARATIVE ALTERNATIVES.</strong>
+Alt A — Referral Network Model: Boschetti contracts 4-5 specialist lawyers in PT/ES/IT/MT on rev-share. He is the connector and brand, never the delivery resource. Eliminates capacity ceiling entirely.
+Alt B — B2B2C via Brazilian Wealth Advisors: Target 50-100 family offices/private banks. Each sends 3-5 clients/year. No direct-to-consumer marketing needed. HNWIs don't Google "NHR IFICI" — they ask their wealth manager. The SEO/email channel reaches aspirational middle-market; B2B channel reaches actual HNWI sweet spot. Different audiences.
+Alt C — Portugal-only Delivery-First: Clean PT data (conversion rate, delivery hours, NPS, referral rate, Ioana quality) before committing to multi-country complexity. The Sara/Stefano recommendation, spelled out.
+
+<strong>STEP 4 — THE 10x VERSION.</strong>
+Not 300-500 mandates/year by Boschetti alone. EVA as a Brazil-to-Europe immigration advisory platform: Boschetti as brand + orchestrator, 8-12 jurisdiction specialists on rev-share, standardized intake, 3-5 B2B2C agreements with Brazilian private banks delivering 20-30 qualified mandates/year each at zero acquisition cost.
+Minimum viable step toward 10x: Build PT-language LinkedIn presence targeting Brazilian financial services professionals now — simultaneously brand-builds AND lays groundwork for future B2B2C relationships.
+
+<strong>STEP 5 — VERDICT.</strong>
+The plan is valid but misses its highest-leverage opportunity. SEO/email/LinkedIn is correct for brand awareness but optimizes for the wrong buyer profile. Keep PT pilot. Add B2B2C as year 2 track. LinkedIn outreach MUST be in Portuguese.</pre>
+      <div class="confidence-inline">Confidence: 7/10 unchanged · Updated: B2B2C has 12-18 month trust-building runway, not 2 meetings. Year 2 objective, not year 1. LinkedIn PT content = year 1 precursor to year 2 B2B2C.</div>
+    </div>
+  </div>
+
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="toggle(this)">
+      <div>
+        <div class="collapsible-title">Falcone — Analysis of Competing Hypotheses (ACH)</div>
+        <div class="collapsible-meta">H4 strongest survivor (+11 score) · "Validated foundation" not failure · Confidence: 8→8/10</div>
+      </div>
+      <div class="collapsible-arrow">▼</div>
+    </div>
+    <div class="collapsible-content">
+      <span class="advisor-tag tag-falcone">ACH Matrix</span>
+      <pre><strong>HYPOTHESES:</strong>
+H1: GTM plan is sound → achieves 30-50 mandates in year 1 with manageable adjustments.
+H2: Fatal capacity constraint → 30-50 mandates impossible without structural changes.
+H3: Significant inbound demand but fails to convert profitably (pricing/qualification mismatch).
+H4: Modest success (10-20 mandates) → validates concept but not revenue targets, restructure year 2.
+H5: SEO first-mover real but too short-lived to build sustainable organic demand before budget runs out.
+
+<strong>ACH MATRIX (C=+2, wC=+1, N/A=0, wI=-1, I=-2):</strong>
+
+Evidence               H1    H2    H3    H4    H5
+E1: Solo + IT practice  I     C     C     C    N/A
+E2: 19K list (age?)    wI     C     C    wC    N/A
+E3: NHR/IFICI 1st-mvr   C   N/A   N/A    wC     C
+E4: Spain GV 14.8K      C   N/A   N/A    wC    wI
+E5: Domain DA=0         I    wC   N/A    wC     C
+E6: 2.5-4 mand/mth     wI     C    wC     C   N/A
+E7: Germany org. lead   C    wI    wI     C   N/A
+E8: Ioana contracted   wC    wI   N/A    wC   N/A
+
+SCORES: H1=+5, H2=+5, H3=+4, <strong>H4=+11</strong>, H5=+3
+
+<strong>MISSING EVIDENCE (most diagnostic):</strong>
+1. Boschetti's EVA hours/week (distinguishes H1 from H2)
+2. Email list hygiene test send (distinguishes H3 from H4)
+3. Average mandate delivery hours (determines max annual throughput)
+4. Conversion rate inquiry→mandate in existing Italian practice
+5. Domain authority trajectory for comparable new immigration law sites at 6 months
+
+<strong>VERDICT:</strong>
+H4 survives most cleanly. EVA will generate enough demand to prove the concept and close 10-20 mandates, but will fall short of 30-50 due to capacity + list quality + SEO timing mismatch.
+
+<strong>RELABEL:</strong> H4 is not a failure. At 10-20 mandates + €25-75K revenue with documented operational playbook and Ioana partnership proven, EVA is in a strong position for year 2 restructuring. The plan must explicitly define success metrics that accommodate H4 as a win condition.</pre>
+      <div class="confidence-inline">Confidence: 8/10 unchanged · H4 relabeled "validated foundation scenario" not "underperformance" · Matrix robust to GDPR and Ioana considerations from peer review</div>
+    </div>
+  </div>
+
+  <!-- PEER REVIEW HIGHLIGHTS -->
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="toggle(this)">
+      <div>
+        <div class="collapsible-title">Peer Review — Highlights</div>
+        <div class="collapsible-meta">4 anonymous reviewers · 4 blind spots surfaced that no advisor caught</div>
+      </div>
+      <div class="collapsible-arrow">▼</div>
+    </div>
+    <div class="collapsible-content">
+      <span class="advisor-tag tag-peer">Peer Review</span>
+      <pre><strong>BLIND SPOTS MISSED BY ALL 4 ADVISORS:</strong>
+
+1. GDPR/LGPD compliance of 19K list (Reviewer 1)
+None of the advisors addressed the legal liability dimension — only the deliverability risk. Boschetti is a practicing lawyer. Sending emails without documented opt-in = potential regulatory violation before the campaign even generates a lead.
+
+2. Psychological/motivational risk (Reviewer 2)
+20+ years in Italian civil practice = consolidated professional identity. EVA requires a new language, new client profile, new brand. Silent failure often looks like strategic retreat rationalized as good judgment. No accountability mechanism in the plan.
+
+3. Ioana dependency unscrutinized (Reviewer 3)
+The plan relies heavily on Ioana for PT delivery but specifies nothing about her capacity ceiling, exclusivity, quality track record, or contingency if unavailable. One delivery failure by Ioana = Boschetti's reputation damaged with a Brazilian client.
+
+4. LinkedIn content language (Reviewer 4)
+Outreach targeting Brazilian HNWIs requires consistent Portuguese content. The plan is silent on language. Boschetti posting in Italian or English = silent campaign failure.
+
+<strong>CONFIDENCE CALIBRATION NOTES:</strong>
+Galileo's 9/10 flagged as overconfident by all 4 reviewers (key variable — Italian practice load — unobserved). All advisors in 7-9/10 range across a high-uncertainty question is suspicious; the conclave slightly overconfident as a group. Peer review corrected Galileo down to 7/10.</pre>
+    </div>
+  </div>
+
+  <!-- MACHIAVELLI -->
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="toggle(this)">
+      <div>
+        <div class="collapsible-title">Machiavelli — Steelman-then-Attack</div>
+        <div class="collapsible-meta">Status: Parzialmente Superato · Steelman held for 70%+ commitment scenario · Attack landed on Italian practice unpredictability</div>
+      </div>
+      <div class="collapsible-arrow">▼</div>
+    </div>
+    <div class="collapsible-content">
+      <span class="advisor-tag tag-machiavelli">Steelman → Attack</span>
+      <pre><strong>PHASE 1 — STEELMAN.</strong>
+The GTM plan is not reckless — it is sequenced. Email campaign hits September before active delivery ramps. LinkedIn is modest (5-10/week) = brand-building track, not volume. SEO content can be ghostwritten. Portugal pilot contains delivery to one jurisdiction where Ioana handles case work. The Germany organic lead proves deal flow exists without formal GTM.
+
+Strongest version: Boschetti is a 20-year veteran who knows how to run a practice. 30-50 mandates over 12 months = 2.5-4/month — not 50 simultaneous cases. With Ioana absorbing PT delivery, Boschetti's role is intake + oversight + key relationship management. The capacity wall may exist at 50 mandates, not at 8.
+
+On SEO: in high-trust domains (legal), content from a practicing specialist outranks generic content. The domain authority gap may be smaller than feared because the quality signal is genuinely differentiated.
+
+<strong>PHASE 2 — ATTACK.</strong>
+The steelman rests on sequencing — but sequencing only works if October delivery ramp doesn't collide with September inquiry volume. If 19K contacts generate 400-600 inquiries in 3 weeks, the bottleneck appears in week 3 of September — before any revenue arrives. Boschetti enters October already behind.
+
+On SEO quality: NHR/IFICI is not low competition. It attracts Nomad Capitalist, Expat Network, and specialist firms with DA 40-70. A new domain at DA 0 ranks for long-tail variants, not head terms. Year 1 organic traffic from long-tail NHR keywords: likely 200-500 visits/month — not enough for 30+ mandates.
+
+<strong>Deepest attack:</strong> The plan has no failure mode for the Italian practice. Year-end legal work surge in Italy (October-December) may collide with exactly the post-September campaign conversion window. Italian practice load is not fixed and predictable — it never is.
+
+<strong>Verdict:</strong> The steelman holds for a scenario where Boschetti is 70%+ committed to EVA. It collapses if he's 40-50% committed. The plan never specifies which it is. That omission is the single most dangerous gap.</pre>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Il Conclave · EVA — Europe Visa Advisory GTM Analysis · 6 giugno 2026<br>
+  Advisors: Savonarola (Pre-Mortem) · Galileo (5 Whys) · Marco Polo (Opportunity Cost) · Falcone (ACH) · Machiavelli (Steelman→Attack) · Salomone (Synthesis)<br>
+  Framework adapted from Andrej Karpathy's LLM Council · Powered by Claude Code
+</footer>
+
+<script>
+function toggle(header) {
+  const content = header.nextElementSibling;
+  const arrow = header.querySelector('.collapsible-arrow');
+  content.classList.toggle('open');
+  arrow.style.transform = content.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+}
+</script>
+</body>
+</html>

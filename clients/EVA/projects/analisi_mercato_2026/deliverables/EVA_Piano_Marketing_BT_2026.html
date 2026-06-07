@@ -1,0 +1,1952 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EVA — Piano Marketing Breve Termine · Giugno–Dicembre 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@400;500;600;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1B2A;
+    --navy2: #1A2D40;
+    --navy3: #243D55;
+    --orange: #F47920;
+    --orange-light: #F9A55A;
+    --orange-dark: #C85F10;
+    --offwhite: #F5F2EE;
+    --grey: #6B7280;
+    --grey-light: #E5E7EB;
+    --grey-mid: #9CA3AF;
+    --white: #FFFFFF;
+    --red-urgent: #DC2626;
+    --red-light: #FEE2E2;
+    --green: #059669;
+    --green-light: #D1FAE5;
+    --yellow: #D97706;
+    --yellow-light: #FEF3C7;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'PT Serif', Georgia, serif;
+    background: var(--offwhite);
+    color: var(--navy);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--navy);
+    color: var(--offwhite);
+    padding: 40px 48px 32px;
+    border-bottom: 4px solid var(--orange);
+  }
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .logo-area {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .logo-icon {
+    width: 52px;
+    height: 52px;
+    background: var(--orange);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--white);
+    letter-spacing: 1px;
+  }
+  .logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .logo-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    color: rgba(255,255,255,.58);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .doc-meta {
+    text-align: right;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    color: rgba(255,255,255,.68);
+  }
+  .doc-meta strong {
+    color: var(--orange-light);
+    display: block;
+    font-size: 13px;
+    margin-bottom: 3px;
+  }
+  .header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .header-title span { color: var(--orange); }
+  .header-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: rgba(255,255,255,.72);
+    letter-spacing: 0.5px;
+  }
+
+  /* ── QUICK REFERENCE CARD ── */
+  .qr-card {
+    background: var(--red-light);
+    border: 2px solid var(--red-urgent);
+    border-radius: 10px;
+    margin: 28px 48px;
+    padding: 22px 28px;
+    page-break-inside: avoid;
+  }
+  .qr-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--red-urgent);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .qr-title::before {
+    content: "⚡";
+    font-size: 16px;
+  }
+  .qr-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+  }
+  .qr-item {
+    background: white;
+    border: 1px solid #FCA5A5;
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .qr-num {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--red-urgent);
+    line-height: 1;
+  }
+  .qr-action {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-top: 4px;
+    line-height: 1.3;
+  }
+  .qr-who {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    color: var(--grey);
+    margin-top: 3px;
+  }
+  .qr-deadline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    color: var(--red-urgent);
+    font-weight: 600;
+    margin-top: 3px;
+  }
+
+  /* ── MAIN CONTENT ── */
+  .main {
+    padding: 0 48px 48px;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    margin-top: 40px;
+    page-break-inside: avoid;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+    border-bottom: 2px solid var(--grey-light);
+    padding-bottom: 10px;
+  }
+  .section-num {
+    background: var(--orange);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .section-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-left: auto;
+  }
+  .tag-red { background: var(--red-light); color: var(--red-urgent); }
+  .tag-orange { background: #FEF3C7; color: var(--orange-dark); }
+  .tag-green { background: var(--green-light); color: var(--green); }
+  .tag-blue { background: #DBEAFE; color: #1D4ED8; }
+  .tag-grey { background: var(--grey-light); color: var(--grey); }
+
+  /* ── PROSE ── */
+  p { margin-bottom: 12px; }
+  ul { padding-left: 20px; margin-bottom: 12px; }
+  ul li { margin-bottom: 6px; }
+  strong { color: var(--navy); }
+
+  /* ── CALLOUT BOXES ── */
+  .callout {
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    border-left: 4px solid;
+  }
+  .callout-red { background: var(--red-light); border-color: var(--red-urgent); }
+  .callout-orange { background: #FFF7ED; border-color: var(--orange); }
+  .callout-green { background: var(--green-light); border-color: var(--green); }
+  .callout-blue { background: #EFF6FF; border-color: #3B82F6; }
+  .callout-navy { background: #EEF2FF; border-color: var(--navy); }
+  .callout-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .callout-red .callout-title { color: var(--red-urgent); }
+  .callout-orange .callout-title { color: var(--orange-dark); }
+  .callout-green .callout-title { color: var(--green); }
+  .callout-blue .callout-title { color: #1D4ED8; }
+  .callout-navy .callout-title { color: var(--navy); }
+
+  /* ── PHASE CARDS ── */
+  .phase-card {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--grey-light);
+    overflow: hidden;
+    margin-bottom: 20px;
+    page-break-inside: avoid;
+  }
+  .phase-header {
+    padding: 16px 22px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .phase-badge {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+  .phase-0 .phase-header { background: var(--navy); }
+  .phase-0 .phase-badge { background: var(--orange); color: white; }
+  .phase-0 .phase-title { color: var(--offwhite); }
+  .phase-1 .phase-header { background: #1D4ED8; }
+  .phase-1 .phase-badge { background: white; color: #1D4ED8; }
+  .phase-1 .phase-title { color: white; }
+  .phase-2 .phase-header { background: var(--green); }
+  .phase-2 .phase-badge { background: white; color: var(--green); }
+  .phase-2 .phase-title { color: white; }
+  .phase-3 .phase-header { background: var(--orange-dark); }
+  .phase-3 .phase-badge { background: white; color: var(--orange-dark); }
+  .phase-3 .phase-title { color: white; }
+  .phase-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .phase-dates {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    margin-left: auto;
+    color: rgba(255,255,255,0.88);
+  }
+  .phase-body {
+    padding: 20px 22px;
+  }
+
+  /* ── TABLES ── */
+  .table-wrap { overflow-x: auto; margin: 16px 0; border-radius: 8px; box-shadow: 0 2px 12px rgba(10,20,35,.07); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #E5E7EB;
+  }
+  thead th {
+    background: var(--navy);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 11px 15px;
+    text-align: left;
+  }
+  thead th.orange { background: var(--orange); }
+  tbody tr { border-bottom: 1px solid #EAECF0; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: #F8FAFC; }
+  tbody td { padding: 10px 15px; vertical-align: top; color: #1F2937; line-height: 1.55; }
+  tbody tr:hover { background: #FFF7ED; }
+  .td-bold { font-weight: 600; font-family: 'Montserrat', sans-serif; font-size: 12px; color: #111827; }
+  .td-meta { font-family: 'Montserrat', sans-serif; font-size: 11px; color: #4B5563; }
+  tfoot td {
+    background: var(--navy2);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 11px 15px;
+  }
+
+  /* ── SMART OBJECTIVES ── */
+  .smart-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 14px;
+    margin-top: 14px;
+  }
+  .smart-card {
+    background: white;
+    border: 1px solid var(--grey-light);
+    border-radius: 10px;
+    padding: 16px 18px;
+    border-top: 3px solid var(--orange);
+    page-break-inside: avoid;
+  }
+  .smart-obj {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--orange-dark);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .smart-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .smart-target {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    color: var(--grey);
+  }
+  .smart-target strong { color: var(--green); }
+
+  /* ── WEEK CALENDAR ── */
+  .week-row {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 12px;
+    margin-bottom: 8px;
+    align-items: start;
+  }
+  .week-label {
+    background: var(--navy);
+    color: white;
+    border-radius: 6px;
+    padding: 7px 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .week-label .week-dates {
+    font-weight: 400;
+    font-size: 10px;
+    color: rgba(255,255,255,.7);
+    display: block;
+    margin-top: 2px;
+  }
+  .week-tasks {
+    background: white;
+    border: 1px solid var(--grey-light);
+    border-radius: 6px;
+    padding: 10px 14px;
+  }
+  .week-tasks ul { margin: 0; padding-left: 16px; }
+  .week-tasks ul li {
+    font-size: 13px;
+    margin-bottom: 4px;
+    font-family: 'PT Serif', serif;
+  }
+  .critical-week .week-label { background: var(--red-urgent); }
+  .critical-week .week-tasks { border-color: #FCA5A5; background: #FFF5F5; }
+
+  /* ── KPI GRID ── */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px;
+    margin-top: 14px;
+  }
+  .kpi-card {
+    background: white;
+    border: 1px solid var(--grey-light);
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+    page-break-inside: avoid;
+  }
+  .kpi-phase {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #374151;
+    margin-bottom: 6px;
+  }
+  .kpi-metric {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .kpi-target {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--orange);
+    margin-bottom: 4px;
+  }
+  .kpi-gonogo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    color: var(--grey);
+    font-style: italic;
+  }
+  .kpi-freq {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    background: var(--grey-light);
+    color: var(--grey);
+    padding: 2px 6px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: 6px;
+  }
+
+  /* ── RISCHI ── */
+  .risk-card {
+    background: white;
+    border: 1px solid var(--grey-light);
+    border-radius: 10px;
+    margin-bottom: 14px;
+    overflow: hidden;
+    page-break-inside: avoid;
+  }
+  .risk-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 18px;
+    background: #E8ECF0;
+  }
+  .risk-badge {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+  .risk-alta { background: #FEE2E2; color: #991B1B; font-weight: 700; }
+  .risk-media { background: #FEF3C7; color: #92400E; font-weight: 700; }
+  .risk-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--navy);
+  }
+  .risk-body {
+    padding: 14px 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    font-size: 13px;
+  }
+  .risk-col-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--grey);
+    margin-bottom: 4px;
+  }
+
+  /* ── RESPONSABILITÀ MATRIX ── */
+  .resp-badge {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+  }
+  .r-boschetti { background: #DBEAFE; color: #1D4ED8; }
+  .r-sara { background: #FEF3C7; color: #92400E; }
+  .r-stefano { background: var(--green-light); color: var(--green); }
+  .r-ioana { background: #F3E8FF; color: #7C3AED; }
+  .r-ttp { background: #FFF7ED; color: var(--orange-dark); }
+
+  /* ── URGENCY BADGES ── */
+  .urg-high { color: var(--red-urgent); font-weight: 700; }
+  .urg-med { color: var(--yellow); font-weight: 600; }
+  .urg-low { color: var(--green); font-weight: 600; }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--navy);
+    color: rgba(255,255,255,.62);
+    padding: 20px 48px;
+    margin-top: 48px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer strong { color: var(--orange); }
+
+  /* ── DIVIDER ── */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--grey-light);
+    margin: 24px 0;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: white; }
+    .main { padding: 0 24px 24px; }
+    .header { padding: 24px; }
+    .qr-card { margin: 16px 24px; }
+    .section { page-break-inside: avoid; }
+  }
+
+  /* ── BUDGET TOTAL ROW ── */
+  .total-row td {
+    background: var(--orange) !important;
+    color: white !important;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  /* ── SEO URGENCY ── */
+  .seo-red { background: #FEE2E2; }
+  .seo-orange { background: #FFF7ED; }
+  .seo-yellow { background: var(--yellow-light); }
+  .seo-green { background: var(--green-light); }
+
+  /* ── TWO COL ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  @media (max-width: 900px) {
+    .qr-grid { grid-template-columns: repeat(2, 1fr); }
+    .smart-grid { grid-template-columns: 1fr; }
+    .two-col { grid-template-columns: 1fr; }
+    .risk-body { grid-template-columns: 1fr; }
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .header { padding: 24px; }
+    .main { padding: 0 24px 32px; }
+    .qr-card { margin: 16px 24px; }
+    .footer { flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════ -->
+<div class="header">
+  <div class="header-top">
+    <div class="logo-area">
+      <div class="logo-icon">EVA</div>
+      <div>
+        <div class="logo-text">Europe Visa Advisory</div>
+        <div class="logo-sub">Studio Legale Boschetti · Roma</div>
+      </div>
+    </div>
+    <div class="doc-meta">
+      <strong>Piano Marketing Breve Termine</strong>
+      Giugno – Dicembre 2026<br>
+      Versione 1.0 · Riservato<br>
+      Prodotto da TTP Agency
+    </div>
+  </div>
+  <div class="header-title">Piano Marketing <span>Breve Termine</span><br>Giugno – Dicembre 2026</div>
+  <div class="header-subtitle">7 mesi operativi · Studio mono-risorsa · Budget €10.600–13.150 · Consulente: Sara Quinto / Stefano Rigazio (TTP)</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     QUICK REFERENCE — 5 COSE DA FARE QUESTA SETTIMANA
+══════════════════════════════════════════ -->
+<div class="qr-card">
+  <div class="qr-title">Quick Reference — Le 5 Cose da Fare Questa Settimana (6–12 giugno 2026)</div>
+  <div class="qr-grid">
+    <div class="qr-item">
+      <div class="qr-num">1</div>
+      <div class="qr-action">Avvia consent audit lista 19K contatti brasiliani</div>
+      <div class="qr-who">Owner: Boschetti + TTP</div>
+      <div class="qr-deadline">⚠ Deadline: venerdì 12/06</div>
+    </div>
+    <div class="qr-item">
+      <div class="qr-num">2</div>
+      <div class="qr-action">Registra dominio EVA (europevisaadvisory.com o variante)</div>
+      <div class="qr-who">Owner: Boschetti</div>
+      <div class="qr-deadline">⚠ Entro mercoledì 11/06</div>
+    </div>
+    <div class="qr-item">
+      <div class="qr-num">3</div>
+      <div class="qr-action">Firma addendum contratto Ioana con scope EVA esplicito</div>
+      <div class="qr-who">Owner: Boschetti</div>
+      <div class="qr-deadline">⚠ Entro venerdì 12/06</div>
+    </div>
+    <div class="qr-item">
+      <div class="qr-num">4</div>
+      <div class="qr-action">Capacity agreement: definisci ore/settimana EVA per iscritto</div>
+      <div class="qr-who">Owner: Boschetti</div>
+      <div class="qr-deadline">⚠ Entro venerdì 12/06</div>
+    </div>
+    <div class="qr-item">
+      <div class="qr-num">5</div>
+      <div class="qr-action">Conferm naming definitivo: "Europe Visa Advisory" + palette orange/navy</div>
+      <div class="qr-who">Owner: Boschetti + TTP</div>
+      <div class="qr-deadline">⚠ Entro mercoledì 11/06</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     MAIN CONTENT
+══════════════════════════════════════════ -->
+<div class="main">
+
+<!-- ══ SEZIONE 1 — SOMMARIO ESECUTIVO ══ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">1</div>
+    <div class="section-title">Sommario Esecutivo</div>
+    <span class="section-tag tag-blue">Contesto</span>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:16px;margin-bottom:10px;color:var(--navy)">Situazione Attuale — Giugno 2026</h3>
+      <p>EVA — Europe Visa Advisory è una nuova unità autonoma dello Studio Legale Internazionale Boschetti (Roma, fondato 2008). Il modello è validato concettualmente: primo lead reale acquisito (Vinayak Nautiyal, India→Germania, 28 maggio 2026), partner PT operativa (Ioana, Lisbona), proposta TTP accettata, analisi di mercato completata.</p>
+      <p>Tuttavia, le basi operative mancano ancora: <strong>il dominio non è registrato</strong>, il sito è da costruire, tre pre-condizioni critiche identificate da Il Conclave devono essere chiuse prima di qualsiasi attività pubblica.</p>
+      <p>Il mercato è favorevole: gap SEO massicci (NHR/IFICI, Beckham Law, Spain GV), 65% dei cluster EVA a bassa competizione, nessun competitor con avvocato identificabile. La finestra di first-mover è aperta — ma si chiuderà con la velocità tipica di questo settore.</p>
+    </div>
+    <div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:16px;margin-bottom:10px;color:var(--navy)">Obiettivo del Piano</h3>
+      <p>Portare EVA da <strong>zero a motore acquisizione funzionante</strong> in 7 mesi (giugno–dicembre 2026), con investimento totale €10.600–13.150, generando 15–20 incarichi chiusi nell'anno 1.</p>
+      <p>Il piano è articolato in 4 fasi sequenziali — ogni fase è pre-requisito della successiva — con priorità assoluta alla credibilità online prima di qualsiasi attività di outreach.</p>
+      <div class="callout callout-red" style="margin-top:14px">
+        <div class="callout-title">Vincolo Principale</div>
+        Il binding constraint NON è il budget. È il <strong>tempo di Boschetti</strong> (max 10–15 ore/settimana su EVA). Tutto il piano è calibrato su questa capacità. Nessuna attività può superare questo limite senza rinegoziazione esplicita.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SEZIONE 2 — PRE-REQUISITI NON NEGOZIABILI ══ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">2</div>
+    <div class="section-title">Pre-Requisiti Non Negoziabili</div>
+    <span class="section-tag tag-red">Il Conclave · Blockers</span>
+  </div>
+
+  <div class="callout callout-navy">
+    <div class="callout-title">Verdetto Il Conclave</div>
+    Questi 3 task devono essere completati <strong>prima di qualsiasi altra attività EVA</strong>. Senza di essi il piano ha probabilità di successo 5/10. Con essi, 7/10.
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:30px">#</th>
+          <th>Pre-Condizione</th>
+          <th>Perché è Bloccante</th>
+          <th>Owner</th>
+          <th>Deadline</th>
+          <th>Output Atteso</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="seo-red">
+          <td class="td-bold">1</td>
+          <td><strong>Consent Audit GDPR/LGPD lista 19K contatti brasiliani</strong></td>
+          <td>Lista costruita via eventi professionali — probabilmente senza consenso commerciale esplicito. Se fail: brand damage + potenziale complaint Garante Privacy. Determina se il GTM parte in luglio o va ridisegnato.</td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span> <span class="resp-badge r-ttp">TTP</span></td>
+          <td class="urg-high">12/06/2026</td>
+          <td>Semaforo: 🟢 verde (usabile) / 🟡 giallo (segmento usabile) / 🔴 rosso (rebuild consent)</td>
+        </tr>
+        <tr class="seo-orange">
+          <td class="td-bold">2</td>
+          <td><strong>Addendum contratto Ioana con scope EVA esplicito</strong></td>
+          <td>Scope indefinito su risorsa critica. Senza questo, ogni delay PT o conflitto priorità paralizza le attività. Ioana è single point of failure per il Desk PT.</td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span></td>
+          <td class="urg-high">12/06/2026</td>
+          <td>Documento firmato: ore/settimana EVA, deliverable, compensazione per caso, SLA risposta</td>
+        </tr>
+        <tr class="seo-yellow">
+          <td class="td-bold">3</td>
+          <td><strong>Capacity Agreement Boschetti (ore/settimana EVA scritte)</strong></td>
+          <td>In assenza di accordo scritto, in qualsiasi momento di pressione del vecchio studio, EVA perde sempre. Revenue garantita batte sempre revenue prospettica.</td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span></td>
+          <td class="urg-high">12/06/2026</td>
+          <td>Documento scritto: X ore/settimana hard-committed, trigger di rallentamento, revisione mensile</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-orange" style="margin-top:16px">
+    <div class="callout-title">Cosa succede se queste 3 pre-condizioni NON vengono chiuse entro il 12 giugno?</div>
+    Il piano slitta di almeno 2 settimane. Tutte le deadline di luglio si spostano. La finestra NHR/IFICI (zero competitor aggiornati oggi) si restringe ogni settimana. Il costo dell'inazione è reale e misurabile.
+  </div>
+</div>
+
+<!-- ══ SEZIONE 3 — OBIETTIVI SMART ══ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">3</div>
+    <div class="section-title">Obiettivi SMART</div>
+    <span class="section-tag tag-blue">Giugno–Dicembre 2026</span>
+  </div>
+
+  <div class="smart-grid">
+    <div class="smart-card">
+      <div class="smart-obj">Obiettivo 1 · Digital Foundation</div>
+      <div class="smart-title">Sito EVA live entro il 31 agosto 2026</div>
+      <div class="smart-target">Target: <strong>100% completato</strong> — WordPress multilingua IT/PT/EN, architettura 107 pagine Enthous, almeno 2 articoli SEO pubblicati. Misura: URL live + Google Search Console attivo.</div>
+    </div>
+    <div class="smart-card">
+      <div class="smart-obj">Obiettivo 2 · SEO Authority</div>
+      <div class="smart-title">12 articoli SEO pubblicati entro il 31 dicembre 2026</div>
+      <div class="smart-target">Target: <strong>12 articoli</strong> su keyword prioritarie (NHR/IFICI, Beckham Law, comparativi). Frequenza: 1 ogni 2 settimane da agosto. Misura: conteggio articoli live + impressioni Google Search Console.</div>
+    </div>
+    <div class="smart-card">
+      <div class="smart-obj">Obiettivo 3 · Lead Generation</div>
+      <div class="smart-title">5–10 lead qualificati dalla campagna brasiliani (settembre)</div>
+      <div class="smart-target">Target: <strong>5 lead minimum</strong> da 3 email PT al database 19K. Misura: risposte + assessment completati. Go/no-go: se 0 lead dopo email 2, pausa + revisione.</div>
+    </div>
+    <div class="smart-card">
+      <div class="smart-obj">Obiettivo 4 · Conversione</div>
+      <div class="smart-title">8–12 incarichi chiusi entro il 31 dicembre 2026</div>
+      <div class="smart-target">Target conservativo: <strong>8 incarichi</strong> (break-even GTM a 7). Target ottimistico: 12. Revenue EVA year 1: €15–25K conservativo. Misura: contratti firmati + revenue tracciata.</div>
+    </div>
+    <div class="smart-card">
+      <div class="smart-obj">Obiettivo 5 · B2B Pipeline</div>
+      <div class="smart-title">2–3 partner B2B attivi entro il 31 dicembre 2026</div>
+      <div class="smart-target">Target: <strong>2 partnership attive</strong> (agenzie relocation, studi legali esteri, HR aziendali). Misura: accordi firmati + almeno 1 referral ricevuto per partner. Outreach avviato: ottobre.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SEZIONE 4 — FASI OPERATIVE ══ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">4</div>
+    <div class="section-title">Fasi Operative</div>
+    <span class="section-tag tag-orange">Giugno–Dicembre 2026</span>
+  </div>
+
+  <!-- FASE 0 -->
+  <div class="phase-card phase-0">
+    <div class="phase-header">
+      <span class="phase-badge">Fase 0</span>
+      <span class="phase-title">Fondamenta</span>
+      <span class="phase-dates">Giugno 2026 · 2 settimane critiche</span>
+    </div>
+    <div class="phase-body">
+      <div class="callout callout-red">
+        <div class="callout-title">Obiettivo Fase</div>
+        Chiudere tutti i prerequisiti non negoziabili e creare le basi identitarie di EVA. Nessuna Fase 1 può iniziare senza Fase 0 completata.
+      </div>
+      <div class="two-col">
+        <div>
+          <strong style="font-family:'Montserrat',sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--orange-dark)">Attività</strong>
+          <ul style="margin-top:8px">
+            <li><strong>Naming definitivo:</strong> Chiudere il refuso "ENTRY vs EVA" — nome ufficiale <em>Europe Visa Advisory (EVA)</em></li>
+            <li><strong>Registrazione dominio:</strong> europevisaadvisory.com (preferito) + .eu + .it — €20–50/anno</li>
+            <li><strong>Conferma palette:</strong> Orange #F47920 + Navy #0D1B2A — validata visivamente</li>
+            <li><strong>Placeholder sito:</strong> Una pagina HTML "Coming Soon" con logo, tagline, email di contatto — live entro settimana 2</li>
+            <li><strong>Setup email professionale:</strong> francesco@europevisaadvisory.com via Google Workspace o equivalente</li>
+            <li><strong>Setup Google Search Console:</strong> verifica dominio, base per tracking SEO</li>
+            <li><strong>Brief definitivo sito a Stefano:</strong> Architettura 107 pagine Enthous + wireframe home</li>
+            <li><strong>3 Pre-condizioni Il Conclave</strong> (vedi Sezione 2) — DEADLINE: 12/06</li>
+          </ul>
+        </div>
+        <div>
+          <strong style="font-family:'Montserrat',sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--orange-dark)">Output Attesi</strong>
+          <ul style="margin-top:8px">
+            <li>Dominio registrato ✓</li>
+            <li>Placeholder live ✓</li>
+            <li>Email professionale attiva ✓</li>
+            <li>Naming univoco approvato ✓</li>
+            <li>3 pre-condizioni Il Conclave completate ✓</li>
+            <li>Brief sito inviato a Stefano ✓</li>
+            <li>Google Search Console verificato ✓</li>
+          </ul>
+          <div class="callout callout-orange" style="margin-top:12px">
+            <div class="callout-title">Costo stimato Fase 0</div>
+            Dominio + registrazioni: <strong>€30–80</strong><br>
+            Lavoro TTP: ~4h Sara + 2h Stefano (consulenza iniziale)<br>
+            <strong>Totale: €300–380 (inclusa tariffa TTP)</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FASE 1 -->
+  <div class="phase-card phase-1">
+    <div class="phase-header">
+      <span class="phase-badge">Fase 1</span>
+      <span class="phase-title">MVP Digitale</span>
+      <span class="phase-dates">Luglio – Agosto 2026</span>
+    </div>
+    <div class="phase-body">
+      <div class="callout callout-blue">
+        <div class="callout-title">Obiettivo Fase</div>
+        Sito EVA live entro 31 agosto con almeno 2 articoli SEO pubblicati e case study Vinayak. Prerequisito duro per Fase 2 (email brasiliani) e Fase 3 (LinkedIn B2B).
+      </div>
+      <div class="two-col">
+        <div>
+          <strong style="font-family:'Montserrat',sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#1D4ED8">Sito WordPress</strong>
+          <ul style="margin-top:8px">
+            <li><strong>CMS:</strong> WordPress con tema premium o builder (Elementor Pro)</li>
+            <li><strong>Lingue:</strong> IT + EN al lancio, PT entro settembre (WPML o Polylang)</li>
+            <li><strong>Pagine core (8–10):</strong> Home, Chi siamo (volto Boschetti E-E-A-T), Come funziona, Paesi (PT/ES/IT/DE/FR), Servizi, Case study, Blog, Contatti, Landing B2B non indicizzata</li>
+            <li><strong>SEO tecnico:</strong> Yoast/RankMath, sitemap, canonical, schema markup Avvocato/LegalService</li>
+            <li><strong>Form contatto:</strong> Assessment iniziale con 5 campi (nome, paese attuale, paese target, timeline, budget indicativo)</li>
+            <li><strong>Cookie consent GDPR:</strong> Mandatory day-1</li>
+          </ul>
+          <strong style="font-family:'Montserrat',sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#1D4ED8;display:block;margin-top:12px">Contenuto Lancio</strong>
+          <ul style="margin-top:8px">
+            <li><strong>Case Study Vinayak Nautiyal</strong> (India→DE, maggio 2026) — il modello EVA in azione, storytelling anonimizzato, pubblicato PRIMA del sito</li>
+            <li><strong>2 articoli SEO prioritari:</strong> NHR→IFICI (gap #1, urgenza massima) + Spain GV Closed (traffico orfano 14.870/mese)</li>
+            <li><strong>Home page copy:</strong> "Every Country. One Counsel." — messaggistica E-E-A-T</li>
+          </ul>
+        </div>
+        <div>
+          <strong style="font-family:'Montserrat',sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#1D4ED8">Timeline Luglio–Agosto</strong>
+          <div class="table-wrap" style="margin-top:8px">
+            <table>
+              <thead><tr><th class="orange">Settimana</th><th class="orange">Milestone</th></tr></thead>
+              <tbody>
+                <tr><td class="td-meta">Sett. 1–2 luglio</td><td>Setup WordPress, tema, struttura pagine</td></tr>
+                <tr><td class="td-meta">Sett. 3–4 luglio</td><<td>Contenuto pagine core + SEO tecnico</td></tr>
+                <tr><td class="td-meta">Sett. 1–2 agosto</td><td>Blog: articolo NHR/IFICI + articolo Spain GV</td></tr>
+                <tr><td class="td-meta">Sett. 3 agosto</td><td>Case study Vinayak + landing B2B</td></tr>
+                <tr><td class="td-meta">31 agosto</td><td class="urg-high">🔴 SITO LIVE — deadline dura</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout callout-blue" style="margin-top:12px">
+            <div class="callout-title">Costo stimato Fase 1</div>
+            Sito WordPress (Stefano): <strong>€5.000–6.000</strong><br>
+            SEO blog + piano editoriale: <strong>€500</strong><br>
+            Hosting + dominio anno: <strong>€150–200</strong><br>
+            <strong>Totale Fase 1: €5.650–6.700</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FASE 2 -->
+  <div class="phase-card phase-2">
+    <div class="phase-header">
+      <span class="phase-badge">Fase 2</span>
+      <span class="phase-title">Quick Win Brasiliani</span>
+      <span class="phase-dates">Settembre 2026</span>
+    </div>
+    <div class="phase-body">
+      <div class="callout callout-green">
+        <div class="callout-title">Prerequisiti Obbligatori per Avviare Fase 2</div>
+        ✅ Sito live · ✅ Almeno 2 articoli SEO pubblicati · ✅ Consent audit lista completato con esito verde/giallo · ✅ Ioana contrattualizzata per EVA
+      </div>
+      <div class="two-col">
+        <div>
+          <strong style="font-family:'Montserrat',sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--green)">Campagna Email — 3 Messaggi PT-BR</strong>
+          <ul style="margin-top:8px">
+            <li><strong>Piattaforma:</strong> Brevo (gratuito fino a 9K email/mese, poi piano base €19/mese)</li>
+            <li><strong>Lista:</strong> 19K contatti brasiliani Boschetti — solo segmento verde/giallo da consent audit</li>
+            <li><strong>Lingua:</strong> Portoghese brasiliano (PT-BR) — <em>non</em> portoghese europeo</li>
+            <li><strong>Ritmo:</strong> Email 1 → 7 giorni → Email 2 → 14 giorni → Email 3</li>
+            <li><strong>CTA:</strong> Assessment gratuito (form sul sito, non call diretta)</li>
+          </ul>
+          <strong style="font-family:'Montserrat',sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--green);display:block;margin-top:12px">Struttura 3 Email</strong>
+          <ul style="margin-top:8px">
+            <li><strong>Email 1 — Awareness:</strong> "O NHR fechou. O que fazer agora?" — hook sul cambio normativo, introduce EVA come guida comparativa</li>
+            <li><strong>Email 2 — Educazione:</strong> "PT vs ES vs IT: qual é o melhor país para você?" — link a articolo comparativo, case study anonimo</li>
+            <li><strong>Email 3 — Conversione:</strong> "Assessment gratuito EVA — 3 posti disponibili questa settimana" — scarcity reale basata su capacity Boschetti</li>
+          </ul>
+        </div>
+        <div>
+          <strong style="font-family:'Montserrat',sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--green)">Metriche e Go/No-Go</strong>
+          <div class="table-wrap" style="margin-top:8px">
+            <table>
+              <thead><tr><th class="orange">Metrica</th><th class="orange">Target</th><th class="orange">Go/No-Go</th></tr></thead>
+              <tbody>
+                <tr><td>Open rate Email 1</td><td>15–25%</td><td>Stop se &lt;8%</td></tr>
+                <tr><td>Click rate Email 1</td><td>2–5%</td><td>Revisione se &lt;1%</td></tr>
+                <tr><td>Risposte/Assessment</td><td>30–80</td><td>Go se ≥20</td></tr>
+                <tr><td>Lead qualificati</td><td>5–10</td><td>Go Fase 3 se ≥3</td></tr>
+                <tr><td>Incarichi da campagna</td><td>2–3</td><td>ROI: 600€ → 13x</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout callout-green" style="margin-top:12px">
+            <div class="callout-title">Costo stimato Fase 2</div>
+            Copywriting 3 email PT-BR (TTP): <strong>€600</strong><br>
+            Setup Brevo + segmentazione: <strong>incluso</strong><br>
+            <strong>Totale Fase 2: €600</strong><br>
+            <span style="font-size:11px;color:var(--grey)">Miglior ROI potenziale del piano: 13x</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FASE 3 -->
+  <div class="phase-card phase-3">
+    <div class="phase-header">
+      <span class="phase-badge">Fase 3</span>
+      <span class="phase-title">Motore B2B</span>
+      <span class="phase-dates">Ottobre – Dicembre 2026</span>
+    </div>
+    <div class="phase-body">
+      <div class="callout callout-orange">
+        <div class="callout-title">Prerequisiti Obbligatori per Avviare Fase 3</div>
+        ✅ Sito live · ✅ Almeno 1 case study pubblicato · ✅ LinkedIn profilo Boschetti aggiornato per EVA
+      </div>
+      <div class="two-col">
+        <div>
+          <strong style="font-family:'Montserrat',sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--orange-dark)">ICP Partner B2B</strong>
+          <ul style="margin-top:8px">
+            <li><strong>Agenzie relocation internazionali</strong> (IT, DE, NL, UK) — mandano clienti HNWI e manager ICT</li>
+            <li><strong>Studi legali stranieri</strong> (UK solicitors, US attorneys) — clienti che si muovono verso EU ma non hanno expertise locale</li>
+            <li><strong>HR aziendali ICT</strong> (aziende 50–500 dipendenti, trasferimenti intra-societari)</li>
+            <li><strong>Consulenti fiscali / wealth manager</strong> (clienti HNWI con esigenze di ottimizzazione patrimoniale transfrontaliera)</li>
+          </ul>
+          <strong style="font-family:'Montserrat',sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--orange-dark);display:block;margin-top:12px">Script LinkedIn Outreach</strong>
+          <ul style="margin-top:8px">
+            <li><strong>Connessione:</strong> Messaggio personalizzato (&lt;300 caratteri), riferimento specifico al loro settore, zero pitch</li>
+            <li><strong>Follow-up 1:</strong> Dopo accettazione — valore concreto (articolo rilevante EVA o dato mercato), zero vendita</li>
+            <li><strong>Follow-up 2:</strong> Proposta call 20 minuti con agenda chiara — "explore synergies on EU relocation mandates"</li>
+            <li><strong>Ritmo:</strong> Max 5–10 contatti/settimana (rispetta capacity Boschetti)</li>
+          </ul>
+        </div>
+        <div>
+          <strong style="font-family:'Montserrat',sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--orange-dark)">Strumenti e Template</strong>
+          <ul style="margin-top:8px">
+            <li><strong>CRM semplice:</strong> Notion o Airtable gratuiti — tracking prospect, status, follow-up</li>
+            <li><strong>Template proposta B2B:</strong> 1 pagina, tariffe referral, modalità operative, SLA</li>
+            <li><strong>Landing B2B dedicata:</strong> Pagina non indicizzata sul sito, tailored per partner</li>
+            <li><strong>LinkedIn Sales Navigator:</strong> Opzionale se budget lo permette (€79/mese)</li>
+          </ul>
+          <div class="table-wrap" style="margin-top:12px">
+            <table>
+              <thead><tr><th class="orange">Mese</th><th class="orange">Attività</th><th class="orange">Target</th></tr></thead>
+              <tbody>
+                <tr><td>Ottobre</td><td>ICP definito + profilo LinkedIn aggiornato + template</td><td>Ready to go</td></tr>
+                <tr><td>Novembre</td><td>Outreach 20–30 prospect, follow-up sistematico</td><td>5–8 call prenotate</td></tr>
+                <tr><td>Dicembre</td><td>Conversione + proposal + primo accordo B2B</td><td>1–2 partner attivi</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout callout-orange" style="margin-top:12px">
+            <div class="callout-title">Costo stimato Fase 3</div>
+            GTM Setup & Run TTP (mesi ott–dic): <strong>€1.200–1.500</strong><br>
+            Template + ICP document: <strong>€300</strong><br>
+            <strong>Totale Fase 3: €1.500–1.800</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SEZIONE 5 — PIANO EDITORIALE SEO ══ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">5</div>
+    <div class="section-title">Piano Editoriale SEO — 12 Articoli Prioritari</div>
+    <span class="section-tag tag-blue">Agosto–Dicembre 2026</span>
+  </div>
+
+  <div class="callout callout-navy">
+    <div class="callout-title">Principio: Credibilità Prima, Lista Dopo</div>
+    Sequencing invertito rispetto all'istinto: prima costruisci autorità online (articoli SEO), poi contatti la lista. Un articolo autorevole su NHR/IFICI pubblicato oggi è visibile su Google tra 6–8 settimane. Inizia subito.
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:30px">#</th>
+          <th>Titolo Articolo</th>
+          <th>Keyword Principale</th>
+          <th>Gap Competitivo</th>
+          <th>Urgenza</th>
+          <th>Mese Target</th>
+          <th>Owner Testo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="seo-red">
+          <td class="td-bold">1</td>
+          <td><strong>NHR chiuso: il regime IFICI per il 2026 spiegato da un avvocato</strong></td>
+          <td>NHR Portogallo 2026 / IFICI regime</td>
+          <td>ZERO competitor aggiornati. First mover puro.</td>
+          <td><span class="urg-high">🔴 MASSIMA</span></td>
+          <td>Agosto — settimana 1</td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span> + <span class="resp-badge r-sara">Sara</span></td>
+        </tr>
+        <tr class="seo-red">
+          <td class="td-bold">2</td>
+          <td><strong>Spain Golden Visa chiusa: quali alternative nel 2026?</strong></td>
+          <td>Spain Golden Visa closed / alternatives</td>
+          <td>14.870 ricerche/mese orfane. Top-10 aperto.</td>
+          <td><span class="urg-high">🔴 MASSIMA</span></td>
+          <td>Agosto — settimana 2</td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span> + <span class="resp-badge r-sara">Sara</span></td>
+        </tr>
+        <tr class="seo-orange">
+          <td class="td-bold">3</td>
+          <td><strong>Beckham Law Spain 2026: guida completa per non residenti</strong></td>
+          <td>Beckham Law Spain / régimen especial</td>
+          <td>Top-10 aperto, nessuno studio multi-paese</td>
+          <td><span class="urg-high">🔴 ALTA</span></td>
+          <td>Settembre — settimana 1</td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span> + <span class="resp-badge r-sara">Sara</span></td>
+        </tr>
+        <tr class="seo-orange">
+          <td class="td-bold">4</td>
+          <td><strong>Portogallo vs Spagna 2026: dove trasferirsi davvero?</strong></td>
+          <td>Portugal vs Spain expat / comparativo</td>
+          <td>EVA crea questo cluster. Nessun competitor presente.</td>
+          <td><span class="urg-med">🟡 ALTA</span></td>
+          <td>Settembre — settimana 3</td>
+          <td><span class="resp-badge r-sara">Sara</span> + <span class="resp-badge r-boschetti">Boschetti</span></td>
+        </tr>
+        <tr class="seo-orange">
+          <td class="td-bold">5</td>
+          <td><strong>EU Blue Card in Germania: guida per professionisti indiani e americani</strong></td>
+          <td>EU Blue Card Germany India / application</td>
+          <td>se-legal.de: EU Blue Card India = 0. Opportunity Card = 0</td>
+          <td><span class="urg-med">🟡 ALTA</span></td>
+          <td>Ottobre — settimana 1</td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span></td>
+        </tr>
+        <tr class="seo-orange">
+          <td class="td-bold">6</td>
+          <td><strong>Golden Visa Italia 2026: Investor Visa per startup e grandi aziende</strong></td>
+          <td>Italy Investor Visa / Golden Visa Italia</td>
+          <td>+63% domande 2025. Cluster quasi incontestato.</td>
+          <td><span class="urg-med">🟡 ALTA</span></td>
+          <td>Ottobre — settimana 3</td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span></td>
+        </tr>
+        <tr class="seo-yellow">
+          <td class="td-bold">7</td>
+          <td><strong>Flat Tax Italia €300K: guida 2026 per HNWI</strong></td>
+          <td>Italy flat tax regime / HNWI relocation</td>
+          <td>Alzata a €300K nel 2026. Nessun aggiornamento visto.</td>
+          <td><span class="urg-med">🟡 MEDIA</span></td>
+          <td>Novembre — settimana 1</td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span> + <span class="resp-badge r-sara">Sara</span></td>
+        </tr>
+        <tr class="seo-yellow">
+          <td class="td-bold">8</td>
+          <td><strong>D7 Visa Portogallo 2026: requisiti aggiornati e tempi AIMA</strong></td>
+          <td>D7 Visa Portugal 2026 / AIMA requirements</td>
+          <td>Oliveira Lawyers forte qui, ma non aggiornato su AIMA backlog</td>
+          <td><span class="urg-med">🟡 MEDIA</span></td>
+          <td>Novembre — settimana 3</td>
+          <td><span class="resp-badge r-ioana">Ioana</span> + <span class="resp-badge r-sara">Sara</span></td>
+        </tr>
+        <tr class="seo-yellow">
+          <td class="td-bold">9</td>
+          <td><strong>Brasiliani in Portogallo 2026: guia completo de residência (PT-BR)</strong></td>
+          <td>brasileiros portugal residência / visto</td>
+          <td>PT-BR advisory legale: offerta pari a zero</td>
+          <td><span class="urg-med">🟡 MEDIA</span></td>
+          <td>Dicembre — settimana 1</td>
+          <td><span class="resp-badge r-ioana">Ioana</span> + <span class="resp-badge r-boschetti">Boschetti</span></td>
+        </tr>
+        <tr class="seo-yellow">
+          <td class="td-bold">10</td>
+          <td><strong>Chancenkarte Germania: la nuova carta opportunità per lavoratori qualificati</strong></td>
+          <td>Chancenkarte Germany / Opportunity Card</td>
+          <td>se-legal.de: Opportunity Card = 0. Lanciata giugno 2024.</td>
+          <td><span class="urg-med">🟡 MEDIA</span></td>
+          <td>Dicembre — settimana 1</td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span></td>
+        </tr>
+        <tr class="seo-green">
+          <td class="td-bold">11</td>
+          <td><strong>Nomadi digitali in Europa: quale paese nel 2026 tra PT, ES, IT, DE, FR?</strong></td>
+          <td>digital nomad visa Europe / best country</td>
+          <td>Cluster comparativo. EVA unico che copre 5 paesi.</td>
+          <td><span class="urg-low">🟢 MEDIA</span></td>
+          <td>Dicembre — settimana 2</td>
+          <td><span class="resp-badge r-sara">Sara</span> + <span class="resp-badge r-boschetti">Boschetti</span></td>
+        </tr>
+        <tr class="seo-green">
+          <td class="td-bold">12</td>
+          <td><strong>Case Study: da Milano a Lisbona — relocation in 90 giorni (anonimizzato)</strong></td>
+          <td>relocation Italy Portugal / case study</td>
+          <td>Zero competitor con case study legali autentici</td>
+          <td><span class="urg-low">🟢 BASSA</span></td>
+          <td>Dicembre — settimana 3</td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span> + <span class="resp-badge r-sara">Sara</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-orange" style="margin-top:16px">
+    <div class="callout-title">Nota Operativa — Articoli SEO</div>
+    Ogni articolo: min 1.500 parole, citazioni normative con fonte (AIMA, BAMF, MIMIT), firma Avv. Boschetti (E-E-A-T), schema markup Article/LegalService, link interni all'architettura sito. Boschetti fornisce il contenuto tecnico-legale. TTP ottimizza per SEO e pubblica.
+  </div>
+</div>
+
+<!-- ══ SEZIONE 6 — PIANO SETTIMANALE PRIME 8 SETTIMANE ══ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">6</div>
+    <div class="section-title">Piano di Azione Settimanale — Prime 8 Settimane</div>
+    <span class="section-tag tag-red">6 giugno – 31 luglio 2026</span>
+  </div>
+
+  <div class="callout callout-red">
+    <div class="callout-title">Vincolo Settimanale</div>
+    Boschetti: max 10–15 ore/settimana su EVA. TTP: max 8–10 ore/settimana aggregate. Le attività sono calibrate su questi limiti. Nessuna settimana supera questi tetti.
+  </div>
+
+  <!-- Settimana 1 -->
+  <div class="week-row critical-week">
+    <div class="week-label">Sett. 1
+      <span class="week-dates">6–12 giugno</span>
+      <span class="week-dates" style="color:#FCA5A5;font-weight:700">CRITICA</span>
+    </div>
+    <div class="week-tasks">
+      <ul>
+        <li><strong>Boschetti (8–10h):</strong> Avvia consent audit lista 19K · Registra dominio europevisaadvisory.com · Firma addendum Ioana · Scrivi capacity agreement (ore/settimana EVA) · Conferma naming definitivo</li>
+        <li><strong>Sara (4–5h):</strong> Struttura consent audit template · Brief iniziale sito per Stefano · Coordinate con Boschetti su dominio e naming</li>
+        <li><strong>Stefano (2–3h):</strong> Analisi architettura Enthous · Quotazione definitiva sito WordPress · Setup ambiente di sviluppo</li>
+        <li><strong>Milestone:</strong> 3 pre-condizioni Il Conclave CHIUSE ✓</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Settimana 2 -->
+  <div class="week-row">
+    <div class="week-label">Sett. 2
+      <span class="week-dates">13–19 giugno</span>
+    </div>
+    <div class="week-tasks">
+      <ul>
+        <li><strong>Boschetti (6–8h):</strong> Risultati consent audit → decisione segmento usabile · Revisione brief sito con TTP · Setup email professionale (G-Suite o Titan) · Definizione pricing conferma T1–T5</li>
+        <li><strong>Sara (4–5h):</strong> Analisi risultati consent audit · Piano segmentazione lista · Elaborazione brief sito definitivo · Kickoff con Stefano</li>
+        <li><strong>Stefano (4–6h):</strong> Inizio lavori sito: installazione WordPress, tema, struttura</li>
+        <li><strong>Milestone:</strong> Placeholder "Coming Soon" live ✓ · Kickoff sviluppo sito ✓</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Settimana 3 -->
+  <div class="week-row">
+    <div class="week-label">Sett. 3
+      <span class="week-dates">20–26 giugno</span>
+    </div>
+    <div class="week-tasks">
+      <ul>
+        <li><strong>Boschetti (8–10h):</strong> Redazione bozza articolo NHR/IFICI (2.000 parole, contenuto tecnico-legale) · Review home page copy proposto da TTP · Verifica Google Search Console setup</li>
+        <li><strong>Sara (5–6h):</strong> Home page copy definitivo · Struttura articolo NHR/IFICI + ottimizzazione SEO · Messaging framework applicato al sito</li>
+        <li><strong>Stefano (6–8h):</strong> Sviluppo pagine core sito (Home, Chi siamo, Come funziona, Paesi)</li>
+        <li><strong>Milestone:</strong> Home page copy approvato ✓ · Bozza articolo NHR/IFICI al 50% ✓</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Settimana 4 -->
+  <div class="week-row">
+    <div class="week-label">Sett. 4
+      <span class="week-dates">27 giugno–3 luglio</span>
+    </div>
+    <div class="week-tasks">
+      <ul>
+        <li><strong>Boschetti (8–10h):</strong> Finalizza articolo NHR/IFICI (revisione legale) · Bozza articolo Spain GV Closed · Materiale per case study Vinayak (anonimizzato)</li>
+        <li><strong>Sara (4–5h):</strong> Revisione finale articolo NHR/IFICI · SEO optimization + schema markup · Struttura case study Vinayak</li>
+        <li><strong>Stefano (6–8h):</strong> Sviluppo pagine Servizi, Contatti, Blog, form assessment</li>
+        <li><strong>Milestone:</strong> Articolo NHR/IFICI PRONTO per pubblicazione ✓</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Settimana 5 -->
+  <div class="week-row">
+    <div class="week-label">Sett. 5
+      <span class="week-dates">4–10 luglio</span>
+    </div>
+    <div class="week-tasks">
+      <ul>
+        <li><strong>Boschetti (6–8h):</strong> Finalizza articolo Spain GV Closed · Review case study Vinayak · Aggiornamento profilo LinkedIn per EVA</li>
+        <li><strong>Sara (5–6h):</strong> Ottimizzazione SEO articolo Spain GV · Setup Google Analytics 4 + Search Console · Brief email campagna brasiliani</li>
+        <li><strong>Stefano (8–10h):</strong> Integrazione SEO tecnico (Yoast/RankMath), cookie consent, GDPR compliance · Test su mobile</li>
+        <li><strong>Milestone:</strong> Sito al 70% completato ✓ · Articolo Spain GV PRONTO ✓</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Settimana 6 -->
+  <div class="week-row">
+    <div class="week-label">Sett. 6
+      <span class="week-dates">11–17 luglio</span>
+    </div>
+    <div class="week-tasks">
+      <ul>
+        <li><strong>Boschetti (6–8h):</strong> Redazione case study Vinayak (storytelling anonimizzato) · Review finale sito (contenuto legale) · Redazione bozza articolo Beckham Law</li>
+        <li><strong>Sara (5–6h):</strong> Copywriting finale case study · Revisione SEO + on-page tuning · Struttura articolo Beckham Law</li>
+        <li><strong>Stefano (6–8h):</strong> Pagine finali: Landing B2B, multilingua EN · Fix bug e ottimizzazione performance</li>
+        <li><strong>Milestone:</strong> Case study Vinayak PRONTO ✓ · Sito al 90% ✓</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Settimana 7 -->
+  <div class="week-row">
+    <div class="week-label">Sett. 7
+      <span class="week-dates">18–24 luglio</span>
+    </div>
+    <div class="week-tasks">
+      <ul>
+        <li><strong>Boschetti (6–8h):</strong> UAT sito (User Acceptance Test) — review completa · Finalizza articolo Beckham Law · Aggiornamento LinkedIn bio + company page EVA</li>
+        <li><strong>Sara (4–5h):</strong> Checklist pre-lancio SEO · Setup Brevo account + template email · Revisione articolo Beckham Law</li>
+        <li><strong>Stefano (4–6h):</strong> Risoluzione feedback UAT · Performance test (Core Web Vitals) · Backup e security</li>
+        <li><strong>Milestone:</strong> UAT completato ✓ · Sito 100% PRONTO per go-live ✓</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Settimana 8 -->
+  <div class="week-row">
+    <div class="week-label">Sett. 8
+      <span class="week-dates">25–31 luglio</span>
+    </div>
+    <div class="week-tasks">
+      <ul>
+        <li><strong>Boschetti (5–7h):</strong> GO-LIVE approvazione finale · Comunicazione a rete esistente (email personale, non lista 19K) · LinkedIn post lancio EVA · Risposta a primi eventuali contatti</li>
+        <li><strong>Sara (3–4h):</strong> Monitoraggio go-live · Submit sitemap Google Search Console · Tracking primissimi dati GSC · Post LinkedIn support</li>
+        <li><strong>Stefano (2–3h):</strong> Monitoraggio tecnico go-live · Fix eventuali issue post-lancio</li>
+        <li><strong>Milestone:</strong> 🚀 <strong>SITO LIVE</strong> (con buffer: deadline hard = 31 agosto) ✓</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══ SEZIONE 7 — BUDGET ALLOCATION ══ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">7</div>
+    <div class="section-title">Budget Allocation Anno 1</div>
+    <span class="section-tag tag-orange">€10.600–13.150 Scenario Raccomandato</span>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Voce</th>
+          <th>Fase</th>
+          <th>Tipo</th>
+          <th>Importo Min</th>
+          <th>Importo Max</th>
+          <th>Priorità</th>
+          <th>Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-bold">Dominio + email professionale</td>
+          <td>Fase 0</td>
+          <td><span class="td-meta">Una tantum</span></td>
+          <td>€30</td>
+          <td>€80</td>
+          <td><span class="urg-high">Critica</span></td>
+          <td>europevisaadvisory.com + .eu + G-Suite anno</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Sito WordPress multilingua</td>
+          <td>Fase 1</td>
+          <td><span class="td-meta">Una tantum</span></td>
+          <td>€5.000</td>
+          <td>€6.000</td>
+          <td><span class="urg-high">Critica</span></td>
+          <td>Sviluppo Stefano Rigazio (TTP). Include: template, plugin, SEO tecnico, multilingua IT/EN, form assessment</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Hosting anno 1</td>
+          <td>Fase 1</td>
+          <td><span class="td-meta">Ricorrente</span></td>
+          <td>€150</td>
+          <td>€200</td>
+          <td><span class="urg-high">Critica</span></td>
+          <td>Kinsta Starter o SiteGround GoGeek — performance + supporto</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Piano editoriale SEO (12 articoli)</td>
+          <td>Fase 1–3</td>
+          <td><span class="td-meta">Una tantum</span></td>
+          <td>€500</td>
+          <td>€500</td>
+          <td><span class="urg-high">Alta</span></td>
+          <td>TTP: keyword research definitiva, brief articoli, struttura, ottimizzazione. Contenuto: Boschetti</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Campagna email brasiliani (3 email PT-BR)</td>
+          <td>Fase 2</td>
+          <td><span class="td-meta">Una tantum</span></td>
+          <td>€600</td>
+          <td>€600</td>
+          <td><span class="urg-high">Alta</span></td>
+          <td>TTP: copywriting 3 email PT-BR + setup Brevo + segmentazione lista. Brevo: gratuito o €19/mese</td>
+        </tr>
+        <tr>
+          <td class="td-bold">GTM Setup & Go (consulenza TTP)</td>
+          <td>Fase 0–1</td>
+          <td><span class="td-meta">Una tantum</span></td>
+          <td>€2.000</td>
+          <td>€3.000</td>
+          <td><span class="urg-med">Alta</span></td>
+          <td>Sara + Stefano: strategia, brief, supervisione lancio, prime 8 settimane intensive. 40h a 50€/h split 50/50</td>
+        </tr>
+        <tr>
+          <td class="td-bold">GTM Run (retainer mensile TTP)</td>
+          <td>Fase 2–3</td>
+          <td><span class="td-meta">Ricorrente</span></td>
+          <td>€400</td>
+          <td>€500</td>
+          <td><span class="urg-med">Alta</span></td>
+          <td>€400–500/mese × 4–5 mesi (agosto–dicembre): monitoring, articoli SEO, B2B outreach support. ~8–10h/mese TTP</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Tool e software (annuali)</td>
+          <td>Tutti</td>
+          <td><span class="td-meta">Ricorrente</span></td>
+          <td>€200</td>
+          <td>€300</td>
+          <td><span class="urg-low">Media</span></td>
+          <td>Yoast Premium €99 + WPML €99 + Brevo base €0–19/mese + Notion gratuito</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Buffer imprevisti / ottimizzazioni</td>
+          <td>Tutti</td>
+          <td><span class="td-meta">Riserva</span></td>
+          <td>€520</td>
+          <td>€970</td>
+          <td><span class="urg-low">Bassa</span></td>
+          <td>Traduzione PT articoli, grafica, eventuali consulenti specifici</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr class="total-row">
+          <td colspan="3">TOTALE ANNO 1 — Scenario Raccomandato</td>
+          <td>€9.000</td>
+          <td>€11.650</td>
+          <td colspan="2">+ Retainer mensile incluso (5 mesi × €400–500 = €2.000–2.500) → €10.600–13.150</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <div class="two-col" style="margin-top:16px">
+    <div class="callout callout-green">
+      <div class="callout-title">Break-Even GTM</div>
+      Con investimento totale €10.600–13.150 e tariffa media incarico EVA di €1.500–2.000, il break-even si raggiunge a <strong>7 incarichi chiusi</strong>. Target conservativo: 15–20 incarichi anno 1 = potenziale revenue €15–25K netto su EVA.
+    </div>
+    <div class="callout callout-blue">
+      <div class="callout-title">Miglior ROI del Piano</div>
+      Campagna email brasiliani: <strong>€600 investimento → potenziale 13x ROI</strong>. Prerequisito: consent audit verde + sito live con almeno 2 articoli. Questo è il canale a maggior ritorno nel breve periodo.
+    </div>
+  </div>
+</div>
+
+<!-- ══ SEZIONE 8 — KPI DASHBOARD ══ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">8</div>
+    <div class="section-title">KPI Dashboard</div>
+    <span class="section-tag tag-blue">Soglie Go/No-Go per Fase</span>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-phase">Fase 0 · Fondamenta</div>
+      <div class="kpi-metric">Pre-condizioni Il Conclave</div>
+      <div class="kpi-target">3/3</div>
+      <div class="kpi-gonogo">Go se: tutte 3 chiuse entro 12/06</div>
+      <span class="kpi-freq">check unico</span>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-phase">Fase 0 · Fondamenta</div>
+      <div class="kpi-metric">Dominio registrato</div>
+      <div class="kpi-target">✅</div>
+      <div class="kpi-gonogo">Blocca TUTTO se non chiuso</div>
+      <span class="kpi-freq">check unico</span>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-phase">Fase 1 · MVP Digitale</div>
+      <div class="kpi-metric">Sito live</div>
+      <div class="kpi-target">31/08</div>
+      <div class="kpi-gonogo">Deadline dura. No sito = no email brasiliani</div>
+      <span class="kpi-freq">check settimanale</span>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-phase">Fase 1 · MVP Digitale</div>
+      <div class="kpi-metric">Articoli SEO live</div>
+      <div class="kpi-target">≥ 2</div>
+      <div class="kpi-gonogo">Prerequisito campagna email</div>
+      <span class="kpi-freq">check settimanale</span>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-phase">Fase 1 · MVP Digitale</div>
+      <div class="kpi-metric">Core Web Vitals</div>
+      <div class="kpi-target">Pass</div>
+      <div class="kpi-gonogo">LCP &lt;2.5s, CLS &lt;0.1, INP &lt;200ms</div>
+      <span class="kpi-freq">post-lancio</span>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-phase">Fase 2 · Brasiliani</div>
+      <div class="kpi-metric">Open Rate Email 1</div>
+      <div class="kpi-target">≥ 15%</div>
+      <div class="kpi-gonogo">Stop campagna se &lt;8% dopo 48h</div>
+      <span class="kpi-freq">48h post-invio</span>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-phase">Fase 2 · Brasiliani</div>
+      <div class="kpi-metric">Lead qualificati</div>
+      <div class="kpi-target">≥ 5</div>
+      <div class="kpi-gonogo">Go Fase 3 se ≥3. Revisione se 0–2.</div>
+      <span class="kpi-freq">fine settembre</span>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-phase">Fase 3 · B2B</div>
+      <div class="kpi-metric">Prospect LinkedIn contattati</div>
+      <div class="kpi-target">30–50</div>
+      <div class="kpi-gonogo">Ottobre–Novembre</div>
+      <span class="kpi-freq">settimanale</span>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-phase">Fase 3 · B2B</div>
+      <div class="kpi-metric">Call B2B prenotate</div>
+      <div class="kpi-target">5–8</div>
+      <div class="kpi-gonogo">Entro fine novembre</div>
+      <span class="kpi-freq">mensile</span>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-phase">Anno 1 · Globale</div>
+      <div class="kpi-metric">Incarichi chiusi</div>
+      <div class="kpi-target">8–12</div>
+      <div class="kpi-gonogo">Break-even a 7. Sotto 5 = revisione GTM.</div>
+      <span class="kpi-freq">mensile</span>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-phase">Anno 1 · SEO</div>
+      <div class="kpi-metric">Impression Google (GSC)</div>
+      <div class="kpi-target">5.000+/mese</div>
+      <div class="kpi-gonogo">Target per dicembre 2026</div>
+      <span class="kpi-freq">mensile</span>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-phase">Anno 1 · Globale</div>
+      <div class="kpi-metric">Revenue EVA (anno 1)</div>
+      <div class="kpi-target">€15–25K</div>
+      <div class="kpi-gonogo">Target conservativo. Break-even GTM: €10.600</div>
+      <span class="kpi-freq">trimestrale</span>
+    </div>
+  </div>
+
+  <div class="callout callout-navy" style="margin-top:16px">
+    <div class="callout-title">Reporting Cadenza</div>
+    <strong>Settimanale:</strong> Update scritto Boschetti→TTP (cosa fatto, blocchi, prossima settimana) — 15 minuti, Notion o email.<br>
+    <strong>Mensile:</strong> KPI review sessione video 45 min Sara+Boschetti — dati GSC, lead, incarichi, revenue.<br>
+    <strong>Trimestrale:</strong> Strategy check — aggiustamento piano, budget, priorità fase successiva.
+  </div>
+</div>
+
+<!-- ══ SEZIONE 9 — MATRICE RESPONSABILITÀ ══ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">9</div>
+    <div class="section-title">Matrice Responsabilità</div>
+    <span class="section-tag tag-grey">RACI Semplificato</span>
+  </div>
+
+  <div style="margin-bottom:12px;display:flex;gap:10px;flex-wrap:wrap">
+    <span class="resp-badge r-boschetti" style="padding:4px 10px">Boschetti = Avv. Francesco Boschetti</span>
+    <span class="resp-badge r-sara" style="padding:4px 10px">Sara = Sara Quinto (TTP)</span>
+    <span class="resp-badge r-stefano" style="padding:4px 10px">Stefano = Stefano Rigazio (TTP)</span>
+    <span class="resp-badge r-ioana" style="padding:4px 10px">Ioana = Partner PT (Lisbona)</span>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Attività</th>
+          <th>Fase</th>
+          <th>Responsabile (R)</th>
+          <th>Approvazione (A)</th>
+          <th>Supporto (S)</th>
+          <th>Informato (I)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Consent audit lista 19K</td>
+          <td>Fase 0</td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span></td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span></td>
+          <td><span class="resp-badge r-sara">Sara</span></td>
+          <td><span class="resp-badge r-stefano">Stefano</span></td>
+        </tr>
+        <tr>
+          <td>Registrazione dominio</td>
+          <td>Fase 0</td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span></td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span></td>
+          <td><span class="resp-badge r-sara">Sara</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Contratto Ioana addendum EVA</td>
+          <td>Fase 0</td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span></td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span></td>
+          <td>—</td>
+          <td><span class="resp-badge r-sara">Sara</span></td>
+        </tr>
+        <tr>
+          <td>Sviluppo sito WordPress</td>
+          <td>Fase 1</td>
+          <td><span class="resp-badge r-stefano">Stefano</span></td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span></td>
+          <td><span class="resp-badge r-sara">Sara</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Copy e messaggistica sito</td>
+          <td>Fase 1</td>
+          <td><span class="resp-badge r-sara">Sara</span></td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span></td>
+          <td>—</td>
+          <td><span class="resp-badge r-stefano">Stefano</span></td>
+        </tr>
+        <tr>
+          <td>Contenuto tecnico-legale articoli</td>
+          <td>Fase 1–3</td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span></td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span></td>
+          <td><span class="resp-badge r-ioana">Ioana</span> (PT)</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>SEO ottimizzazione articoli</td>
+          <td>Fase 1–3</td>
+          <td><span class="resp-badge r-sara">Sara</span></td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span></td>
+          <td><span class="resp-badge r-stefano">Stefano</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Pubblicazione articoli sul sito</td>
+          <td>Fase 1–3</td>
+          <td><span class="resp-badge r-stefano">Stefano</span></td>
+          <td><span class="resp-badge r-sara">Sara</span></td>
+          <td>—</td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span></td>
+        </tr>
+        <tr>
+          <td>Copywriting 3 email PT-BR</td>
+          <td>Fase 2</td>
+          <td><span class="resp-badge r-sara">Sara</span></td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span></td>
+          <td><span class="resp-badge r-ioana">Ioana</span> (revisione PT)</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Setup Brevo + invio campagna</td>
+          <td>Fase 2</td>
+          <td><span class="resp-badge r-stefano">Stefano</span></td>
+          <td><span class="resp-badge r-sara">Sara</span></td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Risposta lead campagna email</td>
+          <td>Fase 2</td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span></td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span></td>
+          <td><span class="resp-badge r-sara">Sara</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>ICP B2B + script LinkedIn</td>
+          <td>Fase 3</td>
+          <td><span class="resp-badge r-sara">Sara</span></td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span></td>
+          <td>—</td>
+          <td><span class="resp-badge r-stefano">Stefano</span></td>
+        </tr>
+        <tr>
+          <td>LinkedIn outreach B2B</td>
+          <td>Fase 3</td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span></td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span></td>
+          <td><span class="resp-badge r-sara">Sara</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Attività desk PT (casi operativi)</td>
+          <td>Ongoing</td>
+          <td><span class="resp-badge r-ioana">Ioana</span></td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span></td>
+          <td>—</td>
+          <td><span class="resp-badge r-sara">Sara</span></td>
+        </tr>
+        <tr>
+          <td>Reporting mensile KPI</td>
+          <td>Ongoing</td>
+          <td><span class="resp-badge r-sara">Sara</span></td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span></td>
+          <td><span class="resp-badge r-stefano">Stefano</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Onboarding cliente + contratto</td>
+          <td>Ongoing</td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span></td>
+          <td><span class="resp-badge r-boschetti">Boschetti</span></td>
+          <td>—</td>
+          <td><span class="resp-badge r-sara">Sara</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ══ SEZIONE 10 — RISCHI OPERATIVI ══ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">10</div>
+    <div class="section-title">Rischi Operativi Principali</div>
+    <span class="section-tag tag-red">Top 3 con Piano di Mitigazione</span>
+  </div>
+
+  <!-- Rischio 1 -->
+  <div class="risk-card">
+    <div class="risk-header">
+      <span class="risk-badge risk-alta">RISCHIO ALTO</span>
+      <span class="risk-name">R1 — Split cognitivo Boschetti: revenue vecchio studio vs EVA</span>
+    </div>
+    <div class="risk-body">
+      <div>
+        <div class="risk-col-title">Descrizione</div>
+        In ogni momento di pressione sul vecchio studio, Boschetti sacrifica le ore EVA. Revenue garantita batte sempre revenue prospettica. EVA muore per inedia, non per errore strategico. Il binding constraint di EVA NON è il budget — è il tempo di Boschetti.
+      </div>
+      <div>
+        <div class="risk-col-title">Probabilità / Impatto</div>
+        Probabilità: <span class="urg-high">alta</span> (studio mono-risorsa in fase di consolidamento)<br>
+        Impatto: <span class="urg-high">critico</span> (ritardo dell'intero piano di 2–6 mesi)<br>
+        Trigger segnali: 2+ settimane consecutive senza output EVA
+      </div>
+      <div>
+        <div class="risk-col-title">Piano di Mitigazione</div>
+        <ul style="padding-left:16px;font-size:13px">
+          <li>Capacity agreement scritto (Pre-condizione #3) con ore hard-committed</li>
+          <li>TTP: massimizzare attività che NON richiedono Boschetti (SEO tecnico, setup tool, template)</li>
+          <li>Weekly check Sara: se 0 attività EVA in 2 settimane → escalation meeting</li>
+          <li>Triage esplicito: Boschetti definisce settimana prima cosa fa/non fa EVA</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rischio 2 -->
+  <div class="risk-card">
+    <div class="risk-header">
+      <span class="risk-badge risk-alta">RISCHIO ALTO</span>
+      <span class="risk-name">R2 — Consent audit lista 19K: esito rosso (lista inutilizzabile)</span>
+    </div>
+    <div class="risk-body">
+      <div>
+        <div class="risk-col-title">Descrizione</div>
+        Lista brasiliani costruita via eventi professionali — probabilmente senza consenso commerciale esplicito secondo GDPR/LGPD. Se il consent audit restituisce esito rosso, la Fase 2 (quick win brasiliani, miglior ROI del piano) va completamente riprogettata. Budget rimane lo stesso, canale scompare.
+      </div>
+      <div>
+        <div class="risk-col-title">Probabilità / Impatto</div>
+        Probabilità: <span class="urg-med">media</span> (dipende da come è stata costruita la lista)<br>
+        Impatto: <span class="urg-high">alto</span> su timeline anno 1 (Fase 2 ritarda 3–6 mesi per rebuild consent)<br>
+        Trigger: esito audit = rosso su &gt;80% dei contatti
+      </div>
+      <div>
+        <div class="risk-col-title">Piano di Mitigazione</div>
+        <ul style="padding-left:16px;font-size:13px">
+          <li>Se esito giallo (&gt;30% contatti usabili): campagna su segmento pulito, obiettivi ridimensionati</li>
+          <li>Se esito rosso: campagna di re-engagement opt-in ("vuoi ricevere aggiornamenti su immigrazione EU?") — +3 mesi ma conforme</li>
+          <li>Piano B: LinkedIn outreach brasiliani + community Facebook/Reddit diaspora BR</li>
+          <li>Budget €600 campagna resta, reindirizzato su acquisizione contatti nuovi con opt-in esplicito</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rischio 3 -->
+  <div class="risk-card">
+    <div class="risk-header">
+      <span class="risk-badge risk-media">RISCHIO MEDIO</span>
+      <span class="risk-name">R3 — Sito non live entro 31 agosto (deadline bloccante)</span>
+    </div>
+    <div class="risk-body">
+      <div>
+        <div class="risk-col-title">Descrizione</div>
+        Il sito è prerequisito duro per tutta la Fase 2 e Fase 3. Un ritardo di 4 settimane sposta l'intera pipeline di un mese: campagna brasiliani in ottobre invece di settembre, B2B in novembre invece di ottobre. A cascata, incarichi da dicembre scivolano in 2027.
+      </div>
+      <div>
+        <div class="risk-col-title">Probabilità / Impatto</div>
+        Probabilità: <span class="urg-med">media</span> (sviluppo web con un solo developer = collo di bottiglia)<br>
+        Impatto: <span class="urg-med">medio-alto</span> (cascata timeline)<br>
+        Trigger: a fine luglio sito non al 70% → allarme
+      </div>
+      <div>
+        <div class="risk-col-title">Piano di Mitigazione</div>
+        <ul style="padding-left:16px;font-size:13px">
+          <li>Checkpoint obbligatorio ogni 2 settimane con Stefano: deliverable parziali verificabili</li>
+          <li>Piano B: se ritardo critico, Webflow o Squarespace MVP entro agosto + migrazione WordPress dopo</li>
+          <li>Priorità assoluta: 5 pagine core live (Home, Chi siamo, Come funziona, Blog con 2 articoli, Contatti). Il resto può venire dopo</li>
+          <li>Deadline dura comunicata a Stefano in brief: 31 agosto = non negoziabile</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SEZIONE 11 — RIEPILOGO TIMELINE ══ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">11</div>
+    <div class="section-title">Riepilogo Timeline — Vista Mensile</div>
+    <span class="section-tag tag-grey">Giugno–Dicembre 2026</span>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Mese</th>
+          <th>Fase</th>
+          <th>Milestone Chiave</th>
+          <th>Ore Boschetti/settimana</th>
+          <th>Output TTP</th>
+          <th>Go/No-Go</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="seo-red">
+          <td class="td-bold">Giugno (sett. 1–2)</td>
+          <td>Fase 0</td>
+          <td>3 pre-condizioni chiuse · Dominio registrato · Placeholder live</td>
+          <td>8–12h</td>
+          <td>Brief sito · Consent audit template</td>
+          <td><span class="urg-high">Blocco totale se non chiuso</span></td>
+        </tr>
+        <tr class="seo-orange">
+          <td class="td-bold">Giugno (sett. 3–4)</td>
+          <td>Fase 0→1</td>
+          <td>Kickoff sviluppo sito · Articolo NHR/IFICI 50%</td>
+          <td>8–10h</td>
+          <td>Copy home page · SEO structure</td>
+          <td>—</td>
+        </tr>
+        <tr class="seo-yellow">
+          <td class="td-bold">Luglio</td>
+          <td>Fase 1</td>
+          <td>Sito al 90% · Articoli NHR + Spain GV pronti · Case study Vinayak pronto</td>
+          <td>8–10h</td>
+          <td>Articoli SEO × 2 · Case study · LinkedIn update</td>
+          <td>Sito al 70% entro metà luglio</td>
+        </tr>
+        <tr class="seo-green">
+          <td class="td-bold">Agosto</td>
+          <td>Fase 1</td>
+          <td>🚀 SITO LIVE (31/08) · 2 articoli live · GSC attivo</td>
+          <td>6–8h</td>
+          <td>UAT sito · Go-live · Monitoring SEO</td>
+          <td><span class="urg-high">Deadline dura 31/08</span></td>
+        </tr>
+        <tr class="seo-yellow">
+          <td class="td-bold">Settembre</td>
+          <td>Fase 2</td>
+          <td>📧 Campagna email 3 messaggi PT-BR · Articolo Beckham Law live</td>
+          <td>6–8h</td>
+          <td>3 email PT-BR · Brevo setup · Lead tracking</td>
+          <td>≥5 lead qualificati</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Ottobre</td>
+          <td>Fase 3</td>
+          <td>ICP B2B definito · Profilo LinkedIn aggiornato · Articoli #5–6 live</td>
+          <td>8–10h</td>
+          <td>ICP document · Script LinkedIn · Template proposta B2B</td>
+          <td>LinkedIn pronto per outreach</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Novembre</td>
+          <td>Fase 3</td>
+          <td>Outreach 20–30 prospect B2B · Articoli #7–8 live · Prime call prenotate</td>
+          <td>8–10h</td>
+          <td>Outreach support · Articoli SEO · CRM tracking</td>
+          <td>5–8 call prenotate</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Dicembre</td>
+          <td>Fase 3</td>
+          <td>1–2 partner B2B · 8–12 incarichi chiusi · Articoli #9–12 live</td>
+          <td>8–12h</td>
+          <td>Review anno 1 · Piano 2027 · Reporting finale</td>
+          <td>Break-even raggiunto (7+ incarichi)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ══ RECAP QUICK REFERENCE (bottom) ══ -->
+<div class="qr-card" style="margin:32px 0 0 0">
+  <div class="qr-title">Promemoria — Le 5 Priorità Assolute di Questa Settimana (6–12 giugno 2026)</div>
+  <div class="qr-grid">
+    <div class="qr-item">
+      <div class="qr-num">1</div>
+      <div class="qr-action">Consent audit GDPR/LGPD lista 19K brasiliani — avvia entro lunedì</div>
+      <div class="qr-who">Boschetti + TTP</div>
+      <div class="qr-deadline">⚠ 12/06 — bloccante GTM</div>
+    </div>
+    <div class="qr-item">
+      <div class="qr-num">2</div>
+      <div class="qr-action">Registra europevisaadvisory.com — costo €15–30, 10 minuti</div>
+      <div class="qr-who">Boschetti</div>
+      <div class="qr-deadline">⚠ Entro 11/06</div>
+    </div>
+    <div class="qr-item">
+      <div class="qr-num">3</div>
+      <div class="qr-action">Firma addendum Ioana: scope EVA, ore/settimana, compensazione per caso</div>
+      <div class="qr-who">Boschetti</div>
+      <div class="qr-deadline">⚠ 12/06 — bloccante desk PT</div>
+    </div>
+    <div class="qr-item">
+      <div class="qr-num">4</div>
+      <div class="qr-action">Scrivi capacity agreement: "X ore/settimana EVA, trigger di rallentamento = Y"</div>
+      <div class="qr-who">Boschetti</div>
+      <div class="qr-deadline">⚠ 12/06 — anti-split cognitivo</div>
+    </div>
+    <div class="qr-item">
+      <div class="qr-num">5</div>
+      <div class="qr-action">Conferma "Europe Visa Advisory (EVA)" come nome definitivo e palette orange/navy</div>
+      <div class="qr-who">Boschetti + Sara</div>
+      <div class="qr-deadline">⚠ 11/06 — sblocca brief sito</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end main -->
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<div class="footer">
+  <div>
+    <strong>EVA — Europe Visa Advisory</strong> · Studio Legale Internazionale Boschetti · Roma<br>
+    Piano Marketing Breve Termine · Giugno–Dicembre 2026 · Versione 1.0 · Riservato
+  </div>
+  <div style="text-align:right">
+    Prodotto da <strong>TTP Agency</strong> (Sara Quinto · Stefano Rigazio)<br>
+    6 giugno 2026 · Documento confidenziale — ad uso esclusivo cliente
+  </div>
+</div>
+
+</body>
+</html>

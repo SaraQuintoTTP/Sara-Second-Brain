@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EVA — Analisi di Mercato e Strategia 2026 | Studio Legale Boschetti</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;500;600;700;800&display=swap');
+  :root{--navy:#0D1B2A;--navy-mid:#1A2D40;--orange:#F47920;--orange-lt:#F9A55A;--off-white:#F5F2EE;--grey:#4B5563;--grey-lt:#E5E7EB;--white:#FFFFFF;--text:#1A2D40;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{font-size:16px;scroll-behavior:smooth;}
+  body{font-family:'PT Serif',Georgia,serif;color:var(--text);background:var(--off-white);line-height:1.75;}
+  a{color:var(--orange);text-decoration:none;}
+  h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;line-height:1.25;}
+  h1{font-size:3rem;font-weight:900;}
+  h2{font-size:1.9rem;font-weight:700;}
+  h3{font-size:1.35rem;font-weight:700;margin-bottom:.5rem;}
+  h4{font-size:1.1rem;font-weight:700;}
+  .label{font-family:'Montserrat',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;}
+  p{margin-bottom:1rem;}p:last-child{margin-bottom:0;}
+  .container{max-width:980px;margin:0 auto;padding:0 2.5rem;}
+  section{padding:5rem 0;}
+  section:nth-child(even){background:var(--white);}
+  section:nth-child(odd){background:var(--off-white);}
+
+  /* COVER */
+  .cover{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-mid) 60%,#1F3A52 100%);color:var(--white);padding:0;min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;}
+  .cover-nav{padding:2rem 2.5rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,.08);}
+  .cover-logo{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:3px;}
+  .cover-logo span{color:var(--orange);}
+  .cover-date{font-family:'Montserrat',sans-serif;font-size:.75rem;color:rgba(255,255,255,.75);letter-spacing:1px;}
+  .cover-body{flex:1;display:flex;align-items:center;padding:4rem 2.5rem;}
+  .cover-inner{max-width:700px;}
+  .cover-eyebrow{display:inline-block;font-family:'Montserrat',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:1.5rem;padding:.35rem .9rem;border:1px solid var(--orange);border-radius:2px;}
+  .cover h1{font-size:3.6rem;color:var(--white);margin-bottom:1.5rem;}
+  .cover h1 span{color:var(--orange);}
+  .cover-subtitle{font-size:1.15rem;color:rgba(255,255,255,.82);max-width:520px;line-height:1.7;margin-bottom:3rem;}
+  .cover-meta{display:flex;gap:2.5rem;flex-wrap:wrap;}
+  .cover-meta-item .label{color:rgba(255,255,255,.65);margin-bottom:.3rem;display:block;}
+  .cover-meta-item .val{font-family:'Montserrat',sans-serif;font-weight:600;font-size:.9rem;color:var(--white);}
+  .cover-footer{padding:1.5rem 2.5rem;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;align-items:center;}
+  .cover-footer-note{font-family:'Montserrat',sans-serif;font-size:.7rem;color:rgba(255,255,255,.62);}
+  .cover-stripe{width:60px;height:4px;background:var(--orange);margin-bottom:2rem;}
+
+  /* TOC */
+  .toc{background:var(--navy-deep,var(--navy));color:var(--white);padding:4rem 0;}
+  .toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem;}
+  .toc-item{display:flex;align-items:flex-start;gap:1rem;padding:1rem 1.2rem;border:1px solid rgba(255,255,255,.12);border-radius:6px;transition:border-color .2s,background .2s;}
+  .toc-item:hover{border-color:var(--orange);background:rgba(244,121,32,.08);}
+  .toc-num{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.5rem;color:var(--orange);line-height:1;min-width:28px;}
+  .toc-text{font-size:.88rem;font-family:'Montserrat',sans-serif;color:rgba(255,255,255,.88);line-height:1.4;}
+
+  /* SECTION HEADERS */
+  .section-header{margin-bottom:3rem;}
+  .section-header .label{color:var(--orange);display:block;margin-bottom:.6rem;}
+  .section-header h2{color:var(--navy-mid);}
+  .section-header .subtitle{color:#4B5563;font-size:.95rem;margin-top:.5rem;font-family:'Montserrat',sans-serif;font-weight:500;}
+  .divider{width:56px;height:3px;background:var(--orange);margin:1rem 0 0;border-radius:2px;}
+
+  /* KPI */
+  .kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.2rem;margin:2rem 0;}
+  .kpi{text-align:center;padding:1.5rem 1rem;background:var(--white);border-radius:6px;box-shadow:0 2px 10px rgba(10,20,35,.05);}
+  .kpi-num{font-family:'Montserrat',sans-serif;font-weight:800;font-size:2.1rem;color:var(--orange);line-height:1;}
+  .kpi-unit{font-size:1.1rem;}
+  .kpi-label{font-family:'Montserrat',sans-serif;font-size:.72rem;color:#374151;text-transform:uppercase;letter-spacing:1px;margin-top:.4rem;}
+  .kpi-source{font-family:'Montserrat',sans-serif;font-size:.65rem;color:#6B7280;border-top:1px solid #D1D5DB;margin-top:.6rem;padding-top:.4rem;font-style:italic;}
+  .kpi-dark{background:var(--navy-mid);}
+  .kpi-dark .kpi-num{color:var(--orange);}
+  .kpi-dark .kpi-label{color:rgba(255,255,255,.75);}
+  .kpi-dark .kpi-source{color:rgba(255,255,255,.55);border-top-color:rgba(255,255,255,.15);}
+
+  /* TABLES */
+  .table-wrap{overflow-x:auto;margin:1.5rem 0;border-radius:8px;box-shadow:0 2px 14px rgba(10,20,35,.08);border:1px solid #E5E7EB;}
+  table{width:100%;border-collapse:collapse;background:var(--white);font-size:.875rem;}
+  thead th{background:var(--navy-mid);color:var(--white);padding:.85rem 1.1rem;text-align:left;font-family:'Montserrat',sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.7px;}
+  tbody tr:nth-child(even){background:#F8FAFC;}
+  tbody tr:hover{background:#FFF3E8;}
+  tbody td{padding:.8rem 1.1rem;border-bottom:1px solid #E9ECF0;vertical-align:top;line-height:1.6;color:#1F2937;}
+  .col-orange{background:#FFF3E8!important;font-weight:600;color:#92400E!important;}
+  .badge{display:inline-block;font-family:'Montserrat',sans-serif;font-size:.65rem;font-weight:700;padding:.25rem .65rem;border-radius:12px;letter-spacing:.5px;}
+  .badge-red{background:#FEE2E2;color:#991B1B;}
+  .badge-orange{background:#FED7AA;color:#9A3412;}
+  .badge-green{background:#D1FAE5;color:#065F46;}
+  .badge-grey{background:#E5E7EB;color:#374151;}
+  .badge-blue{background:#DBEAFE;color:#1E40AF;}
+
+  /* GRIDS */
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+  .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;}
+  .grid-2-1{display:grid;grid-template-columns:2fr 1fr;gap:2rem;}
+
+  /* CALLOUTS */
+  .callout{border-radius:6px;padding:1.5rem 1.8rem;margin:1.5rem 0;}
+  .callout-orange{background:#FFF7ED;border-left:4px solid var(--orange);border-radius:0 6px 6px 0;}
+  .callout-navy{background:var(--navy);color:var(--white);border-left:4px solid var(--orange);border-radius:0 8px 8px 0;box-shadow:0 4px 20px rgba(10,20,35,.18);}
+  .callout-navy h4{color:var(--white);}
+  .callout-navy p{color:rgba(255,255,255,.88)!important;}
+  .callout-green{background:#ECFDF5;border-left:4px solid #059669;border-radius:0 6px 6px 0;}
+  .callout-red{background:#FEF2F2;border-left:4px solid #DC2626;border-radius:0 6px 6px 0;}
+  .callout-yellow{background:#FFFBEB;border-left:4px solid #D97706;border-radius:0 6px 6px 0;}
+  .callout-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.75rem;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:.5rem;color:var(--orange);}
+  .callout-navy .callout-title{color:var(--orange);}
+  .callout-green .callout-title{color:#065F46;}
+  .callout-red .callout-title{color:#991B1B;}
+  .callout-yellow .callout-title{color:#92400E;}
+  .callout-orange .callout-title{color:#9A3412;}
+
+  /* CARDS */
+  .card{background:var(--white);border-radius:8px;padding:1.8rem 2rem;box-shadow:0 2px 16px rgba(10,20,35,.07);border:1px solid rgba(0,0,0,.04);}
+  .card-dark{background:var(--navy-mid);color:var(--white);border-radius:8px;padding:1.8rem 2rem;box-shadow:0 4px 20px rgba(10,20,35,.18);}
+  .card-dark h3,.card-dark h4{color:var(--white);}
+  .card-grey{background:#F3F4F6;border-radius:8px;padding:1.5rem 1.8rem;border:1px solid #E5E7EB;}
+
+  /* HERO DARK */
+  .hero-dark{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);color:var(--white);padding:5rem 0;}
+  .hero-dark h2{color:var(--white);}
+  .hero-dark .label{color:var(--orange);}
+
+  /* TIMELINE */
+  .timeline{position:relative;padding-left:2.5rem;}
+  .timeline::before{content:'';position:absolute;left:.5rem;top:.5rem;bottom:0;width:2px;background:var(--grey-lt);}
+  .timeline-item{position:relative;margin-bottom:2rem;}
+  .timeline-dot{position:absolute;left:-2.15rem;top:.35rem;width:14px;height:14px;border-radius:50%;background:var(--orange);border:2px solid var(--white);box-shadow:0 0 0 3px var(--orange-lt);}
+  .timeline-phase{font-family:'Montserrat',sans-serif;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--orange);margin-bottom:.2rem;}
+  .timeline-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--navy-mid);margin-bottom:.4rem;}
+
+  /* QUOTE */
+  .quote{font-family:'Playfair Display',serif;font-style:italic;font-size:1.25rem;color:var(--navy-mid);border-left:4px solid var(--orange);padding-left:1.5rem;margin:2rem 0;line-height:1.6;}
+  .quote cite{display:block;font-family:'Montserrat',sans-serif;font-style:normal;font-size:.75rem;font-weight:600;color:var(--grey);text-transform:uppercase;letter-spacing:1px;margin-top:.8rem;}
+
+  /* PROFILE CARD */
+  .profile-card{background:var(--white);border-radius:6px;overflow:hidden;box-shadow:0 2px 12px rgba(10,20,35,.07);}
+  .profile-header{background:var(--navy-mid);color:var(--white);padding:1.2rem 1.5rem;display:flex;justify-content:space-between;align-items:center;}
+  .profile-header h4{color:var(--white);font-size:1rem;margin:0;}
+  .profile-body{padding:1.5rem;}
+  .profile-row{display:flex;gap:.5rem;margin-bottom:.7rem;font-size:.88rem;}
+  .profile-row strong{min-width:110px;color:var(--navy-mid);font-family:'Montserrat',sans-serif;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
+
+  /* SCENARIOS */
+  .scenario-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin:2rem 0;}
+  .scenario-card{border-radius:10px;padding:1.8rem 1.5rem;text-align:center;}
+  .scenario-light{background:#F3F4F6;border:2px solid #D1D5DB;}
+  .scenario-base{background:var(--navy-mid);border:2px solid var(--orange);color:var(--white);box-shadow:0 6px 24px rgba(10,20,35,.25);}
+  .scenario-opt{background:linear-gradient(135deg,#0D1B2A,#1F3A52);border:2px solid var(--orange-lt);color:var(--white);}
+  .scenario-label{font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:.8rem;}
+  .scenario-light .scenario-label{color:#374151;}
+  .scenario-base .scenario-label,.scenario-opt .scenario-label{color:var(--orange);}
+  .scenario-revenue{font-family:'Montserrat',sans-serif;font-weight:800;font-size:2rem;line-height:1;margin-bottom:.3rem;}
+  .scenario-light .scenario-revenue{color:var(--navy-mid);}
+  .scenario-base .scenario-revenue,.scenario-opt .scenario-revenue{color:var(--orange);}
+  .scenario-net{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.88rem;margin-top:1rem;padding-top:.8rem;border-top:1px solid rgba(255,255,255,.2);}
+  .scenario-light .scenario-net{border-top-color:#D1D5DB;color:#1F2937;}
+  .scenario-card p,.scenario-card small,.scenario-card div:not([class*="scenario"]){color:inherit;}
+
+  /* TAGS */
+  .tag{display:inline-block;padding:.28rem .8rem;border-radius:14px;font-family:'Montserrat',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.3px;}
+  .tag-urgent{background:#FEE2E2;color:#991B1B;}
+  .tag-high{background:#FED7AA;color:#9A3412;}
+  .tag-med{background:#FEF3C7;color:#78350F;}
+  .tag-low{background:#D1FAE5;color:#065F46;}
+  .tag-row{display:flex;flex-wrap:wrap;gap:.5rem;margin:.8rem 0;}
+
+  /* MESSAGING */
+  .pillar{border-left:3px solid var(--orange);padding-left:1.4rem;margin-bottom:2rem;}
+  .pillar-num{font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:2px;margin-bottom:.3rem;}
+  .pillar-headline{font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:#1F2937;margin-bottom:.5rem;line-height:1.4;}
+  .pillar-body{font-size:.9rem;color:#4B5563;line-height:1.7;}
+
+  /* PALETTE */
+  .palette-row{display:flex;gap:1rem;flex-wrap:wrap;margin:1.5rem 0;}
+  .palette-swatch{width:80px;text-align:center;}
+  .palette-color{height:56px;border-radius:6px;margin-bottom:.5rem;}
+  .palette-name{font-family:'Montserrat',sans-serif;font-size:.65rem;font-weight:700;color:var(--grey);}
+  .palette-hex{font-family:'Montserrat',sans-serif;font-size:.6rem;color:var(--grey);}
+
+  /* NEXT STEPS */
+  .steps-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.2rem;}
+  .step-card{background:var(--white);border-radius:8px;padding:1.6rem;box-shadow:0 3px 14px rgba(10,20,35,.08);border-top:3px solid var(--orange);}
+  .step-num{font-family:'Montserrat',sans-serif;font-weight:800;font-size:2rem;color:var(--orange);line-height:1;margin-bottom:.5rem;}
+  .step-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#1F2937;margin-bottom:.5rem;}
+  .step-detail{font-size:.85rem;color:#4B5563;line-height:1.65;}
+  .step-urgency{font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-top:.8rem;}
+
+  /* FOOTER */
+  .footer{background:var(--navy);color:rgba(255,255,255,.5);padding:3rem 0;text-align:center;}
+  .footer-logo{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:3px;color:var(--white);margin-bottom:.5rem;}
+  .footer-logo span{color:var(--orange);}
+  .footer-sub{font-family:'Montserrat',sans-serif;font-size:.65rem;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.35);}
+
+  @media print{.cover{min-height:auto;page-break-after:always;}section{page-break-inside:avoid;padding:2.5rem 0;}.grid-2,.grid-3,.scenario-grid{display:block;}}
+  @media(max-width:768px){h1{font-size:2.2rem;}.cover h1{font-size:2.4rem;}.grid-2,.grid-3,.grid-2-1,.scenario-grid{grid-template-columns:1fr;}.toc-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <nav class="cover-nav">
+    <div class="cover-logo"><span>BOSCHETTI</span>EVA</div>
+    <div class="cover-date">Giugno 2026 · Riservato</div>
+  </nav>
+  <div class="cover-body">
+    <div class="cover-inner">
+      <div class="cover-stripe"></div>
+      <div class="cover-eyebrow">Analisi di Mercato e Strategia</div>
+      <h1>Europe Visa<br><span>Advisory</span></h1>
+      <p class="cover-subtitle">Analisi integrata del mercato EU dell'immigrazione, panorama competitivo, Jobs-to-be-Done dei 5 profili target, posizionamento strategico, modello finanziario e roadmap go-to-market per il lancio di EVA.</p>
+      <div class="cover-meta">
+        <div class="cover-meta-item"><span class="label">Cliente</span><span class="val">Studio Legale Boschetti</span></div>
+        <div class="cover-meta-item"><span class="label">Prodotto da</span><span class="val">TTP Agency — Sara Quinto</span></div>
+        <div class="cover-meta-item"><span class="label">Data</span><span class="val">Giugno 2026</span></div>
+        <div class="cover-meta-item"><span class="label">Versione</span><span class="val">v1.0 IT — Per revisione cliente</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <span class="cover-footer-note">Prodotto con il sistema agentico TTP: Strategist · Calculator · Voice · God Mode · Orchestrator · Il Conclave</span>
+    <span class="cover-footer-note">Fonti dati: Eurostat · AIMA · BAMF · Henley &amp; Partners · Enthous SEO Report · Business Research Company</span>
+  </div>
+</section>
+
+<!-- INDICE -->
+<section class="toc" style="background:var(--navy);color:var(--white);padding:4rem 0;">
+  <div class="container">
+    <span class="label" style="color:var(--orange);display:block;margin-bottom:.5rem;">Struttura del documento</span>
+    <h2 style="color:var(--white);">Indice</h2>
+    <div class="toc-grid" style="margin-top:2rem;">
+      <a href="#sommario" class="toc-item"><span class="toc-num">00</span><span class="toc-text">Sommario Esecutivo</span></a>
+      <a href="#mercato" class="toc-item"><span class="toc-num">01</span><span class="toc-text">Analisi di Mercato — Immigrazione EU</span></a>
+      <a href="#competitor" class="toc-item"><span class="toc-num">02</span><span class="toc-text">Panorama Competitivo — 21 Domini</span></a>
+      <a href="#jtbd" class="toc-item"><span class="toc-num">03</span><span class="toc-text">JTBD — 5 Profili Target</span></a>
+      <a href="#posizionamento" class="toc-item"><span class="toc-num">04</span><span class="toc-text">Posizionamento Strategico</span></a>
+      <a href="#obiezione" class="toc-item"><span class="toc-num">05</span><span class="toc-text">La Risposta all'Obiezione "Perché il Regista?"</span></a>
+      <a href="#finanziario" class="toc-item"><span class="toc-num">06</span><span class="toc-text">Modello Finanziario — Anno 1–2</span></a>
+      <a href="#messaging" class="toc-item"><span class="toc-num">07</span><span class="toc-text">Framework di Messaging</span></a>
+      <a href="#gtm" class="toc-item"><span class="toc-num">08</span><span class="toc-text">Roadmap Go-to-Market</span></a>
+      <a href="#palette" class="toc-item"><span class="toc-num">09</span><span class="toc-text">Raccomandazione Palette Brand</span></a>
+      <a href="#conclave" class="toc-item"><span class="toc-num">10</span><span class="toc-text">Verdetto Il Conclave</span></a>
+      <a href="#prossimi-passi" class="toc-item"><span class="toc-num">11</span><span class="toc-text">Prossimi Passi — Piano 90 Giorni</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 00 — SOMMARIO ESECUTIVO -->
+<section id="sommario">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">00</span>
+      <h2>Sommario Esecutivo</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="callout callout-navy">
+      <div class="callout-title">Il Gap di Mercato</div>
+      <p style="color:rgba(255,255,255,.85);margin:0;font-size:1rem;line-height:1.7;">Nessuno studio legale europeo offre oggi una consulenza comparativa strutturata multi-giurisdizione sull'immigrazione tra paesi UE — verificato attraverso l'analisi di 21 domini competitor, dati SERP live e ricerca di mercato (Enthous, giugno 2026). Questo è il motivo fondante di EVA.</p>
+    </div>
+    <div class="grid-2" style="margin-top:2.5rem;">
+      <div>
+        <h3>Cos'è EVA</h3>
+        <p>Europe Visa Advisory è una unit di consulenza autonoma dello Studio Legale Internazionale Boschetti che offre <strong>consulenza legale comparativa e neutrale</strong> su immigrazione e relocation in cinque giurisdizioni UE (IT, PT, ES, DE, FR).</p>
+        <p>EVA non esegue pratiche locali in autonomia. Valuta il profilo del cliente, produce un report comparativo, raccomanda la giurisdizione ottimale e coordina l'esecuzione tramite una rete di partner locali certificati (advogado, abogado, Rechtsanwalt, avocat).</p>
+        <p><strong>Analogia di posizionamento:</strong> MutuiOnline per visti/relocation — broker neutrale, nessun conflitto di interessi, comparativo per definizione.</p>
+      </div>
+      <div>
+        <h3>Perché Adesso</h3>
+        <p>Tre grandi programmi UE sono crollati o si sono riformati in 18 mesi:</p>
+        <ul style="list-style:none;padding:0;">
+          <li style="padding:.5rem 0;border-bottom:1px solid var(--grey-lt);font-size:.9rem;">🔴 <strong>Golden Visa Spagna</strong> — abolito il 3 aprile 2025 (LO 1/2025)</li>
+          <li style="padding:.5rem 0;border-bottom:1px solid var(--grey-lt);font-size:.9rem;">🔴 <strong>Portugal NHR → IFICI</strong> — riforma maggio 2026, zero competitor aggiornati</li>
+          <li style="padding:.5rem 0;font-size:.9rem;">🔴 <strong>Cittadinanza diretta Malta</strong> — invalidata dalla Corte UE nel 2025</li>
+        </ul>
+        <p style="margin-top:.8rem;font-size:.9rem;">I clienti consigliati da specialisti mono-paese hanno dovuto ricominciare da zero. La volatilità normativa è la prova empirica che la consulenza comparativa non è solo preferibile — è strutturalmente necessaria.</p>
+      </div>
+    </div>
+    <div class="kpi-row" style="margin-top:3rem;">
+      <div class="kpi"><div class="kpi-num">21</div><div class="kpi-label">Competitor analizzati</div><div class="kpi-source">Enthous SEO Report, giu 2026</div></div>
+      <div class="kpi"><div class="kpi-num">65<span class="kpi-unit">%</span></div><div class="kpi-label">Cluster a competizione bassa</div><div class="kpi-source">Matrice competitiva Enthous</div></div>
+      <div class="kpi"><div class="kpi-num">0</div><div class="kpi-label">Competitor con avvocato identificabile</div><div class="kpi-source">Audit E-E-A-T Enthous</div></div>
+      <div class="kpi"><div class="kpi-num">142K</div><div class="kpi-label">HNWI in movimento globalmente (2025)</div><div class="kpi-source">Henley PWM Report 2025</div></div>
+      <div class="kpi"><div class="kpi-num">484K</div><div class="kpi-label">Brasiliani residenti in Portogallo</div><div class="kpi-source">AIMA / Público 2024</div></div>
+      <div class="kpi"><div class="kpi-num">19K</div><div class="kpi-label">Contatti brasiliani Boschetti</div><div class="kpi-source">Brief cliente</div></div>
+    </div>
+    <div class="callout callout-orange" style="margin-top:2.5rem;">
+      <div class="callout-title">Verdetto God Mode</div>
+      <p><strong>PASS CON RISERVE → correzioni applicate → PASS effettivo.</strong> Tre problemi minori identificati e corretti prima della finalizzazione. Tutti i dati di mercato utilizzati correttamente. L'argomento sulla volatilità normativa è costruito su eventi verificati e citati. Il modello finanziario riporta esplicitamente tutti i flag di ipotesi sui numeri non provenienti dal brief. Il pricing non è ancora formalizzato dal cliente — da confermare prima di qualsiasi uso esterno.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 01 — ANALISI DI MERCATO -->
+<section id="mercato">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">01</span>
+      <h2>Analisi di Mercato</h2>
+      <p class="subtitle">Immigrazione EU — dati verificati da fonti autorevoli</p>
+      <div class="divider"></div>
+    </div>
+    <h3>Indicatori Chiave di Mercato</h3>
+    <div class="kpi-row">
+      <div class="kpi kpi-dark"><div class="kpi-num">$20,5<span class="kpi-unit">B</span></div><div class="kpi-label">Mercato globale servizi legali immigrazione (2024)</div><div class="kpi-source">Business Research Company</div></div>
+      <div class="kpi kpi-dark"><div class="kpi-num">6,7<span class="kpi-unit">%</span></div><div class="kpi-label">CAGR — crescita più rapida in Europa e Asia</div><div class="kpi-source">Business Research Company</div></div>
+      <div class="kpi kpi-dark"><div class="kpi-num">3,7M<span class="kpi-unit">+</span></div><div class="kpi-label">Primi permessi di residenza EU rilasciati (2023)</div><div class="kpi-source">Eurostat DDN-20240912-1</div></div>
+      <div class="kpi kpi-dark"><div class="kpi-num">41K<span class="kpi-unit">+</span></div><div class="kpi-label">EU Blue Card emesse in Germania (2023)</div><div class="kpi-source">BAMF</div></div>
+    </div>
+    <div style="margin-top:3rem;">
+      <h3>Stato Golden Visa per Paese — 2026</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Paese</th><th>Stato Programma</th><th>Volume Annuo</th><th>Investimento Min.</th><th>Cambio Rilevante</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Portogallo</strong></td><td><span class="badge badge-orange">Aperto — Ristretto</span></td><td>~2.081 (2024)</td><td>€500K (solo fondi)</td><td>Immobili esclusi da ott. 2023. NHR → IFICI riforma mag. 2026. Fonte: AIMA</td></tr>
+            <tr><td><strong>Italia</strong></td><td><span class="badge badge-green">Aperto — Stabile</span></td><td>~128–209/anno</td><td>€250K (startup)</td><td>+63% crescita nel 2025. Flat tax alzata a €300K/anno nel 2026. Fonte: MIMIT/IMI Daily</td></tr>
+            <tr><td><strong>Spagna</strong></td><td><span class="badge badge-red">CHIUSO</span></td><td>780 (gen–ott 2024)</td><td>N/D (abolito)</td><td><strong>Chiuso il 3 aprile 2025 (LO 1/2025).</strong> 14.870 ricerche/mese ora orfane. Fonte: Ministerio Vivienda</td></tr>
+            <tr><td><strong>Francia</strong></td><td><span class="badge badge-green">Aperto</span></td><td>~12.790 (tutte le categorie Talent Passport)</td><td>€300K + 10 posti lavoro</td><td>Talent Passport (Business Investor). Dato non disaggregato per categoria. Fonte: DGEF</td></tr>
+            <tr><td><strong>Germania</strong></td><td><span class="badge badge-blue">Nessun programma GV</span></td><td>N/D</td><td>N/D</td><td>Solo EU Blue Card (41K+/anno) + Chancenkarte (giu. 2024). Fonte: BAMF</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="grid-2" style="margin-top:3rem;">
+      <div>
+        <h3>Flussi HNWI (2025)</h3>
+        <p style="font-size:.85rem;color:var(--grey);margin-bottom:1rem;">Fonte: Henley Private Wealth Migration Report 2025</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Destinazione</th><th>Flusso Netto 2025</th></tr></thead>
+            <tbody>
+              <tr><td class="col-orange"><strong>Italia</strong></td><td class="col-orange"><strong>+3.600 (1° in EU)</strong></td></tr>
+              <tr><td>Svizzera</td><td>+3.000</td></tr>
+              <tr><td>Portogallo</td><td>+1.400</td></tr>
+              <tr><td>Grecia</td><td>+1.200</td></tr>
+              <tr><td>UK</td><td>–16.500 (record outflow)</td></tr>
+              <tr><td>Francia</td><td>–800</td></tr>
+              <tr><td>Spagna</td><td>–500</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <h3>Flussi Migratori Chiave</h3>
+        <div class="callout callout-orange" style="margin-top:0;">
+          <p><strong>Brasiliani in Portogallo:</strong> 484.596 residenti (fine 2024, +31,4% anno su anno) — 31,4% di tutti gli stranieri in Portogallo. Prima nazionalità. <em>Fonte: AIMA/Público</em></p>
+        </div>
+        <div class="callout callout-orange">
+          <p><strong>India → Germania Blue Card:</strong> India = 25%+ di tutti i titolari EU Blue Card in Germania. 41.000+ Blue Card emesse ogni anno. <em>Fonte: BAMF</em></p>
+        </div>
+        <div class="callout callout-orange" style="margin-bottom:0;">
+          <p><strong>UK → EU (post-Brexit):</strong> 42.029 cittadini britannici hanno ricevuto permessi di residenza EU nel 2023. <em>Fonte: Eurostat/The Local</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="callout callout-yellow" style="margin-top:2.5rem;">
+      <div class="callout-title">⚠️ Segnalazione Dato</div>
+      <p><strong>Dato "27.875 Digital Nomad Spagna 2024" (dal brief cliente):</strong> Non verificato da fonti primarie in questa ricerca. Impossibile confermare attraverso i dati pubblici del Ministerio de Inclusion. Si raccomanda di verificare su inclusion.gob.es prima di utilizzarlo in comunicazioni esterne.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 — PANORAMA COMPETITIVO -->
+<section id="competitor">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">02</span>
+      <h2>Panorama Competitivo</h2>
+      <p class="subtitle">21 domini analizzati — Fonte: Enthous SEO Report, DataForSEO Labs, analisi SERP live, giugno 2026</p>
+      <div class="divider"></div>
+    </div>
+    <div class="callout callout-navy">
+      <div class="callout-title">Conclusione Strategica</div>
+      <p style="color:rgba(255,255,255,.85);margin:0;">"Nessun competitor copre 3+ desk contemporaneamente con identità legale certificata. <strong>Il 65% dei cluster target di EVA ha competizione BASSA.</strong> Nessuno dei 21 competitor presenta un avvocato identificabile come volto principale — gap strutturale di E-E-A-T rispetto a Google HCU/YMYL." — Enthous SEO Report</p>
+    </div>
+    <h3 style="margin-top:2.5rem;">Top 3 Competitor Diretti</h3>
+    <div class="grid-3" style="margin-top:1.5rem;">
+      <div class="profile-card">
+        <div class="profile-header"><h4>oliveiralawyers.com</h4><span class="badge badge-orange">Priorità 1 Desk PT</span></div>
+        <div class="profile-body">
+          <div class="profile-row"><strong>DR</strong><span>30–40</span></div>
+          <div class="profile-row"><strong>ETV/mese</strong><span>199</span></div>
+          <div class="profile-row"><strong>Forza</strong><span>D7 Visa (pos. 6), Retirement Visa PT (pos. 2–4)</span></div>
+          <div class="profile-row"><strong>Lacune</strong><span>NHR/IFICI = 0 keyword. Spagna = 0. Germania = 0</span></div>
+          <div style="margin-top:.8rem;font-size:.82rem;color:var(--grey);">EVA può superarlo su D7 in 6–12 mesi e diventare <strong>primo assoluto su NHR/IFICI</strong>.</div>
+        </div>
+      </div>
+      <div class="profile-card">
+        <div class="profile-header"><h4>balcellsgroup.com</h4><span class="badge badge-green">ES — Minaccia rivalutata BASSA</span></div>
+        <div class="profile-body">
+          <div class="profile-row"><strong>DR</strong><span>40–50</span></div>
+          <div class="profile-row"><strong>ETV/mese</strong><span>13.884</span></div>
+          <div class="profile-row"><strong>Realtà</strong><span><strong>78% del traffico è "Spain fun facts" e cognomi spagnoli</strong> — non immigrazione</span></div>
+          <div style="margin-top:.8rem;font-size:.82rem;color:var(--grey);">Spain DNV = 0 kw. NLV = 0. Beckham Law = 0. Golden Visa = 0. Il top-5 sull'immigrazione core è <strong>completamente aperto</strong>.</div>
+        </div>
+      </div>
+      <div class="profile-card">
+        <div class="profile-header"><h4>se-legal.de</h4><span class="badge badge-orange">Priorità 1 Desk DE</span></div>
+        <div class="profile-body">
+          <div class="profile-row"><strong>DR</strong><span>40–50</span></div>
+          <div class="profile-row"><strong>ETV/mese</strong><span>107.701</span></div>
+          <div class="profile-row"><strong>Forza</strong><span>Cittadinanza tedesca (pos. 2–8 US). "Move to Germany from US"</span></div>
+          <div class="profile-row"><strong>Lacune</strong><span>EU Blue Card India = 0. Opportunity Card = 0. Business/Investor = 0</span></div>
+          <div style="margin-top:.8rem;font-size:.82rem;color:var(--grey);">EVA può dominare EU Blue Card nei mercati India + US dove se-legal è assente.</div>
+        </div>
+      </div>
+    </div>
+    <h3 style="margin-top:3rem;">Gap Strategici Aperti — Finestre First-Mover</h3>
+    <div class="table-wrap" style="margin-top:1rem;">
+      <table>
+        <thead><tr><th>Gap</th><th>Keyword Rappresentativa</th><th>SERP Attuale</th><th>Volume</th><th>Urgenza</th></tr></thead>
+        <tbody>
+          <tr><td><strong>NHR → IFICI (riforma maggio 2026)</strong></td><td>nhr portugal tax 2026</td><td>Zero competitor aggiornati nei top-50</td><td>~2.480/mese</td><td><span class="tag tag-urgent">🔴 MASSIMA — si chiude</span></td></tr>
+          <tr><td><strong>Beckham Law Spagna</strong></td><td>beckham law spain</td><td>Top-10 aperto, balcells assente</td><td>Alto</td><td><span class="tag tag-urgent">🔴 MASSIMA</span></td></tr>
+          <tr><td><strong>GV Spagna Chiuso — traffico orfano</strong></td><td>spain golden visa</td><td>Dominato da gov, Reddit, Henley — nessun advisor</td><td><strong>14.870/mese</strong></td><td><span class="tag tag-urgent">🔴 TIME-SENSITIVE</span></td></tr>
+          <tr><td><strong>PT vs. ES Comparativo</strong></td><td>portugal vs spain for expats</td><td>Blog + Reddit, zero consulenti</td><td>—</td><td><span class="tag tag-high">🟡 ALTA</span></td></tr>
+          <tr><td><strong>Comparativo tri-paese legale</strong></td><td>move to PT vs ES vs DE</td><td>Nessun comparatore a 3 paesi con contenuto legale</td><td>—</td><td><span class="tag tag-high">🟡 EVA crea il cluster</span></td></tr>
+          <tr><td><strong>Advisory EU Blue Card</strong></td><td>eu blue card germany</td><td>se-legal pos. 36–44 US, assente India</td><td>Alto (India + US)</td><td><span class="tag tag-high">🟡 Gap su 2 mercati</span></td></tr>
+          <tr><td><strong>Mercato italiano advisory legale</strong></td><td>nhr portogallo per italiani</td><td>Offerta professionale quasi nulla</td><td>~11K/mese</td><td><span class="tag tag-low">🟢 Quick win 6 mesi</span></td></tr>
+          <tr><td><strong>Advisory legale PT-BR</strong></td><td>visto d7 portugal</td><td>eurodicas domina l'informazionale; legale = zero</td><td>~80K/mese</td><td><span class="tag tag-low">🟢 Vantaggio strutturale Boschetti</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 03 — JTBD -->
+<section id="jtbd" class="hero-dark">
+  <div class="container">
+    <div class="section-header">
+      <span class="label" style="color:var(--orange);">03</span>
+      <h2>Jobs-to-be-Done — 5 Profili Target</h2>
+      <p class="subtitle" style="color:rgba(255,255,255,.6);">Job funzionale, emotivo, sociale + 4 Forze (push/pull/ansia/abitudine)</p>
+      <div class="divider"></div>
+    </div>
+    <div class="card-dark" style="margin-bottom:1.5rem;border-left:3px solid var(--orange);">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;margin-bottom:1.2rem;">
+        <div>
+          <span class="label" style="color:var(--orange-lt);display:block;margin-bottom:.3rem;">Profilo 1</span>
+          <h3 style="color:var(--white);">Nomade Digitale / Freelance Remoto</h3>
+          <span style="font-family:'Montserrat',sans-serif;font-size:.78rem;color:rgba(255,255,255,.5);">USA, Canada, India, UK · 28–42 anni · Reddito €40–120K · Priorità GTM: ALTA</span>
+        </div>
+        <span class="badge badge-orange">Quick Win — sub-segmento brasiliano</span>
+      </div>
+      <div class="grid-2">
+        <div>
+          <p style="font-size:.85rem;color:rgba(255,255,255,.7);margin-bottom:.5rem;"><strong style="color:var(--white);">Job Funzionale:</strong> Ottenere una residenza EU stabile che legalizzi il lavoro da remoto prima che un problema di compliance o di visto forzi un trasferimento di crisi.</p>
+          <p style="font-size:.85rem;color:rgba(255,255,255,.7);margin-bottom:.5rem;"><strong style="color:var(--white);">Job Emotivo:</strong> Smettere di essere "legalmente da nessuna parte" — sentirsi sistemati, sicuri, non più a improvvisare.</p>
+          <p style="font-size:.85rem;color:rgba(255,255,255,.7);margin-bottom:0;"><strong style="color:var(--white);">Job Sociale:</strong> Essere chi ha capito bene come vivere in Europa — non chi è stato espulso o multato.</p>
+        </div>
+        <div>
+          <p style="font-size:.82rem;color:rgba(255,255,255,.6);margin-bottom:.3rem;"><strong style="color:var(--orange-lt);">PUSH:</strong> Backlog AIMA; consolati incoerenti; guide gratuite contraddittorie; piani resi obsoleti dalle riforme normative.</p>
+          <p style="font-size:.82rem;color:rgba(255,255,255,.6);margin-bottom:.3rem;"><strong style="color:var(--orange-lt);">PULL:</strong> Assessment comparativo su 5 paesi; avvocato italiano identificabile; nessun country bias.</p>
+          <p style="font-size:.82rem;color:rgba(255,255,255,.6);margin-bottom:.3rem;"><strong style="color:var(--orange-lt);">ANSIA:</strong> "La consulenza legale è cara e non so se ne ho bisogno."</p>
+          <p style="font-size:.82rem;color:rgba(255,255,255,.6);margin-bottom:0;"><strong style="color:var(--orange-lt);">ABITUDINE:</strong> Forum Reddit/Nomad come alternativa gratuita; rinvio indefinito.</p>
+        </div>
+      </div>
+    </div>
+    <div class="card-dark" style="margin-bottom:1.5rem;border-left:3px solid var(--orange);">
+      <div style="margin-bottom:1.2rem;">
+        <span class="label" style="color:var(--orange-lt);display:block;margin-bottom:.3rem;">Profilo 2</span>
+        <h3 style="color:var(--white);">HNWI / Investitore</h3>
+        <span style="font-family:'Montserrat',sans-serif;font-size:.78rem;color:rgba(255,255,255,.5);">Patrimonio netto €500K–5M+ · 45–65 anni · Più consulenti professionali già attivi</span>
+      </div>
+      <div class="grid-2">
+        <div>
+          <p style="font-size:.85rem;color:rgba(255,255,255,.7);margin-bottom:.5rem;"><strong style="color:var(--white);">Job Funzionale:</strong> Selezionare la giurisdizione UE che meglio protegge e ottimizza la struttura patrimoniale data la realtà normativa del 2025–2026.</p>
+          <p style="font-size:.85rem;color:rgba(255,255,255,.7);margin-bottom:0;"><strong style="color:var(--white);">Job Emotivo:</strong> Sentirsi certi di una decisione a lungo termine con conseguenze finanziarie irreversibili.</p>
+        </div>
+        <div>
+          <div style="background:rgba(244,121,32,.15);border-radius:4px;padding:.8rem 1rem;border-left:2px solid var(--orange);">
+            <p style="font-size:.82rem;color:rgba(255,255,255,.85);margin:0;"><strong style="color:var(--orange);">Prova empirica (tre crolli in 18 mesi):</strong> GV Spagna chiusa apr. 2025, NHR PT riformata mag. 2026, Malta invalidata 2025. Chi era vincolato a un solo paese ha dovuto ricominciare da zero. Il consulente mono-paese non è incompetente — è strutturalmente limitato.<br><br><strong style="color:var(--orange);">Obiezione principale:</strong> "Ho già il mio avvocato/commercialista." → EVA è il complemento, non il sostituto.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-dark" style="margin-bottom:1.5rem;border-left:3px solid var(--orange);">
+      <div style="margin-bottom:1.2rem;">
+        <span class="label" style="color:var(--orange-lt);display:block;margin-bottom:.3rem;">Profilo 3</span>
+        <h3 style="color:var(--white);">Pensionato con Rendite Passive</h3>
+        <span style="font-family:'Montserrat',sans-serif;font-size:.78rem;color:rgba(255,255,255,.5);">60–75 anni · UK, USA, Brasile, Sudafrica · Reddito da pensione €80–200K/anno · Chiusura NHR = URGENZA MASSIMA</span>
+      </div>
+      <div class="grid-2">
+        <div>
+          <p style="font-size:.85rem;color:rgba(255,255,255,.7);margin-bottom:.5rem;"><strong style="color:var(--white);">Job Funzionale:</strong> Stabilire una residenza fiscale favorevole in EU per pensione e reddito passivo, stabile per 10–15 anni.</p>
+          <p style="font-size:.85rem;color:rgba(255,255,255,.7);margin-bottom:0;"><strong style="color:var(--white);">Job Emotivo:</strong> Non dover mai riaffrontare questa decisione — certezza, non ottimizzazione.</p>
+        </div>
+        <div>
+          <div style="background:rgba(244,121,32,.15);border-radius:4px;padding:.8rem 1rem;border-left:2px solid var(--orange);">
+            <p style="font-size:.82rem;color:rgba(255,255,255,.85);margin:0;"><strong style="color:var(--orange);">Danno quantificato (chiusura NHR):</strong> Su una pensione di €150K/anno, il carico fiscale passa da €15K/anno a €52–55K/anno = <strong style="color:var(--orange);">€37.000+/anno di danno</strong>. È la value proposition più concreta per questo profilo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="card-dark" style="border-left:3px solid var(--orange);">
+        <span class="label" style="color:var(--orange-lt);display:block;margin-bottom:.3rem;">Profilo 4</span>
+        <h3 style="color:var(--white);font-size:1.1rem;">Manager / Dirigente ICT</h3>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.65);margin-top:.5rem;"><strong style="color:var(--white);">Job:</strong> Ottenere il permesso ICT corretto nel paese giusto entro la data di inizio dell'incarico.</p>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.65);"><strong style="color:var(--orange-lt);">Pain principale:</strong> Tasso di rigetto 20–30% per errori documentali. Il 70% delle aziende non ha vera expertise interna multi-paese.</p>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.65);margin:0;"><strong style="color:var(--orange-lt);">Nota:</strong> Target B2B secondario. Attivare in Fase 3 (LinkedIn) dopo 3+ case study aziendali.</p>
+      </div>
+      <div class="card-dark" style="border-left:3px solid var(--orange);">
+        <span class="label" style="color:var(--orange-lt);display:block;margin-bottom:.3rem;">Profilo 5</span>
+        <h3 style="color:var(--white);font-size:1.1rem;">Brasiliano — Aspirazione EU via PT</h3>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.65);margin-top:.5rem;"><strong style="color:var(--white);">Job:</strong> Residenza portoghese come porta d'accesso EU + cittadinanza in 5 anni.</p>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.65);"><strong style="color:var(--orange-lt);">Job Sociale:</strong> "Sentirsi europeo" — aspirazione identitaria, non solo vantaggio pratico → loop referral naturali in community strette.</p>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.65);margin:0;"><strong style="color:var(--orange-lt);">Vantaggio EVA:</strong> 19K contatti caldi + 2.000+ cittadinanze PT ottenute. È il <strong style="color:var(--orange);">Quick Win con più alta probabilità</strong> dell'intero piano GTM.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 — POSIZIONAMENTO -->
+<section id="posizionamento">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">04</span>
+      <h2>Posizionamento Strategico</h2>
+      <p class="subtitle">Brand Positioning Formula (De Veglia) + Lean Canvas — prodotto dallo Strategist agent</p>
+      <div class="divider"></div>
+    </div>
+    <h3>Dichiarazione di Posizionamento</h3>
+    <div class="quote" style="margin-top:1.5rem;">
+      "EVA — Europe Visa Advisory è l'unico studio legale italiano che offre consulenza legale comparativa strutturata multi-giurisdizione su immigrazione e relocation in 5 paesi UE (IT, PT, ES, DE, FR), senza alcun incentivo finanziario o strutturale a raccomandare una giurisdizione specifica. A differenza degli specialisti mono-paese che consigliano solo il proprio ordinamento, EVA mappa l'intero set di opzioni del cliente rispetto alla realtà normativa verificata: un assessment, cinque paesi, zero conflitti di interessi."
+      <cite>Strategist Agent — TTP Agency · Formula di Brand Positioning De Veglia applicata · Giugno 2026</cite>
+    </div>
+    <div class="grid-2" style="margin-top:2.5rem;">
+      <div>
+        <h3>Payoff Esterni</h3>
+        <div class="callout callout-orange" style="margin-top:1rem;">
+          <div class="callout-title">Primario (B2C)</div>
+          <p style="font-size:1.3rem;font-family:'Playfair Display',serif;font-style:italic;font-weight:700;margin:0;">"Every Country. One Counsel."</p>
+        </div>
+        <div class="callout callout-navy">
+          <div class="callout-title" style="color:var(--orange);">Secondario (B2B)</div>
+          <p style="font-size:1.15rem;font-family:'Playfair Display',serif;font-style:italic;font-weight:700;color:rgba(255,255,255,.9);margin:0;">"Five countries. One firm. No conflict."</p>
+        </div>
+      </div>
+      <div>
+        <h3>Quadrante di Posizionamento</h3>
+        <div class="table-wrap" style="margin-top:1rem;">
+          <table>
+            <thead><tr><th>Tipo</th><th>Chi sono</th><th>Limite vs EVA</th></tr></thead>
+            <tbody>
+              <tr><td>Specialisti locali</td><td>oliveiralawyers, balcells, se-legal</td><td>Mono-paese, strutturalmente in conflitto</td></tr>
+              <tr><td>Agenzie relocation</td><td>imin-portugal, expertsforexpats</td><td>Solo logistica, nessuna consulenza legale</td></tr>
+              <tr><td>Piattaforme digitali</td><td>getgoldenvisa, immigrantinvest</td><td>Informazione, nessuna responsabilità legale</td></tr>
+              <tr class="col-orange"><td><strong>EVA</strong></td><td><strong>Studio legale italiano, multi-giurisdizione</strong></td><td><strong>Comparativo + legale + neutrale</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <h3 style="margin-top:3rem;">Lean Canvas — EVA</h3>
+    <div class="table-wrap" style="margin-top:1rem;">
+      <table>
+        <thead><tr><th>Blocco</th><th>Contenuto</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Problema</strong></td><td>(1) La pianificazione cross-border in EU richiede il confronto di 5 sistemi legali — nessun advisor locale può farlo senza un conflitto di interessi strutturale. (2) Il panorama normativo è volatile — 3 grandi crolli in 18 mesi. (3) Paralisi decisionale al primo contatto: i clienti non sanno quale paese scelga e non sanno a chi rivolgersi senza ricevere una risposta di parte.</td></tr>
+          <tr><td><strong>Segmenti Cliente</strong></td><td>Primario: HNWI, Pensionati, Nomadi Digitali, Brasiliani (PT). Early adopters: (a) 19K contatti brasiliani caldi; (b) HNWI consapevoli del cambiamento NHR/IFICI. B2B (Fase 3): agenzie relocation, studi legali esteri, HR aziendali.</td></tr>
+          <tr><td><strong>Proposta di Valore Unica</strong></td><td>"L'unico studio legale italiano che mappa le tue opzioni EU su 5 paesi senza conflitti di interessi — e ti dice dove andare in base alla realtà normativa del 2026, non ai consigli dell'anno scorso."</td></tr>
+          <tr><td><strong>Vantaggio Sleale</strong></td><td>(1) 19K contatti brasiliani validati con relazione preesistente — non replicabile. (2) 2.000+ cittadinanze documentate. (3) Avvocato nominato identificabile — vantaggio strutturale E-E-A-T che nessuno dei 21 competitor possiede. (4) First-mover su NHR/IFICI (time-sensitive).</td></tr>
+          <tr><td><strong>Rischio Chiave</strong></td><td>Il tempo di Boschetti è il vincolo vincolante, non il budget. Ogni incarico aggiuntivo compete per la stessa risorsa. Max 3–4 incarichi attivi/mese raccomandati nel primo anno.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 05 — L'OBIEZIONE -->
+<section id="obiezione">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">05</span>
+      <h2>La Risposta all'Obiezione "Perché il Regista?"</h2>
+      <p class="subtitle">L'obiezione centrale — risposta con dati, non con claim</p>
+      <div class="divider"></div>
+    </div>
+    <div class="callout callout-orange">
+      <div class="callout-title">L'Obiezione</div>
+      <p style="font-size:1.05rem;font-style:italic;">"Posso assumere direttamente un avvocato portoghese / spagnolo / tedesco a metà prezzo. Perché ho bisogno di uno studio italiano a coordinarmi?"</p>
+    </div>
+    <div class="grid-2-1" style="margin-top:2rem;">
+      <div>
+        <h3>L'Argomento del Conflitto di Interessi Strutturale</h3>
+        <p>Un avvocato portoghese ha un interesse economico diretto a farti scegliere la soluzione portoghese. Un avvocato spagnolo ha un interesse economico diretto a farti scegliere la soluzione spagnola. Non è una critica alla loro competenza — è una realtà strutturale che non dipende dall'intenzione.</p>
+        <p><strong>EVA non ha alcun interesse legato a un singolo paese.</strong> Se la Germania è la risposta giusta, EVA dice Germania. Se è l'Italia, dice Italia. Il partner locale esegue poi.</p>
+        <h3 style="margin-top:2rem;">La Prova Empirica — Tre Crolli Documentati</h3>
+        <div class="table-wrap" style="margin-top:1rem;">
+          <table>
+            <thead><tr><th>Evento</th><th>Data</th><th>Conseguenza per chi aveva un consulente mono-paese</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Golden Visa Spagna abolito</strong></td><td>3 aprile 2025</td><td>14.870 ricerche/mese ora orfane. Chi era in pipeline ha dovuto ricominciare da zero.</td></tr>
+              <tr><td><strong>Portogallo NHR → IFICI</strong></td><td>Maggio 2026</td><td>Delta fiscale su pensione €150K: €15K/anno → €52–55K/anno = <strong>€37.000+/anno di danno</strong>. I piani basati sul NHR ora sono sbagliati.</td></tr>
+              <tr><td><strong>Malta cittadinanza diretta invalidata</strong></td><td>2025 (sentenza CUE)</td><td>I programmi venduti dai consulenti maltesi sono stati annullati. I clienti devono rivalutare tutto.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <div class="card-dark" style="margin-bottom:1.5rem;">
+          <h4 style="color:var(--white);margin-bottom:.8rem;">La Frase Chiave per Ogni Presentazione</h4>
+          <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:.95rem;color:rgba(255,255,255,.85);line-height:1.6;">"I consulenti i cui clienti sono stati colpiti da questi cambiamenti non erano incompetenti. Stavano dando consigli eccellenti per il loro paese specifico. Il problema era che nessuno stava guardando l'intero scacchiere."</p>
+          <p style="font-family:'Montserrat',sans-serif;font-size:.72rem;color:var(--orange);text-transform:uppercase;letter-spacing:1px;margin-top:.8rem;margin-bottom:0;">EVA guarda l'intero scacchiere. Questo è il lavoro.</p>
+        </div>
+        <div class="card-dark">
+          <h4 style="color:var(--white);margin-bottom:.8rem;">Contro l'Obiezione del Prezzo</h4>
+          <p style="font-size:.88rem;color:rgba(255,255,255,.75);margin:0;"><strong style="color:var(--orange);">La fee di EVA non è un costo. È un premio assicurativo su una decisione irreversibile.</strong> Se la raccomandazione del consulente locale si rivela costruita su un programma che chiude (come 3 programmi in 18 mesi), il costo di ripartire — in tempo, spese legali, costo opportunità e per i pensionati €37K+/anno di tasse — supera di gran lunga la differenza di fee EVA.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 — MODELLO FINANZIARIO -->
+<section id="finanziario">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">06</span>
+      <h2>Modello Finanziario — Anno 1–2</h2>
+      <p class="subtitle">Prodotto dal Calculator agent · Tutto il pricing marcato [IPOTESI] — richiede conferma del cliente prima di qualsiasi uso esterno</p>
+      <div class="divider"></div>
+    </div>
+    <div class="callout callout-yellow">
+      <div class="callout-title">⚠️ Disclaimer Importante</div>
+      <p>Tutte le cifre di prezzo dei servizi sono ipotesi basate su benchmark del mercato europeo premium della consulenza immigrazione. Il pricing di EVA non è ancora formalizzato. Questi numeri devono essere <strong>confermati con Avv. Boschetti prima di qualsiasi utilizzo in comunicazioni al cliente, proposte o documenti esterni.</strong> La variabile più critica da confermare: costi dei partner locali — impatto diretto sui margini.</p>
+    </div>
+    <h3 style="margin-top:2.5rem;">Architettura Livelli di Servizio <em style="font-size:.75rem;font-weight:400;color:var(--grey);">[Tutto il pricing: IPOTESI]</em></h3>
+    <div class="table-wrap" style="margin-top:1rem;">
+      <table>
+        <thead><tr><th>Tier</th><th>Servizio</th><th>Ancora</th><th>Target</th><th>Floor</th><th>Margine (stim.)</th></tr></thead>
+        <tbody>
+          <tr><td><strong>T1</strong></td><td>Comparative Snapshot (consulenza 1h + report)</td><td>€800</td><td>€600</td><td>€400</td><td>54%</td></tr>
+          <tr><td><strong>T2</strong></td><td>Advisory + Roadmap (assessment + 3h follow-up)</td><td>€2.000</td><td>€1.500</td><td>€1.000</td><td>57%</td></tr>
+          <tr class="col-orange"><td><strong>T3</strong></td><td><strong>Gestione Caso Completo Standard (1 paese, 1 richiedente)</strong></td><td>€5.500</td><td><strong>€4.000</strong></td><td>€2.800</td><td><strong>56%</strong></td></tr>
+          <tr><td><strong>T4</strong></td><td>HNWI / Golden Visa / Investitore</td><td>€9.000</td><td>€7.500</td><td>€5.500</td><td>58%</td></tr>
+          <tr><td><strong>T5</strong></td><td>Retainer B2B (3 consulenze/mese)</td><td>€2.000/mese</td><td>€1.500/mese</td><td>€1.000/mese</td><td>50%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 style="margin-top:3rem;">Anno 1 — Tre Scenari</h3>
+    <div class="scenario-grid">
+      <div class="scenario-card scenario-light">
+        <div class="scenario-label">Scenario Leggero</div>
+        <div class="scenario-revenue">€59,5K</div>
+        <div style="font-size:.85rem;color:var(--grey);margin-top:.3rem;">~24 incarichi</div>
+        <div class="scenario-net">Contribuzione netta: ~€20,7K<br><small style="font-weight:400;opacity:.7;">GTM: €8,1–10,1K</small></div>
+        <div style="margin-top:1rem;font-size:.78rem;color:var(--grey);">Conservativo: SEO lenta, 2 conversioni brasiliane, nessun B2B, nessun caso HNWI.</div>
+      </div>
+      <div class="scenario-card scenario-base">
+        <div class="scenario-label">Scenario Base — Raccomandato ★</div>
+        <div class="scenario-revenue">€122,5K</div>
+        <div style="font-size:.85rem;color:rgba(255,255,255,.7);margin-top:.3rem;">~30–35 incarichi</div>
+        <div class="scenario-net">Contribuzione netta: ~€56,6K<br><small style="font-weight:400;opacity:.7;">GTM: €10,6–13,2K</small></div>
+        <div style="margin-top:1rem;font-size:.78rem;color:rgba(255,255,255,.7);">Sito live luglio, campagna brasiliani Q3, 1 caso HNWI Q1 2027, 1 partner B2B Q4. In linea con la proposta Sara.</div>
+      </div>
+      <div class="scenario-card scenario-opt">
+        <div class="scenario-label">Scenario Ottimistico</div>
+        <div class="scenario-revenue">€194,5K</div>
+        <div style="font-size:.85rem;color:rgba(255,255,255,.65);margin-top:.3rem;">~48 incarichi</div>
+        <div class="scenario-net">Contribuzione netta: ~€96,4K<br><small style="font-weight:400;opacity:.7;">GTM: ~€13,2K</small></div>
+        <div style="margin-top:1rem;font-size:.78rem;color:rgba(255,255,255,.65);">3 partner B2B Q4, 2–3 casi T4 HNWI, referral flat tax IT, SEO con trazione da Q1 2027.</div>
+      </div>
+    </div>
+    <div class="grid-2" style="margin-top:2.5rem;">
+      <div>
+        <h3>Analisi Break-Even</h3>
+        <div class="table-wrap" style="margin-top:1rem;">
+          <table>
+            <thead><tr><th>Tipo di Break-Even</th><th>Incarichi Necessari</th><th>Tempistica (Base)</th></tr></thead>
+            <tbody>
+              <tr><td>Recupero investimento GTM</td><td>~7 cumulativi</td><td>Nov–Dic 2026</td></tr>
+              <tr><td>Pareggio mensile cash-flow</td><td>2/mese</td><td>Ott–Nov 2026</td></tr>
+              <tr class="col-orange"><td><strong>ROI positivo Anno 1</strong></td><td>~18 cumulativi</td><td>Feb–Mar 2027</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-green" style="margin-top:1rem;">
+          <div class="callout-title" style="color:#065F46;">Insight Chiave</div>
+          <p style="margin:0;font-size:.88rem;"><strong>Disciplina di prezzo &gt; volume.</strong> Spostare il ticket medio da €3.500 a €4.000 (+14%) aumenta la contribuzione netta di ~€15.000 al volume base. Nel primo anno, la disciplina di pricing vale più del volume aggiuntivo.</p>
+        </div>
+      </div>
+      <div>
+        <h3>Miglior ROI per Canale — Anno 1</h3>
+        <div class="table-wrap" style="margin-top:1rem;">
+          <table>
+            <thead><tr><th>Canale</th><th>Investimento</th><th>CAC stimato</th><th>ROI</th></tr></thead>
+            <tbody>
+              <tr class="col-orange"><td><strong>Campagna email brasiliani</strong></td><td>€600</td><td>€75–200</td><td><strong>13x potenziale</strong> se 2 T3 si chiudono</td></tr>
+              <tr><td>Referral (clienti esistenti)</td><td>€0</td><td>€0–50</td><td>Tasso conversione più alto. Zero costo.</td></tr>
+              <tr><td>SEO organico</td><td>€500 setup</td><td>€100–200 a regime</td><td>Compounding. Migliore canale a lungo termine.</td></tr>
+              <tr><td>LinkedIn B2B</td><td>~€2.000 ore Sara</td><td>€500–1.000/partner</td><td>LTV più alto (€18K/anno per retainer).</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 — MESSAGING -->
+<section id="messaging" class="hero-dark">
+  <div class="container">
+    <div class="section-header">
+      <span class="label" style="color:var(--orange);">07</span>
+      <h2>Framework di Messaging</h2>
+      <p class="subtitle" style="color:rgba(255,255,255,.6);">5 Pilastri di Copy + Tagline + Brand Voice — prodotto dal Voice agent</p>
+      <div class="divider"></div>
+    </div>
+    <div class="grid-2" style="margin-bottom:2.5rem;">
+      <div>
+        <h3 style="color:var(--white);">Tagline Primaria</h3>
+        <div style="background:var(--orange);border-radius:6px;padding:1.5rem;margin-top:.8rem;">
+          <p style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--white);font-style:italic;line-height:1.2;margin:0;">"Every Country.<br>One Counsel."</p>
+          <p style="font-family:'Montserrat',sans-serif;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,.8);margin-top:.8rem;margin-bottom:0;">Consigliata per: tutti i canali — homepage, profili, materiali</p>
+        </div>
+      </div>
+      <div>
+        <h3 style="color:var(--white);">Tagline Campagna / Volatilità</h3>
+        <div style="border:2px solid var(--orange);border-radius:6px;padding:1.5rem;margin-top:.8rem;">
+          <p style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--white);font-style:italic;line-height:1.3;margin:0;">"Where the Rules Change,<br>We Don't."</p>
+          <p style="font-family:'Montserrat',sans-serif;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,.6);margin-top:.8rem;margin-bottom:0;">Per: HNWI/investitori, LinkedIn sponsored, oggetti email</p>
+        </div>
+      </div>
+    </div>
+    <h3 style="color:var(--white);margin-bottom:1.5rem;">5 Pilastri di Copy</h3>
+    <div class="grid-2">
+      <div>
+        <div class="pillar" style="border-left-color:var(--orange);">
+          <div class="pillar-num" style="color:var(--orange-lt);">Pilastro 1 — Il Problema</div>
+          <div class="pillar-headline" style="color:var(--white);">"La maggior parte dei consulenti di immigrazione ha un conflitto di interessi. Vendono il proprio paese."</div>
+          <div class="pillar-body" style="color:rgba(255,255,255,.65);">Il tuo commercialista italiano raccomanda l'Italia. Il tuo avvocato spagnolo raccomanda la Spagna. Ognuno è tecnicamente corretto. Nessuno confronta tutti e cinque. Non è consulenza — è un menù dove ogni piatto è lo stesso.</div>
+        </div>
+        <div class="pillar" style="border-left-color:var(--orange);">
+          <div class="pillar-num" style="color:var(--orange-lt);">Pilastro 2 — La Soluzione Unica</div>
+          <div class="pillar-headline" style="color:var(--white);">"Nessuno studio legale europeo offre consulenza comparativa strutturata tra giurisdizioni UE. Lo abbiamo verificato. Abbiamo costruito quello che mancava."</div>
+          <div class="pillar-body" style="color:rgba(255,255,255,.65);">EVA è lo strato advisory sopra gli studi locali. Valutiamo il profilo, confrontiamo cinque percorsi UE, produciamo un report scritto e raccomandiamo. Il nostro avvocato italiano è identificabile e responsabile.</div>
+        </div>
+        <div class="pillar" style="border-left-color:var(--orange);">
+          <div class="pillar-num" style="color:var(--orange-lt);">Pilastro 3 — La Prova</div>
+          <div class="pillar-headline" style="color:var(--white);">"20+ anni. 2.500+ clienti. 2.000+ cittadinanze. E un track record che ha superato ogni riforma normativa."</div>
+          <div class="pillar-body" style="color:rgba(255,255,255,.65);">GV Spagna: chiusa apr. 2025. NHR Portogallo: riformata mag. 2026. Malta: invalidata 2025. Ogni volta, i consulenti mono-paese non avevano un piano B. I nostri clienti avevano tre opzioni valutate prima di ogni chiusura.</div>
+        </div>
+      </div>
+      <div>
+        <div class="pillar" style="border-left-color:var(--orange);">
+          <div class="pillar-num" style="color:var(--orange-lt);">Pilastro 4 — Il Processo</div>
+          <div class="pillar-headline" style="color:var(--white);">"Non ti impegni su un paese. Inizi con un report."</div>
+          <div class="pillar-body" style="color:rgba(255,255,255,.65);">Assessment del profilo → Report comparativo (5 giorni lavorativi) → Raccomandazione scritta → Solo allora: incarico per l'esecuzione. A ogni fase decidi se proseguire. Nessun vincolo. Processo documentato e firmato.</div>
+        </div>
+        <div class="pillar" style="border-left-color:var(--orange);">
+          <div class="pillar-num" style="color:var(--orange-lt);">Pilastro 5 — Il Risultato</div>
+          <div class="pillar-headline" style="color:var(--white);">"La giurisdizione giusta non è quella che è aperta oggi. È quella che funzionerà ancora tra cinque anni."</div>
+          <div class="pillar-body" style="color:rgba(255,255,255,.65);">Quando il regime NHR portoghese ha chiuso, i pensionati che ne dipendevano si sono trovati davanti a €37.000+ di tasse aggiuntive all'anno. Un assessment EVA mappa reversibilità, alternative e opzioni di riserva prima che tu ne abbia bisogno.</div>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <h4 style="color:var(--white);margin-bottom:1rem;">Parole da Usare / da Evitare</h4>
+          <div class="grid-2" style="gap:.8rem;">
+            <div class="card-dark" style="padding:1rem;border:1px solid rgba(244,121,32,.3);">
+              <div class="label" style="color:var(--orange-lt);margin-bottom:.5rem;">✓ Usare</div>
+              <p style="font-size:.78rem;color:rgba(255,255,255,.7);margin:0;line-height:1.8;">assessment · report comparativo · percorso · giurisdizione · coordinamento · partner certificato · avvocato italiano · desk · volatilità normativa · verificato · track record</p>
+            </div>
+            <div class="card-dark" style="padding:1rem;border:1px solid rgba(239,68,68,.2);">
+              <div class="label" style="color:#FCA5A5;margin-bottom:.5rem;">✗ Evitare</div>
+              <p style="font-size:.78rem;color:rgba(255,255,255,.7);margin:0;line-height:1.8;">eccellenza · qualità · soluzioni · innovativo · best-in-class · seamless · one-stop-shop · esperto diritto estero · journey · passionate about · comprehensive (da solo)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 — GTM -->
+<section id="gtm">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">08</span>
+      <h2>Roadmap Go-to-Market</h2>
+      <p class="subtitle">Piano a 4 fasi calibrato per studio mono-risorsa · basso budget · dominio non ancora registrato</p>
+      <div class="divider"></div>
+    </div>
+    <div class="callout callout-red" style="margin-bottom:2.5rem;">
+      <div class="callout-title" style="color:#991B1B;">⚠️ Blocco Critico — Agire Questa Settimana</div>
+      <p><strong>Dominio non registrato.</strong> Nulla in questa roadmap può partire finché il dominio non esiste. Il clock SEO non inizia. La finestra first-mover su NHR/IFICI si sta chiudendo. Il costo è €20–50. Il costo opportunità di ogni giorno di ritardo è misurabile. <strong>È l'azione più urgente dell'intero piano.</strong></p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-phase">Fase 0 — Adesso → Luglio 2026</div>
+        <div class="timeline-title">Sprint di Fondazione — Prerequisiti Non Negoziabili</div>
+        <div class="grid-3" style="margin-top:.8rem;gap:.8rem;">
+          <div class="card-grey"><strong>Registrazione dominio</strong><br><small style="color:var(--grey);">BoschettiEVA.com o EVAlegal.com. Registrare .com + .eu. Costo: €20–50. Urgenza: CRITICA.</small></div>
+          <div class="card-grey"><strong>Finalizzazione naming</strong><br><small style="color:var(--grey);">Chiudere "EUROPE VISA ADVISORY" vs. "EUROPEAN". Eliminare refuso "ENTRY".</small></div>
+          <div class="card-grey"><strong>Conferma palette</strong><br><small style="color:var(--grey);">Confermare Orange #F47920 + Dark Navy #0D1B2A. Una-pagina brand guide per lo sviluppatore.</small></div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-phase">Fase 1 — Luglio–Agosto 2026 · Costo: €5.500–6.500</div>
+        <div class="timeline-title">MVP Digitale — Sito + Primi Articoli SEO</div>
+        <p style="font-size:.9rem;color:var(--grey);">WordPress multilingua (EN+PT), 8–10 pagine core + landing B2B. Articoli SEO prioritari su NHR/IFICI e GV Spagna chiuso. Blog live con case study Vinayak come anchor social proof. <strong>Non attendere il sito perfetto a 107 pagine — lanciare un sito credibile a 10 pagine con 3 articoli.</strong></p>
+        <div class="tag-row">
+          <span class="tag tag-urgent">🔴 Articolo NHR/IFICI — finestra first-mover</span>
+          <span class="tag tag-urgent">🔴 GV Spagna Chiuso — 14.870 ricerche/mese orfane</span>
+          <span class="tag tag-high">🟡 Case study Vinayak — live dal giorno 1</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-phase">Fase 2 — Settembre 2026 · Costo: €600</div>
+        <div class="timeline-title">Quick Win Brasiliani — Campagna Email (19K contatti)</div>
+        <p style="font-size:.9rem;color:var(--grey);">Sequenza 3 email in PT-BR via Brevo. Invio pilota a 2–3K contatti più ingaggiati prima del full send. Frame: "Ecco cosa è cambiato nel 2026 per il tuo percorso EU" — non "ecco il nostro nuovo servizio."</p>
+        <div class="grid-3" style="margin-top:.8rem;gap:.8rem;">
+          <div class="card-grey"><strong>Email 1:</strong> "Cosa è cambiato in Portogallo nel 2026" — educativa, ristabilisce l'autorità</div>
+          <div class="card-grey"><strong>Email 2:</strong> "3 errori che i brasiliani stanno facendo con la residenza EU" — crea urgenza</div>
+          <div class="card-grey"><strong>Email 3:</strong> "EVA Comparative Assessment — prenota il tuo slot" — CTA diretta, framing capacità limitata</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-phase">Fase 3 — Ottobre 2026–Aprile 2027 · Costo: €1.700–5.550</div>
+        <div class="timeline-title">Motore B2B LinkedIn — Leva di Acquisizione Principale</div>
+        <p style="font-size:.9rem;color:var(--grey);">ICP: founder agenzie relocation, HR director di multinazionali con presenza EU, avvocati immigrazione UK/US, studi legali brasiliani con clientela EU. 5–10 nuove richieste di connessione/settimana. Outreach value-first usando l'articolo NHR/IFICI come credibility asset. Obiettivo: 3–5 conversazioni qualificate → 1–2 accordi di referral attivi entro aprile 2027.</p>
+      </div>
+      <div class="timeline-item" style="margin-bottom:0;">
+        <div class="timeline-dot"></div>
+        <div class="timeline-phase">Fase 4 — Da Agosto 2026 · Continuo</div>
+        <div class="timeline-title">SEO Authority — Motore Compounding a Lungo Termine</div>
+        <p style="font-size:.9rem;color:var(--grey);">1 articolo ogni 2 settimane. Sequenza prioritaria primi 90 giorni: (1) NHR/IFICI, (2) GV Spagna alternativa, (3) Beckham Law Spagna 2026, (4) Portogallo vs. Spagna 2026, (5) EU Blue Card Germania guida completa. Metriche: 3 articoli indicizzati entro 30 giorni → almeno 1 keyword in top-20 entro mese 3 → prima richiesta organica entro mese 6.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 — PALETTE -->
+<section id="palette">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">09</span>
+      <h2>Raccomandazione Palette Brand</h2>
+      <p class="subtitle">Risoluzione del conflitto tra la palette istituzionale Boschetti e il brief logo EVA</p>
+      <div class="divider"></div>
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>Il Conflitto</h3>
+        <div class="table-wrap" style="margin-top:1rem;">
+          <table>
+            <thead><tr><th>Versione</th><th>Palette</th><th>Origine</th></tr></thead>
+            <tbody>
+              <tr><td>Boschetti istituzionale</td><td>Navy + Steel Teal + Amber CTA</td><td>Design System SLB</td></tr>
+              <tr class="col-orange"><td><strong>EVA autonoma</strong></td><td><strong>Arancione + Dark Navy + Grigio</strong></td><td>Brief logo cliente + <strong>Enthous SEO Report</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top:1rem;font-size:.9rem;">Il report SEO Enthous — il documento operativamente più avanzato del progetto — usa già nel footer: <code>BOSCHETTI</code> in arancione #F47920 + <code>EVA</code> in bianco su navy #1A2D40. Non è casuale. Enthous ha fatto una scelta visiva deliberata.</p>
+      </div>
+      <div>
+        <h3>La Raccomandazione</h3>
+        <div class="callout callout-orange" style="margin-top:1rem;">
+          <div class="callout-title">Usare: Arancione + Dark Navy (EVA Autonoma)</div>
+          <p>L'arancione differenzia EVA da IVI (Italy Visa Investments), che usa la palette teal/navy istituzionale Boschetti. Usare lo stesso teal renderebbe EVA e IVI visivamente indistinguibili. Il cliente ha proposto l'arancione nel brief logo — allinearsi alla sua visione.</p>
+        </div>
+      </div>
+    </div>
+    <h3 style="margin-top:2.5rem;">Palette Colori EVA</h3>
+    <div class="palette-row" style="margin-top:1.5rem;">
+      <div class="palette-swatch"><div class="palette-color" style="background:#0D1B2A;"></div><div class="palette-name">Navy Deep</div><div class="palette-hex">#0D1B2A</div></div>
+      <div class="palette-swatch"><div class="palette-color" style="background:#1A2D40;"></div><div class="palette-name">Navy Mid</div><div class="palette-hex">#1A2D40</div></div>
+      <div class="palette-swatch"><div class="palette-color" style="background:#1C2844;"></div><div class="palette-name">Navy Heading</div><div class="palette-hex">#1C2844</div></div>
+      <div class="palette-swatch"><div class="palette-color" style="background:#F47920;border:1px solid #eee;"></div><div class="palette-name" style="color:var(--orange);font-weight:700;">Arancione EVA ★</div><div class="palette-hex">#F47920</div></div>
+      <div class="palette-swatch"><div class="palette-color" style="background:#F5F2EE;border:1px solid #eee;"></div><div class="palette-name">Off-White</div><div class="palette-hex">#F5F2EE</div></div>
+      <div class="palette-swatch"><div class="palette-color" style="background:#6B7280;border:1px solid #eee;"></div><div class="palette-name">Grigio</div><div class="palette-hex">#6B7280</div></div>
+    </div>
+    <div class="callout callout-green" style="margin-top:1.5rem;">
+      <div class="callout-title" style="color:#065F46;">Tipografia — Identica al Design System Boschetti</div>
+      <p style="margin:0;font-size:.88rem;"><strong>Playfair Display</strong> (H1–H3) + <strong>PT Serif</strong> (body) + <strong>Montserrat</strong> (UI/CTA). La tipografia è il fil rouge del brand family. Il colore differenzia. Il tipo connette. Questo preserva la coerenza di brand senza confusione visiva tra EVA e IVI.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10 — IL CONCLAVE -->
+<section id="conclave">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">10</span>
+      <h2>Verdetto de Il Conclave</h2>
+      <p class="subtitle">4 advisor indipendenti · Pre-Mortem · 5 Whys · Opportunity Cost · ACH · Steelman-then-Attack · Salomone</p>
+      <div class="divider"></div>
+    </div>
+    <div class="callout callout-navy" style="margin-bottom:2rem;">
+      <div class="callout-title">Verdetto di Salomone — 7/10 (condizionato)</div>
+      <p style="color:rgba(255,255,255,.85);">Il piano GTM regge nella struttura, non nel sequencing e nella governance delle risorse. <strong>Tre pre-condizioni non negoziabili</strong> devono essere soddisfatte prima di procedere. Senza di esse: 5/10. Con esse: 7,5/10.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:2rem;">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-title">Consent Audit GDPR/LGPD</div>
+        <div class="step-detail">Boschetti verifica la base giuridica della lista 19K per comunicazioni commerciali EVA. Output: verde/giallo/rosso. Determina se il GTM parte a luglio o se il budget va ridisegnato. Scadenza: entro 10 giorni.</div>
+        <div class="step-urgency" style="color:var(--orange);">🔴 CRITICA — entro 12 giugno</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-title">Contratto Ioana</div>
+        <div class="step-detail">Scope EVA esplicito: ore dedicate, deliverable, compensazione per ogni caso PT. Senza questo, il buffer di capacità per il desk PT è illusorio e il rischio concentrazione su single point of failure è reale.</div>
+        <div class="step-urgency" style="color:var(--orange);">🔴 CRITICA — prima del lancio sito</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-title">Capacity Agreement</div>
+        <div class="step-detail">Boschetti definisce con sé stesso: quante ore/settimana su EVA, con quale trigger di rallentamento se lo studio principale aumenta di carico. Scritto, non come intenzione.</div>
+        <div class="step-urgency" style="color:#D97706;">🟡 URGENTE</div>
+      </div>
+    </div>
+    <h3>I 4 Blind Spot Scoperti dal Conclave</h3>
+    <div class="grid-2" style="margin-top:1.2rem;">
+      <div class="callout callout-red">
+        <div class="callout-title" style="color:#991B1B;">🔴 Blind Spot 1 — GDPR/LGPD della Lista (Machiavelli)</div>
+        <p style="font-size:.88rem;margin:0;">Liste email costruite via eventi professionali/referral = quasi certamente senza consenso esplicito per comunicazioni commerciali. Spam reports nel network legale bruciano il brand personale di Boschetti — l'unico asset non replicabile di EVA. Questo è una pre-condizione legale, non solo cautela operativa.</p>
+      </div>
+      <div class="callout callout-red">
+        <div class="callout-title" style="color:#991B1B;">🔴 Blind Spot 2 — Split Cognitivo di Boschetti</div>
+        <p style="font-size:.88rem;margin:0;">In fase di ramp-up, ogni ora di BD EVA compete con le ore fatturabili dello studio esistente. In assenza di un triage esplicito, vince sempre la revenue garantita. EVA muore per inedia, non per mancanza di domanda.</p>
+      </div>
+      <div class="callout callout-yellow">
+        <div class="callout-title">🟡 Blind Spot 3 — Ioana come Single Point of Failure</div>
+        <p style="font-size:.88rem;margin:0;">Scope contrattuale indefinito su una risorsa che potrebbe essere il vero vantaggio competitivo operativo di EVA. Un suo ritiro o fallimento nella delivery = reputazione Boschetti danneggiata con i clienti brasiliani.</p>
+      </div>
+      <div class="callout callout-yellow">
+        <div class="callout-title">🟡 Blind Spot 4 — LinkedIn in Portoghese</div>
+        <p style="font-size:.88rem;margin:0;">Il piano era silente sulla lingua dell'outreach LinkedIn verso il target brasiliano/PT. Outreach in inglese su questo segmento ha tassi di conversione materialmente inferiori. Budgetizzare ghost-writer PT (€200–400/mese) o verificare il livello scritto di PT di Boschetti.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 — PROSSIMI PASSI -->
+<section id="prossimi-passi">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">11</span>
+      <h2>Prossimi Passi — Piano 90 Giorni</h2>
+      <p class="subtitle">5 azioni chiave calibrate per studio mono-risorsa · ordinate per urgenza e dipendenza</p>
+      <div class="divider"></div>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-title">Registrare il Dominio</div>
+        <div class="step-detail">Scegliere il naming (EVAlegal.com / BoschettiEVA.com / europevisa.eu). Registrare .com + .eu. Costo: €20–50. Ogni altra azione dipende da questa.</div>
+        <div class="step-urgency" style="color:var(--orange);">⚡ Questa settimana — non negoziabile</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-title">Pubblicare l'Articolo NHR/IFICI</div>
+        <div class="step-detail">1.500–2.000 parole sulla riforma NHR → IFICI (maggio 2026). Zero competitor aggiornati. Finestra first-mover SEO che si chiude. Pubblicare anche su un sito minimo.</div>
+        <div class="step-urgency" style="color:var(--orange);">⚡ Settimana 3–4 — time-sensitive</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-title">Segmentare il Database Brasiliani</div>
+        <div class="step-detail">Prima di qualsiasi invio: audit GDPR/LGPD, poi segmentazione 19K per recency/topic/engagement. Identificare 2–3K gruppo pilota. Proteggere il principale asset GTM dell'intero piano.</div>
+        <div class="step-urgency" style="color:#D97706;">⚠️ Settimane 1–3 — prima della campagna</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <div class="step-title">Costruire il Sito MVP WordPress</div>
+        <div class="step-detail">EN + PT, 10 pagine core, 3 articoli in coda. Non 107 pagine — un sito credibile a 10 pagine è meglio di un sito perfetto a ottobre. Budget: €5.000–6.500.</div>
+        <div class="step-urgency" style="color:#D97706;">⚠️ Luglio–Agosto 2026</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">05</div>
+        <div class="step-title">Documentare il Case Study Vinayak</div>
+        <div class="step-detail">India → Germania, 28 maggio 2026. Il primo lead EVA reale. Anonimizzare o ottenere consenso. 300–500 parole. Live sul sito dal giorno 1. La prova di concept migliore che già hai.</div>
+        <div class="step-urgency" style="color:#059669;">✓ Settimane 1–2 — costo zero</div>
+      </div>
+    </div>
+    <div class="callout callout-navy" style="margin-top:3rem;">
+      <div class="callout-title">Punti Aperti che Richiedono una Decisione del Cliente</div>
+      <ul style="list-style:none;padding:0;color:rgba(255,255,255,.8);font-size:.9rem;">
+        <li style="padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.1);">1. <strong>Naming + dominio</strong> — BoschettiEVA.com vs. EVAlegal.com vs. alternativa. Blocca tutto.</li>
+        <li style="padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.1);">2. <strong>Conferma pricing</strong> (T1–T5) — tutte le cifre in questo documento sono ipotesi. Confermare prima di qualsiasi uso esterno.</li>
+        <li style="padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.1);">3. <strong>Costi partner locale</strong> (Ioana, desk PT) — variabile più critica non confermata. Impatta direttamente i margini.</li>
+        <li style="padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.1);">4. <strong>Conferma palette</strong> — Arancione/Navy EVA autonoma vs. teal Boschetti. Raccomandazione: arancione (v. Sezione 09).</li>
+        <li style="padding:.5rem 0;">5. <strong>Capacità disponibile di Boschetti</strong> — max incarichi/mese da definire prima del lancio GTM per evitare rischio delivery.</li>
+      </ul>
+    </div>
+    <div class="callout callout-green" style="margin-top:1.5rem;">
+      <div class="callout-title" style="color:#065F46;">Verifica di Coerenza Strategica — Riepilogo</div>
+      <p style="font-size:.9rem;margin-bottom:.5rem;"><strong>✓ Coerente:</strong> Posizionamento "unico studio comparativo" supportato dai dati sui competitor (21 domini, nessuno cross-border con E-E-A-T). Vantaggi strutturali di Boschetti (19K contatti, track record, EEAT) sono reali e non replicabili. La volatilità normativa (GV ES + NHR PT + Malta) è prova empirica, non claim. Quick Win brasiliani è la prima leva logica. B2B come motore 12 mesi è correttamente sequenziato.</p>
+      <p style="font-size:.9rem;margin:0;"><strong>⚠️ Attenzione:</strong> Rischio espansione (Boschetti vuole 6–8 paesi subito; Sara raccomanda focus PT primo). Raccomandazione: costruire l'architettura sito multi-desk dal giorno 1 (low-cost), ma attivare il GTM paid solo su PT per i primi 6 mesi (proteggere la banda dello studio mono-risorsa).</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo"><span>BOSCHETTI</span>EVA</div>
+    <div class="footer-sub">Europe Visa Advisory</div>
+    <p style="font-size:.78rem;margin-top:1rem;color:rgba(255,255,255,.5);">Analisi di Mercato e Strategia v1.0 IT · Giugno 2026 · TTP Agency (Sara Quinto). Prodotto con il sistema agentico TTP: Strategist · Calculator · Voice · God Mode · Il Conclave · Orchestrator. Fonti: Eurostat, AIMA, BAMF, Henley &amp; Partners, Business Research Company, Enthous SEO Report. Tutto il pricing marcato [IPOTESI] richiede conferma del cliente prima di qualsiasi uso esterno. Documento riservato.</p>
+  </div>
+</footer>
+</body>
+</html>

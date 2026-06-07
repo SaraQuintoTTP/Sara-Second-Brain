@@ -381,12 +381,14 @@ Before /compact or session end, save to /system/session.md:
 
 | Role | Responsibility | Does NOT |
 |------|---------------|----------|
-| Orchestrator | WHO, WHEN, IN WHAT ORDER. Coordinates. | Does not decide strategy. Does not produce content. |
+| Orchestrator | WHO, WHEN, IN WHAT ORDER. Coordinates. Director of everything — including skills. | Does not decide strategy. Does not produce content. |
 | Strategist | WHAT and WHY. Strategic brain. | Does not execute tactically. Does not produce copy. |
 | God Mode | JUDGES, does not execute. 7-dimension scorecard. | Does not fix — flags. Does not produce alternatives. |
 | Sparring Partner | CHALLENGES. Pre-Mortem, Inversion, Steel Man. | Does not propose solutions — finds flaws. |
 | Artisan | BUILDS SKILL.md and Knowledge files. | Does not work on client projects. |
 | Sara | Final decision-maker. | AI augments, never replaces her judgment. |
+| Il Conclave | ADVISORY TOOL — returns output to Orchestrator only. | Does not save files autonomously. Does not decide where output goes. |
+| Any Claude Code Skill | TOOL — returns output to Orchestrator. | Does not save files without Orchestrator directing the path. |
 
 ---
 
@@ -407,6 +409,58 @@ When Sara provides a request:
 
 ---
 
+## 22. SKILLS & CONCLAVE — RETURN-TO-ORCHESTRATOR PROTOCOL
+
+**Rule (non-negotiable, applies to ALL Claude Code skills and Il Conclave):**
+
+The Orchestrator is the director of EVERYTHING — including every skill invoked during a session. No skill, tool, or advisor saves files autonomously. All output returns to the Orchestrator, who decides where to save it based on the active project context.
+
+### 22.1 Il Conclave — Specific Protocol
+
+Il Conclave is an advisory skill, not an autonomous agent. When invoked:
+
+1. **The Orchestrator invokes Il Conclave** with a well-framed question and the active project context.
+2. **Il Conclave runs its cycle** (4 advisors → peer review → debate → Machiavelli → Salomone) and returns the output to the Orchestrator.
+3. **The Orchestrator receives the output** and saves it to the active project's findings folder:
+   ```
+   /clients/[client]/projects/[project_name]/findings/conclave_[topic]_[date].md
+   /clients/[client]/projects/[project_name]/findings/conclave_[topic]_[date].html
+   ```
+4. **Il Conclave never saves autonomously.** If the skill attempts to save to a path not in the active project folder, the Orchestrator must move the files immediately and flag the violation.
+5. **Il Conclave integrates into the Orchestrator's task flow** like any other agent:
+   - Its task is registered in task_list.md
+   - Its output path is in the active project's findings/
+   - The FINAL_SUMMARY.md references the Conclave findings
+
+### 22.2 General Skill Protocol
+
+This rule extends to ALL Claude Code skills invoked during an active project:
+
+```
+Skill invoked → skill executes → output returned to Orchestrator
+                                          ↓
+                              Orchestrator saves to:
+                              /clients/[client]/projects/[name]/findings/
+                              OR
+                              /clients/[client]/projects/[name]/deliverables/
+```
+
+**Never:** `/system/`, `/skills/`, `/knowledge_base/`, or any path outside the active project folder.
+
+**Exception:** Generic findings not tied to any project (e.g., industry benchmarks discovered serendipitously) may go to `/system/findings/`. This is rare. When in doubt: save to the active project.
+
+### 22.3 Post-Skill Quality Gate Addition
+
+Add to the standard Quality Gate checklist (§13.1):
+
+```
+□ If a skill was invoked: output saved to active project folder (not system/)?
+□ If Il Conclave was run: findings in /clients/[client]/projects/[name]/findings/?
+□ system/conclave/ does NOT exist (this folder must never be created)?
+```
+
+---
+
 *Orchestrator TTP v5.0 — Operational Protocols*
 *Companion file to: SKILL.md*
-*Last updated: 25 March 2026*
+*Last updated: 2026-06-07 — Added §22 Skills & Conclave Return-to-Orchestrator Protocol*
