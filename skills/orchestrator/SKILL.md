@@ -1,7 +1,7 @@
 ---
 name: orchestrator
 description: Central orchestrator of the TTP agentic system. Receives Sara's requests, consults the Flow Catalog, spawns agents, manages quality and synthesis. ALWAYS activated as first point of contact.
-model: claude-opus-4-7
+model: claude-opus-5
 tools: [Task, Read, Write, Edit, Bash, WebSearch, WebFetch, GoogleDrive]
 knowledge_quickref: [eisenhower, raci, snowden-cynefin, deming-pdca]
 knowledge_deep: [snowden-cynefin]
@@ -139,28 +139,28 @@ Before overwriting a file in /deliverables/ or FINAL_SUMMARY.md:
 
 | # | Name | Role | LLM | Can Spawn |
 |---|------|------|-----|-----------|
-| 0 | Orchestrator | Chief of Staff / Swarm Controller | Opus 4 | All |
-| 1 | Strategist | Chief Strategy Officer | Opus 4 | Explorer, Calculator, Voice, Sparring Partner |
-| 2 | Explorer | Market Intelligence Officer | Sonnet 4 | None |
+| 0 | Orchestrator | Chief of Staff / Swarm Controller | Opus 5 | All |
+| 1 | Strategist | Chief Strategy Officer | Opus 5 | Explorer, Calculator, Voice, Sparring Partner |
+| 2 | Explorer | Market Intelligence Officer | Sonnet 5 | None |
 | 3 | Architect | Proposal & Charter Builder | Dual (Opus charter, Sonnet revisions) | Calculator, Legal |
-| 4 | Narrator | Presentation, Visual Storytelling & Visual Direction | Sonnet 4 (Opus high-impact) | None |
+| 4 | Narrator | Presentation, Visual Storytelling & Visual Direction | Sonnet 5 (Opus high-impact) | None |
 | 5 | Voice | Content Director & Copywriter | Dual (Opus messaging strategy, Sonnet operative copy) | Explorer, Editor |
-| 6 | Editor | Social Media Strategist | Sonnet 4 | None |
-| 7 | Director | Project Manager | Sonnet 4 | None |
-| 8 | Measurer | Performance Analyst | Sonnet 4 | None |
+| 6 | Editor | Social Media Strategist | Sonnet 5 | None |
+| 7 | Director | Project Manager | Sonnet 5 | None |
+| 8 | Measurer | Performance Analyst | Sonnet 5 | None |
 | 9 | Calculator | Business Planner & Financial Modeler | Dual (Opus modeling, Sonnet compilation) | Explorer, Accountant |
-| 10 | Optimizer | Process Designer & CRO Specialist | Sonnet 4 | Trainer, Web Tech |
-| 11 | Trainer | Instructional Designer | Sonnet 4 | None |
-| 12 | Web Tech | Digital Implementation | Sonnet 4 | None |
-| 13 | Accountant | Fiscal Advisor & Controller | Sonnet 4 | None |
-| 14 | Legal | Digital Law & Compliance | Sonnet 4 | None |
+| 10 | Optimizer | Process Designer & CRO Specialist | Sonnet 5 | Trainer, Web Tech |
+| 11 | Trainer | Instructional Designer | Sonnet 5 | None |
+| 12 | Web Tech | Digital Implementation | Sonnet 5 | None |
+| 13 | Accountant | Fiscal Advisor & Controller | Sonnet 5 | None |
+| 14 | Legal | Digital Law & Compliance | Sonnet 5 | None |
 | 15 | Admin | Administrative Assistant | Haiku 4.5 | None |
-| 16 | God Mode | Final Quality Auditor | Opus 4 | None |
-| 17 | Artisan | Prompt Engineer & Knowledge Builder | Sonnet 4 | None |
-| 18 | Economist | Token Cost Auditor & Optimizer | Sonnet 4 (Opus audit) | Artisan, Maintainer |
-| 19 | Maintainer | System Health & Maintenance | Sonnet 4 | None |
+| 16 | God Mode | Final Quality Auditor | Opus 5 | None |
+| 17 | Artisan | Prompt Engineer & Knowledge Builder | Sonnet 5 | None |
+| 18 | Economist | Token Cost Auditor & Optimizer | Sonnet 5 (Opus audit) | Artisan, Maintainer |
+| 19 | Maintainer | System Health & Maintenance | Sonnet 5 | None |
 | 20 | Mentor | Business Coach & Strategic Advisor | Dual (Opus coaching, Sonnet action plan) | Calculator, Accountant, Strategist |
-| 21 | Sparring Partner | Devil's Advocate & Critical Reviewer | Opus 4 | Explorer, Calculator |
+| 21 | Sparring Partner | Devil's Advocate & Critical Reviewer | Opus 5 | Explorer, Calculator |
 
 ### 5.1 LLM Summary
 - **4 fixed Opus** (never degrade): #0 Orchestrator, #1 Strategist, #16 God Mode, #21 Sparring Partner

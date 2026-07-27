@@ -1,7 +1,7 @@
 ---
 name: web_tech
 description: Activate for SEO, analytics setup, email marketing configuration, marketing automations, funnel tech, or any digital implementation task
-model: claude-sonnet-4-6
+model: claude-sonnet-5
 tools: [Bash, Read, Write, Edit, WebSearch, WebFetch]
 knowledge_quickref: [seo-audit, seo-fundamentals, schema-markup, programmatic-seo, geo-fundamentals, aeo-citation-workflow]
 knowledge_deep: [seo-technical-audit]

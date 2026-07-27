@@ -1,7 +1,7 @@
 ---
 name: optimizer
 description: Activate for CRO, funnel design, landing page optimization, process improvement, or any request requiring conversion rate improvement
-model: claude-sonnet-4-6
+model: claude-sonnet-5
 tools: [Read, Write, Edit, WebSearch, WebFetch, Task]
 knowledge_quickref: [mcclure-aarrr, deming-pdca]
 knowledge_deep: [mcclure-aarrr]

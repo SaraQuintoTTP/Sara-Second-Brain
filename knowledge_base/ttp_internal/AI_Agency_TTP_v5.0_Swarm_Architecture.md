@@ -555,9 +555,9 @@ Per ogni teammate: LLM (con giustificazione rivista), memoria, tool, framework, 
 
 | Categoria | Modello | Teammate | Giustificazione |
 |-----------|---------|----------|-----------------|
-| **Opus fisso** (4) | Opus 4 — mai degradare | Orchestratore, Stratega, God Mode, Sparring Partner | Errore di routing, errore strategico, errore di quality gate = danni a cascata |
+| **Opus fisso** (4) | Opus 5 — mai degradare | Orchestratore, Stratega, God Mode, Sparring Partner | Errore di routing, errore strategico, errore di quality gate = danni a cascata |
 | **Dual-mode** (4) | Opus per strategia, Sonnet per esecuzione | Voce, Architetto, Calcolatore, Mentore | Opus quando pensano, Sonnet quando compilano |
-| **Sonnet fisso** (13) | Sonnet 4 | Esploratore, Narratore, Editore, Regista, Misuratore, Ottimizzatore, Formatore, Tecnico Web, Commercialista, Legale, Economo, Manutentore, Artigiano | Task strutturati o con framework robusti che compensano |
+| **Sonnet fisso** (13) | Sonnet 5 | Esploratore, Narratore, Editore, Regista, Misuratore, Ottimizzatore, Formatore, Tecnico Web, Commercialista, Legale, Economo, Manutentore, Artigiano | Task strutturati o con framework robusti che compensano |
 | **Haiku** (1) | Haiku 4.5 | Admin | Task semplici e ripetitivi |
 
 ---
@@ -569,7 +569,7 @@ Per ogni teammate: LLM (con giustificazione rivista), memoria, tool, framework, 
 
 | Parametro | Valore | Giustificazione |
 |-----------|--------|-----------------|
-| **Modello** | Opus 4 | Ragionamento multi-step: decomporre task, valutare dipendenze, decidere routing, gestire conflitti, scrivere Task Tool Prompts ottimizzati. Un errore di routing costa piu' di qualsiasi risparmio. |
+| **Modello** | Opus 5 | Ragionamento multi-step: decomporre task, valutare dipendenze, decidere routing, gestire conflitti, scrivere Task Tool Prompts ottimizzati. Un errore di routing costa piu' di qualsiasi risparmio. |
 | **Degradazione** | Mai | |
 
 ### Ruolo e confini
@@ -634,8 +634,8 @@ L'Orchestratore e' un **coordinatore operativo**. Decide CHI fa cosa, QUANDO, e 
 
 | Parametro | Valore | Giustificazione |
 |-----------|--------|-----------------|
-| **Modello** | Opus 4 | Ragionamento strategico profondo: collegare dati di mercato, posizionamento, psicologia del buyer, creare strategie integrate. Un errore strategico si propaga a tutti i deliverable. |
-| **Degradazione** | Mai per decisioni strategiche. Sonnet 4 accettabile SOLO per compilazione di template gia' strutturati con dati forniti. |
+| **Modello** | Opus 5 | Ragionamento strategico profondo: collegare dati di mercato, posizionamento, psicologia del buyer, creare strategie integrate. Un errore strategico si propaga a tutti i deliverable. |
+| **Degradazione** | Mai per decisioni strategiche. Sonnet 5 accettabile SOLO per compilazione di template gia' strutturati con dati forniti. |
 
 ### Ruolo e confini
 
@@ -699,7 +699,7 @@ Lo Stratega e' il **cervello strategico** dell'agenzia. NON e' un esecutore — 
 
 | Parametro | Valore | Giustificazione |
 |-----------|--------|-----------------|
-| **Modello** | Sonnet 4 | Task prevalentemente di raccolta e strutturazione dati. Sonnet e' sufficiente e cost-effective. |
+| **Modello** | Sonnet 5 | Task prevalentemente di raccolta e strutturazione dati. Sonnet e' sufficiente e cost-effective. |
 | **Upgrade** | Non automatico. Se serve interpretazione strategica, il dato torna allo Stratega che ragiona con Opus. |
 
 ### Memoria
@@ -747,8 +747,8 @@ Lo Stratega e' il **cervello strategico** dell'agenzia. NON e' un esecutore — 
 
 | Parametro | Valore | Giustificazione |
 |-----------|--------|-----------------|
-| **Modello primario** | Opus 4 per charter e proposte complesse (devono persuadere, anticipare obiezioni, calibrare pricing) |
-| **Degradazione** | Sonnet 4 per revisioni minori a charter gia' approvati, mini-proposte <€2.000, preventivi standard |
+| **Modello primario** | Opus 5 per charter e proposte complesse (devono persuadere, anticipare obiezioni, calibrare pricing) |
+| **Degradazione** | Sonnet 5 per revisioni minori a charter gia' approvati, mini-proposte <€2.000, preventivi standard |
 
 ### Memoria
 
@@ -780,7 +780,7 @@ Lo Stratega e' il **cervello strategico** dell'agenzia. NON e' un esecutore — 
 ## TEAMMATE #4 — NARRATORE
 ### Presentation & Visual Storytelling AI
 
-### LLM: Sonnet 4 (upgrade Opus per presentazioni ad alto impatto — upgrade deciso dallo Stratega o Orchestratore)
+### LLM: Sonnet 5 (upgrade Opus per presentazioni ad alto impatto — upgrade deciso dallo Stratega o Orchestratore)
 
 | Aspetto | Dettaglio |
 |---------|-----------|
@@ -799,8 +799,8 @@ Lo Stratega e' il **cervello strategico** dell'agenzia. NON e' un esecutore — 
 
 | Parametro | Valore | Giustificazione |
 |-----------|--------|-----------------|
-| **Modello primario** | Opus 4 per messaging strategy e copy di vendita (psicologia del buyer, creativita' controllata) |
-| **Degradazione** | Sonnet 4 per copy operativo (post social, email routine, caption) dove il framework e' gia' definito |
+| **Modello primario** | Opus 5 per messaging strategy e copy di vendita (psicologia del buyer, creativita' controllata) |
+| **Degradazione** | Sonnet 5 per copy operativo (post social, email routine, caption) dove il framework e' gia' definito |
 
 ### Memoria
 
@@ -861,7 +861,7 @@ Per le schede complete (LLM, Memoria, Tool, Framework, Output) di ciascun teamma
 ## TEAMMATE #16 — GOD MODE
 ### Final Quality Auditor AI
 
-### LLM: Opus 4 (mai degradare — deve trovare errori che gli altri non hanno visto)
+### LLM: Opus 5 (mai degradare — deve trovare errori che gli altri non hanno visto)
 
 | Aspetto | Dettaglio |
 |---------|-----------|
@@ -878,7 +878,7 @@ Per le schede complete (LLM, Memoria, Tool, Framework, Output) di ciascun teamma
 ## TEAMMATE #17 — ARTIGIANO
 ### Prompt Engineer, Skill Developer & Knowledge Builder AI
 
-### LLM: Sonnet 4
+### LLM: Sonnet 5
 
 **Nota sulla scelta LLM:** Nella v4.0 era Opus ("scrivere prompt richiede meta-cognizione"). In pratica, il prompt engineering beneficia enormemente da iterazione e testing, non dal modello piu' costoso. Sonnet + eval loop (scrivi → testa → valuta → riscrivi) produce risultati equivalenti a Opus a costo molto inferiore.
 
@@ -937,7 +937,7 @@ I teammate #18 (Economo), #19 (Manutentore), #20 (Mentore), #21 (Sparring Partne
 **Note specifiche v5.0:**
 - **Economo (#18):** Aggiunge al suo audit l'analisi delle Knowledge files (Quick Reference troppo lunghe, Deep Knowledge non utilizzate). Puo' spawnare l'Artigiano per ottimizzazione.
 - **Manutentore (#19):** Gestisce anche la cartella `/skills/knowledge/` e `/operations/procedure/`. Verifica che i file Knowledge siano aggiornati (header con data ultimo aggiornamento).
-- **Sparring Partner (#21):** Opus 4 fisso, mai degradare. Trova falle logiche, bias nascosti, assunzioni non verificate.
+- **Sparring Partner (#21):** Opus 5 fisso, mai degradare. Trova falle logiche, bias nascosti, assunzioni non verificate.
 
 ---
 
@@ -952,7 +952,7 @@ Ogni teammate viene implementato come una SKILL.md in Claude Code. Questa sezion
 # METADATA (usata da Claude Code per il routing)
 name: [nome-teammate]
 description: [1 frase — quando attivare questo agente]
-model: [claude-opus-4-7/claude-sonnet-4-6/claude-haiku-4-5-20251001]
+model: [claude-opus-5/claude-sonnet-5/claude-haiku-4-5-20251001]
 tools: [lista tool consentiti]
 knowledge_quickref: [lista Quick Reference assegnate — es: "porter-5forces, pestel, battlecard"]
 knowledge_deep: [lista Deep Knowledge disponibili — es: "porter-5forces, swot"]
@@ -1226,9 +1226,9 @@ AUDIT PERIODICO (mensile, attivato da Sara o dall'Orchestratore):
 
 | Categoria | Modello | Teammate | Tot. |
 |-----------|---------|----------|------|
-| **Opus fisso** | Opus 4 — mai degradare | Orchestratore, Stratega, God Mode, Sparring Partner | 4 |
+| **Opus fisso** | Opus 5 — mai degradare | Orchestratore, Stratega, God Mode, Sparring Partner | 4 |
 | **Dual-mode** | Opus strategia / Sonnet esecuzione | Voce, Architetto, Calcolatore, Mentore | 4 |
-| **Sonnet fisso** | Sonnet 4 | Esploratore, Narratore, Editore, Regista, Misuratore, Ottimizzatore, Formatore, Tecnico Web, Commercialista, Legale, Economo, Manutentore, Artigiano | 13 |
+| **Sonnet fisso** | Sonnet 5 | Esploratore, Narratore, Editore, Regista, Misuratore, Ottimizzatore, Formatore, Tecnico Web, Commercialista, Legale, Economo, Manutentore, Artigiano | 13 |
 | **Haiku** | Haiku 4.5 | Admin | 1 |
 
 ## 4.2 ARCHITETTURA MEMORIA (v5.0)
@@ -1291,9 +1291,9 @@ AUDIT PERIODICO (mensile, attivato da Sara o dall'Orchestratore):
 
 | Voce | v4.0 | v4.1 | v5.0 (stima) |
 |------|------|------|-------------|
-| Opus 4 (fisso) | $150-300 (11 teammate) | $100-180 (4 teammate) | $100-180 (invariato) |
-| Opus 4 (dual-mode) | — | $30-80 | $30-80 (invariato) |
-| Sonnet 4 | $50-100 (10 teammate) | $55-110 (13 teammate) | $50-100 (ridotto: SKILL.md piu' snelle = meno token L1) |
+| Opus 5 (fisso) | $150-300 (11 teammate) | $100-180 (4 teammate) | $100-180 (invariato) |
+| Opus 5 (dual-mode) | — | $30-80 | $30-80 (invariato) |
+| Sonnet 5 | $50-100 (10 teammate) | $55-110 (13 teammate) | $50-100 (ridotto: SKILL.md piu' snelle = meno token L1) |
 | Haiku 4.5 | $5-15 | $5-15 | $5-15 (invariato) |
 | Overhead comunicazione | $20-40 | $0 | $0 (invariato) |
 | Tool esterni | $25-50 | $25-50 | $25-50 (invariato) |

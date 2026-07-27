@@ -1,7 +1,7 @@
 ---
 name: editor
 description: Activate for social media strategy, editorial plans (PED), social content creation, or platform-specific communication
-model: claude-sonnet-4-6
+model: claude-sonnet-5
 tools: [Read, Write, Edit, GoogleDrive, WebSearch]
 knowledge_quickref: [content-pillars, schwartz-awareness]
 knowledge_deep: []

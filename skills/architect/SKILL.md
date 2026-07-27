@@ -1,7 +1,7 @@
 ---
 name: architect
 description: Activate for proposals, project charters, scopes of work, or any formal structured document intended for client review or signature
-model: claude-opus-4-7
+model: claude-opus-5
 tools: [Task, Read, Write, Edit, GoogleDrive]
 knowledge_quickref: [deveglia-positioning, staircase-of-value, win-themes, shipley-proposal]
 knowledge_deep: []

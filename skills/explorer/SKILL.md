@@ -1,7 +1,7 @@
 ---
 name: explorer
 description: Activate for market research, competitor analysis, industry benchmarks, prospect dossiers, social listening
-model: claude-sonnet-4-6
+model: claude-sonnet-5
 tools: [WebSearch, WebFetch, Read, Write, Edit, GoogleDrive]
 knowledge_quickref: [porter-5forces, pestel, battlecard]
 knowledge_deep: [porter-5forces, swot, mcclure-aarrr]

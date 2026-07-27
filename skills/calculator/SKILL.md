@@ -1,7 +1,7 @@
 ---
 name: calculator
 description: Activate for financial modeling, budget allocation, unit economics, pricing models, business plan financials, or any request requiring numbers
-model: claude-opus-4-7
+model: claude-opus-5
 tools: [Read, Write, Edit, Bash, Task, GoogleDrive]
 knowledge_quickref: [michalowicz-profit-first, staircase-of-value]
 knowledge_deep: [michalowicz-profit-first]

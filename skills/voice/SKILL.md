@@ -1,7 +1,7 @@
 ---
 name: voice
 description: Activate for messaging strategy, copywriting, tone of voice definition, email sequences, or any content that must persuade or convert
-model: claude-opus-4-7
+model: claude-opus-5
 tools: [Task, Read, Write, Edit, WebSearch, GoogleDrive]
 knowledge_quickref: [aida, pas, miller-storybrand, schwartz-awareness]
 knowledge_deep: [miller-storybrand, schwartz-awareness]

@@ -117,28 +117,28 @@ Every project generates a structured folder for full traceability:
 
 | # | Name | Role | LLM | Key Tools | Skills Compendium |
 |---|------|------|-----|-----------|-------------------|
-| 0 | **Orchestrator** | Chief of Staff / Swarm Controller | **Opus 4 fixed** | Task, Read/Write/Edit, Glob/Grep, GDrive, GCal, Gmail, WebSearch, TodoWrite | — |
-| 1 | **Strategist** | Chief Strategy Officer | **Opus 4 fixed** | Task, Read/Write/Edit, WebSearch, GDrive | pricing-strategy, marketing-psychology, marketing-ideas, launch-strategy, competitor-alternatives, gtm-growth-pmi |
-| 2 | Explorer | Market Intelligence Officer | Sonnet 4 | WebSearch, WebFetch, Read/Write/Edit, GDrive | competitor-alternatives, marketing-psychology |
-| 3 | Architect | Proposal & Charter Builder | **Dual** (Opus charter/proposals, Sonnet revisions) | Task, Read/Write/Edit, GDrive, docx, pdf | copywriting, pricing-strategy |
-| 4 | Narrator | Presentation, Visual Storytelling & Visual Direction | Sonnet 4 | pptx, Read/Write/Edit, GDrive | — |
-| 5 | Voice | Content Director & Copywriter | **Dual** (Opus messaging strategy, Sonnet operative copy) | Task, Read/Write/Edit, WebSearch, GDrive | copywriting, copy-editing, email-sequence, marketing-psychology |
-| 6 | Editor | Social Media Strategist | Sonnet 4 | Read/Write/Edit, GDrive, WebSearch | social-content, content-creator, geo-fundamentals |
-| 7 | Director | Project Manager | Sonnet 4 | Read/Write/Edit, GCal, GDrive | product-manager-toolkit |
-| 8 | Measurer | Performance Analyst | Sonnet 4 | Read/Write/Edit, xlsx, WebSearch, Bash | analytics-tracking, ab-test-setup |
-| 9 | Calculator | Business Planner & Financial Modeler | **Dual** (Opus modeling, Sonnet compilation) | xlsx, business-plan-excel, Task, Bash, Read/Write/Edit | pricing-strategy |
-| 10 | Optimizer | Process Designer & CRO Specialist | Sonnet 4 | Read/Write/Edit, WebSearch, WebFetch, Task | page-cro, signup-flow-cro, form-cro, popup-cro, onboarding-cro, referral-program, kaizen |
-| 11 | Trainer | Instructional Designer | Sonnet 4 | pptx, docx, Read/Write/Edit, Task | — |
-| 12 | Web Tech | Digital Implementation | Sonnet 4 | Bash, Read/Write/Edit, WebSearch, WebFetch | seo-audit, seo-fundamentals, schema-markup, programmatic-seo, analytics-tracking, email-systems, geo-fundamentals, zapier-make-patterns |
-| 13 | Accountant | Fiscal Advisor & Controller | Sonnet 4 | xlsx, Bash, Read/Write/Edit, GCal | — |
-| 14 | Legal | Digital Law & Compliance | Sonnet 4 | Read/Write/Edit, WebSearch, docx, Task | — |
+| 0 | **Orchestrator** | Chief of Staff / Swarm Controller | **Opus 5 fixed** | Task, Read/Write/Edit, Glob/Grep, GDrive, GCal, Gmail, WebSearch, TodoWrite | — |
+| 1 | **Strategist** | Chief Strategy Officer | **Opus 5 fixed** | Task, Read/Write/Edit, WebSearch, GDrive | pricing-strategy, marketing-psychology, marketing-ideas, launch-strategy, competitor-alternatives, gtm-growth-pmi |
+| 2 | Explorer | Market Intelligence Officer | Sonnet 5 | WebSearch, WebFetch, Read/Write/Edit, GDrive | competitor-alternatives, marketing-psychology |
+| 3 | Architect | Proposal & Charter Builder | **Dual** (Opus 5 charter/proposals, Sonnet 5 revisions) | Task, Read/Write/Edit, GDrive, docx, pdf | copywriting, pricing-strategy |
+| 4 | Narrator | Presentation, Visual Storytelling & Visual Direction | Sonnet 5 | pptx, Read/Write/Edit, GDrive | — |
+| 5 | Voice | Content Director & Copywriter | **Dual** (Opus 5 messaging strategy, Sonnet 5 operative copy) | Task, Read/Write/Edit, WebSearch, GDrive | copywriting, copy-editing, email-sequence, marketing-psychology |
+| 6 | Editor | Social Media Strategist | Sonnet 5 | Read/Write/Edit, GDrive, WebSearch | social-content, content-creator, geo-fundamentals |
+| 7 | Director | Project Manager | Sonnet 5 | Read/Write/Edit, GCal, GDrive | product-manager-toolkit |
+| 8 | Measurer | Performance Analyst | Sonnet 5 | Read/Write/Edit, xlsx, WebSearch, Bash | analytics-tracking, ab-test-setup |
+| 9 | Calculator | Business Planner & Financial Modeler | **Dual** (Opus 5 modeling, Sonnet 5 compilation) | xlsx, business-plan-excel, Task, Bash, Read/Write/Edit | pricing-strategy |
+| 10 | Optimizer | Process Designer & CRO Specialist | Sonnet 5 | Read/Write/Edit, WebSearch, WebFetch, Task | page-cro, signup-flow-cro, form-cro, popup-cro, onboarding-cro, referral-program, kaizen |
+| 11 | Trainer | Instructional Designer | Sonnet 5 | pptx, docx, Read/Write/Edit, Task | — |
+| 12 | Web Tech | Digital Implementation | Sonnet 5 | Bash, Read/Write/Edit, WebSearch, WebFetch | seo-audit, seo-fundamentals, schema-markup, programmatic-seo, analytics-tracking, email-systems, geo-fundamentals, zapier-make-patterns |
+| 13 | Accountant | Fiscal Advisor & Controller | Sonnet 5 | xlsx, Bash, Read/Write/Edit, GCal | — |
+| 14 | Legal | Digital Law & Compliance | Sonnet 5 | Read/Write/Edit, WebSearch, docx, Task | — |
 | 15 | Admin | Administrative Assistant | **Haiku 4.5** | Read/Write/Edit, GDrive, GCal, Gmail | — |
-| 16 | **God Mode** | Final Quality Auditor | **Opus 4 fixed** | Read, Write | — |
-| 17 | Artisan | Prompt Engineer, Skill Developer & Knowledge Builder | Sonnet 4 | Read/Write/Edit, Task, Bash, WebSearch | prompt-engineer, prompt-engineering, skill-creator, context-window-management |
-| 18 | Economist | Token Optimizer | Sonnet 4 | Read, Write, Bash, Task | context-window-management, prompt-caching |
-| 19 | Maintainer | Infrastructure & KB Maintainer | Sonnet 4 | Read/Write/Edit, Glob/Grep, Bash, GDrive | file-organizer |
-| 20 | Mentor | Business Coach & Growth Advisor | **Dual** (Opus coaching, Sonnet action plan) | Read/Write/Edit, Task | — |
-| 21 | **Sparring Partner** | Strategic Challenger | **Opus 4 fixed** | Read, Task, WebSearch | il-conclave (alto rischio) |
+| 16 | **God Mode** | Final Quality Auditor | **Opus 5 fixed** | Read, Write | — |
+| 17 | Artisan | Prompt Engineer, Skill Developer & Knowledge Builder | Sonnet 5 | Read/Write/Edit, Task, Bash, WebSearch | prompt-engineer, prompt-engineering, skill-creator, context-window-management |
+| 18 | Economist | Token Optimizer | Sonnet 5 | Read, Write, Bash, Task | context-window-management, prompt-caching |
+| 19 | Maintainer | Infrastructure & KB Maintainer | Sonnet 5 | Read/Write/Edit, Glob/Grep, Bash, GDrive | file-organizer |
+| 20 | Mentor | Business Coach & Growth Advisor | **Dual** (Opus 5 coaching, Sonnet 5 action plan) | Read/Write/Edit, Task | — |
+| 21 | **Sparring Partner** | Strategic Challenger | **Opus 5 fixed** | Read, Task, WebSearch | il-conclave (alto rischio) |
 
 **LLM Summary:** 4 fixed Opus (0,1,16,21) + 4 Dual-mode (3,5,9,20) + 13 Sonnet + 1 Haiku
 
@@ -383,7 +383,7 @@ The Flow Catalog is the Orchestrator's operational map. For each request type, i
 **Trigger:** "coaching", "session", "goals", "personal growth", "unblock"
 **Agents:** Mentor (guide) + Sparring Partner (challenge). Calculator if projections needed.
 **Output:** /clients/[client]/projects/coaching_[date]/
-**Notes:** Mentor operates in Opus for coaching, Sonnet for action plan.
+**Notes:** Mentor operates in Opus 5 for coaching, Sonnet 5 for action plan.
 
 ### FLOW 6 — Audit / Quality Review
 **Trigger:** "audit", "quality review", "check deliverable"
@@ -452,7 +452,7 @@ Every teammate = 1 SKILL.md. Mandatory structure (8 sections):
 ---
 name: [teammate-name]
 description: [1 sentence — when to activate]
-model: [claude-opus-4-7/claude-sonnet-4-6/claude-haiku-4-5-20251001]
+model: [claude-opus-5/claude-sonnet-5/claude-haiku-4-5-20251001]
 tools: [tool list]
 knowledge_quickref: [assigned Quick References — e.g., porter-5forces, pestel, battlecard]
 knowledge_deep: [available Deep Knowledge — e.g., porter-5forces, swot]
@@ -485,7 +485,7 @@ effort: [low | medium | high]
 ---
 name: explorer
 description: Activate for market research, competitor analysis, industry benchmarks, prospect dossiers
-model: claude-sonnet-4-6
+model: claude-sonnet-5
 tools: [WebSearch, WebFetch, Read, Write, Edit, GoogleDrive]
 knowledge_quickref: [porter-5forces, pestel, battlecard]
 knowledge_deep: [porter-5forces, swot, aarrr]

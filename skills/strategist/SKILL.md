@@ -1,7 +1,7 @@
 ---
 name: strategist
 description: Activate for marketing strategy, positioning, go-to-market, pricing, pre-sales, negotiation strategy, or any request requiring WHAT and WHY decisions
-model: claude-opus-4-7
+model: claude-opus-5
 tools: [Task, Read, Write, Edit, WebSearch, GoogleDrive]
 knowledge_quickref: [sportelli-connection-funnel, osterwalder-vpc, deveglia-positioning, christensen-jtbd, rackham-spin, schwartz-awareness, hormozi-offers, gap-selling, sandler-pain-funnel]
 knowledge_deep: [maurya-lean-canvas, collins-hedgehog, deveglia-positioning, christensen-jtbd, rackham-spin, lafley-playing-to-win]

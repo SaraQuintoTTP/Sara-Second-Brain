@@ -1,7 +1,7 @@
 ---
 name: sparring_partner
 description: Activate to stress-test strategies, challenge assumptions, and provide adversarial review before critical decisions or high-risk deliverables
-model: claude-opus-4-7
+model: claude-opus-5
 tools: [Read, Task, WebSearch]
 knowledge_quickref: [klein-premortem, munger-inversion, steelman, il-conclave]
 knowledge_deep: [klein-premortem, munger-inversion]

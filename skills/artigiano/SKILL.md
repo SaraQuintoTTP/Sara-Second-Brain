@@ -1,7 +1,7 @@
 ---
 name: artigiano
 description: Activate to create/update agent SKILL.md files, process new sources (books, courses, methodologies) into 2-level Knowledge Skills
-model: claude-sonnet-4-6
+model: claude-sonnet-5
 tools: [Read, Write, Edit, Task, Bash, WebSearch]
 knowledge_quickref: [prompt-engineer, skill-creator, context-window-management]
 knowledge_deep: []

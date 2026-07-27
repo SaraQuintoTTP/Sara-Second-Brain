@@ -1,8 +1,8 @@
 # DIARIO DI BORDO — Costruzione TTP AI Agency v5.0
 
 ## Stato attuale
-- **Fase:** Sessione manutenzione — Integrazione Il Conclave + audit sistema completato
-- **Ultimo aggiornamento:** 2026-06-03
+- **Fase:** Sessione manutenzione — Sync model ID → Claude 5 (Opus 5/Sonnet 5) completato
+- **Ultimo aggiornamento:** 2026-07-27
 - **Completato:** Sprint 0 ✓ + Sprint 1 ✓ + T019 ✓ + T016 Knowledge Skills: 11/~15 file attivi + integrazione Il Conclave (D015) ✓
 - **Prossimo step:** Riprendere T016 (miller-storybrand → collins-hedgehog → pestel → porter-5forces-deep) → T021 (9 SKILL.md Sprint 2) → T022 (wonda-cli auth produzione)
 - **Blocchi:** Nessuno
@@ -77,6 +77,8 @@
 | 2026-05-10 | wonda-cli integrata nel sistema agentico | Installata Wondercat wonda-cli (media production CLI). Verifica sicurezza approfondita: legittima, Snyk High Risk = false positive per automazione social. Creata categoria "Media Production" in Section 18.2 Operative Doc. Assegnata a Editor (primary) + Explorer (secondary research). T021 e T022 aggiunti al task_list (9 SKILL.md Sprint 2 + wonda-cli auth produzione). |
 | 2026-05-18 | pas-quickref.md + maurya-lean-canvas-quickref.md (v2) + osterwalder-vpc-quickref.md | PAS: Problem–Agitate–Solution con adattamento FPT PMI. Lean Canvas v2: scope ristretto a startup/nuove iniziative (confine netto con VPC). VPC: nuovo — diagnostica PMI esistenti, triage 4 scenari (A=mismatch offerta, B=comunicazione rotta, C=non ti trovano, D=competitor), sequenza 90 min. Audit coerenza sistema + 6 gap fix: Strategist SKILL.md, Operative Doc Sections 11.2 (quickref_protocol v1.1) e 11.4 (matrix allineata). |
 | 2026-05-19 | deveglia-positioning-quickref.md (Brand Positioning Formula) | Studio completo libro *Zero Concorrenti* (De Veglia, 2017) — 8 capitoli + 13 casi studio italiani + intervista Trout. Analisi comparativa vs April Dunford, Ries & Trout: De Veglia scelto (unico framework italiano nativo, endorsement Trout, applicabile micro-PMI senza marketing team). Dichiarata sequenza TTP obbligatoria: VPC → JTBD → De Veglia. Limite critico documentato: nessuna segmentazione cliente esplicita. dependency_graph.html aggiornato: nuova sezione Knowledge Skills con sequenza e status T016 (9 attivi/5 pending). |
+| 2026-07-27 | Verifica versioni Claude Code CLI + VS Code | Entrambi già alla versione più recente (Claude Code CLI 2.1.220, VS Code 1.130.0 via winget) — nessun aggiornamento necessario. |
+| 2026-07-27 | Aggiornamento model ID → Claude 5 (Opus 5 / Sonnet 5, Haiku 4.5 invariato) | claude-opus-4-7 → claude-opus-5, claude-sonnet-4-6 → claude-sonnet-5. Aggiornati: le 14 SKILL.md esistenti (orchestrator, strategist, god_mode, sparring_partner, architect, voice, calculator, explorer, editor, measurer, narrator, optimizer, web_tech, artigiano), TTP_Operative_v5.0.md (roster §3, note Flow 5, blueprint/esempio §17), AI_Agency_TTP_v5.0_Swarm_Architecture.md (tutte le occorrenze §Allocazione LLM, cost table, note per-agente), dependency_graph.html (legenda + tooltip). `.claude/CLAUDE.md` non richiede modifiche (usa termini generici senza numero versione). 8 agenti senza SKILL.md ancora (Director, Trainer, Accountant, Legal, Admin, Economist, Maintainer, Mentor) da allineare quando verranno creati. |
 
 ---
 

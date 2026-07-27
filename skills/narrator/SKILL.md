@@ -1,7 +1,7 @@
 ---
 name: narrator
 description: Activate for presentation design, pitch decks, visual storytelling, and any request requiring structured visual communication
-model: claude-sonnet-4-6
+model: claude-sonnet-5
 tools: [Read, Write, Edit, GoogleDrive]
 knowledge_quickref: []
 knowledge_deep: []

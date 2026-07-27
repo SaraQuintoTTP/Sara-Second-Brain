@@ -1,7 +1,7 @@
 ---
 name: measurer
 description: Activate for performance analysis, paid media management, tracking setup, analytics reporting, or any data-driven campaign evaluation
-model: claude-sonnet-4-6
+model: claude-sonnet-5
 tools: [Read, Write, Edit, WebSearch, Bash]
 knowledge_quickref: []
 knowledge_deep: [ppc-strategy, tracking-server-side, paid-social-strategy, paid-creative-strategy, paid-media-audit, search-query-analysis]
