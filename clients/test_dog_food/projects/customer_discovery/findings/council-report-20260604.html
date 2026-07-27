@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Il Conclave — BRUTO Customer Discovery</title>
+<style>
+  :root {
+    --nero: #0f0f0f;
+    --bianco: #fafafa;
+    --grigio-chiaro: #f4f4f4;
+    --grigio-medio: #e8e8e8;
+    --grigio-testo: #555;
+    --verde: #2d7d46;
+    --verde-chiaro: #e8f5ec;
+    --giallo: #b8860b;
+    --giallo-chiaro: #fdf6e3;
+    --rosso: #c0392b;
+    --rosso-chiaro: #fdecea;
+    --blu: #1a4a7a;
+    --blu-chiaro: #e8f0fb;
+    --arancio: #d35400;
+    --arancio-chiaro: #fdf0e8;
+    --viola: #6c3483;
+    --viola-chiaro: #f3eafb;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: var(--grigio-chiaro); color: var(--nero); line-height: 1.6; }
+
+  /* HERO */
+  .hero { background: var(--nero); color: var(--bianco); padding: 48px 40px 40px; }
+  .hero-tag { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #888; margin-bottom: 16px; }
+  .hero-title { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+  .hero-subtitle { font-size: 15px; color: #aaa; margin-bottom: 32px; }
+  .verdict-box { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 24px 28px; margin-bottom: 28px; }
+  .verdict-score { font-size: 13px; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .verdict-number { font-size: 42px; font-weight: 800; color: #f0c040; line-height: 1; }
+  .verdict-label { font-size: 13px; color: #aaa; margin-top: 4px; }
+  .verdict-headline { font-size: 17px; font-weight: 600; color: var(--bianco); margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.1); }
+
+  .actions { margin-bottom: 0; }
+  .actions-title { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #888; margin-bottom: 12px; }
+  .action-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+  .action-num { background: #f0c040; color: var(--nero); font-size: 12px; font-weight: 700; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+  .action-text { font-size: 14px; color: #ddd; }
+  .action-item.highlight .action-num { background: #ff6b35; }
+  .action-item.highlight .action-text { color: var(--bianco); font-weight: 600; }
+  .badge { display: inline-block; background: #ff6b35; color: white; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; text-transform: uppercase; letter-spacing: 1px; margin-left: 8px; }
+
+  /* LAYOUT */
+  .container { max-width: 860px; margin: 0 auto; padding: 32px 24px; }
+  .section { background: var(--bianco); border-radius: 10px; border: 1px solid var(--grigio-medio); margin-bottom: 16px; overflow: hidden; }
+  .section-header { padding: 16px 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+  .section-header:hover { background: var(--grigio-chiaro); }
+  .section-title { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+  .section-body { padding: 0 20px 20px; border-top: 1px solid var(--grigio-medio); }
+  .section-body.open { display: block; }
+  .section-body.closed { display: none; }
+  .chevron { font-size: 12px; color: #999; transition: transform 0.2s; }
+  .chevron.open { transform: rotate(180deg); }
+
+  /* DASHBOARD CONFIDENZA */
+  .confidence-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 20px 0 4px; }
+  .confidence-card { border-radius: 8px; padding: 16px; }
+  .confidence-card.verde { background: var(--verde-chiaro); border: 1px solid #a8d5b5; }
+  .confidence-card.giallo { background: var(--giallo-chiaro); border: 1px solid #e8c96a; }
+  .confidence-card.rosso { background: var(--rosso-chiaro); border: 1px solid #f0a9a3; }
+  .confidence-card.blu { background: var(--blu-chiaro); border: 1px solid #9abce8; }
+  .confidence-card.viola { background: var(--viola-chiaro); border: 1px solid #c9a8e8; }
+  .confidence-card.nero { background: #f0f0f0; border: 1px solid #ccc; }
+  .advisor-name { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .advisor-framework { font-size: 11px; color: var(--grigio-testo); margin-bottom: 8px; }
+  .score-row { display: flex; align-items: center; gap: 10px; }
+  .score-before { font-size: 18px; color: #999; font-weight: 600; }
+  .score-arrow { font-size: 16px; }
+  .score-after { font-size: 24px; font-weight: 800; }
+  .score-after.verde { color: var(--verde); }
+  .score-after.giallo { color: var(--giallo); }
+  .score-after.rosso { color: var(--rosso); }
+  .score-note { font-size: 11px; color: var(--grigio-testo); margin-top: 4px; }
+  .machiavelli-badge { display: inline-block; padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 700; margin-top: 6px; }
+  .machiavelli-badge.fail { background: #fdecea; color: var(--rosso); }
+  .machiavelli-badge.pass { background: var(--verde-chiaro); color: var(--verde); }
+  .overall-box { background: var(--nero); color: var(--bianco); border-radius: 8px; padding: 16px; text-align: center; margin-top: 12px; }
+  .overall-label { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #888; margin-bottom: 4px; }
+  .overall-score { font-size: 36px; font-weight: 800; color: #f0c040; }
+  .overall-note { font-size: 12px; color: #aaa; margin-top: 4px; }
+
+  /* SEZIONI CONTENUTO */
+  .consensus-item, .blind-spot-item, .disagreement-item { padding: 14px 0; border-bottom: 1px solid var(--grigio-chiaro); }
+  .consensus-item:last-child, .blind-spot-item:last-child, .disagreement-item:last-child { border-bottom: none; }
+  .item-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .item-body { font-size: 13px; color: var(--grigio-testo); }
+  .tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; margin-right: 6px; }
+  .tag.verde { background: var(--verde-chiaro); color: var(--verde); }
+  .tag.rosso { background: var(--rosso-chiaro); color: var(--rosso); }
+  .tag.giallo { background: var(--giallo-chiaro); color: var(--giallo); }
+  .tag.blu { background: var(--blu-chiaro); color: var(--blu); }
+
+  /* RACCOMANDAZIONE */
+  .rec-box { border-left: 4px solid var(--nero); padding: 16px 20px; background: var(--grigio-chiaro); border-radius: 0 8px 8px 0; margin: 16px 0; }
+  .rec-headline { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
+  .change-item { display: flex; gap: 12px; margin-bottom: 14px; align-items: flex-start; }
+  .change-num { background: var(--nero); color: var(--bianco); font-size: 12px; font-weight: 700; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+  .change-content { flex: 1; }
+  .change-title { font-size: 13px; font-weight: 700; margin-bottom: 3px; }
+  .change-body { font-size: 13px; color: var(--grigio-testo); }
+  .budget-row { display: flex; gap: 16px; margin-top: 16px; }
+  .budget-box { flex: 1; border-radius: 8px; padding: 14px; }
+  .budget-box.originale { background: var(--grigio-chiaro); border: 1px solid var(--grigio-medio); }
+  .budget-box.rivisto { background: var(--verde-chiaro); border: 1px solid #a8d5b5; }
+  .budget-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--grigio-testo); margin-bottom: 4px; }
+  .budget-amount { font-size: 20px; font-weight: 800; }
+  .budget-detail { font-size: 11px; color: var(--grigio-testo); margin-top: 3px; }
+
+  /* PRIMA COSA */
+  .prima-cosa { background: var(--nero); color: var(--bianco); border-radius: 8px; padding: 24px; margin: 16px 0; }
+  .prima-cosa-label { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #f0c040; margin-bottom: 10px; }
+  .prima-cosa-text { font-size: 16px; font-weight: 600; line-height: 1.5; margin-bottom: 12px; }
+  .prima-cosa-reason { font-size: 13px; color: #aaa; }
+
+  /* ADVISOR DETAILS */
+  .advisor-section { margin: 12px 0; padding: 14px; border-radius: 8px; background: var(--grigio-chiaro); }
+  .advisor-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .advisor-content { font-size: 13px; color: #333; line-height: 1.65; }
+  .advisor-content strong { font-weight: 700; }
+
+  /* QUESTION BOX */
+  .question-box { background: var(--grigio-chiaro); border-left: 3px solid #ccc; padding: 14px 16px; border-radius: 0 6px 6px 0; font-size: 13px; color: var(--grigio-testo); margin: 14px 0; }
+
+  /* FOOTER */
+  footer { text-align: center; padding: 24px; font-size: 12px; color: #999; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Il Conclave · TTP Agency · BRUTO</div>
+  <div class="hero-title">Customer Discovery Strategy — Verdetto</div>
+  <div class="hero-subtitle">Sessione 2026-06-04 · 4 consiglieri · 5 round di analisi</div>
+
+  <div class="verdict-box">
+    <div class="verdict-score">Confidenza complessiva</div>
+    <div class="verdict-number">7<span style="font-size:24px;color:#888;">/10</span></div>
+    <div class="verdict-label">Advisor con confidenza più alta: Falcone (8/10 post-debate)</div>
+    <div class="verdict-headline">La strategia è architetturalmente corretta ma non sufficiente così com'è. Necessita 3 modifiche obbligatorie prima dell'approvazione.</div>
+  </div>
+
+  <div class="actions">
+    <div class="actions-title">Azioni richieste</div>
+    <div class="action-item highlight">
+      <div class="action-num">→</div>
+      <div class="action-text">Entro 48h: recluta 6 acquirenti di Farmina/Almo Nature/Acana via community Facebook/Instagram. Offri €15 voucher Amazon per 30 min di intervista video.<span class="badge">Prima cosa</span></div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">1</div>
+      <div class="action-text">Rendere Phase 4 (waitlist) obbligatoria — non opzionale. Target: 200+ iscrizioni organiche.</div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">2</div>
+      <div class="action-text">Aggiungere dark-post Facebook in Phase 2 con copy differenziato (versione A generica + versione B specifica BRUTO). Budget: €300-600. Kill se CTR &lt;2% su entrambe.</div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">3</div>
+      <div class="action-text">Aggiungere Kill Condition per falso positivo: se approvazione nome &gt;70% in sondaggio MA email capture dark-post &lt;10% → stop, investigare il gap.</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- LA DOMANDA -->
+  <div class="section">
+    <div class="section-header" onclick="toggle(this)">
+      <div class="section-title">La Domanda</div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="section-body open">
+      <div class="question-box">
+        <strong>BRUTO</strong> è un brand DTC di pet food italiano con posizionamento anti-saccharine. Prima di impegnare €150K+ nel lancio, il team ha progettato una strategia di customer discovery in 4 fasi (budget €1.550-2.950, 4 settimane, Phase 4 waitlist opzionale) per validare 4 assunzioni critiche: (1) il nome "Bruto" non genera rigetto &gt;35%; (2) il segmento anti-saccharine è abbastanza grande; (3) "Nutri l'Istinto" è il tagline più forte; (4) il visual nero è distintivo. <strong>Questa strategia è l'approccio più efficace e cost-efficient? Quali rischi fatali non sono stati visti?</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- DASHBOARD CONFIDENZA -->
+  <div class="section">
+    <div class="section-header" onclick="toggle(this)">
+      <div class="section-title">Dashboard Confidenza</div>
+      <div class="chevron open">▼</div>
+    </div>
+    <div class="section-body open">
+      <div class="confidence-grid">
+        <div class="confidence-card giallo">
+          <div class="advisor-name" style="color:var(--giallo)">Savonarola</div>
+          <div class="advisor-framework">Pre-Mortem Analysis</div>
+          <div class="score-row">
+            <div class="score-before">8</div>
+            <div class="score-arrow">→</div>
+            <div class="score-after giallo">7</div>
+            <div style="font-size:16px;">↓</div>
+          </div>
+          <div class="score-note">Ceduto: 50 click = rumore. Aggiornato: 200+ click + test cold KC3.</div>
+        </div>
+        <div class="confidence-card rosso">
+          <div class="advisor-name" style="color:var(--rosso)">Marco Polo</div>
+          <div class="advisor-framework">Opportunity Cost Matrix</div>
+          <div class="score-row">
+            <div class="score-before">7</div>
+            <div class="score-arrow">→</div>
+            <div class="score-after rosso">6</div>
+            <div style="font-size:16px;">↓</div>
+          </div>
+          <div class="score-note">Errore strutturale: smoke-test impossibile senza prodotto. Allineato su dark-post.</div>
+        </div>
+        <div class="confidence-card verde">
+          <div class="advisor-name" style="color:var(--verde)">Falcone</div>
+          <div class="advisor-framework">ACH (Competing Hypotheses)</div>
+          <div class="score-row">
+            <div class="score-before">7</div>
+            <div class="score-arrow">→</div>
+            <div class="score-after verde">8</div>
+            <div style="font-size:16px;">↑</div>
+          </div>
+          <div class="score-note">Migliorato sotto pressione. Kill conditions calibrate su benchmark reali.</div>
+        </div>
+        <div class="confidence-card viola">
+          <div class="advisor-name" style="color:var(--viola)">Machiavelli</div>
+          <div class="advisor-framework">Steelman-then-Attack</div>
+          <div class="score-row" style="margin-bottom:6px;">
+            <div class="machiavelli-badge fail">Attacco più forte</div>
+          </div>
+          <div class="score-note">Difetto reale trovato: dark-post misura la categoria, non la differenziazione BRUTO. Strumento ignorato: interviste acquirenti competitor.</div>
+        </div>
+      </div>
+      <div class="overall-box">
+        <div class="overall-label">Confidenza Complessiva del Conclave</div>
+        <div class="overall-score">7<span style="font-size:20px;color:#888;">/10</span></div>
+        <div class="overall-note">Limite: la domanda "dark-post misura BRUTO o il segmento?" rimane empiricamente aperta.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONSENSO -->
+  <div class="section">
+    <div class="section-header" onclick="toggle(this)">
+      <div class="section-title">Consenso Pesato per Confidenza</div>
+      <div class="chevron open">▼</div>
+    </div>
+    <div class="section-body open">
+      <div class="consensus-item">
+        <div class="item-title"><span class="tag verde">Unanime</span>Sondaggio organico ≠ validazione commerciale</div>
+        <div class="item-body">Audience calde e community misurano preferenze di persone già predisposte verso il posizionamento. Non misurano il mercato freddo che BRUTO incontrerà al lancio. Il bias organico non è una "sovra-rappresentazione del target" — è una sovra-rappresentazione dell'estremo del target.</div>
+      </div>
+      <div class="consensus-item">
+        <div class="item-title"><span class="tag verde">3/3 post-debate</span>Dark-post behavioral è necessario, non opzionale</div>
+        <div class="item-body">Soglie operative: CTR &gt;2%, email capture &gt;15% su cold audience italiana. Non interpretabili. Questi criteri hanno fondamento in benchmark e-commerce europeo. Kill condition oggettiva.</div>
+      </div>
+      <div class="consensus-item">
+        <div class="item-title"><span class="tag verde">Unanime post-peer review</span>Kill Condition 3 è asimmetrica</div>
+        <div class="item-body">Il design originale ha kill conditions per rigetto esplicito, non per approvazione vuota. "90% approva il nome ma nessuno converte" è uno scenario invisibile agli strumenti attuali.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PUNTI CIECHI -->
+  <div class="section">
+    <div class="section-header" onclick="toggle(this)">
+      <div class="section-title">Punti Ciechi Scoperti</div>
+      <div class="chevron open">▼</div>
+    </div>
+    <div class="section-body open">
+      <div class="blind-spot-item">
+        <div class="item-title"><span class="tag rosso">Critico</span>Asimmetria falsi positivi (peer review)</div>
+        <div class="item-body">Fix operativo: aggiungere Kill Condition esplicita — se CTR dark-post &lt;2% E nome approvato &gt;70%, la correlazione è rotta. Stop.</div>
+      </div>
+      <div class="blind-spot-item">
+        <div class="item-title"><span class="tag giallo">Rilevante</span>Timing competitivo (Marco Polo, sopravvissuto al debate)</div>
+        <div class="item-body">4 settimane di ricerca organica con contenuti che descrivono il posizionamento di BRUTO sono visibili ai concorrenti. Farmina e Almo Nature hanno team di intelligence. Implicazione: comprimere Phase 1-2 a 2 settimane, non 4.</div>
+      </div>
+      <div class="blind-spot-item">
+        <div class="item-title"><span class="tag rosso">Critico — Machiavelli</span>Interviste dirette acquirenti competitor — strumento mancante</div>
+        <div class="item-body">Nessun advisor aveva questo nel design originale. Costo: €0-200. Output: switching cost reale, trigger d'acquisto, ruolo naming nella fiducia. Nessun sondaggio e nessun dark-post rivela perché qualcuno ha smesso di comprare un competitor. Questi sono i dati più strategici per un challenger brand.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VERDETTO MACHIAVELLI -->
+  <div class="section">
+    <div class="section-header" onclick="toggle(this)">
+      <div class="section-title">Verdetto di Machiavelli</div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="section-body closed">
+      <div style="padding-top:14px;">
+        <p style="font-size:13px;margin-bottom:12px;"><strong>L'attacco è stato più forte dello steelman.</strong></p>
+        <div class="advisor-section">
+          <div class="advisor-tag" style="color:var(--verde)">Steelman</div>
+          <div class="advisor-content">La strategia ibrida produce dati attitudinali (Pollfish) + comportamentali (dark-post) + di intenzione (waitlist) per €1.700-2.500 — il triangolo epistemico minimo. Le soglie Falcone (CTR &gt;2%, capture &gt;15%) sono calibrate su benchmark consolidati. Non interpretabili. Rendere Phase 4 obbligatoria chiude il loop logico.</div>
+        </div>
+        <div class="advisor-section">
+          <div class="advisor-tag" style="color:var(--rosso)">Attacco</div>
+          <div class="advisor-content"><strong>Difetto reale:</strong> il dark-post misura la categoria, non la differenziazione di BRUTO. Un CTR del 2.3% valida "premium pet food online" — non il posizionamento anti-saccharine. <strong>Scenario peggiore:</strong> GO confermato, lancio, retention a 30 giorni crolla perché chi ha cliccato voleva premium generico. <strong>Groupthink:</strong> tutti e tre hanno convergito su behavioral proxy senza chiedersi se la differenziazione di BRUTO è abbastanza chiara da essere testabile a freddo. <strong>Fix:</strong> versione copy generica vs. specifica nel dark-post. Se vince solo la generica → problema di posizionamento.</div>
+        </div>
+        <div class="advisor-section">
+          <div class="advisor-tag" style="color:var(--viola)">Strumento ignorato da tutti</div>
+          <div class="advisor-content">8-10 interviste dirette con acquirenti attuali di premium pet food concorrente (€0-200). Produce: switching cost reale, trigger d'acquisto, ruolo del naming nella fiducia. Nessun dark-post rivela perché qualcuno ha <em>smesso</em> di comprare un competitor.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DISACCORDI -->
+  <div class="section">
+    <div class="section-header" onclick="toggle(this)">
+      <div class="section-title">Dove il Conclave si Divide</div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="section-body closed">
+      <div style="padding-top:14px;">
+        <div class="disagreement-item">
+          <div class="item-title">Cosa misura il dark-post?</div>
+          <div class="item-body" style="margin-bottom:8px;"><strong>Posizione A (Savonarola + Falcone):</strong> copy abbastanza specifico può isolare il posizionamento BRUTO. Il dark-post con testo "zero cereali, zero compromessi, solo carne" è abbastanza differenziante da catturare segnale specifico, non generico.</div>
+          <div class="item-body"><strong>Posizione B (Machiavelli + Marco Polo aggiornato):</strong> cold audience clicca per curiosità/prezzo. Il posizionamento anti-saccharine è troppo sottile per essere validato in un impression-to-click in 3 secondi. La retention a 30 giorni è l'unica misura vera della differenziazione — non misurabile a questo budget.</div>
+        </div>
+        <div class="disagreement-item">
+          <div class="item-title">Questo disaccordo è empiricamente decidibile</div>
+          <div class="item-body">Non si risolve a tavolino. Il test A/B (copy generico vs. specifico) nel dark-post produce dati che distinguono le due posizioni. Se il CTR è uguale su entrambi → Machiavelli ha ragione. Se diverge significativamente → Savonarola/Falcone hanno ragione.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LA RACCOMANDAZIONE -->
+  <div class="section">
+    <div class="section-header" onclick="toggle(this)">
+      <div class="section-title">La Raccomandazione</div>
+      <div class="chevron open">▼</div>
+    </div>
+    <div class="section-body open">
+      <div class="rec-box">
+        <div class="rec-headline">La strategia è necessaria ma non sufficiente così com'è. 3 modifiche obbligatorie + budget rivisto.</div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-num">1</div>
+        <div class="change-content">
+          <div class="change-title">Aggiungere 6-8 interviste acquirenti competitor (Phase 0 o parallele)</div>
+          <div class="change-body">Costo: €0-200. Target: acquirenti di Farmina, Almo Nature, Acana. Domande: ultimo prodotto comprato, ragione cambio/fedeltà, quanto pesa il nome nella fiducia, cosa li farebbe provare un nuovo brand. Non sostituisce il sondaggio — lo affianca. Zero tempo aggiuntivo (si conduce in parallelo).</div>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-num">2</div>
+        <div class="change-content">
+          <div class="change-title">Dark-post obbligatorio (Phase 2) con copy differenziato + generico</div>
+          <div class="change-body">Budget: €300-600 (200+ click cold audience italiana). Due versioni: A = generica ("cibo premium per cani, naturale"), B = specifica BRUTO ("zero cereali, zero compromessi, solo carne — scopri perché il 73% degli ingredienti premium sono riempitivi"). Kill se CTR &lt;2% su entrambe. Se vince solo il generico = problema di posizionamento specifico.</div>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <div class="change-num">3</div>
+        <div class="change-content">
+          <div class="change-title">Kill Condition per falso positivo</div>
+          <div class="change-body">Se approvazione nome &gt;70% in sondaggio MA email capture dark-post &lt;10% → correlazione rotta. Stop. Investigare il gap prima di procedere al lancio. Questa condizione non era nel design originale ed è la più pericolosa: dà falsa sicurezza.</div>
+        </div>
+      </div>
+
+      <div class="change-item" style="background:var(--verde-chiaro);padding:14px;border-radius:8px;border:1px solid #a8d5b5;">
+        <div class="change-num" style="background:var(--verde);">+</div>
+        <div class="change-content">
+          <div class="change-title" style="color:var(--verde);">Phase 4 (waitlist): da opzionale a obbligatoria</div>
+          <div class="change-body">200+ iscrizioni organiche = unico dato di intenzione comportamentale reale disponibile a questo budget. Senza Phase 4 obbligatoria, la strategia può produrre un GO con zero evidenza comportamentale.</div>
+        </div>
+      </div>
+
+      <div class="budget-row">
+        <div class="budget-box originale">
+          <div class="budget-label">Budget Originale</div>
+          <div class="budget-amount">€1.550-2.950</div>
+          <div class="budget-detail">Solo dati attitudinali</div>
+        </div>
+        <div class="budget-box rivisto">
+          <div class="budget-label">Budget Rivisto</div>
+          <div class="budget-amount" style="color:var(--verde);">€1.850-3.150</div>
+          <div class="budget-detail">+€300 dark-post · +€200 interviste · Waitlist obbligatoria</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRIMA COSA -->
+  <div class="prima-cosa">
+    <div class="prima-cosa-label">⚡ La Prima Cosa da Fare</div>
+    <div class="prima-cosa-text">Entro 48 ore: recluta 6 acquirenti di premium pet food competitor (Farmina, Almo Nature, Acana) tramite community Facebook/Instagram italiane. Offri buono Amazon €15 per 30 minuti di intervista video.</div>
+    <div class="prima-cosa-reason">Ragione: è l'unica azione a costo quasi zero che produce dati qualitativi non ottenibili con nessun altro strumento. Questi dati informano il copy del dark-post e le domande del sondaggio. Fatta prima, migliora tutto il resto. Fatta dopo, è troppo tardi per modificare il design.</div>
+  </div>
+
+  <!-- RISPOSTE ADVISOR (COLLASSATE) -->
+  <div class="section">
+    <div class="section-header" onclick="toggle(this)">
+      <div class="section-title">Savonarola — Pre-Mortem (8→7/10)</div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="section-body closed">
+      <div style="padding-top:14px;">
+        <div class="advisor-section">
+          <div class="advisor-tag">Assunzione Fatale</div>
+          <div class="advisor-content">Intenzione validata da sondaggio = domanda validata dal mercato. Nessuno ha messo €29 sul tavolo.</div>
+        </div>
+        <div class="advisor-section">
+          <div class="advisor-tag">3 Failure Mode</div>
+          <div class="advisor-content"><strong>1.</strong> Sondaggio valida il nome, non l'acquirente — sentiment Pollfish ≠ conversione al momento d'acquisto.<br><strong>2.</strong> Canali organici fabbricano il profilo psicografico — Facebook/TikTok sovra-campionano pet owner ossessivi anti-saccharine.<br><strong>3.</strong> "Nutri l'Istinto" vince un sondaggio ma non uno scaffale — preferenza dichiarata ≠ click-through contro incumbent.</div>
+        </div>
+        <div class="advisor-section">
+          <div class="advisor-tag">Fix (aggiornato post-debate)</div>
+          <div class="advisor-content">Dark-post test 200+ click (€600) + test separato cold audience per Kill Condition 3 (€150-200 Meta). Budget delta: +€450-500.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggle(this)">
+      <div class="section-title">Marco Polo — Opportunity Cost (7→6/10)</div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="section-body closed">
+      <div style="padding-top:14px;">
+        <div class="advisor-section">
+          <div class="advisor-tag">Costi Espliciti</div>
+          <div class="advisor-content">€1.5-2.9K non recuperabile + 4 settimane attenzione strategica + dati organici distorti ("standing ovation dal coro"). Preclude soft-launch parallelo con dati comportamentali reali.</div>
+        </div>
+        <div class="advisor-section">
+          <div class="advisor-tag">Errore Strutturale Ceduto (post-debate)</div>
+          <div class="advisor-content">Smoke-test DTC e pre-launch Instagram sono strutturalmente impossibili senza prodotto fisico, regulatory compliance, e inventory. Categoria sbagliata.</div>
+        </div>
+        <div class="advisor-section">
+          <div class="advisor-tag">Difeso + Timing Competitivo</div>
+          <div class="advisor-content">Behavioral &gt; attitudinal. Questo non cambia. 4 settimane di ricerca organica visibili ai concorrenti — Farmina/Almo Nature hanno team di intelligence. Comprimere a 2 settimane.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggle(this)">
+      <div class="section-title">Falcone — ACH (7→8/10)</div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="section-body closed">
+      <div style="padding-top:14px;">
+        <div class="advisor-section">
+          <div class="advisor-tag">Ipotesi Sopravvissute</div>
+          <div class="advisor-content"><strong>H1 (strategia sufficiente): Eliminata. Score -8.</strong><br><strong>H2 (valida brand non segmento):</strong> +8 — survives<br><strong>H3 (gating sequenziale = falsa fiducia):</strong> +8 — survives<br><strong>H5 (risponde domande sbagliate — brand perception ≠ commercial viability):</strong> +8 — survives</div>
+        </div>
+        <div class="advisor-section">
+          <div class="advisor-tag">Fix (aggiornato)</div>
+          <div class="advisor-content">Cold dark-post €150-200 su lookalike premium pet food buyers. Kill se CTR &lt;2% O email capture &lt;15%. Risolve viabilità commerciale (H5), echo chamber, e falsi positivi — simultaneamente.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Il Conclave — TTP AI Agency · BRUTO Customer Discovery · 2026-06-04<br>
+  Trascritto completo: council-transcript-20260604.md
+</footer>
+
+<script>
+function toggle(header) {
+  const body = header.nextElementSibling;
+  const chevron = header.querySelector('.chevron');
+  if (body.classList.contains('open')) {
+    body.classList.remove('open');
+    body.classList.add('closed');
+    chevron.classList.remove('open');
+  } else {
+    body.classList.remove('closed');
+    body.classList.add('open');
+    chevron.classList.add('open');
+  }
+}
+</script>
+</body>
+</html>

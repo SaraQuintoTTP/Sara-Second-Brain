@@ -13,6 +13,8 @@
 | 6 | Audit / Quality Review | "audit", "quality review", "check deliverable" | flow_06_audit.md |
 | 7 | Training / Academy | "course", "training", "workshop", "academy", "teaching material" | flow_07_training.md |
 | 8 | Web / Tech / Automations | "website", "seo", "analytics", "automations", "email marketing", "funnel" | flow_08_web_tech.md |
+| 9 | Client Onboarding | "new client", "client setup", "onboarding [name]" | flow_09_onboarding.md |
+| 10 | Post-Deliverable Feedback | "client said", "feedback on", "client objections", "revision after feedback" | flow_10_feedback.md |
 
 ---
 

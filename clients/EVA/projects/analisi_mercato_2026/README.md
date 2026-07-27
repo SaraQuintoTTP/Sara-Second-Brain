@@ -29,6 +29,7 @@ e raccomandazione strategica con roadmap.
 | T033 | God Mode — quality scorecard | COMPLETED | findings/god_mode_scorecard.md |
 | T034 | Orchestrator — HTML deliverable | COMPLETED | deliverables/EVA_Market_Analysis_2026.html |
 | T035 | Orchestrator — PDF deliverable | COMPLETED | deliverables/EVA_Market_Analysis_2026.pdf |
+| T036 | Sparring Partner (Il Conclave) — critical points + opportunities | COMPLETED | findings/conclave_transcript.md, conclave_transcript_full.md, conclave_report.html, conclave_report_full.html |
 
 ## STATUS
 **COMPLETED** — 2026-06-06

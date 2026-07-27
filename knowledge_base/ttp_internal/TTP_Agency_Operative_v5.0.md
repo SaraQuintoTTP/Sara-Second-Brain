@@ -128,10 +128,10 @@ Every project generates a structured folder for full traceability:
 | 8 | Measurer | Performance Analyst | Sonnet 5 | Read/Write/Edit, xlsx, WebSearch, Bash | analytics-tracking, ab-test-setup |
 | 9 | Calculator | Business Planner & Financial Modeler | **Dual** (Opus 5 modeling, Sonnet 5 compilation) | xlsx, business-plan-excel, Task, Bash, Read/Write/Edit | pricing-strategy |
 | 10 | Optimizer | Process Designer & CRO Specialist | Sonnet 5 | Read/Write/Edit, WebSearch, WebFetch, Task | page-cro, signup-flow-cro, form-cro, popup-cro, onboarding-cro, referral-program, kaizen |
-| 11 | Trainer | Instructional Designer | Sonnet 5 | pptx, docx, Read/Write/Edit, Task | — |
+| 11 | Trainer | Instructional Designer | Sonnet 5 | pptx, docx, Read/Write/Edit | — |
 | 12 | Web Tech | Digital Implementation | Sonnet 5 | Bash, Read/Write/Edit, WebSearch, WebFetch | seo-audit, seo-fundamentals, schema-markup, programmatic-seo, analytics-tracking, email-systems, geo-fundamentals, zapier-make-patterns |
 | 13 | Accountant | Fiscal Advisor & Controller | Sonnet 5 | xlsx, Bash, Read/Write/Edit, GCal | — |
-| 14 | Legal | Digital Law & Compliance | Sonnet 5 | Read/Write/Edit, WebSearch, docx, Task | — |
+| 14 | Legal | Digital Law & Compliance | Sonnet 5 | Read/Write/Edit, WebSearch, docx | — |
 | 15 | Admin | Administrative Assistant | **Haiku 4.5** | Read/Write/Edit, GDrive, GCal, Gmail | — |
 | 16 | **God Mode** | Final Quality Auditor | **Opus 5 fixed** | Read, Write | — |
 | 17 | Artisan | Prompt Engineer, Skill Developer & Knowledge Builder | Sonnet 5 | Read/Write/Edit, Task, Bash, WebSearch | prompt-engineer, prompt-engineering, skill-creator, context-window-management |
@@ -472,7 +472,7 @@ effort: [low | medium | high]
 ```
 
 **SKILL.md v5.0 rules:**
-1. **Max 1,500 tokens.** Frameworks are NOT copied into SKILL.md — they live in /skills/knowledge/ as separate files referenced via `knowledge_quickref`.
+1. **Max 1,500 tokens.** Frameworks are NOT copied into SKILL.md — they live in /skills/knowledge/ as separate files referenced via `knowledge_quickref`. **Declared exception: Orchestrator.** As the hub agent responsible for routing, the Task Tool Prompt Protocol, the spawn matrix, and quality-gate coordination across all 21 other agents, the Orchestrator's operational surface is intrinsically larger than any operative agent's. Decision D016 (2026-07-27, Sara): the Orchestrator's SKILL.md + PROTOCOLS.md (core + on-demand split, already in place) are exempt from the 1,500-token limit — no further slimming required. This is the only declared exception in the roster; no other agent may claim it without an equivalent decision from Sara.
 2. Output with explicit paths. Specific rules > generic rules.
 3. SKILL.md contains: identity, autonomy, prerequisites, framework references (not frameworks themselves), expected outputs, rules, quality checklist, relationships.
 4. Frameworks are loaded by the agent at task start by reading Quick References indicated in the Task Tool Prompt.
@@ -575,7 +575,7 @@ Key requirements (see protocol for full detail):
 - `## When to use` with session time estimate
 - FPT section: original assumptions → PMI constraints → TTP-native reconstruction (marked as TTP corollario)
 - Ranked Pains/Gains or equivalent operational triage
-- 2 Quick Examples with contrasting PMI profiles + GO/NO-GO indicators
+- 1 concrete PMI Quick Example with GO/NO-GO indicator (protocol Criterion 6 — vary sectors/profiles across the knowledge base as a whole, not within a single file; a second contrasting example, e.g. sole-practitioner vs structured team, is encouraged when the framework's applicability varies a lot by scale)
 - `## CROSS-REFERENCE` with ≥4 links
 - No unverifiable performance benchmarks
 
@@ -626,6 +626,8 @@ Key requirements (see protocol for full detail):
 | Sparring Partner | klein-premortem, munger-inversion, steelman, il-conclave | klein-premortem, munger-inversion |
 | Mentor | gerber-emyth, michalowicz-pumpkin | gerber-emyth, michalowicz-pumpkin |
 | Orchestrator | eisenhower, raci, snowden-cynefin, deming-pdca | — |
+| Director | wbs-stage-gate, kanban-checklist, raci | — |
+| Legal | gdpr-compliance | — |
 
 **Note:** Matrix is indicative. The Artisan updates it when processing new sources or when an agent flags the need for an additional framework.
 
@@ -645,6 +647,7 @@ Key requirements (see protocol for full detail):
 | Strategist | /knowledge_base/frameworks/ | piano_marketing_*.md, metodo_snello.md, brief_format.md, key_action_template.md |
 | Explorer | /knowledge_base/benchmark/ + templates/ | battlecard_template.md, benchmark_*.md |
 | Architect | /knowledge_base/frameworks/ + templates/ | project_charter_template.md, listino_servizi.md |
+| Director | /knowledge_base/templates/ | project_charter_template.md, wbs_checklist_template.md, project_wbs_kanban_template.xlsx (versione Excel con formule live, per uso diretto di Sara) |
 | Voice | /knowledge_base/brand_guidelines/[client]/ | tone_of_voice.md, brand_guide.md |
 | Editor | /knowledge_base/templates/ + benchmark/ | ped_template.xlsx, benchmark_social_italia.md |
 | Calculator | /knowledge_base/templates/ + ttp_internal/ | listino_servizi.md, parametri_fiscali_sara.md |

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Il Conclave — BRUTO Customer Discovery Strategy</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: #f8f7f4; color: #1a1a1a; line-height: 1.6; }
+
+  /* Hero */
+  .hero { background: #1a1a1a; color: #fff; padding: 48px 40px 40px; }
+  .hero-badge { display: inline-block; background: #c0392b; color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; margin-bottom: 16px; }
+  .hero-title { font-size: 26px; font-weight: 700; margin-bottom: 8px; }
+  .hero-subtitle { font-size: 14px; color: #aaa; margin-bottom: 28px; }
+  .verdict-card { background: #2a2a2a; border-left: 4px solid #e67e22; padding: 20px 24px; border-radius: 6px; margin-bottom: 24px; }
+  .verdict-card .score { font-size: 48px; font-weight: 800; color: #e67e22; }
+  .verdict-card .score-label { font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+  .verdict-card .verdict-text { font-size: 16px; color: #f0f0f0; margin-top: 12px; line-height: 1.5; }
+  .actions { margin-top: 20px; }
+  .actions h3 { font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+  .action-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+  .action-num { background: #e67e22; color: #fff; font-size: 12px; font-weight: 700; min-width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+  .action-item.primary .action-num { background: #c0392b; min-width: 26px; height: 26px; font-size: 13px; }
+  .action-text { font-size: 14px; color: #ddd; }
+  .action-item.primary .action-text { color: #fff; font-weight: 600; font-size: 15px; }
+  .first-action { background: #c0392b; color: #fff; padding: 16px 20px; border-radius: 6px; margin-top: 20px; }
+  .first-action .label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.8; margin-bottom: 6px; }
+  .first-action .text { font-size: 15px; font-weight: 600; }
+
+  /* Main container */
+  .container { max-width: 900px; margin: 0 auto; padding: 32px 24px; }
+
+  /* Section headers */
+  .section { margin-bottom: 28px; }
+  .section-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #888; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #e0ddd8; }
+
+  /* Question box */
+  .question-box { background: #fff; border: 1px solid #e0ddd8; border-left: 4px solid #3498db; padding: 20px 24px; border-radius: 6px; }
+  .question-box p { font-size: 14px; color: #444; margin-bottom: 8px; }
+  .question-box p:last-child { margin-bottom: 0; }
+  .question-box strong { color: #1a1a1a; }
+
+  /* Confidence Dashboard */
+  .confidence-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+  .confidence-card { background: #fff; border: 1px solid #e0ddd8; border-radius: 6px; padding: 16px; }
+  .confidence-card .advisor-name { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .confidence-card .framework { font-size: 11px; color: #888; margin-bottom: 12px; }
+  .confidence-scores { display: flex; align-items: center; gap: 8px; }
+  .score-dot { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; color: #fff; }
+  .score-green { background: #27ae60; }
+  .score-yellow { background: #f39c12; }
+  .score-red { background: #c0392b; }
+  .arrow { font-size: 16px; color: #888; }
+  .arrow.up { color: #27ae60; }
+  .arrow.down { color: #c0392b; }
+  .arrow.stable { color: #888; }
+  .machiavelli-card { background: #fff; border: 1px solid #e0ddd8; border-radius: 6px; padding: 16px; }
+  .machiavelli-card .advisor-name { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #8e44ad; margin-bottom: 4px; }
+  .machiavelli-status { display: inline-block; padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; background: #f39c12; color: #fff; margin-top: 8px; }
+  .overall-card { background: #1a1a1a; color: #fff; border-radius: 6px; padding: 16px; }
+  .overall-card .advisor-name { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #e67e22; margin-bottom: 4px; }
+  .overall-score { font-size: 32px; font-weight: 800; color: #e67e22; }
+  .overall-desc { font-size: 12px; color: #aaa; margin-top: 4px; }
+
+  /* Agreement map */
+  .agreement-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .agreement-box { background: #fff; border: 1px solid #e0ddd8; border-radius: 6px; padding: 16px; }
+  .agreement-box.agree { border-left: 4px solid #27ae60; }
+  .agreement-box.disagree { border-left: 4px solid #e67e22; }
+  .agreement-box.blind { border-left: 4px solid #c0392b; }
+  .agreement-box h4 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+  .agreement-box h4.agree-title { color: #27ae60; }
+  .agreement-box h4.disagree-title { color: #e67e22; }
+  .agreement-box h4.blind-title { color: #c0392b; }
+  .agreement-box ul { font-size: 13px; color: #444; padding-left: 16px; }
+  .agreement-box ul li { margin-bottom: 6px; }
+  .advisor-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .tag { font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 600; }
+  .tag-sav { background: #fadbd8; color: #c0392b; }
+  .tag-gal { background: #d6eaf8; color: #2980b9; }
+  .tag-mp { background: #d5f5e3; color: #1e8449; }
+  .tag-fal { background: #e8daef; color: #7d3c98; }
+  .tag-mach { background: #fdebd0; color: #e67e22; }
+
+  /* Collapsible sections */
+  details { background: #fff; border: 1px solid #e0ddd8; border-radius: 6px; margin-bottom: 10px; }
+  summary { padding: 14px 18px; cursor: pointer; font-size: 14px; font-weight: 600; color: #1a1a1a; display: flex; align-items: center; justify-content: space-between; list-style: none; user-select: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: '▼'; font-size: 10px; color: #888; transition: transform 0.2s; }
+  details[open] summary::after { transform: rotate(180deg); }
+  summary .advisor-badge { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 12px; margin-left: 8px; }
+  .content { padding: 0 18px 18px; font-size: 13px; color: #333; line-height: 1.7; }
+  .content h4 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #888; margin: 16px 0 8px; }
+  .content p { margin-bottom: 10px; }
+  .content ul { padding-left: 18px; margin-bottom: 10px; }
+  .content ul li { margin-bottom: 5px; }
+  .content table { width: 100%; border-collapse: collapse; font-size: 12px; margin: 12px 0; }
+  .content table th { background: #f0ede8; padding: 8px; text-align: left; font-weight: 600; border: 1px solid #ddd; }
+  .content table td { padding: 7px 8px; border: 1px solid #ddd; }
+  .content table tr:nth-child(even) { background: #fafaf8; }
+  .confidence-inline { display: inline-flex; align-items: center; gap: 6px; background: #f0ede8; padding: 4px 10px; border-radius: 4px; font-size: 12px; margin-top: 12px; }
+  .debate-update { background: #f8f7f4; border: 1px solid #e0ddd8; border-radius: 4px; padding: 12px; margin-top: 12px; }
+  .debate-update h5 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #e67e22; margin-bottom: 8px; }
+
+  /* Footer */
+  footer { text-align: center; padding: 24px; font-size: 12px; color: #aaa; border-top: 1px solid #e0ddd8; margin-top: 32px; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">Il Conclave — Galileo Mode</div>
+  <div class="hero-title">BRUTO Customer Discovery Strategy</div>
+  <div class="hero-subtitle">5 Whys + Constraint Mapping · Pre-Mortem · Opportunity Cost · ACH · Steelman-Attack · Chairman Synthesis</div>
+
+  <div class="verdict-card">
+    <div class="score">7.25<span style="font-size:24px;color:#888">/10</span></div>
+    <div class="score-label">Overall Conclave Confidence</div>
+    <div class="verdict-text">The strategy is architecturally correct but produces exclusively attitudinal data. The single behavioral component (Phase 4 waitlist) is optional — this is the structural failure point. Execute the strategy with three mandatory changes: make Phase 4 non-optional, define numeric thresholds for all 4 assumptions before survey design, and never aggregate Pollfish + organic data.</div>
+  </div>
+
+  <div class="actions">
+    <h3>Required Changes Before Launch</h3>
+    <div class="action-item">
+      <div class="action-num">1</div>
+      <div class="action-text">Make Phase 4 mandatory: landing page with real name, tagline, visual + price indicator. Target 75 organic signups in 2 weeks before Phase 3 analysis begins.</div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">2</div>
+      <div class="action-text">Define numeric GO / CAUTION / STOP thresholds for all 4 assumptions before writing a single survey question. Name has one (35%). The other three do not.</div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">3</div>
+      <div class="action-text">Never aggregate Pollfish and organic channel data. Report separately. A large delta between them = peak-receptivity inflation = caution flag even if both nominally pass.</div>
+    </div>
+  </div>
+
+  <div class="first-action">
+    <div class="label">First Action — Next 48 Hours</div>
+    <div class="text">Write a one-page decision framework defining GO, CAUTION, and STOP with specific numeric thresholds for each of the 4 assumptions. Without this document, the Go/No-Go report in Phase 3 will produce noise dressed as signal.</div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+
+  <!-- THE QUESTION -->
+  <div class="section">
+    <div class="section-title">The Question</div>
+    <div class="question-box">
+      <p><strong>Is this 4-phase customer discovery strategy the most effective and cost-efficient approach to validate BRUTO's critical assumptions before a €150K+ launch?</strong></p>
+      <p>BRUTO is an Italian DTC pet food brand with anti-saccharine positioning. The strategy tests: (1) name rejection threshold, (2) anti-saccharine segment size, (3) tagline ranking, (4) visual identity perception. Budget: €1,550–2,950. Timeline: 4 weeks. Uses Pollfish Italy panel + organic channels (Facebook group 27K, niche forums, TikTok, portals).</p>
+    </div>
+  </div>
+
+  <!-- CONFIDENCE DASHBOARD -->
+  <div class="section">
+    <div class="section-title">Confidence Dashboard</div>
+    <div class="confidence-grid">
+      <div class="confidence-card">
+        <div class="advisor-name" style="color:#c0392b">Savonarola</div>
+        <div class="framework">Pre-Mortem Analysis</div>
+        <div class="confidence-scores">
+          <div class="score-dot score-green">8</div>
+          <div class="arrow stable">→</div>
+          <div class="score-dot score-green">8</div>
+        </div>
+      </div>
+      <div class="confidence-card">
+        <div class="advisor-name" style="color:#2980b9">Galileo</div>
+        <div class="framework">5 Whys + Constraint Mapping</div>
+        <div class="confidence-scores">
+          <div class="score-dot score-yellow">7</div>
+          <div class="arrow stable">→</div>
+          <div class="score-dot score-yellow">7</div>
+        </div>
+      </div>
+      <div class="confidence-card">
+        <div class="advisor-name" style="color:#1e8449">Marco Polo</div>
+        <div class="framework">Opportunity Cost Matrix</div>
+        <div class="confidence-scores">
+          <div class="score-dot score-yellow">7</div>
+          <div class="arrow down">↓</div>
+          <div class="score-dot score-yellow">6</div>
+        </div>
+      </div>
+      <div class="confidence-card">
+        <div class="advisor-name" style="color:#7d3c98">Falcone</div>
+        <div class="framework">Analysis of Competing Hypotheses</div>
+        <div class="confidence-scores">
+          <div class="score-dot score-yellow">7</div>
+          <div class="arrow up">↑</div>
+          <div class="score-dot score-green">8</div>
+        </div>
+      </div>
+      <div class="machiavelli-card">
+        <div class="advisor-name">Machiavelli</div>
+        <div style="font-size:11px;color:#888;">Steelman-then-Attack</div>
+        <div class="machiavelli-status">Parzialmente Fallito</div>
+        <div style="font-size:12px;color:#666;margin-top:8px;">Steelman holds on stage-appropriateness. Attack wins on signal quality + peak-vs-average receptivity.</div>
+      </div>
+      <div class="overall-card">
+        <div class="advisor-name">Conclave Overall</div>
+        <div class="overall-score">7.25/10</div>
+        <div class="overall-desc">High agreement on diagnosis.<br>Moderate disagreement on fix threshold.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AGREEMENT / DISAGREEMENT MAP -->
+  <div class="section">
+    <div class="section-title">Agreement + Disagreement Map</div>
+    <div class="agreement-grid">
+      <div class="agreement-box agree">
+        <h4 class="agree-title">Full Agreement (All 4)</h4>
+        <ul>
+          <li>Strategy produces exclusively attitudinal data</li>
+          <li>The only behavioral component (Phase 4) is optional — structural failure point</li>
+          <li>Organic bias + Pollfish psychographic imprecision = directionally upward bias toward false positive Go</li>
+        </ul>
+        <div class="advisor-tags">
+          <span class="tag tag-sav">Savonarola</span>
+          <span class="tag tag-gal">Galileo</span>
+          <span class="tag tag-mp">Marco Polo</span>
+          <span class="tag tag-fal">Falcone</span>
+        </div>
+      </div>
+
+      <div class="agreement-box disagree">
+        <h4 class="disagree-title">Genuine Disagreement: The Right Fix</h4>
+        <ul>
+          <li><strong>Savonarola:</strong> Mandatory pre-order at real price (high friction)</li>
+          <li><strong>Galileo:</strong> Landing page email capture (low friction, zero cost)</li>
+          <li><strong>Marco Polo:</strong> Paid social concept test €300-500 (medium friction)</li>
+          <li><strong>Falcone:</strong> No single fix — H2+H5 are co-primary risk framework</li>
+        </ul>
+        <div style="font-size:12px;color:#888;margin-top:8px;">Salomone's resolution: paid social concept test is the practical optimum — behavioral without regulatory exposure, not trivial like email opt-in.</div>
+      </div>
+
+      <div class="agreement-box blind" style="grid-column: 1 / -1;">
+        <h4 class="blind-title">Blind Spots — Found Only Through Peer Review + Debate</h4>
+        <ul>
+          <li><strong>Mock-up quality as systematic confound:</strong> If black visual identity is tested with a mediocre mock-up, assumption 4 is invalidated before Phase 1 begins.</li>
+          <li><strong>No defined thresholds for assumptions 2, 3, and 4:</strong> Only the name has a kill condition (35%). The Go/No-Go report will be interpreted through confirmation bias without defined numeric criteria for the others.</li>
+          <li><strong>35% threshold not interrogated:</strong> A name passing at 34% rejection is technically GO but commercially marginal. "Borderline GO" needs its own category.</li>
+          <li><strong>Italian pet food regulatory compliance:</strong> Any informal co-manufactured soft launch is blocked. This kills the "just do a micro-launch" fallback option.</li>
+          <li><strong>Peak-vs-average receptivity:</strong> Organic channel respondents represent peak anti-saccharine enthusiasm. The real "Chiara La Sveglia" is a casual sympathizer who won't seek you out. Survey will not find her.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADVISOR RESPONSES (collapsible) -->
+  <div class="section">
+    <div class="section-title">Advisor Responses (Full Detail)</div>
+
+    <details>
+      <summary>
+        <span>Savonarola — Pre-Mortem Analysis <span class="advisor-badge tag-sav">8/10 → 8/10 →</span></span>
+      </summary>
+      <div class="content">
+        <h4>Step 1 — Assume Failure</h4>
+        <p>The BRUTO customer discovery was executed. Results passed all four gates. Brand launched. Six months later — failed. €150K burned. Acute collapse, not a slow fade.</p>
+
+        <h4>Step 2 — Failure Modes</h4>
+        <p><strong>FM1: Survey approval ≠ purchase behavior.</strong> 67% of Phase 2 respondents said "interesting/different." Only 3% converted at launch. Classic stated-preference vs. revealed-preference gap. Foreseeable. Responsible: research design — no behavioral proxy built in.</p>
+        <p><strong>FM2: "Chiara La Sveglia" existed but didn't pay.</strong> Segment was real and large enough (12% market) but already buying craft/premium alternatives at lower price points. BRUTO's premium price had no incremental justification. Foreseeable. Assumption 2 was underspecified — tested existence of segment, not willingness to pay at BRUTO's specific price point.</p>
+        <p><strong>FM3: Organic channel respondents poisoned the Go signal.</strong> Facebook/DogsPortal respondents disproportionately anti-saccharine enthusiasts. Phase 2 showed 78% positive sentiment. Actual market: 18% positive. Foreseeable — identified as risk but treated as footnote, not kill condition.</p>
+
+        <h4>Step 3 — Early Warning Signs</h4>
+        <ul>
+          <li>FM1: Phase 4 waitlist listed as "optional" — the only behavioral signal was deprioritized</li>
+          <li>FM2: Price sensitivity never appeared among the 4 critical assumptions</li>
+          <li>FM3: Research plan showed organic + Pollfish data would be aggregated, not segmented</li>
+        </ul>
+
+        <h4>Step 4 — Fatal Assumption</h4>
+        <p>"Survey approval of the concept predicts purchase intent at our price point." When this broke, the entire validation framework was retroactively invalidated.</p>
+
+        <h4>Step 5 — Retrospective Action</h4>
+        <p>Replace optional Phase 4 with mandatory pre-order test at actual target price. Set minimum conversion threshold (50 pre-orders at €X within 2 weeks). Behavioral data, not attitudinal. No conversion = no launch, regardless of survey scores.</p>
+
+        <div class="debate-update">
+          <h5>Debate Update</h5>
+          <p><strong>Concedes:</strong> Mock-up quality as systematic confound is a valid miss. If black identity tested with mediocre mock-up, assumption 4 is contaminated before Phase 1 begins.</p>
+          <p><strong>Defends:</strong> Mandatory pre-order (not email capture — too low friction) remains the structural fix.</p>
+          <p><strong>Adds:</strong> 34% rejection is technically GO but commercially marginal. The threshold itself needs a "borderline GO" category.</p>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span>Galileo — 5 Whys + Constraint Mapping <span class="advisor-badge" style="background:#d6eaf8;color:#2980b9">7/10 → 7/10 →</span></span>
+      </summary>
+      <div class="content">
+        <h4>Step 1 — 5 Whys</h4>
+        <ul>
+          <li><strong>Why 1:</strong> Is this strategy effective? → They need to validate 4 assumptions before €150K commitment.</li>
+          <li><strong>Why 2:</strong> Why validate these 4? → Launching risks destroying capital on positioning the market won't accept.</li>
+          <li><strong>Why 3:</strong> Why might market not accept? → Anti-saccharine segment, name, and visual identity are untested hypotheses with no prior market signal.</li>
+          <li><strong>Why 4:</strong> Why no prior signal? → Brand is built on a psychographic not commercially validated in Italian DTC pet food.</li>
+          <li><strong>Why 5:</strong> Why not validated? → No direct analogue exists — team extrapolates from social sentiment/forums rather than purchasing data.</li>
+        </ul>
+
+        <h4>Step 2 — Root Problem</h4>
+        <p>The team is trying to validate purchase behavior using attitudinal research instruments, with no behavioral proxy in the design. All 4 assumptions are perceptual/attitudinal. None directly measures willingness to pay or switching behavior.</p>
+
+        <h4>Step 3 — Constraint Map</h4>
+        <p><strong>Hard:</strong> Budget €1,550–2,950; Timeline 4 weeks; Limited team capacity.</p>
+        <p><strong>Soft (negotiable):</strong></p>
+        <ul>
+          <li>"Pollfish is right tool" — Assumed. Psychographically noisy for niche brand. SurveySwap/PickFu with screener could target anti-saccharine more precisely. Negotiable.</li>
+          <li>"Sequential testing necessary" — Real. Justified.</li>
+          <li>"4 assumptions are the right ones" — Assumed. Missing: price sensitivity, switching trigger, repeat purchase intent.</li>
+          <li>"Organic bias is manageable" — Assumed. No stated correction methodology.</li>
+        </ul>
+
+        <h4>Step 4 — Reframe</h4>
+        <p>Original: "Is our survey methodology the best way to validate 4 assumptions?"<br>Reframed: <strong>"What is the minimum behavioral signal we need — at this budget and timeline — to make a defensible €150K commitment, and is this strategy designed to produce it?"</strong></p>
+
+        <h4>Step 5 — Recommendation</h4>
+        <p>Strategy is structurally sound but has one fatal gap: attitudinal-only instrumentation. Add a behavioral gate before Phase 3: landing page with actual pricing, collecting email opt-ins. Target 100 organic signups. Zero additional budget. 3–5 extra days.</p>
+
+        <div class="debate-update">
+          <h5>Debate Update</h5>
+          <p><strong>Concedes:</strong> No defined decision thresholds for assumptions 2, 3, and 4 is a critical operational flaw — the Go/No-Go report will be ambiguous without these.</p>
+          <p><strong>Adds to recommendation:</strong> Before Phase 3 analysis, define explicit numeric thresholds for all 4 assumptions, not just the name kill condition.</p>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span>Marco Polo — Opportunity Cost Matrix <span class="advisor-badge" style="background:#d5f5e3;color:#1e8449">7/10 → 6/10 ↓</span></span>
+      </summary>
+      <div class="content">
+        <h4>Step 1 — Explicit Costs</h4>
+        <p><strong>Resources consumed:</strong> €1,550–2,950; 4-6 weeks calendar; founder attention on survey design + channel outreach + analysis; political capital if Go/No-Go report says GO but launch fails.</p>
+        <p><strong>Alternatives foreclosed:</strong> Paid micro-launch test (€500 Meta, 20 units); 10 deep-dive qualitative interviews; Phase 0-1 time toward product development.</p>
+
+        <h4>Step 2 — Option Value</h4>
+        <p>If works: defensible investor/partner narrative; name and tagline locked before brand asset production (saves rework); organic channel relationships become early distribution partnerships; waitlist becomes launch list at zero CAC.</p>
+
+        <h4>Step 3 — Comparative Alternatives</h4>
+        <p><strong>Alternative A (10 qualitative interviews + concept page):</strong> Reveals the "why" behind rejection. Surveys can't do this. For psychographic-specific positioning, mental model depth beats statistical confidence.</p>
+        <p><strong>Alternative B (€400-700 paid Meta test with real product page):</strong> Tests all 4 assumptions simultaneously in purchase-intent context. The only assumption that matters: "will someone click Buy at this price?"</p>
+        <p><strong>Alternative C (Pollfish name gate + €300 paid social micro-test replacing Phase 2):</strong> Keeps sequential logic, replaces attitudinal Phase 2 with behavioral data.</p>
+
+        <h4>Step 4 — The 10x Version</h4>
+        <p>Soft launch: 200 units (co-manufacturer), €1K paid Meta test, sell them. Learn everything simultaneously from actual buyers. <em>Post-debate note: blocked by Italian pet food regulatory compliance requirements. Alternative: €300-500 paid Facebook/Instagram ad to product concept page with waitlist CTA — behavioral without regulatory exposure.</em></p>
+
+        <h4>Step 5 — Verdict</h4>
+        <p>The proposed path optimizes for de-risking the survey investment, not for producing the signal that actually matters. Replace Phase 2 with Alternative C, or add a €300-500 paid social concept test.</p>
+
+        <div class="debate-update">
+          <h5>Debate Update</h5>
+          <p><strong>Concedes:</strong> Italian pet food regulatory compliance blocks informal co-manufactured batch. Genuine blind spot — reduces confidence to 6/10.</p>
+          <p><strong>Defends:</strong> Alternative C (paid social concept test) is more efficient than proposed design. Regulatory objection kills the 10x version, not Alternative C.</p>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <span>Falcone — Analysis of Competing Hypotheses <span class="advisor-badge" style="background:#e8daef;color:#7d3c98">7/10 → 8/10 ↑</span></span>
+      </summary>
+      <div class="content">
+        <h4>Step 1 — Hypotheses</h4>
+        <ul>
+          <li><strong>H1:</strong> Strategy is well-designed and sufficient for defensible Go/No-Go.</li>
+          <li><strong>H2:</strong> Strategy is structurally sound but produces the wrong signal type (attitudinal vs. behavioral).</li>
+          <li><strong>H3:</strong> Strategy is over-engineered — simpler/faster methods would produce equivalent signal.</li>
+          <li><strong>H4:</strong> Fatal flaw is assumption selection — the 4 things tested are not the 4 most load-bearing.</li>
+          <li><strong>H5:</strong> Strategy is actively misleading — organic bias + panel mismatch will produce false positive Go signals.</li>
+        </ul>
+
+        <h4>Step 2 — Evidence</h4>
+        <ul>
+          <li>E1: Team already identified organic channel bias</li>
+          <li>E2: Pollfish lacks psychographic targeting precision</li>
+          <li>E3: Phase 4 (behavioral) is optional</li>
+          <li>E4: Price sensitivity not among 4 assumptions</li>
+          <li>E5: Sequential structure prevents wasted spend if name fails</li>
+          <li>E6: Budget too small for paid product launch test</li>
+          <li>E7: All 4 assumptions are perceptual/attitudinal</li>
+          <li>E8: 10-15% segment size estimate — source/methodology unstated</li>
+        </ul>
+
+        <h4>Step 3 — ACH Matrix</h4>
+        <table>
+          <tr><th>Evidence</th><th>H1</th><th>H2</th><th>H3</th><th>H4</th><th>H5</th></tr>
+          <tr><td>E1: Organic bias identified</td><td>C</td><td>C</td><td>N/A</td><td>N/A</td><td>C</td></tr>
+          <tr><td>E2: Pollfish psychographic imprecision</td><td>Weakly I</td><td>C</td><td>N/A</td><td>N/A</td><td>C</td></tr>
+          <tr><td>E3: Behavioral phase optional</td><td>I</td><td>C</td><td>N/A</td><td>C</td><td>C</td></tr>
+          <tr><td>E4: No price sensitivity test</td><td>Weakly I</td><td>C</td><td>N/A</td><td>C</td><td>Weakly C</td></tr>
+          <tr><td>E5: Sequential name gate</td><td>C</td><td>C</td><td>I</td><td>N/A</td><td>N/A</td></tr>
+          <tr><td>E6: Budget limits behavioral test</td><td>C</td><td>Weakly I</td><td>C</td><td>N/A</td><td>N/A</td></tr>
+          <tr><td>E7: All 4 assumptions attitudinal</td><td>Weakly I</td><td>C</td><td>Weakly C</td><td>C</td><td>C</td></tr>
+          <tr><td>E8: Segment estimate unanchored</td><td>Weakly I</td><td>Weakly C</td><td>N/A</td><td>C</td><td>Weakly C</td></tr>
+        </table>
+
+        <h4>Step 4 — Scores</h4>
+        <p>H1: +2 | <strong>H2: +12 (PRIMARY)</strong> | H3: -1 | H4: +8 | <strong>H5: +10 (CO-PRIMARY)</strong></p>
+
+        <h4>Step 5 — Missing Evidence</h4>
+        <ul>
+          <li>Conversion rate from BRUTO landing page (soft pre-order/email capture)</li>
+          <li>Source and methodology behind the 10-15% segment size estimate</li>
+          <li>Benchmark data on Italian survey-to-purchase correlation for niche DTC brands</li>
+        </ul>
+
+        <h4>Step 6 — Verdict</h4>
+        <p>H2 (+12) and H5 (+10) are co-primary. The strategy produces the wrong signal type AND is likely to produce a false positive when it does produce a signal. H4 (+8) adds secondary finding: price sensitivity and switching trigger are missing from the assumption set.</p>
+
+        <div class="debate-update">
+          <h5>Debate Update</h5>
+          <p><strong>Concedes:</strong> "Undefined success criteria" should have been included as H4 sub-finding.</p>
+          <p><strong>Defends:</strong> H2+H5 as co-primary. Cross-advisor convergence on attitudinal vs. behavioral gap and organic bias issue = high-confidence agreement. Confidence moves to 8/10.</p>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- PEER REVIEW HIGHLIGHTS -->
+  <div class="section">
+    <div class="section-title">Peer Review Highlights</div>
+    <details>
+      <summary>Peer Review Summary (4 Reviewers)</summary>
+      <div class="content">
+        <h4>Strongest Responses</h4>
+        <p>Savonarola (B) — strongest for concrete, actionable fix. Galileo (C) — strongest reframe of the underlying problem. Falcone (A) — most rigorous systematically; explicitly named H5 (active false positive risk) as a distinct failure mode others touched but didn't isolate.</p>
+
+        <h4>Biggest Blind Spots (all four missed)</h4>
+        <ul>
+          <li>Mock-up quality as systematic confound — none of the initial responses treated this as a Phase 0 prerequisite rather than a general caveat</li>
+          <li>Italian pet food regulatory compliance — blocks any informal co-manufactured soft launch</li>
+          <li>No defined success thresholds for assumptions 2, 3, and 4 — the Go/No-Go report will be written into an interpretive vacuum</li>
+        </ul>
+
+        <h4>Confidence Calibration Notes</h4>
+        <p>Savonarola at 8/10 was flagged as potentially overconfident given sparse Italian DTC benchmarks. Galileo at 7/10 was rated as well-calibrated. The advisors' confidence convergence (all 7-8) is not suspicious here — the finding (attitudinal-only gap) is well-supported and structurally clear.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- MACHIAVELLI -->
+  <div class="section">
+    <div class="section-title">Machiavelli — Steelman-then-Attack</div>
+    <details>
+      <summary>Steelman-then-Attack (Status: Parzialmente Fallito)</summary>
+      <div class="content">
+        <h4>Phase 1 — Steelman</h4>
+        <p>The strategy is capital-efficient, sequentially gated risk reduction for a pre-revenue startup with limited runway. The name gate at €400-600 is rational triage — if Bruto fails, nothing downstream matters. Organic channels are not a bias problem; they ARE the target audience. If anti-saccharine community members don't like the brand, it won't work anywhere. Behavioral testing without product is premature at this stage. The budget is right-sized for attitudinal validation before product investment. The strategy is appropriate for its development stage.</p>
+
+        <h4>Phase 2 — Attack</h4>
+        <p>The steelman collapses on one point: <strong>Phase 4 is optional.</strong> By making the only behavioral component optional, the team has designed a strategy that can produce a Go recommendation with zero behavioral evidence.</p>
+        <p>Deeper attack: the strategy validates the brand, not the business. "Do people like this concept?" ≠ "will people buy at €X instead of their current brand?" In a market with existing craft/premium alternatives, brand approval and purchase switching are separated by a large behavioral gap.</p>
+        <p><strong>The peak-vs-average receptivity attack:</strong> The steelman's strongest point — "organic channels are the target audience" — is itself the attack vector. These respondents represent peak anti-saccharine enthusiasm. The real "Chiara La Sveglia" is a casual sympathizer who might buy if the product is good enough, but won't seek you out. The survey will not find her.</p>
+
+        <h4>Verdict</h4>
+        <p>Steelman holds on process design appropriateness. Attack wins on signal quality and the peak-vs-average receptivity problem. Net: attack stronger on the question that matters most — will this produce a trustworthy Go signal?</p>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<footer>
+  Il Conclave · Session 20260604-1221 · BRUTO Customer Discovery · 4 Advisors + Peer Review + Debate + Machiavelli + Chairman Synthesis
+</footer>
+
+</body>
+</html>

@@ -26,6 +26,7 @@ Before starting any task, verify:
 - Calculator pricing output: /clients/[client]/presales/calculator_pricing.md (pre-sales flow) or /clients/[client]/projects/[name]/findings/calculator_*.md (project flow) — **mandatory for budget section**; if missing: spawn Calculator via Task tool with specific scope before proceeding
 - Legal templates: /knowledge_base/templates/contratto_servizio_template.docx
 - Service list with pricing: /knowledge_base/ttp_internal/listino_servizi.md
+- Director's Project Charter (if the project already has one): /clients/[client]/projects/[name]/charter.md — optional input, useful for scope/timeline framing, but not mandatory (your charter output is client-facing, Director's is internal)
 - Quick References in Task Tool Prompt — if missing: proceed with base knowledge, flag in report
 
 ## OPERATIVE FRAMEWORKS
